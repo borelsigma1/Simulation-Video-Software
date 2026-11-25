@@ -1,0 +1,161 @@
+{
+  "id": "wasserkocher",
+  "title": "Wasserkocher: Leistung und Energie",
+  "grade": 9,
+  "order": 2,
+  "domain": "waerme",
+  "curriculum": "Ph9: Elektrische Energie und Leistung, innere Energie",
+  "summary": "Wie lange braucht ein Wasserkocher, und wovon hängt das ab? Du misst Zeit, Temperatur und elektrische Energie.",
+  "video": {
+    "title": "",
+    "source": {
+      "kind": "none"
+    }
+  },
+  "sim": {
+    "id": "wasserkocher"
+  },
+  "worksheet": {
+    "title": "Wasserkocher: Leistung und Energie",
+    "subtitle": "Elektrische Energie · Jahrgangsstufe 9",
+    "blocks": [
+      {
+        "type": "text",
+        "text": "Ein Wasserkocher mit der elektrischen Leistung **P** wandelt in der Zeit **t** die elektrische Energie **E_el = P · t** um. Sie erhöht die innere Energie des Wassers: Die Temperatur steigt.\n\nUm 1 kg Wasser um 1 °C zu erwärmen, sind **4,19 kJ** nötig. Die Simulation läuft im Zeitraffer; die Anzeige **t** nennt die echte Zeit."
+      },
+      {
+        "type": "heading",
+        "text": "Temperaturverlauf"
+      },
+      {
+        "type": "table",
+        "id": "verlauf",
+        "operator": "ermitteln",
+        "prompt": "Stelle P = 2000 W, m = 1,0 kg und ϑ₀ = 20 °C ein. Halte die Simulation etwa alle 30 Sekunden an und ermittle Zeit, Temperatur und zugeführte Energie.",
+        "columns": [
+          {
+            "key": "t",
+            "label": "t",
+            "unit": "s",
+            "source": "t"
+          },
+          {
+            "key": "T",
+            "label": "ϑ",
+            "unit": "°C",
+            "source": "T"
+          },
+          {
+            "key": "E",
+            "label": "E_el",
+            "unit": "kJ",
+            "source": "E"
+          }
+        ],
+        "rows": 6,
+        "solution": "Zum Beispiel 30 s / 34,3 °C / 60 kJ; 60 s / 48,6 °C / 120 kJ; 90 s / 63,0 °C / 180 kJ; 120 s / 77,3 °C / 240 kJ; 150 s / 91,6 °C / 300 kJ; Ende bei 168 s / 100 °C / 335 kJ."
+      },
+      {
+        "type": "chart",
+        "id": "verlauf-dia",
+        "operator": "darstellen",
+        "prompt": "Stelle die Temperatur in Abhängigkeit von der Zeit in einem Diagramm dar und beschreibe den Verlauf.",
+        "table": "verlauf",
+        "x": "t",
+        "y": "T",
+        "fit": true,
+        "solution": "Die Temperatur steigt gleichmäßig (Gerade, Steigung etwa 0,48 °C je Sekunde), beginnend bei 20 °C. In gleichen Zeiten wird gleich viel Energie zugeführt, und die Temperatur steigt um gleich viel."
+      },
+      {
+        "type": "question",
+        "id": "rechnung",
+        "operator": "berechnen",
+        "prompt": "Berechne die Energie, die nötig ist, um 1,0 kg Wasser von 20 °C auf 100 °C zu erwärmen. Vergleiche mit der Anzeige des Energiezählers.",
+        "lines": 3,
+        "solution": "E = 4,19 kJ/(kg · °C) · 1,0 kg · 80 °C = 335 kJ. Der Zähler zeigt am Ende ebenfalls 335 kJ: Bei einem Wirkungsgrad von 100 % geht die gesamte elektrische Energie in die innere Energie des Wassers über."
+      },
+      {
+        "type": "heading",
+        "text": "Einfluss der Leistung"
+      },
+      {
+        "type": "table",
+        "id": "leistung",
+        "operator": "untersuchen",
+        "prompt": "Untersuche, wie die Zeit bis zum Abschalten von der Leistung abhängt (m = 1,0 kg, ϑ₀ = 20 °C). Lass die Simulation jeweils bis zum Ende laufen.",
+        "columns": [
+          {
+            "key": "P",
+            "label": "P",
+            "unit": "W",
+            "source": "P"
+          },
+          {
+            "key": "t",
+            "label": "t",
+            "unit": "s",
+            "source": "t"
+          },
+          {
+            "key": "E",
+            "label": "E_el",
+            "unit": "kJ",
+            "source": "E"
+          }
+        ],
+        "rows": 5,
+        "solution": "500 W: 670 s; 1000 W: 335 s; 1500 W: 223 s; 2000 W: 168 s; 2400 W: 140 s. Die Energie beträgt stets 335 kJ."
+      },
+      {
+        "type": "question",
+        "id": "auswertung",
+        "operator": "auswerten",
+        "prompt": "Werte die Tabelle aus: Formuliere den Zusammenhang zwischen Leistung und Zeit und begründe ihn mit der Energie.",
+        "lines": 3,
+        "solution": "Doppelte Leistung, halbe Zeit: P und t sind umgekehrt proportional, das Produkt P · t ist konstant. Begründung: Die zum Erwärmen nötige Energie E = P · t ist immer dieselbe (335 kJ), unabhängig davon, wie schnell sie zugeführt wird."
+      },
+      {
+        "type": "choice",
+        "id": "menge",
+        "prompt": "Im Kocher ist nur halb so viel Wasser (0,5 kg statt 1,0 kg). Was gilt bei gleicher Leistung?",
+        "options": [
+          "Die Zeit bleibt gleich, weil die Leistung gleich ist.",
+          "Zeit und Energie halbieren sich.",
+          "Die Zeit halbiert sich, die Energie bleibt gleich.",
+          "Zeit und Energie verdoppeln sich."
+        ],
+        "correct": [
+          1
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Wirkungsgrad und Kosten"
+      },
+      {
+        "type": "question",
+        "id": "eta",
+        "operator": "erklaeren",
+        "prompt": "Stelle den Wirkungsgrad auf 80 % und blende das Energieflussdiagramm ein. Erkläre, warum der Kocher jetzt länger braucht.",
+        "lines": 3,
+        "solution": "Nur 80 % der elektrischen Energie erhöhen die innere Energie des Wassers; der Rest erwärmt Gehäuse und Umgebung. Für dieselben 335 kJ im Wasser müssen 335 kJ : 0,8 = 419 kJ elektrisch zugeführt werden, bei 2000 W dauert das 209 s statt 168 s."
+      },
+      {
+        "type": "question",
+        "id": "kosten",
+        "operator": "berechnen",
+        "prompt": "1 kWh = 3600 kJ elektrische Energie kostet etwa 35 Cent. Berechne die Kosten für das Erhitzen von 1,0 kg Wasser bei einem Wirkungsgrad von 80 %.",
+        "lines": 3,
+        "solution": "E = 419 kJ = 419 : 3600 kWh ≈ 0,116 kWh. Kosten ≈ 0,116 kWh · 35 ct/kWh ≈ 4 Cent."
+      },
+      {
+        "type": "question",
+        "id": "sparen",
+        "operator": "bewerten",
+        "prompt": "Bewerte den Tipp: „Fülle nur so viel Wasser in den Kocher, wie du wirklich brauchst.“",
+        "lines": 4,
+        "solution": "Fachlich: Die benötigte Energie ist proportional zur Wassermenge; wer doppelt so viel Wasser erhitzt wie nötig, verbraucht doppelt so viel Energie. Bewertung: Die Ersparnis pro Vorgang ist mit wenigen Cent klein, summiert sich aber über viele Haushalte und Tage und kostet weder Geld noch Komfort. Der Tipp ist daher sinnvoll."
+      }
+    ]
+  }
+}

@@ -7,7 +7,7 @@
   const url = (p: string) => (/^(https?:)?\/\//.test(p) ? p : base + p.replace(/^\//, ''));
 </script>
 
-<details class="video card" open>
+<details class="video sheet" open>
   <summary>
     <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"
       ><rect x="2" y="5" width="15" height="14" rx="2" fill="none" stroke="currentColor" stroke-width="2" /><path

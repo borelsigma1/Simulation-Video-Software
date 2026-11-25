@@ -1,0 +1,144 @@
+{
+  "id": "dichte",
+  "title": "Welcher Stoff ist das? Dichte bestimmen",
+  "grade": 7,
+  "order": 1,
+  "domain": "materie",
+  "curriculum": "NT7 Lernbereich 1.1: Ein erster Blick auf die physikalischen Spielregeln der Natur (Dichte als materialspezifische Größe)",
+  "summary": "Fünf Körper, die sich äußerlich ähneln: Mit Waage und Messzylinder findest du heraus, woraus sie bestehen.",
+  "video": {
+    "title": "",
+    "source": {
+      "kind": "none"
+    }
+  },
+  "sim": {
+    "id": "dichte"
+  },
+  "worksheet": {
+    "title": "Welcher Stoff ist das?",
+    "subtitle": "Dichte · Jahrgangsstufe 7",
+    "blocks": [
+      {
+        "type": "text",
+        "text": "Auf dem Tisch liegen fünf Körper **A bis E**. Aus welchem Stoff sie bestehen, sieht man ihnen nicht sicher an. Jeder Stoff hat aber eine eigene **Dichte ρ**: Sie gibt an, welche Masse ein Kubikzentimeter des Stoffs hat.\n\n**Dichte = Masse : Volumen**, kurz ρ = m : V, Einheit g/cm³.\n\nIm Messzylinder sind anfangs **100 ml** Wasser. Zur Erinnerung: 1 ml = 1 cm³."
+      },
+      {
+        "type": "heading",
+        "text": "Messen"
+      },
+      {
+        "type": "question",
+        "id": "vorgehen",
+        "operator": "beschreiben",
+        "prompt": "Beschreibe, wie du mit der Waage und dem Messzylinder die Masse und das Volumen eines Körpers bestimmst.",
+        "lines": 3,
+        "solution": "Masse: Körper auf die Waage legen und Anzeige ablesen. Volumen: Körper in den Messzylinder geben, neuen Füllstand ablesen. Das Volumen des Körpers ist die Differenz zum Füllstand vorher (100 ml), denn der Körper verdrängt so viel Wasser, wie er selbst Platz braucht."
+      },
+      {
+        "type": "table",
+        "id": "mess",
+        "operator": "ermitteln",
+        "prompt": "Ermittle für jeden Körper die Masse und den Füllstand mit eingetauchtem Körper. Berechne daraus das Volumen und die Dichte. Lass die Größe des Körpers unverändert.",
+        "columns": [
+          {
+            "key": "k",
+            "label": "Körper",
+            "unit": ""
+          },
+          {
+            "key": "m",
+            "label": "m",
+            "unit": "g",
+            "source": "masse"
+          },
+          {
+            "key": "stand",
+            "label": "V_Stand",
+            "unit": "ml",
+            "source": "stand"
+          },
+          {
+            "key": "V",
+            "label": "V",
+            "unit": "cm³"
+          },
+          {
+            "key": "rho",
+            "label": "ρ",
+            "unit": "g/cm³"
+          }
+        ],
+        "rows": 5,
+        "solution": "Bei V = 30 cm³: A 81,0 g / 130 ml / 2,70 g/cm³. C 236,1 g / 130 ml / 7,87 g/cm³. E 339,0 g / 130 ml / 11,3 g/cm³. B 21,6 g, Füllstand nur 122 ml. D 27,6 g, Füllstand nur 128 ml (B und D schwimmen, siehe Aufgabe 6)."
+      },
+      {
+        "type": "heading",
+        "text": "Auswerten"
+      },
+      {
+        "type": "text",
+        "text": "Dichten einiger Stoffe in g/cm³: Buchenholz **0,72** · Kerzenwachs **0,92** · Wasser **1,00** · Aluminium **2,70** · Eisen **7,87** · Kupfer **8,96** · Blei **11,3**"
+      },
+      {
+        "type": "question",
+        "id": "stoffe",
+        "operator": "angeben",
+        "prompt": "Gib an, aus welchem Stoff die Körper A, C und E bestehen.",
+        "lines": 3,
+        "solution": "A: Aluminium, C: Eisen, E: Blei."
+      },
+      {
+        "type": "choice",
+        "id": "groesse",
+        "prompt": "Körper A wird doppelt so groß gewählt (doppeltes Volumen). Prüfe in der Simulation, welche Aussage zutrifft.",
+        "options": [
+          "Masse und Dichte verdoppeln sich.",
+          "Die Masse verdoppelt sich, die Dichte bleibt gleich.",
+          "Die Masse bleibt gleich, die Dichte halbiert sich.",
+          "Masse und Dichte bleiben gleich."
+        ],
+        "correct": [
+          1
+        ],
+        "solution": "Die Dichte ist eine Eigenschaft des Stoffs und hängt nicht von der Größe des Körpers ab."
+      },
+      {
+        "type": "heading",
+        "text": "Genauer hinsehen"
+      },
+      {
+        "type": "question",
+        "id": "schwimmen",
+        "operator": "beschreiben",
+        "prompt": "Lege Körper B in den Messzylinder. Beschreibe, was anders ist als bei Körper A.",
+        "lines": 3,
+        "solution": "Körper B schwimmt: Er taucht nur zum Teil ins Wasser ein. Der Füllstand steigt deshalb weniger, als es dem Volumen des Körpers entspricht."
+      },
+      {
+        "type": "question",
+        "id": "fehler",
+        "operator": "erklaeren",
+        "prompt": "Erkläre, warum die Rechnung aus der Tabelle für die Körper B und D eine falsche Dichte liefert.",
+        "lines": 3,
+        "solution": "Ein schwimmender Körper verdrängt nur mit dem eingetauchten Teil Wasser. Das abgelesene Volumen ist also zu klein, die berechnete Dichte zu groß (es ergibt sich stets etwa 1 g/cm³, die Dichte von Wasser)."
+      },
+      {
+        "type": "question",
+        "id": "plan",
+        "operator": "planen",
+        "prompt": "Plane ein Vorgehen, mit dem sich das Volumen eines schwimmenden Körpers trotzdem mit dem Messzylinder bestimmen lässt.",
+        "lines": 3,
+        "solution": "Zum Beispiel: Körper mit einem dünnen Draht oder einer Nadel vollständig unter Wasser drücken. Oder ein schweres Stück (z. B. Eisen) anhängen, dessen Volumen vorher einzeln bestimmt wurde, und dieses abziehen."
+      },
+      {
+        "type": "question",
+        "id": "regel",
+        "operator": "begruenden",
+        "prompt": "Körper B und D schwimmen, die anderen gehen unter. Begründe das mit den Dichten aus der Liste.",
+        "lines": 3,
+        "solution": "B (Holz, 0,72 g/cm³) und D (Wachs, 0,92 g/cm³) haben eine kleinere Dichte als Wasser (1,00 g/cm³) und schwimmen. Körper mit größerer Dichte als Wasser gehen unter."
+      }
+    ]
+  }
+}

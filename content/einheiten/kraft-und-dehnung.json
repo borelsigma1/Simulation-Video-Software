@@ -1,0 +1,172 @@
+{
+  "id": "kraft-und-dehnung",
+  "title": "Kraft und Dehnung: das Hooke'sche Gesetz",
+  "grade": 8,
+  "order": 3,
+  "domain": "mechanik",
+  "curriculum": "Ph8 Lernbereich 3.2: Kräfte und ihre Wirkungen (Schülerexperiment: Dehnung-Kraft-Diagramme und Hooke'scher Bereich)",
+  "summary": "Massestücke dehnen eine Feder. Du nimmst Dehnung-Kraft-Diagramme auf und findest heraus, wo das Hooke'sche Gesetz gilt und wo nicht.",
+  "video": {
+    "title": "",
+    "source": {
+      "kind": "none"
+    }
+  },
+  "sim": {
+    "id": "hooke",
+    "params": {
+      "art": {
+        "value": 1
+      }
+    }
+  },
+  "worksheet": {
+    "title": "Kraft und Dehnung",
+    "subtitle": "Mechanik · Jahrgangsstufe 8",
+    "blocks": [
+      {
+        "type": "text",
+        "text": "An der Aufhängung hängen Massestücke von je 50 g. Ihre **Gewichtskraft F** dehnt die Feder um die Strecke **s**. Das Lineal hat seinen Nullpunkt am unteren Ende der unbelasteten Feder.\n\nAuf der Erde wirkt auf 100 g eine Gewichtskraft von etwa 1 N (genauer: Ortsfaktor g = 9,81 N/kg)."
+      },
+      {
+        "type": "heading",
+        "text": "Harte Feder"
+      },
+      {
+        "type": "table",
+        "id": "hart",
+        "operator": "ermitteln",
+        "prompt": "Ermittle für die harte Feder die Dehnung bei mindestens sechs verschiedenen Anzahlen von Massestücken. Berechne jeweils den Quotienten F : s.",
+        "columns": [
+          {
+            "key": "m",
+            "label": "m",
+            "unit": "g",
+            "source": "masse"
+          },
+          {
+            "key": "F",
+            "label": "F",
+            "unit": "N",
+            "source": "F"
+          },
+          {
+            "key": "s",
+            "label": "s",
+            "unit": "cm",
+            "source": "s"
+          },
+          {
+            "key": "D",
+            "label": "F : s",
+            "unit": "N/cm"
+          }
+        ],
+        "rows": 6,
+        "solution": "Zum Beispiel 100 g / 0,98 N / 3,3 cm; 200 g / 1,96 N / 6,5 cm; 300 g / 2,94 N / 9,8 cm; 400 g / 3,92 N / 13,1 cm; 500 g / 4,91 N / 16,4 cm. F : s ≈ 0,30 N/cm."
+      },
+      {
+        "type": "chart",
+        "id": "hart-dia",
+        "operator": "darstellen",
+        "prompt": "Stelle deine Messwerte in einem Dehnung-Kraft-Diagramm dar und zeichne eine Ausgleichsgerade ein.",
+        "table": "hart",
+        "x": "s",
+        "y": "F",
+        "fit": true,
+        "solution": "Ursprungsgerade mit der Steigung 0,30 N/cm."
+      },
+      {
+        "type": "question",
+        "id": "hooke",
+        "operator": "auswerten",
+        "prompt": "Werte das Diagramm aus: Formuliere den Zusammenhang zwischen F und s und gib die Federhärte D = F : s an.",
+        "lines": 3,
+        "solution": "F und s sind proportional (F ~ s, Hooke'sches Gesetz): doppelte Kraft, doppelte Dehnung. Federhärte D ≈ 0,30 N/cm = 30 N/m."
+      },
+      {
+        "type": "heading",
+        "text": "Weiche Feder"
+      },
+      {
+        "type": "table",
+        "id": "weich",
+        "operator": "ermitteln",
+        "prompt": "Wähle die weiche Feder. Ermittle die Dehnung für 1 bis 10 Massestücke.",
+        "columns": [
+          {
+            "key": "F",
+            "label": "F",
+            "unit": "N",
+            "source": "F"
+          },
+          {
+            "key": "s",
+            "label": "s",
+            "unit": "cm",
+            "source": "s"
+          },
+          {
+            "key": "D",
+            "label": "F : s",
+            "unit": "N/cm"
+          }
+        ],
+        "rows": 10,
+        "solution": "Bis 6 Massestücke (2,94 N / 24,5 cm) ist F : s ≈ 0,12 N/cm. Danach dehnt sich die Feder stärker: 8 Stück 3,92 N / 34,6 cm; 10 Stück 4,91 N / 48,9 cm."
+      },
+      {
+        "type": "chart",
+        "id": "weich-dia",
+        "operator": "darstellen",
+        "prompt": "Stelle die Messwerte der weichen Feder in einem Dehnung-Kraft-Diagramm dar.",
+        "table": "weich",
+        "x": "s",
+        "y": "F",
+        "fit": false
+      },
+      {
+        "type": "question",
+        "id": "bereich",
+        "operator": "angeben",
+        "prompt": "Gib den Bereich der Kraft an, in dem für die weiche Feder das Hooke'sche Gesetz gilt (Hooke'scher Bereich). Beschreibe, woran du das erkennst.",
+        "lines": 3,
+        "solution": "Bis etwa 3 N liegen die Punkte auf einer Ursprungsgeraden (F : s konstant, D ≈ 12 N/m). Darüber knickt die Kurve ab: Die Feder wird überdehnt, die Dehnung wächst schneller als die Kraft. Eine echte Feder wäre danach dauerhaft verformt."
+      },
+      {
+        "type": "heading",
+        "text": "Gummiband und Anwendung"
+      },
+      {
+        "type": "choice",
+        "id": "gummi",
+        "prompt": "Untersuche das Gummiband. Welche Aussage trifft zu?",
+        "options": [
+          "F und s sind proportional wie bei der harten Feder.",
+          "F und s sind nicht proportional: Das Gummiband hat keinen Hooke'schen Bereich.",
+          "Das Gummiband dehnt sich gar nicht."
+        ],
+        "correct": [
+          1
+        ],
+        "solution": "Schon bei kleinen Kräften ist F : s nicht konstant (1 N: 3,3 cm; 2 N: 8,8 cm; 4 N: 26 cm)."
+      },
+      {
+        "type": "question",
+        "id": "kraftmesser",
+        "operator": "begruenden",
+        "prompt": "Ein Kraftmesser besteht aus einer Feder mit Skala. Begründe, welche der drei Aufhängungen sich für einen Kraftmesser bis 5 N eignet.",
+        "lines": 3,
+        "solution": "Die harte Feder: Nur bei ihr sind Kraft und Dehnung im ganzen Bereich bis 5 N proportional, sodass die Skala gleichmäßig geteilt werden kann. Die weiche Feder eignet sich nur bis etwa 3 N (dort aber genauer, weil sie sich stärker dehnt). Das Gummiband ist ungeeignet."
+      },
+      {
+        "type": "question",
+        "id": "mond",
+        "operator": "erklaeren",
+        "prompt": "Hänge vier Massestücke an die harte Feder und wähle die Voreinstellung „Mond“. Vergleiche die Dehnung mit der auf der Erde und erkläre den Unterschied.",
+        "lines": 3,
+        "solution": "Auf dem Mond beträgt die Dehnung nur etwa ein Sechstel (1,1 cm statt 6,5 cm). Die Masse der Stücke ist gleich geblieben (200 g), aber ihre Gewichtskraft ist kleiner, weil der Ortsfaktor auf dem Mond nur 1,62 N/kg beträgt. Die Feder misst die Kraft, nicht die Masse."
+      }
+    ]
+  }
+}

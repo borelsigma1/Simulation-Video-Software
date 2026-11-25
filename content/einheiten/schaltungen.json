@@ -1,0 +1,174 @@
+{
+  "id": "schaltungen",
+  "title": "Schaltungen mit zwei Schaltern",
+  "grade": 7,
+  "order": 3,
+  "domain": "elektrik",
+  "curriculum": "NT7 Lernbereich 1.3: Elektrische Stromkreise (elektrische Schaltungen als technische Anwendungen im Alltag)",
+  "summary": "UND, ODER und Wechselschaltung: Wann leuchtet die Lampe? Du schaltest selbst und findest die Regeln.",
+  "video": {
+    "title": "",
+    "source": {
+      "kind": "none"
+    }
+  },
+  "sim": {
+    "id": "schaltung"
+  },
+  "worksheet": {
+    "title": "Schaltungen mit zwei Schaltern",
+    "subtitle": "Elektrische Stromkreise · Jahrgangsstufe 7",
+    "blocks": [
+      {
+        "type": "text",
+        "text": "Eine Lampe leuchtet nur, wenn der Stromkreis **geschlossen** ist. Mit zwei Schaltern lässt sich festlegen, unter welchen Bedingungen das der Fall ist.\n\nTippe in der Zeichnung auf die Schalter. In den Tabellen steht **1** für „geschlossen“ bzw. „Lampe leuchtet“ und **0** für „offen“ bzw. „Lampe aus“."
+      },
+      {
+        "type": "heading",
+        "text": "Reihenschaltung"
+      },
+      {
+        "type": "table",
+        "id": "reihe",
+        "operator": "ermitteln",
+        "prompt": "Ermittle für die Reihenschaltung alle vier Kombinationen der Schalterstellungen und ob die Lampe jeweils leuchtet.",
+        "columns": [
+          {
+            "key": "s1",
+            "label": "S_1",
+            "unit": "",
+            "source": "S1"
+          },
+          {
+            "key": "s2",
+            "label": "S_2",
+            "unit": "",
+            "source": "S2"
+          },
+          {
+            "key": "l",
+            "label": "L",
+            "unit": "",
+            "source": "L"
+          }
+        ],
+        "rows": 4,
+        "solution": "0/0 → 0, 1/0 → 0, 0/1 → 0, 1/1 → 1."
+      },
+      {
+        "type": "question",
+        "id": "regel1",
+        "operator": "angeben",
+        "prompt": "Gib eine Regel an, wann die Lampe in der Reihenschaltung leuchtet.",
+        "lines": 2,
+        "solution": "Die Lampe leuchtet nur, wenn Schalter 1 UND Schalter 2 geschlossen sind (UND-Schaltung)."
+      },
+      {
+        "type": "heading",
+        "text": "Parallelschaltung"
+      },
+      {
+        "type": "table",
+        "id": "par",
+        "operator": "ermitteln",
+        "prompt": "Wähle die Parallelschaltung. Ermittle wieder alle vier Kombinationen.",
+        "columns": [
+          {
+            "key": "s1",
+            "label": "S_1",
+            "unit": "",
+            "source": "S1"
+          },
+          {
+            "key": "s2",
+            "label": "S_2",
+            "unit": "",
+            "source": "S2"
+          },
+          {
+            "key": "l",
+            "label": "L",
+            "unit": "",
+            "source": "L"
+          }
+        ],
+        "rows": 4,
+        "solution": "0/0 → 0, 1/0 → 1, 0/1 → 1, 1/1 → 1."
+      },
+      {
+        "type": "question",
+        "id": "vergleich",
+        "operator": "vergleichen",
+        "prompt": "Vergleiche die Parallelschaltung mit der Reihenschaltung anhand deiner beiden Tabellen.",
+        "lines": 3,
+        "solution": "Gemeinsam: Sind beide Schalter offen, ist die Lampe aus; sind beide geschlossen, leuchtet sie. Unterschied: In der Parallelschaltung genügt ein geschlossener Schalter (ODER-Schaltung), weil der Strom dann über diesen Zweig fließen kann. In der Reihenschaltung unterbricht schon ein offener Schalter den einzigen Stromweg."
+      },
+      {
+        "type": "choice",
+        "id": "presse",
+        "prompt": "Eine Papierschneidemaschine soll nur laufen, wenn beide Hände je einen Taster drücken. Welche Schaltung der Taster ist geeignet?",
+        "options": [
+          "Reihenschaltung",
+          "Parallelschaltung",
+          "Beide sind gleich gut geeignet."
+        ],
+        "correct": [
+          0
+        ],
+        "solution": "Reihenschaltung (UND): Erst wenn beide Taster gedrückt sind, ist der Stromkreis geschlossen. So ist keine Hand im Gefahrenbereich."
+      },
+      {
+        "type": "heading",
+        "text": "Wechselschaltung"
+      },
+      {
+        "type": "text",
+        "text": "In einem langen Flur soll sich das Licht an beiden Enden ein- und ausschalten lassen. Dafür verwendet man zwei Umschalter. Wähle die **Wechselschaltung**. In der Tabelle bedeutet 1 hier „Schalter zeigt nach oben“."
+      },
+      {
+        "type": "table",
+        "id": "wechsel",
+        "operator": "ermitteln",
+        "prompt": "Ermittle für die Wechselschaltung alle vier Kombinationen.",
+        "columns": [
+          {
+            "key": "s1",
+            "label": "S_1",
+            "unit": "",
+            "source": "S1"
+          },
+          {
+            "key": "s2",
+            "label": "S_2",
+            "unit": "",
+            "source": "S2"
+          },
+          {
+            "key": "l",
+            "label": "L",
+            "unit": "",
+            "source": "L"
+          }
+        ],
+        "rows": 4,
+        "solution": "0/0 → 1, 1/0 → 0, 0/1 → 0, 1/1 → 1."
+      },
+      {
+        "type": "question",
+        "id": "wechselerkl",
+        "operator": "erklaeren",
+        "prompt": "Erkläre, warum sich die Lampe von jedem der beiden Schalter aus sowohl ein- als auch ausschalten lässt.",
+        "lines": 3,
+        "solution": "Zwischen den Umschaltern verlaufen zwei Leitungen. Der Stromkreis ist geschlossen, wenn beide Schalter mit derselben Leitung verbunden sind. Betätigt man einen beliebigen der beiden Schalter, wechselt er auf die andere Leitung: Ein geschlossener Kreis wird unterbrochen, ein unterbrochener geschlossen."
+      },
+      {
+        "type": "question",
+        "id": "alltag",
+        "operator": "nennen",
+        "prompt": "Nenne je ein Beispiel aus dem Alltag für eine UND-Schaltung, eine ODER-Schaltung und eine Wechselschaltung.",
+        "lines": 3,
+        "solution": "Zum Beispiel: UND: Mikrowelle (Tür zu und Starttaste), Zweihandbedienung an Maschinen. ODER: Klingel an Haustür und Wohnungstür, Innenbeleuchtung im Auto (mehrere Türkontakte). Wechselschaltung: Licht im Treppenhaus oder Flur mit zwei Schaltern."
+      }
+    ]
+  }
+}
