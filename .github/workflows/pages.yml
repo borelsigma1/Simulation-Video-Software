@@ -1,0 +1,57 @@
+# Baut den Physik-Workspace und veröffentlicht ihn auf GitHub Pages.
+# Einmalig nötig: Repository → Settings → Pages → Source: „GitHub Actions“.
+name: Build & GitHub Pages
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Typprüfung
+        run: npm run check
+      - name: Tests (Physik-Modelle)
+        run: npm test
+      - name: Build Workspace
+        run: npm run build
+      - name: Build einzelne Simulationen
+        run: npm run build:sim
+      - name: Einzelne Simulationen als Download bereitstellen
+        uses: actions/upload-artifact@v4
+        with:
+          name: einzelne-simulationen
+          path: dist-sim/
+      - if: github.event_name != 'pull_request'
+        uses: actions/upload-pages-artifact@v3
+        with:
+          path: dist/
+
+  deploy:
+    if: github.event_name != 'pull_request' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4

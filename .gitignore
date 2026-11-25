@@ -1,0 +1,6 @@
+node_modules/
+dist/
+dist-sim/
+.DS_Store
+*.log
+.vite/
