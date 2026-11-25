@@ -1,8 +1,14 @@
-<!-- Formelzeichen mit Index: "v_y" wird zu v<sub>y</sub>, gesetzt wie im Schulbuch. -->
+<!-- Formelzeichen mit KaTeX: "v_y" wird zu v mit Index y, gesetzt wie im Schulbuch. -->
 <script lang="ts">
-  import { splitSubscripts } from '../engine/draw';
+  import { symTex, tex } from '../tex/tex';
   let { text }: { text: string } = $props();
-  const parts = $derived(splitSubscripts(text));
+  const html = $derived(tex(symTex(text)));
 </script>
 
-<span class="sym">{#each parts as p, i (i)}{#if p.sub}<sub>{p.text}</sub>{:else}{p.text}{/if}{/each}</span>
+<span class="sym-k">{@html html}</span>
+
+<style>
+  .sym-k {
+    white-space: nowrap;
+  }
+</style>

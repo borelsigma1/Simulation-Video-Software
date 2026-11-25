@@ -21,7 +21,7 @@
     "blocks": [
       {
         "type": "text",
-        "text": "Auf dem Tisch liegen fünf Körper **A bis E**. Aus welchem Stoff sie bestehen, sieht man ihnen nicht sicher an. Jeder Stoff hat aber eine eigene **Dichte ρ**: Sie gibt an, welche Masse ein Kubikzentimeter des Stoffs hat.\n\n**Dichte = Masse : Volumen**, kurz ρ = m : V, Einheit g/cm³.\n\nIm Messzylinder sind anfangs **100 ml** Wasser. Zur Erinnerung: 1 ml = 1 cm³."
+        "text": "Auf dem Tisch liegen fünf Körper **A bis E**. Aus welchem Stoff sie bestehen, sieht man ihnen nicht sicher an. Jeder Stoff hat aber eine eigene **Dichte $\\rho$**: Sie gibt an, welche Masse ein Kubikzentimeter des Stoffs hat.\n\n**Dichte = Masse : Volumen**, kurz $\\rho = m : V$, Einheit $\\mathrm{g/cm^{3}}$.\n\nIm Messzylinder sind anfangs **$100\\,\\mathrm{ml}$** Wasser. Zur Erinnerung: $1\\,\\mathrm{ml} = 1\\,\\mathrm{cm^{3}}$."
       },
       {
         "type": "heading",
@@ -33,7 +33,7 @@
         "operator": "beschreiben",
         "prompt": "Beschreibe, wie du mit der Waage und dem Messzylinder die Masse und das Volumen eines Körpers bestimmst.",
         "lines": 3,
-        "solution": "Masse: Körper auf die Waage legen und Anzeige ablesen. Volumen: Körper in den Messzylinder geben, neuen Füllstand ablesen. Das Volumen des Körpers ist die Differenz zum Füllstand vorher (100 ml), denn der Körper verdrängt so viel Wasser, wie er selbst Platz braucht."
+        "solution": "Masse: Körper auf die Waage legen und Anzeige ablesen. Volumen: Körper in den Messzylinder geben, neuen Füllstand ablesen. Das Volumen des Körpers ist die Differenz zum Füllstand vorher ($100\\,\\mathrm{ml}$), denn der Körper verdrängt so viel Wasser, wie er selbst Platz braucht."
       },
       {
         "type": "table",
@@ -48,29 +48,29 @@
           },
           {
             "key": "m",
-            "label": "m",
+            "label": "$m$",
             "unit": "g",
             "source": "masse"
           },
           {
             "key": "stand",
-            "label": "V_Stand",
+            "label": "$V_{\\mathrm{Stand}}$",
             "unit": "ml",
             "source": "stand"
           },
           {
             "key": "V",
-            "label": "V",
+            "label": "$V$",
             "unit": "cm³"
           },
           {
             "key": "rho",
-            "label": "ρ",
+            "label": "$\\rho$",
             "unit": "g/cm³"
           }
         ],
         "rows": 5,
-        "solution": "Bei V = 30 cm³: A 81,0 g / 130 ml / 2,70 g/cm³. C 236,1 g / 130 ml / 7,87 g/cm³. E 339,0 g / 130 ml / 11,3 g/cm³. B 21,6 g, Füllstand nur 122 ml. D 27,6 g, Füllstand nur 128 ml (B und D schwimmen, siehe Aufgabe 6)."
+        "solution": "Bei $V = 30\\,\\mathrm{cm^{3}}$: A $81{,}0\\,\\mathrm{g}$ / $130\\,\\mathrm{ml}$ / $2{,}70\\,\\mathrm{g/cm^{3}}$. C $236{,}1\\,\\mathrm{g}$ / $130\\,\\mathrm{ml}$ / $7{,}87\\,\\mathrm{g/cm^{3}}$. E $339{,}0\\,\\mathrm{g}$ / $130\\,\\mathrm{ml}$ / $11{,}3\\,\\mathrm{g/cm^{3}}$. B $21{,}6\\,\\mathrm{g}$, Füllstand nur $122\\,\\mathrm{ml}$. D $27{,}6\\,\\mathrm{g}$, Füllstand nur $128\\,\\mathrm{ml}$ (B und D schwimmen, siehe Aufgabe 6)."
       },
       {
         "type": "heading",
@@ -78,7 +78,7 @@
       },
       {
         "type": "text",
-        "text": "Dichten einiger Stoffe in g/cm³: Buchenholz **0,72** · Kerzenwachs **0,92** · Wasser **1,00** · Aluminium **2,70** · Eisen **7,87** · Kupfer **8,96** · Blei **11,3**"
+        "text": "Dichten einiger Stoffe in $\\mathrm{g/cm^{3}}$: Buchenholz **$0{,}72$** · Kerzenwachs **$0{,}92$** · Wasser **$1{,}00$** · Aluminium **$2{,}70$** · Eisen **$7{,}87$** · Kupfer **$8{,}96$** · Blei **$11{,}3$**"
       },
       {
         "type": "question",
@@ -121,7 +121,7 @@
         "operator": "erklaeren",
         "prompt": "Erkläre, warum die Rechnung aus der Tabelle für die Körper B und D eine falsche Dichte liefert.",
         "lines": 3,
-        "solution": "Ein schwimmender Körper verdrängt nur mit dem eingetauchten Teil Wasser. Das abgelesene Volumen ist also zu klein, die berechnete Dichte zu groß (es ergibt sich stets etwa 1 g/cm³, die Dichte von Wasser)."
+        "solution": "Ein schwimmender Körper verdrängt nur mit dem eingetauchten Teil Wasser. Das abgelesene Volumen ist also zu klein, die berechnete Dichte zu groß (es ergibt sich stets etwa $1\\,\\mathrm{g/cm^{3}}$, die Dichte von Wasser)."
       },
       {
         "type": "question",
@@ -137,7 +137,7 @@
         "operator": "begruenden",
         "prompt": "Körper B und D schwimmen, die anderen gehen unter. Begründe das mit den Dichten aus der Liste.",
         "lines": 3,
-        "solution": "B (Holz, 0,72 g/cm³) und D (Wachs, 0,92 g/cm³) haben eine kleinere Dichte als Wasser (1,00 g/cm³) und schwimmen. Körper mit größerer Dichte als Wasser gehen unter."
+        "solution": "B (Holz, $0{,}72\\,\\mathrm{g/cm^{3}}$) und D (Wachs, $0{,}92\\,\\mathrm{g/cm^{3}}$) haben eine kleinere Dichte als Wasser ($1{,}00\\,\\mathrm{g/cm^{3}}$) und schwimmen. Körper mit größerer Dichte als Wasser gehen unter."
       }
     ]
   }

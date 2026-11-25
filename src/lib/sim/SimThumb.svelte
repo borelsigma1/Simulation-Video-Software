@@ -20,7 +20,9 @@
       invalidate() {},
       finish() {},
       play() {},
-      isRunning: () => true
+      isRunning: () => true,
+      set: (_k: string, v: number) => v,
+      canSet: () => false
     };
     const rt = def.create(env);
     rt.reset();

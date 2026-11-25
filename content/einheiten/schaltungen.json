@@ -35,19 +35,19 @@
         "columns": [
           {
             "key": "s1",
-            "label": "S_1",
+            "label": "$S_1$",
             "unit": "",
             "source": "S1"
           },
           {
             "key": "s2",
-            "label": "S_2",
+            "label": "$S_2$",
             "unit": "",
             "source": "S2"
           },
           {
             "key": "l",
-            "label": "L",
+            "label": "$L$",
             "unit": "",
             "source": "L"
           }
@@ -75,19 +75,19 @@
         "columns": [
           {
             "key": "s1",
-            "label": "S_1",
+            "label": "$S_1$",
             "unit": "",
             "source": "S1"
           },
           {
             "key": "s2",
-            "label": "S_2",
+            "label": "$S_2$",
             "unit": "",
             "source": "S2"
           },
           {
             "key": "l",
-            "label": "L",
+            "label": "$L$",
             "unit": "",
             "source": "L"
           }
@@ -133,19 +133,19 @@
         "columns": [
           {
             "key": "s1",
-            "label": "S_1",
+            "label": "$S_1$",
             "unit": "",
             "source": "S1"
           },
           {
             "key": "s2",
-            "label": "S_2",
+            "label": "$S_2$",
             "unit": "",
             "source": "S2"
           },
           {
             "key": "l",
-            "label": "L",
+            "label": "$L$",
             "unit": "",
             "source": "L"
           }

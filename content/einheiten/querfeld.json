@@ -21,7 +21,7 @@
     "blocks": [
       {
         "type": "text",
-        "text": "Elektronen werden mit der Spannung **U_B** beschleunigt und treten mit der Geschwindigkeit **v₀** parallel zu den Platten in das homogene Feld eines Kondensators ein. An den Platten (Länge l = 8,0 cm, Abstand d = 4,0 cm) liegt die Ablenkspannung **U_A**. 12 cm hinter den Platten steht ein Schirm.\n\nKonstanten: e = 1,60 · 10⁻¹⁹ C, mₑ = 9,11 · 10⁻³¹ kg."
+        "text": "Elektronen werden mit der Spannung **$U_{B}$** beschleunigt und treten mit der Geschwindigkeit **$v_{0}$** parallel zu den Platten in das homogene Feld eines Kondensators ein. An den Platten (Länge $l = 8{,}0\\,\\mathrm{cm}$, Abstand $d = 4{,}0\\,\\mathrm{cm}$) liegt die Ablenkspannung **$U_{A}$**. $12\\,\\mathrm{cm}$ hinter den Platten steht ein Schirm.\n\nKonstanten: $e = 1{,}60 \\cdot 10^{-19}\\,\\mathrm{C}$, $m_{e} = 9{,}11 \\cdot 10^{-31}\\,\\mathrm{kg}$."
       },
       {
         "type": "heading",
@@ -31,7 +31,7 @@
         "type": "question",
         "id": "bahn",
         "operator": "beschreiben",
-        "prompt": "Starte ein Elektron mit U_B = 1000 V und U_A = 150 V. Beschreibe seine Bahn vor, zwischen und hinter den Platten.",
+        "prompt": "Starte ein Elektron mit $U_{B} = 1000\\,\\mathrm{V}$ und $U_{A} = 150\\,\\mathrm{V}$. Beschreibe seine Bahn vor, zwischen und hinter den Platten.",
         "lines": 3,
         "solution": "Vor den Platten fliegt das Elektron geradlinig. Zwischen den Platten ist die Bahn zur positiven Platte hin gekrümmt (Parabelbogen). Hinter den Platten fliegt es geradlinig in der Richtung weiter, die es am Plattenende hatte, und trifft oberhalb der Mitte auf den Schirm."
       },
@@ -41,7 +41,7 @@
         "operator": "erklaeren",
         "prompt": "Blende die Geschwindigkeitskomponenten ein. Erkläre die Form der Bahn zwischen den Platten mithilfe der wirkenden Kraft.",
         "lines": 5,
-        "solution": "Im homogenen Feld wirkt auf das Elektron überall dieselbe Kraft F = e · E = e · U_A : d, senkrecht zu den Platten in Richtung der positiven Platte. Parallel zu den Platten wirkt keine Kraft: v_x = v₀ bleibt konstant (gleichförmige Bewegung). Senkrecht dazu wird das Elektron konstant beschleunigt: v_y wächst linear mit der Zeit. Die Überlagerung ergibt eine Parabel."
+        "solution": "Im homogenen Feld wirkt auf das Elektron überall dieselbe Kraft $F = e \\cdot E = e \\cdot U_{A} : d$, senkrecht zu den Platten in Richtung der positiven Platte. Parallel zu den Platten wirkt keine Kraft: $v_{x} = v_{0}$ bleibt konstant (gleichförmige Bewegung). Senkrecht dazu wird das Elektron konstant beschleunigt: $v_{y}$ wächst linear mit der Zeit. Die Überlagerung ergibt eine Parabel."
       },
       {
         "type": "question",
@@ -49,15 +49,15 @@
         "operator": "vergleichen",
         "prompt": "Vergleiche die Bewegung des Elektrons im Kondensator mit dem waagrechten Wurf.",
         "lines": 5,
-        "solution": "Beide Bewegungen setzen sich aus einer gleichförmigen Bewegung in der einen und einer konstant beschleunigten Bewegung aus der Ruhe in der dazu senkrechten Richtung zusammen; die Bahn ist jeweils eine Parabel. Der Gewichtskraft m · g entspricht die elektrische Kraft e · E, der Fallbeschleunigung g die Beschleunigung a = e · U_A : (m · d). Unterschied: Die Beschleunigung lässt sich hier über U_A einstellen und sogar umkehren, und das Feld ist auf den Kondensator begrenzt."
+        "solution": "Beide Bewegungen setzen sich aus einer gleichförmigen Bewegung in der einen und einer konstant beschleunigten Bewegung aus der Ruhe in der dazu senkrechten Richtung zusammen; die Bahn ist jeweils eine Parabel. Der Gewichtskraft $m \\cdot g$ entspricht die elektrische Kraft $e \\cdot E$, der Fallbeschleunigung $g$ die Beschleunigung $a = e \\cdot U_{A} : (m \\cdot d)$. Unterschied: Die Beschleunigung lässt sich hier über $U_{A}$ einstellen und sogar umkehren, und das Feld ist auf den Kondensator begrenzt."
       },
       {
         "type": "question",
         "id": "v0",
         "operator": "berechnen",
-        "prompt": "Berechne die Eintrittsgeschwindigkeit v₀ für U_B = 1000 V aus dem Energieansatz und vergleiche mit der Anzeige.",
+        "prompt": "Berechne die Eintrittsgeschwindigkeit $v_{0}$ für $U_{B} = 1000\\,\\mathrm{V}$ aus dem Energieansatz und vergleiche mit der Anzeige.",
         "lines": 4,
-        "solution": "e · U_B = ½ · m · v₀², also v₀ = √(2 · e · U_B : m) = √(2 · 1,60 · 10⁻¹⁹ C · 1000 V : 9,11 · 10⁻³¹ kg) = 1,87 · 10⁷ m/s. Anzeige: 18,76 · 10⁶ m/s."
+        "solution": "$e \\cdot U_{B} = \\tfrac{1}{2} \\cdot m \\cdot v_{0}^{2}$, also $v_{0} = \\sqrt{2 \\cdot e \\cdot U_{B} : m} = \\sqrt{2 \\cdot 1{,}60 \\cdot 10^{-19}\\,\\mathrm{C} \\cdot 1000\\,\\mathrm{V} : 9{,}11 \\cdot 10^{-31}\\,\\mathrm{kg}} = 1{,}87 \\cdot 10^{7}\\,\\mathrm{m/s}$. Anzeige: $18{,}76 \\cdot 10^{6}\\,\\mathrm{m/s}$."
       },
       {
         "type": "heading",
@@ -67,61 +67,61 @@
         "type": "table",
         "id": "ua",
         "operator": "untersuchen",
-        "prompt": "Untersuche bei U_B = 1000 V, wie die Ablenkung auf dem Schirm von der Ablenkspannung abhängt.",
+        "prompt": "Untersuche bei $U_{B} = 1000\\,\\mathrm{V}$, wie die Ablenkung auf dem Schirm von der Ablenkspannung abhängt.",
         "columns": [
           {
             "key": "UA",
-            "label": "U_A",
+            "label": "$U_A$",
             "unit": "V",
             "source": "UA"
           },
           {
             "key": "ys",
-            "label": "y_S",
+            "label": "$y_S$",
             "unit": "cm",
             "source": "ys"
           }
         ],
         "rows": 6,
-        "solution": "50 V: 0,80 cm; 100 V: 1,60 cm; 150 V: 2,40 cm; 200 V: 3,20 cm; 250 V: 4,00 cm; 300 V: 4,80 cm."
+        "solution": "$50\\,\\mathrm{V}$: $0{,}80\\,\\mathrm{cm}$; $100\\,\\mathrm{V}$: $1{,}60\\,\\mathrm{cm}$; $150\\,\\mathrm{V}$: $2{,}40\\,\\mathrm{cm}$; $200\\,\\mathrm{V}$: $3{,}20\\,\\mathrm{cm}$; $250\\,\\mathrm{V}$: $4{,}00\\,\\mathrm{cm}$; $300\\,\\mathrm{V}$: $4{,}80\\,\\mathrm{cm}$."
       },
       {
         "type": "chart",
         "id": "ua-dia",
         "operator": "darstellen",
-        "prompt": "Stelle y_S in Abhängigkeit von U_A in einem Diagramm dar und zeichne eine Ausgleichsgerade ein.",
+        "prompt": "Stelle $y_{S}$ in Abhängigkeit von $U_{A}$ in einem Diagramm dar und zeichne eine Ausgleichsgerade ein.",
         "table": "ua",
         "x": "UA",
         "y": "ys",
         "fit": true,
-        "solution": "Ursprungsgerade mit der Steigung 0,016 cm/V."
+        "solution": "Ursprungsgerade mit der Steigung $0{,}016$ cm/V."
       },
       {
         "type": "table",
         "id": "ub",
         "operator": "ermitteln",
-        "prompt": "Ermittle bei U_A = 150 V die Ablenkung auf dem Schirm für vier Beschleunigungsspannungen. Berechne jeweils das Produkt y_S · U_B.",
+        "prompt": "Ermittle bei $U_{A} = 150\\,\\mathrm{V}$ die Ablenkung auf dem Schirm für vier Beschleunigungsspannungen. Berechne jeweils das Produkt $y_{S} \\cdot U_{B}$.",
         "columns": [
           {
             "key": "UB",
-            "label": "U_B",
+            "label": "$U_B$",
             "unit": "V",
             "source": "UB"
           },
           {
             "key": "ys",
-            "label": "y_S",
+            "label": "$y_S$",
             "unit": "cm",
             "source": "ys"
           },
           {
             "key": "prod",
-            "label": "y_S · U_B",
+            "label": "$y_S \\cdot U_B$",
             "unit": "cm·V"
           }
         ],
         "rows": 4,
-        "solution": "500 V: 4,80 cm; 1000 V: 2,40 cm; 2000 V: 1,20 cm; 3000 V: 0,80 cm. Das Produkt ist stets 2400 cm·V."
+        "solution": "$500\\,\\mathrm{V}$: $4{,}80\\,\\mathrm{cm}$; $1000\\,\\mathrm{V}$: $2{,}40\\,\\mathrm{cm}$; $2000\\,\\mathrm{V}$: $1{,}20\\,\\mathrm{cm}$; $3000\\,\\mathrm{V}$: $0{,}80\\,\\mathrm{cm}$. Das Produkt ist stets $2400\\,\\mathrm{cm\\cdot V}$."
       },
       {
         "type": "question",
@@ -129,7 +129,7 @@
         "operator": "auswerten",
         "prompt": "Werte beide Messreihen aus und fasse sie in einer Proportionalität zusammen.",
         "lines": 3,
-        "solution": "y_S ~ U_A (Ursprungsgerade) und y_S ~ 1/U_B (Produkt konstant). Zusammen: y_S ~ U_A : U_B. Die Ablenkung hängt nur vom Verhältnis der beiden Spannungen ab."
+        "solution": "$y_{S} \\sim U_{A}$ (Ursprungsgerade) und $y_{S} \\sim 1/U_{B}$ (Produkt konstant). Zusammen: $y_{S} \\sim U_{A} : U_{B}$. Die Ablenkung hängt nur vom Verhältnis der beiden Spannungen ab."
       },
       {
         "type": "heading",
@@ -139,32 +139,32 @@
         "type": "question",
         "id": "herleitung",
         "operator": "herleiten",
-        "prompt": "Leite eine Formel für die Ablenkung y₁ am Ende der Platten her. Überprüfe sie für U_B = 1000 V und U_A = 150 V.",
+        "prompt": "Leite eine Formel für die Ablenkung $y_{1}$ am Ende der Platten her. Überprüfe sie für $U_{B} = 1000\\,\\mathrm{V}$ und $U_{A} = 150\\,\\mathrm{V}$.",
         "lines": 6,
-        "solution": "Flugzeit im Feld: t = l : v₀. Beschleunigung: a = e · U_A : (m · d). y₁ = ½ · a · t² = e · U_A · l² : (2 · m · d · v₀²). Mit v₀² = 2 · e · U_B : m folgt y₁ = U_A · l² : (4 · d · U_B). Einsetzen: 150 V · (0,080 m)² : (4 · 0,040 m · 1000 V) = 6,0 · 10⁻³ m = 0,60 cm, wie angezeigt."
+        "solution": "Flugzeit im Feld: $t = l : v_{0}$. Beschleunigung: $a = e \\cdot U_{A} : (m \\cdot d)$. $y_{1} = \\tfrac{1}{2} \\cdot a \\cdot t^{2} = e \\cdot U_{A} \\cdot l^{2} : (2 \\cdot m \\cdot d \\cdot v_{0}^{2})$. Mit $v_{0}^{2} = 2 \\cdot e \\cdot U_{B} : m$ folgt $y_{1} = U_{A} \\cdot l^{2} : (4 \\cdot d \\cdot U_{B})$. Einsetzen: $150\\,\\mathrm{V} \\cdot (0{,}080\\,\\mathrm{m})^{2} : (4 \\cdot 0{,}040\\,\\mathrm{m} \\cdot 1000\\,\\mathrm{V}) = 6{,}0 \\cdot 10^{-3}\\,\\mathrm{m} = 0{,}60\\,\\mathrm{cm}$, wie angezeigt."
       },
       {
         "type": "question",
         "id": "em",
         "operator": "deuten",
-        "prompt": "In der Formel für y₁ kommen weder die Ladung noch die Masse des Teilchens vor. Deute dieses Ergebnis.",
+        "prompt": "In der Formel für $y_{1}$ kommen weder die Ladung noch die Masse des Teilchens vor. Deute dieses Ergebnis.",
         "lines": 5,
-        "solution": "Ladung und Masse kürzen sich heraus, weil sie Beschleunigung im Querfeld und Eintrittsgeschwindigkeit in gleicher Weise bestimmen: Ein Teilchen mit größerem e/m wird stärker abgelenkt, ist aber auch schneller und nur kürzer im Feld. Alle negativ geladenen Teilchen laufen bei gleichen Spannungen auf derselben Bahn. Mit elektrischen Feldern allein lässt sich die spezifische Ladung e/m daher nicht bestimmen; dazu braucht man zusätzlich ein Magnetfeld."
+        "solution": "Ladung und Masse kürzen sich heraus, weil sie Beschleunigung im Querfeld und Eintrittsgeschwindigkeit in gleicher Weise bestimmen: Ein Teilchen mit größerem $e/m$ wird stärker abgelenkt, ist aber auch schneller und nur kürzer im Feld. Alle negativ geladenen Teilchen laufen bei gleichen Spannungen auf derselben Bahn. Mit elektrischen Feldern allein lässt sich die spezifische Ladung $e/m$ daher nicht bestimmen; dazu braucht man zusätzlich ein Magnetfeld."
       },
       {
         "type": "choice",
         "id": "platte",
-        "prompt": "Bei U_B = 500 V wird U_A langsam erhöht. Ab welcher Ablenkspannung trifft das Elektron die Platte? Überprüfe dein Ergebnis.",
+        "prompt": "Bei $U_{B} = 500\\,\\mathrm{V}$ wird $U_{A}$ langsam erhöht. Ab welcher Ablenkspannung trifft das Elektron die Platte? Überprüfe dein Ergebnis.",
         "options": [
-          "ab etwa 130 V",
-          "ab etwa 250 V",
-          "ab etwa 300 V",
+          "ab etwa $130\\,\\mathrm{V}$",
+          "ab etwa $250\\,\\mathrm{V}$",
+          "ab etwa $300\\,\\mathrm{V}$",
           "Es trifft die Platte nie."
         ],
         "correct": [
           1
         ],
-        "solution": "Das Elektron trifft die Platte, wenn y₁ den halben Plattenabstand 2,0 cm erreicht: U_A = 4 · d · U_B · y₁ : l² = 4 · 0,040 m · 500 V · 0,020 m : (0,080 m)² = 250 V."
+        "solution": "Das Elektron trifft die Platte, wenn $y_{1}$ den halben Plattenabstand $2{,}0\\,\\mathrm{cm}$ erreicht: $U_{A} = 4 \\cdot d \\cdot U_{B} \\cdot y_{1} : l^{2} = 4 \\cdot 0{,}040\\,\\mathrm{m} \\cdot 500\\,\\mathrm{V} \\cdot 0{,}020\\,\\mathrm{m} : (0{,}080\\,\\mathrm{m})^{2} = 250\\,\\mathrm{V}$."
       },
       {
         "type": "heading",
@@ -176,7 +176,7 @@
         "operator": "erlaeutern",
         "prompt": "In einem analogen Oszilloskop lenken zwei gekreuzte Plattenpaare den Elektronenstrahl ab. Erläutere, wie damit eine Wechselspannung als Kurve auf dem Schirm sichtbar wird.",
         "lines": 5,
-        "solution": "Die zu messende Spannung liegt an den Platten für die senkrechte Ablenkung: Weil y_S ~ U_A ist, entspricht die Höhe des Leuchtpunkts in jedem Moment der Spannung. An den Platten für die waagrechte Ablenkung liegt eine Sägezahnspannung, die den Punkt gleichmäßig von links nach rechts führt und dann zurückspringt; die waagrechte Richtung wird so zur Zeitachse. Durch die Trägheit des Leuchtschirms und des Auges entsteht eine stehende Kurve."
+        "solution": "Die zu messende Spannung liegt an den Platten für die senkrechte Ablenkung: Weil $y_{S} \\sim U_{A}$ ist, entspricht die Höhe des Leuchtpunkts in jedem Moment der Spannung. An den Platten für die waagrechte Ablenkung liegt eine Sägezahnspannung, die den Punkt gleichmäßig von links nach rechts führt und dann zurückspringt; die waagrechte Richtung wird so zur Zeitachse. Durch die Trägheit des Leuchtschirms und des Auges entsteht eine stehende Kurve."
       }
     ]
   }

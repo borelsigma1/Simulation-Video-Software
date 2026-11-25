@@ -1,6 +1,7 @@
 <!-- Arbeitsblatt bearbeiten: Bausteine hinzufügen, ordnen, ausfüllen. -->
 <script lang="ts">
   import type { SimDef } from '../sim/types';
+  import { plainMath, symTex } from '../tex/tex';
   import { OPERATORS, operatorByKey, splitOperator } from '../worksheet/operators';
   import { BLOCK_NAMES, isTask, taskNumbers, type Block, type BlockType, type TableBlock, type Worksheet } from '../worksheet/types';
 
@@ -104,7 +105,8 @@
     const p = def.params.find((x) => x.key === key);
     const m = def.measures.find((x) => x.key === key);
     if (s && (!c.label.trim() || c.label === 'Größe')) {
-      c.label = p?.symbol ?? m?.symbol ?? s.label;
+      const sym = p?.symbol ?? m?.symbol;
+      c.label = sym ? `$${symTex(sym)}$` : s.label;
       c.unit = s.unit;
     }
   }
@@ -176,7 +178,7 @@
               <span class="lbl">Spalten</span>
               {#each b.columns as c, ci (c.key)}
                 <div class="colrow">
-                  <input class="field" bind:value={c.label} placeholder="Formelzeichen, z. B. T" aria-label="Beschriftung" />
+                  <input class="field" bind:value={c.label} placeholder="z. B. $T^2$ oder Masse" aria-label="Beschriftung" />
                   <input class="field unit" bind:value={c.unit} placeholder="Einheit" aria-label="Einheit" />
                   <select class="field" value={c.source ?? ''} onchange={(e) => setSource(c, e.currentTarget.value)} aria-label="Herkunft der Werte">
                     <option value="">von Hand ausfüllen</option>
@@ -251,20 +253,20 @@
                     }}
                   >
                     {#each tables as tb (tb.id)}
-                      <option value={tb.id}>Aufgabe {numbers[worksheet.blocks.indexOf(tb)]}: {tb.columns.map((c) => c.label).join(', ')}</option>
+                      <option value={tb.id}>Aufgabe {numbers[worksheet.blocks.indexOf(tb)]}: {tb.columns.map((c) => plainMath(c.label)).join(', ')}</option>
                     {/each}
                   </select>
                 </label>
                 <label>
                   Rechtsachse
                   <select class="field" bind:value={b.x}>
-                    {#each t?.columns ?? [] as c (c.key)}<option value={c.key}>{c.label || '(ohne Namen)'}</option>{/each}
+                    {#each t?.columns ?? [] as c (c.key)}<option value={c.key}>{plainMath(c.label) || '(ohne Namen)'}</option>{/each}
                   </select>
                 </label>
                 <label>
                   Hochachse
                   <select class="field" bind:value={b.y}>
-                    {#each t?.columns ?? [] as c (c.key)}<option value={c.key}>{c.label || '(ohne Namen)'}</option>{/each}
+                    {#each t?.columns ?? [] as c (c.key)}<option value={c.key}>{plainMath(c.label) || '(ohne Namen)'}</option>{/each}
                   </select>
                 </label>
               </div>

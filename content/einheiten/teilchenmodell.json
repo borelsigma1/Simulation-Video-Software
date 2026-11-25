@@ -21,7 +21,7 @@
     "blocks": [
       {
         "type": "text",
-        "text": "Im Teilchenmodell besteht ein Gas aus sehr vielen kleinen Teilchen, die sich ständig ungeordnet bewegen. Die Simulation zeigt einen winzigen Ausschnitt, stark vergrößert und verlangsamt.\n\nDie absolute Temperatur **T** wird in Kelvin gemessen: T in K = ϑ in °C + 273."
+        "text": "Im Teilchenmodell besteht ein Gas aus sehr vielen kleinen Teilchen, die sich ständig ungeordnet bewegen. Die Simulation zeigt einen winzigen Ausschnitt, stark vergrößert und verlangsamt.\n\nDie absolute Temperatur **$T$** wird in Kelvin gemessen: $T$ in $\\mathrm{K}$ $= \\vartheta$ in $\\mathrm{{}^{\\circ}C} + 273$."
       },
       {
         "type": "heading",
@@ -51,58 +51,58 @@
         "type": "table",
         "id": "temp",
         "operator": "untersuchen",
-        "prompt": "Untersuche, wie die mittlere Geschwindigkeit und die Zahl der Wandstöße von der Temperatur abhängen. Warte nach jeder Änderung einige Sekunden. Berechne v².",
+        "prompt": "Untersuche, wie die mittlere Geschwindigkeit und die Zahl der Wandstöße von der Temperatur abhängen. Warte nach jeder Änderung einige Sekunden. Berechne $v^{2}$.",
         "columns": [
           {
             "key": "TK",
-            "label": "T",
+            "label": "$T$",
             "unit": "K",
             "source": "TK"
           },
           {
             "key": "v",
-            "label": "v",
+            "label": "$v$",
             "unit": "m/s",
             "source": "v"
           },
           {
             "key": "v2",
-            "label": "v²",
+            "label": "$v^2$",
             "unit": "m²/s²"
           },
           {
             "key": "Z",
-            "label": "Z",
+            "label": "$Z$",
             "unit": "1/s",
             "source": "Z"
           }
         ],
         "rows": 6,
-        "solution": "73 K: 235 m/s (55 000 m²/s²); 173 K: 362 (131 000); 293 K: 471 (222 000); 473 K: 598 (358 000); 673 K: 713 (509 000); 873 K: 812 (660 000). Die Zahl der Wandstöße steigt mit der Temperatur (im gleichen Verhältnis wie v)."
+        "solution": "$73\\,\\mathrm{K}$: $235\\,\\mathrm{m/s}$ ($55\\,000\\,\\mathrm{m^{2}/s^{2}}$); $173\\,\\mathrm{K}$: 362 (131 000); $293\\,\\mathrm{K}$: 471 (222 000); $473\\,\\mathrm{K}$: 598 (358 000); $673\\,\\mathrm{K}$: 713 (509 000); $873\\,\\mathrm{K}$: 812 (660 000). Die Zahl der Wandstöße steigt mit der Temperatur (im gleichen Verhältnis wie $v$)."
       },
       {
         "type": "chart",
         "id": "temp-dia",
         "operator": "darstellen",
-        "prompt": "Stelle v² in Abhängigkeit von der absoluten Temperatur T in einem Diagramm dar und zeichne eine Ausgleichsgerade ein.",
+        "prompt": "Stelle $v^{2}$ in Abhängigkeit von der absoluten Temperatur $T$ in einem Diagramm dar und zeichne eine Ausgleichsgerade ein.",
         "table": "temp",
         "x": "TK",
         "y": "v2",
         "fit": true,
-        "solution": "Ursprungsgerade: v² ist proportional zu T."
+        "solution": "Ursprungsgerade: $v^{2}$ ist proportional zu $T$."
       },
       {
         "type": "question",
         "id": "deutung",
         "operator": "deuten",
-        "prompt": "Die Bewegungsenergie eines Teilchens ist E_kin = ½ · m · v². Deute dein Diagramm: Was gibt die Temperatur eines Gases im Teilchenmodell an?",
+        "prompt": "Die Bewegungsenergie eines Teilchens ist $E_{\\mathrm{kin}} = \\tfrac{1}{2} \\cdot m \\cdot v^{2}$. Deute dein Diagramm: Was gibt die Temperatur eines Gases im Teilchenmodell an?",
         "lines": 4,
-        "solution": "Da v² proportional zu T ist, ist auch die mittlere Bewegungsenergie der Teilchen proportional zur absoluten Temperatur. Die Temperatur ist ein Maß für die mittlere Bewegungsenergie der Teilchen. Erwärmen heißt: Die Teilchen werden im Mittel schneller, die innere Energie nimmt zu."
+        "solution": "Da $v^{2}$ proportional zu $T$ ist, ist auch die mittlere Bewegungsenergie der Teilchen proportional zur absoluten Temperatur. Die Temperatur ist ein Maß für die mittlere Bewegungsenergie der Teilchen. Erwärmen heißt: Die Teilchen werden im Mittel schneller, die innere Energie nimmt zu."
       },
       {
         "type": "choice",
         "id": "null",
-        "prompt": "Was bedeutet der absolute Nullpunkt (0 K = −273 °C) im Teilchenmodell?",
+        "prompt": "Was bedeutet der absolute Nullpunkt ($0\\,\\mathrm{K} = -273\\,\\mathrm{{}^{\\circ}C}$) im Teilchenmodell?",
         "options": [
           "Die Teilchen sind am schnellsten.",
           "Die Teilchen hätten keine Bewegungsenergie mehr; tiefer geht es nicht.",
@@ -121,7 +121,7 @@
         "type": "question",
         "id": "dose",
         "operator": "erklaeren",
-        "prompt": "Auf Spraydosen steht: „Nicht über 50 °C erwärmen.“ Erkläre mit deinen Beobachtungen zu den Wandstößen, warum eine erhitzte Dose platzen kann.",
+        "prompt": "Auf Spraydosen steht: „Nicht über $50\\,\\mathrm{{}^{\\circ}C}$ erwärmen.“ Erkläre mit deinen Beobachtungen zu den Wandstößen, warum eine erhitzte Dose platzen kann.",
         "lines": 3,
         "solution": "Bei höherer Temperatur sind die Teilchen schneller. Sie treffen häufiger und heftiger auf die Wand der Dose. Dadurch steigt der Druck im Inneren, bis die Dose ihm nicht mehr standhält."
       },
@@ -139,7 +139,7 @@
         "operator": "nennen",
         "prompt": "Nenne zwei Punkte, in denen die Simulation ein echtes Gas vereinfacht.",
         "lines": 3,
-        "solution": "Zum Beispiel: Die Teilchen stoßen in der Simulation nicht miteinander zusammen. Es sind viel weniger Teilchen (in 1 cm³ Luft etwa 10¹⁹). Die Bewegung ist nur zweidimensional und stark verlangsamt. Die Teilchen sind als Kugeln dargestellt und viel zu groß im Vergleich zu ihrem Abstand."
+        "solution": "Zum Beispiel: Die Teilchen stoßen in der Simulation nicht miteinander zusammen. Es sind viel weniger Teilchen (in $1\\,\\mathrm{cm^{3}}$ Luft etwa $10^{19}$). Die Bewegung ist nur zweidimensional und stark verlangsamt. Die Teilchen sind als Kugeln dargestellt und viel zu groß im Vergleich zu ihrem Abstand."
       }
     ]
   }

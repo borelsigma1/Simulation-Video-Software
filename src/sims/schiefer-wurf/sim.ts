@@ -4,6 +4,7 @@
  */
 import { niceStep } from '../../lib/engine/canvas';
 import { arrow, box, disc, fmt, label, line, paper, polyline } from '../../lib/engine/draw';
+import { grip, Handles, point } from '../../lib/engine/handles';
 import { theme } from '../../lib/engine/theme';
 import type { SimDef, Stage } from '../../lib/sim/types';
 import { kennwerte, stateAt, type WurfParams } from './model';
@@ -18,6 +19,7 @@ export const sim: SimDef = {
   id: 'wurf',
   title: 'Wurfbewegung',
   summary: 'Abwurfgeschwindigkeit, Winkel und Höhe einstellen, Bahnkurven vergleichen, Geschwindigkeit in Komponenten zerlegen.',
+  hint: 'Vor dem Abwurf: Die Spitze des Geschwindigkeitspfeils lässt sich ziehen (Betrag und Richtung), die Kugel selbst nach oben und unten (Abwurfhöhe).',
   animated: true,
   playLabel: 'Abwerfen',
   thumbTime: 0.75,
@@ -86,7 +88,10 @@ export const sim: SimDef = {
       return { scale, ox: M.l, oy: g.h - M.b };
     }
 
+    const hs = new Handles();
+    const editable = () => t === 0 && !env.isRunning();
     return {
+      pointer: (kind, x, y) => (editable() ? hs.pointer(kind, x, y) : undefined),
       reset() {
         if (show.spuren && buf.x.length > 1 && t > 0)
           old = [...old.slice(-4), { x: buf.x.slice(), y: buf.y.slice(), text: `${fmt(par.angleDeg, 0)}°, ${fmt(par.v0, 1)} m/s` }];
@@ -204,8 +209,35 @@ export const sim: SimDef = {
           }
           label(ctx, `Wurfweite ${fmt(k.wurfweite, 2)} m`, bx - 14, by - 14, { align: 'right', size: 12, bold: true });
         }
+        // Vor dem Abwurf: Pfeilspitze ziehen (Geschwindigkeit und Winkel), Kugel ziehen (Abwurfhöhe)
+        const vs = (Math.min(w, h) * 0.5) / 30;
+        hs.begin();
+        if (editable()) {
+          if (env.canSet('v0') || env.canSet('alpha')) {
+            const a0 = (par.angleDeg * Math.PI) / 180;
+            const tx = bx + Math.cos(a0) * par.v0 * vs;
+            const ty = by - Math.sin(a0) * par.v0 * vs;
+            const hv = hs.add({
+              dist: point(tx, ty),
+              radius: 18,
+              cursor: 'crosshair',
+              drag: (x, y) => {
+                const dx = x - bx;
+                const dy = by - y;
+                if (env.canSet('alpha')) {
+                  env.set('alpha', (Math.atan2(Math.max(dy, 0), Math.max(dx, 0)) * 180) / Math.PI);
+                  env.set('v0', Math.hypot(Math.max(dx, 0), Math.max(dy, 0)) / vs);
+                } else env.set('v0', Math.max(dx, 0) / Math.cos(a0) / vs);
+              }
+            });
+            grip(ctx, tx, ty, 'hv', hs.isHover(hv));
+          }
+          if (env.canSet('h0')) {
+            const hh = hs.add({ dist: point(bx, by), radius: 14, cursor: 'ns-resize', drag: (_x, y) => env.set('h0', (oy - y) / scale) });
+            if (hs.isHover(hh)) grip(ctx, bx - 26, by, 'v', true);
+          }
+        }
         if (show.vektoren && !landed) {
-          const vs = (Math.min(w, h) * 0.22) / Math.max(par.v0, 1);
           arrow(ctx, bx, by, bx + s.vx * vs, by, theme.velocityX, 2);
           arrow(ctx, bx, by, bx, by - s.vy * vs, theme.velocityY, 2);
           arrow(ctx, bx, by, bx + s.vx * vs, by - s.vy * vs, theme.velocity, 3);

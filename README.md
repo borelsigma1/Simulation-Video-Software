@@ -10,13 +10,24 @@ Läuft komplett im Browser, auch auf Tablets, und speichert keine Schülerdaten.
 
 - **Startseite** mit Auswahl der Jahrgangsstufe. Jede Lerneinheit besteht aus einer Simulation und einem
   Arbeitsblatt, optional einem Video.
-- **Arbeitsblätter** zum Ausfüllen im Browser: Aufgaben mit Operatoren (gelb markiert, Antippen zeigt die
-  Bedeutung), Wertetabellen mit Übernahme der Messwerte aus der Simulation, Diagramme aus den eigenen
-  Messwerten mit Ausgleichsgerade, Auswahlaufgaben, Bild der Simulation, PDF-Export.
+- **Lerneinheit mit geteiltem Bildschirm**: links das Experiment (Zeichnung, darunter kompakt Regler und
+  Diagramm, ohne Scrollen), rechts das Arbeitsblatt mit eigener Bildlaufleiste. Auf schmalen oder
+  hochkant gehaltenen Bildschirmen wechselt man über zwei Reiter „Experiment“ und „Arbeitsblatt“.
+- **Direkt in der Zeichnung bedienen**: Wo es sinnvoll ist, lassen sich Gegenstände ziehen oder antippen
+  (Linse, Schatten, Federkraftmesser, Energiebahn, Wurf, Stoß, Kreisbewegung, Potentialtopf, Kondensator,
+  Dichte, Federpendel, Doppelspalt, Schaltungen). Ein „i“ in der Zeichnung erklärt, was geht.
+- **Arbeitsblätter** zum Ausfüllen im Browser: Aufgaben mit Operatoren nach bayerischem Katalog,
+  Wertetabellen mit Übernahme der Messwerte aus der Simulation, Diagramme aus den eigenen Messwerten mit
+  Ausgleichsgerade, Auswahlaufgaben, Bild der Simulation, PDF-Export im Stil der Webseite.
+- **Formelsatz mit KaTeX**: In Inhaltsdateien steht Mathematik zwischen Dollarzeichen, z. B.
+  `$E_{\mathrm{kin}} = \tfrac{1}{2}\,m\,v^2$`. Formelzeichen, Einheiten und Zahlen der Simulationen werden
+  automatisch gesetzt.
+- **Schrödinger-Labore** (Jgst. 13): stationäre Schrödingergleichung in sieben Potenzialen und das
+  Wasserstoffatom mit radialer Welle, Ebene und Orbitalen in 3D.
 - **Lehrkraft-Modus** (`#/lehrkraft`): Lerneinheiten bearbeiten, duplizieren, neu anlegen, exportieren und
   importieren, ohne Code anzufassen.
 
-Lerneinheiten (je drei pro Jahrgangsstufe, nach LehrplanPLUS):
+Lerneinheiten (nach LehrplanPLUS):
 
 | Jgst. | Einheiten |
 | --- | --- |
@@ -26,7 +37,7 @@ Lerneinheiten (je drei pro Jahrgangsstufe, nach LehrplanPLUS):
 | 10 | Stöße und Impulserhaltung · Waagrechter Wurf · Radioaktiver Zerfall |
 | 11 | Kreisbewegung · Federpendel · Licht am Doppelspalt |
 | 12 | Elektronen im Querfeld · Fadenstrahlrohr · Kondensator laden und entladen |
-| 13 | Doppelspalt mit Elektronen · Potentialtopf · Zerfallsgesetz und C-14 |
+| 13 | Doppelspalt mit Elektronen · Potentialtopf · Zerfallsgesetz und C-14 · Schrödinger-Labor · Wasserstoffatom |
 
 ## Starten
 
@@ -86,7 +97,12 @@ einem öffentlichen Repository aber grundsätzlich auffindbar.
   Dadurch funktioniert alles auf GitHub Pages, eingebettet und später in der App.
 - **Canvas 2D** für Simulationen und Diagramme. Feste Zeitschrittweite (240 Rechenschritte pro Sekunde),
   gezeichnet wird im Bildschirmtakt.
-- **jsPDF** für den PDF-Export, wird erst beim Klick geladen.
+- **KaTeX** für Formeln auf der Seite.
+- **PDF-Export**: Das Blatt wird unsichtbar als HTML im Stil der Seite gesetzt und dann mit jsPDF und
+  svg2pdf.js als Vektor-PDF nachgezeichnet (eingebettete Schriften, Formeln in KaTeX-Schriften). Das Modul
+  wird erst beim Klick geladen. Die Schriften dafür liegen als TTF in `src/lib/worksheet/pdf-fonts/`.
+- **Schrödinger-Labore** (`src/labs/schroedinger/`) laufen in einem Shadow-DOM und werden erst beim Öffnen
+  geladen.
 - Schriften liegen im Projekt (keine Abrufe bei Google o. Ä.).
 
 ```
@@ -98,6 +114,7 @@ src/
     ui/          Regler, Schalter, Start/Pause, Anzeigen
     measure/     Messwert-Schnittstelle zwischen Simulation und Arbeitsblatt
     worksheet/   Arbeitsblatt-Format, Operatoren, Anzeige, PDF-Export
+    tex/         Formelsatz (KaTeX), Formelzeichen und Einheiten nach TeX
     content/     Lerneinheiten laden, prüfen, Entwürfe
     editor/      Formulare des Lehrkraft-Modus, Veröffentlichen über GitHub
     video/       Video-Bereich (eigene Datei oder YouTube mit Zwei-Klick-Lösung)

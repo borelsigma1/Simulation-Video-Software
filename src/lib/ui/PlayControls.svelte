@@ -13,7 +13,7 @@
   let { running, finished = false, speed, onplay, onreset, onstep, onspeed, playLabel = 'Start' }: Props = $props();
 </script>
 
-<button class="btn primary play" onclick={onplay} aria-pressed={running}>
+<button class="btn small primary play" onclick={onplay} aria-pressed={running}>
   {#if running}
     <svg width="14" height="14" viewBox="0 0 14 14" aria-hidden="true"><rect x="2" y="1" width="3.5" height="12" fill="currentColor" /><rect x="8.5" y="1" width="3.5" height="12" fill="currentColor" /></svg>
     Pause
@@ -26,12 +26,12 @@
   {/if}
 </button>
 {#if onstep}
-  <button class="btn" onclick={onstep} disabled={running || finished} title="Einen Zeitschritt weiter">Schritt</button>
+  <button class="btn small" onclick={onstep} disabled={running || finished} title="Einen Zeitschritt weiter">Schritt</button>
 {/if}
-<button class="btn" onclick={onreset}>Zurücksetzen</button>
+<button class="btn small" onclick={onreset}>Zurücksetzen</button>
 <label>
   <span class="visually-hidden">Geschwindigkeit</span>
-  <select class="btn" value={speed} onchange={(e) => onspeed(Number(e.currentTarget.value))} title="Zeitlupe">
+  <select class="btn small" value={speed} onchange={(e) => onspeed(Number(e.currentTarget.value))} title="Zeitlupe">
     <option value={1}>Echtzeit</option>
     <option value={0.5}>Zeitlupe ½×</option>
     <option value={0.25}>Zeitlupe ¼×</option>
@@ -41,6 +41,6 @@
 
 <style>
   .play {
-    min-width: 7.5em;
+    min-width: 6.8em;
   }
 </style>

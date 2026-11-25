@@ -3,6 +3,7 @@
  * Kernschatten, Halbschatten und beleuchtete Bereiche auf dem Schirm.
  */
 import { box, disc, fmt, label, line, paper } from '../lib/engine/draw';
+import { grip, Handles, point, rect } from '../lib/engine/handles';
 import { theme } from '../lib/engine/theme';
 import type { SimDef } from '../lib/sim/types';
 
@@ -46,6 +47,7 @@ export const sim: SimDef = {
     { key: 'namen', label: 'Schattenbereiche beschriften', value: true }
   ],
   plots: [],
+  hint: 'In der Zeichnung lassen sich die Lampen (nach oben und unten), das Hindernis (seitlich, an der Oberkante in der Breite) und der Schirm verschieben.',
   measures: [
     { key: 'kern', label: 'Breite des Kernschattens', symbol: 'b_K', unit: 'cm', digits: 1 },
     { key: 'gesamt', label: 'Breite des gesamten Schattens', symbol: 'b_ges', unit: 'cm', digits: 1 }
@@ -54,8 +56,10 @@ export const sim: SimDef = {
   create(env) {
     const { p, show } = env;
     const geo = () => schatten(p.a, p.b, p.dL, p.dS, show.zwei);
+    const hs = new Handles();
     return {
       reset() {},
+      pointer: (kind, x, y) => hs.pointer(kind, x, y),
       measure: () => ({ kern: geo().kern, gesamt: geo().gesamt }),
       draw(g) {
         const { ctx, w, h } = g;
@@ -115,6 +119,26 @@ export const sim: SimDef = {
           disc(ctx, X(0), Y(yl), 9, theme.light, theme.text, 1.5);
           label(ctx, show.zwei ? `L_${i + 1}` : 'L', X(0) - 14, Y(yl) + 5, { align: 'right', size: 14, bold: true });
         });
+
+        // Anfasser
+        hs.begin();
+        if (env.canSet('a') && show.zwei) {
+          const ha = hs.add({ dist: point(X(0), Y(p.a / 2)), radius: 16, cursor: 'ns-resize', drag: (_x, y) => env.set('a', 2 * Math.abs(cy - y) / scale) });
+          hs.add({ dist: point(X(0), Y(-p.a / 2)), radius: 16, cursor: 'ns-resize', drag: (_x, y) => env.set('a', 2 * Math.abs(cy - y) / scale) });
+          if (hs.isHover(ha)) grip(ctx, X(0), Y(p.a / 2) - 20, 'v', true);
+        }
+        if (env.canSet('b')) {
+          const hb = hs.add({ dist: point(X(p.dL), Y(p.b / 2)), radius: 12, cursor: 'ns-resize', drag: (_x, y) => env.set('b', 2 * Math.abs(cy - y) / scale) });
+          grip(ctx, X(p.dL), Y(p.b / 2), 'v', hs.isHover(hb));
+        }
+        if (env.canSet('dL')) {
+          const hd = hs.add({ dist: rect(X(p.dL) - 6, Y(p.b / 2) + 10, 12, p.b * scale - 10), radius: 8, cursor: 'ew-resize', drag: (x) => env.set('dL', (x - ox) / scale) });
+          grip(ctx, X(p.dL), cy, 'h', hs.isHover(hd));
+        }
+        if (env.canSet('dS')) {
+          const hS = hs.add({ dist: rect(X(xs) - 4, 10, 8, h - 20), radius: 10, cursor: 'ew-resize', drag: (x) => env.set('dS', (x - ox) / scale - p.dL) });
+          grip(ctx, X(xs), 30, 'h', hs.isHover(hS));
+        }
 
         // Schirmansicht von vorn
         const sx = X(xs) + 16;

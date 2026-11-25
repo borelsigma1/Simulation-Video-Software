@@ -21,7 +21,7 @@
     "blocks": [
       {
         "type": "text",
-        "text": "Ein Körper der Masse **m** hängt an einer Feder der Härte **D**. Wird er um **s₀** aus der Ruhelage ausgelenkt und losgelassen, schwingt er. Du kannst den Körper auch direkt mit Maus oder Finger greifen.\n\nDie Simulation misst die **Periodendauer T** wie eine Stoppuhr an den Durchgängen durch die Ruhelage. Warte für einen genauen Wert einige Schwingungen ab."
+        "text": "Ein Körper der Masse **$m$** hängt an einer Feder der Härte **$D$**. Wird er um **$s_{0}$** aus der Ruhelage ausgelenkt und losgelassen, schwingt er. Du kannst den Körper auch direkt mit Maus oder Finger greifen.\n\nDie Simulation misst die **Periodendauer $T$** wie eine Stoppuhr an den Durchgängen durch die Ruhelage. Warte für einen genauen Wert einige Schwingungen ab."
       },
       {
         "type": "heading",
@@ -33,7 +33,7 @@
         "operator": "hypothese",
         "prompt": "Stelle Hypothesen auf, wie die Periodendauer von der Masse, der Federhärte und der Startauslenkung abhängt.",
         "lines": 3,
-        "solution": "Individuell. Fachlich: T wächst mit der Masse, sinkt mit der Federhärte und hängt nicht von der Amplitude ab."
+        "solution": "Individuell. Fachlich: $T$ wächst mit der Masse, sinkt mit der Federhärte und hängt nicht von der Amplitude ab."
       },
       {
         "type": "question",
@@ -41,85 +41,85 @@
         "operator": "planen",
         "prompt": "Plane eine Messreihe, mit der sich der Einfluss der Masse allein überprüfen lässt.",
         "lines": 3,
-        "solution": "Nur die Masse wird verändert; Federhärte, Dämpfung und Startauslenkung bleiben gleich (Variablenkontrolle). Für jede Masse werden einige Schwingungen abgewartet und T abgelesen."
+        "solution": "Nur die Masse wird verändert; Federhärte, Dämpfung und Startauslenkung bleiben gleich (Variablenkontrolle). Für jede Masse werden einige Schwingungen abgewartet und $T$ abgelesen."
       },
       {
         "type": "table",
         "id": "masse",
         "operator": "ermitteln",
-        "prompt": "Ermittle für D = 20 N/m und fünf verschiedene Massen die Periodendauer. Berechne jeweils T².",
+        "prompt": "Ermittle für $D = 20\\,\\mathrm{N/m}$ und fünf verschiedene Massen die Periodendauer. Berechne jeweils $T^{2}$.",
         "columns": [
           {
             "key": "m",
-            "label": "m",
+            "label": "$m$",
             "unit": "kg",
             "source": "m"
           },
           {
             "key": "T",
-            "label": "T",
+            "label": "$T$",
             "unit": "s",
             "source": "T"
           },
           {
             "key": "T2",
-            "label": "T²",
+            "label": "$T^2$",
             "unit": "s²"
           }
         ],
         "rows": 5,
-        "solution": "m = 0,20 kg: 0,628 s (0,395 s²); 0,40 kg: 0,889 s (0,790 s²); 0,60 kg: 1,088 s (1,18 s²); 0,80 kg: 1,257 s (1,58 s²); 1,00 kg: 1,405 s (1,97 s²)."
+        "solution": "$m = 0{,}20\\,\\mathrm{kg}$: $0{,}628\\,\\mathrm{s}$ ($0{,}395\\,\\mathrm{s^{2}}$); $0{,}40\\,\\mathrm{kg}$: $0{,}889\\,\\mathrm{s}$ ($0{,}790\\,\\mathrm{s^{2}}$); $0{,}60\\,\\mathrm{kg}$: $1{,}088\\,\\mathrm{s}$ ($1{,}18\\,\\mathrm{s^{2}}$); $0{,}80\\,\\mathrm{kg}$: $1{,}257\\,\\mathrm{s}$ ($1{,}58\\,\\mathrm{s^{2}}$); $1{,}00\\,\\mathrm{kg}$: $1{,}405\\,\\mathrm{s}$ ($1{,}97\\,\\mathrm{s^{2}}$)."
       },
       {
         "type": "chart",
         "id": "masse-dia",
         "operator": "darstellen",
-        "prompt": "Stelle T² in Abhängigkeit von der Masse in einem Diagramm dar und zeichne eine Ausgleichsgerade ein.",
+        "prompt": "Stelle $T^{2}$ in Abhängigkeit von der Masse in einem Diagramm dar und zeichne eine Ausgleichsgerade ein.",
         "table": "masse",
         "x": "m",
         "y": "T2",
         "fit": true,
-        "solution": "Ursprungsgerade mit der Steigung 1,97 s²/kg."
+        "solution": "Ursprungsgerade mit der Steigung $1{,}97\\,\\mathrm{s^{2}/kg}$."
       },
       {
         "type": "question",
         "id": "auswertung",
         "operator": "auswerten",
-        "prompt": "Werte das Diagramm aus: Formuliere den Zusammenhang zwischen T und m und vergleiche die Steigung der Ausgleichsgeraden mit dem Term 4π² : D.",
+        "prompt": "Werte das Diagramm aus: Formuliere den Zusammenhang zwischen $T$ und $m$ und vergleiche die Steigung der Ausgleichsgeraden mit dem Term $4\\pi ^{2} : D$.",
         "lines": 4,
-        "solution": "T² ist direkt proportional zu m, also T ~ √m: Für die doppelte Periodendauer braucht man die vierfache Masse. Steigung 1,97 s²/kg; 4π² : D = 39,5 : 20 N/m = 1,97 s²/kg. Das passt zu T = 2π · √(m/D)."
+        "solution": "$T^{2}$ ist direkt proportional zu $m$, also $T \\sim \\sqrt{m}$: Für die doppelte Periodendauer braucht man die vierfache Masse. Steigung $1{,}97\\,\\mathrm{s^{2}/kg}$; $4\\pi ^{2} : D = 39{,}5 : 20\\,\\mathrm{N/m} = 1{,}97\\,\\mathrm{s^{2}/kg}$. Das passt zu $T = 2\\pi \\cdot \\sqrt{m/D}$."
       },
       {
         "type": "table",
         "id": "haerte",
         "operator": "untersuchen",
-        "prompt": "Untersuche den Einfluss der Federhärte auf die Periodendauer bei m = 0,50 kg.",
+        "prompt": "Untersuche den Einfluss der Federhärte auf die Periodendauer bei $m = 0{,}50\\,\\mathrm{kg}$.",
         "columns": [
           {
             "key": "D",
-            "label": "D",
+            "label": "$D$",
             "unit": "N/m",
             "source": "D"
           },
           {
             "key": "T",
-            "label": "T",
+            "label": "$T$",
             "unit": "s",
             "source": "T"
           }
         ],
         "rows": 4,
-        "solution": "D = 5 N/m: 1,987 s; 20 N/m: 0,993 s; 45 N/m: 0,662 s; 80 N/m: 0,497 s. Vierfache Federhärte halbiert die Periodendauer: T ~ 1/√D."
+        "solution": "$D = 5\\,\\mathrm{N/m}$: $1{,}987\\,\\mathrm{s}$; $20\\,\\mathrm{N/m}$: $0{,}993\\,\\mathrm{s}$; $45\\,\\mathrm{N/m}$: $0{,}662\\,\\mathrm{s}$; $80\\,\\mathrm{N/m}$: $0{,}497\\,\\mathrm{s}$. Vierfache Federhärte halbiert die Periodendauer: $T \\sim 1/\\sqrt{D}$."
       },
       {
         "type": "choice",
         "id": "amplitude",
-        "prompt": "Die Startauslenkung wird von 10 cm auf 20 cm verdoppelt (ohne Dämpfung). Was gilt für die Periodendauer? Überprüfe deine Antwort in der Simulation.",
+        "prompt": "Die Startauslenkung wird von $10\\,\\mathrm{cm}$ auf $20\\,\\mathrm{cm}$ verdoppelt (ohne Dämpfung). Was gilt für die Periodendauer? Überprüfe deine Antwort in der Simulation.",
         "options": [
           "Sie verdoppelt sich, weil der Weg doppelt so lang ist.",
           "Sie bleibt gleich.",
           "Sie halbiert sich, weil der Körper schneller ist.",
-          "Sie wird √2-mal so groß."
+          "Sie wird $\\sqrt{2}$-mal so groß."
         ],
         "correct": [
           1
@@ -134,15 +134,15 @@
         "type": "question",
         "id": "phasen",
         "operator": "vergleichen",
-        "prompt": "Vergleiche die Diagramme s(t), v(t) und a(t): Gib an, wo sich der Körper befindet, wenn der Betrag der Geschwindigkeit bzw. der Beschleunigung maximal ist.",
+        "prompt": "Vergleiche die Diagramme $s(t)$, $v(t)$ und $a(t)$: Gib an, wo sich der Körper befindet, wenn der Betrag der Geschwindigkeit bzw. der Beschleunigung maximal ist.",
         "lines": 4,
-        "solution": "Alle drei Größen verlaufen sinusförmig mit derselben Periodendauer. Die Geschwindigkeit ist beim Durchgang durch die Ruhelage (s = 0) betragsmäßig am größten und in den Umkehrpunkten null. Die Beschleunigung ist in den Umkehrpunkten betragsmäßig am größten und in der Ruhelage null; sie ist stets der Auslenkung entgegengerichtet (a ~ −s)."
+        "solution": "Alle drei Größen verlaufen sinusförmig mit derselben Periodendauer. Die Geschwindigkeit ist beim Durchgang durch die Ruhelage ($s = 0$) betragsmäßig am größten und in den Umkehrpunkten null. Die Beschleunigung ist in den Umkehrpunkten betragsmäßig am größten und in der Ruhelage null; sie ist stets der Auslenkung entgegengerichtet ($a$ ~ −s)."
       },
       {
         "type": "question",
         "id": "kraft",
         "operator": "erklaeren",
-        "prompt": "Blende den Kraftpfeil ein. Erkläre mit dem Kraftgesetz F = −D · s, warum der Körper über die Ruhelage hinausschwingt und wieder umkehrt.",
+        "prompt": "Blende den Kraftpfeil ein. Erkläre mit dem Kraftgesetz $F = -D \\cdot s$, warum der Körper über die Ruhelage hinausschwingt und wieder umkehrt.",
         "lines": 4,
         "solution": "Die rücktreibende Kraft zeigt immer zur Ruhelage und ist proportional zur Auslenkung. Sie beschleunigt den Körper zur Ruhelage hin. Dort ist die Kraft null, der Körper hat aber seine größte Geschwindigkeit und bewegt sich wegen seiner Trägheit weiter. Jenseits der Ruhelage wirkt die Kraft der Bewegung entgegen und bremst ihn bis zum Umkehrpunkt ab; dann beginnt der Vorgang in Gegenrichtung."
       },
@@ -162,7 +162,7 @@
         "type": "question",
         "id": "daempfung",
         "operator": "untersuchen",
-        "prompt": "Stelle die Dämpfung auf b = 0,2 kg/s. Untersuche, wie sich Amplitude, Periodendauer und Gesamtenergie verändern.",
+        "prompt": "Stelle die Dämpfung auf $b = 0{,}2\\,\\mathrm{kg/s}$. Untersuche, wie sich Amplitude, Periodendauer und Gesamtenergie verändern.",
         "lines": 4,
         "solution": "Die Amplitude nimmt von Schwingung zu Schwingung ab, anfangs schnell, dann immer langsamer (exponentiell). Die Periodendauer bleibt praktisch gleich. Die Gesamtenergie nimmt ab; sie wird durch Reibung in innere Energie umgewandelt."
       },
@@ -170,9 +170,9 @@
         "type": "question",
         "id": "praxis",
         "operator": "berechnen",
-        "prompt": "Ein Auto (Masse der Karosserie mit Insassen 1200 kg) ruht auf vier gleichen Federn und schwingt nach einer Bodenwelle mit T = 1,0 s. Berechne die Federhärte einer einzelnen Feder.",
+        "prompt": "Ein Auto (Masse der Karosserie mit Insassen $1200\\,\\mathrm{kg}$) ruht auf vier gleichen Federn und schwingt nach einer Bodenwelle mit $T = 1{,}0\\,\\mathrm{s}$. Berechne die Federhärte einer einzelnen Feder.",
         "lines": 4,
-        "solution": "Aus T = 2π · √(m/D) folgt D = 4π² · m : T² = 39,5 · 1200 kg : (1,0 s)² ≈ 47 000 N/m für alle vier Federn zusammen, also etwa 12 000 N/m = 12 kN/m je Feder."
+        "solution": "Aus $T = 2\\pi \\cdot \\sqrt{m/D}$ folgt $D = 4\\pi ^{2} \\cdot m : T^{2} = 39{,}5 \\cdot 1200\\,\\mathrm{kg} : (1{,}0\\,\\mathrm{s})^{2} \\approx 47\\,000\\,\\mathrm{N/m}$ für alle vier Federn zusammen, also etwa $12\\,000\\,\\mathrm{N/m} = 12\\,\\mathrm{kN/m}$ je Feder."
       }
     ]
   }

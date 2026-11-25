@@ -24,7 +24,7 @@
     "blocks": [
       {
         "type": "text",
-        "text": "Jeder rote Punkt steht für einen instabilen Atomkern. Wann ein bestimmter Kern zerfällt, lässt sich nicht vorhersagen. Die Simulation würfelt das für jeden Kern einzeln aus.\n\nDie **Halbwertszeit T½** ist die Zeit, nach der im Mittel die Hälfte der anfangs vorhandenen Kerne zerfallen ist. Die **Aktivität A** gibt an, wie viele Kerne pro Sekunde zerfallen."
+        "text": "Jeder rote Punkt steht für einen instabilen Atomkern. Wann ein bestimmter Kern zerfällt, lässt sich nicht vorhersagen. Die Simulation würfelt das für jeden Kern einzeln aus.\n\nDie **Halbwertszeit $T_{1/2}$** ist die Zeit, nach der im Mittel die Hälfte der anfangs vorhandenen Kerne zerfallen ist. Die **Aktivität A** gibt an, wie viele Kerne pro Sekunde zerfallen."
       },
       {
         "type": "heading",
@@ -34,7 +34,7 @@
         "type": "question",
         "id": "hyp",
         "operator": "hypothese",
-        "prompt": "Am Anfang sind 400 Kerne Radon-220 vorhanden, die Halbwertszeit beträgt 56 s. Stelle eine Hypothese auf, wie viele Kerne nach 56 s, 112 s und 168 s noch nicht zerfallen sind.",
+        "prompt": "Am Anfang sind 400 Kerne Radon-220 vorhanden, die Halbwertszeit beträgt $56\\,\\mathrm{s}$. Stelle eine Hypothese auf, wie viele Kerne nach $56\\,\\mathrm{s}$, $112\\,\\mathrm{s}$ und $168\\,\\mathrm{s}$ noch nicht zerfallen sind.",
         "lines": 2,
         "solution": "Individuell. Fachlich: etwa 200, 100 und 50. Häufige Fehlvorstellung: Nach zwei Halbwertszeiten sind alle Kerne zerfallen."
       },
@@ -46,25 +46,25 @@
         "columns": [
           {
             "key": "t",
-            "label": "t",
+            "label": "$t$",
             "unit": "s",
             "source": "t"
           },
           {
             "key": "N",
-            "label": "N",
+            "label": "$N$",
             "unit": "",
             "source": "N"
           }
         ],
         "rows": 8,
-        "solution": "Erwartungswerte (einzelne Messungen streuen darum): 0 s: 400; 30 s: 276; 60 s: 190; 90 s: 131; 120 s: 91; 150 s: 62; 180 s: 43; 210 s: 30."
+        "solution": "Erwartungswerte (einzelne Messungen streuen darum): $0\\,\\mathrm{s}$: 400; $30\\,\\mathrm{s}$: 276; $60\\,\\mathrm{s}$: 190; $90\\,\\mathrm{s}$: 131; $120\\,\\mathrm{s}$: 91; $150\\,\\mathrm{s}$: 62; $180\\,\\mathrm{s}$: 43; $210\\,\\mathrm{s}$: 30."
       },
       {
         "type": "chart",
         "id": "kurve-dia",
         "operator": "darstellen",
-        "prompt": "Stelle die Anzahl N in Abhängigkeit von der Zeit in einem Diagramm dar.",
+        "prompt": "Stelle die Anzahl $N$ in Abhängigkeit von der Zeit in einem Diagramm dar.",
         "table": "kurve",
         "x": "t",
         "y": "N",
@@ -77,7 +77,7 @@
         "operator": "bestimmen",
         "prompt": "Bestimme aus deinem Diagramm, nach welcher Zeit noch 200, 100 und 50 Kerne vorhanden sind. Vergleiche mit deiner Hypothese.",
         "lines": 3,
-        "solution": "Etwa nach 56 s, 112 s und 168 s (je nach Durchlauf einige Sekunden früher oder später). In gleichen Zeitabständen halbiert sich die Anzahl jeweils: Nach n Halbwertszeiten ist noch der Anteil (½)ⁿ vorhanden."
+        "solution": "Etwa nach $56\\,\\mathrm{s}$, $112\\,\\mathrm{s}$ und $168\\,\\mathrm{s}$ (je nach Durchlauf einige Sekunden früher oder später). In gleichen Zeitabständen halbiert sich die Anzahl jeweils: Nach $n$ Halbwertszeiten ist noch der Anteil $(\\tfrac{1}{2})^{n}$ vorhanden."
       },
       {
         "type": "heading",
@@ -102,11 +102,11 @@
       {
         "type": "choice",
         "id": "einzeln",
-        "prompt": "Ein bestimmter Radon-220-Kern hat bereits drei Halbwertszeiten „überlebt“. Wie groß ist die Wahrscheinlichkeit, dass er in den nächsten 56 s zerfällt?",
+        "prompt": "Ein bestimmter Radon-220-Kern hat bereits drei Halbwertszeiten „überlebt“. Wie groß ist die Wahrscheinlichkeit, dass er in den nächsten $56\\,\\mathrm{s}$ zerfällt?",
         "options": [
-          "Fast 100 %, er ist längst überfällig.",
-          "50 %",
-          "12,5 %",
+          "Fast $100\\,\\%$, er ist längst überfällig.",
+          "$50\\,\\%$",
+          "$12{,}5\\,\\%$",
           "Das lässt sich nicht angeben."
         ],
         "correct": [
@@ -122,7 +122,7 @@
         "type": "question",
         "id": "aktiv",
         "operator": "beschreiben",
-        "prompt": "Wähle das Diagramm A(t). Beschreibe den zeitlichen Verlauf der Aktivität und erkläre ihn.",
+        "prompt": "Wähle das Diagramm $A(t)$. Beschreibe den zeitlichen Verlauf der Aktivität und erkläre ihn.",
         "lines": 4,
         "solution": "Die Aktivität nimmt (mit Schwankungen) im selben Maß ab wie die Zahl der Kerne; nach einer Halbwertszeit ist auch sie etwa halb so groß. Erklärung: Jeder Kern zerfällt mit derselben Wahrscheinlichkeit pro Sekunde. Sind nur noch halb so viele Kerne da, zerfallen pro Sekunde nur noch halb so viele."
       },
@@ -132,7 +132,7 @@
         "operator": "vergleichen",
         "prompt": "Vergleiche die Aktivität zu Beginn für Radon-220 und Barium-137m bei jeweils 400 Kernen.",
         "lines": 3,
-        "solution": "Radon-220 (T½ = 56 s): etwa 5 Zerfälle pro Sekunde. Barium-137m (T½ = 153 s): etwa 1,8 pro Sekunde. Bei gleicher Anzahl von Kernen ist die Aktivität umso größer, je kürzer die Halbwertszeit ist."
+        "solution": "Radon-220 ($T_{1/2} = 56\\,\\mathrm{s}$): etwa 5 Zerfälle pro Sekunde. Barium-137m ($T_{1/2} = 153\\,\\mathrm{s}$): etwa $1{,}8$ pro Sekunde. Bei gleicher Anzahl von Kernen ist die Aktivität umso größer, je kürzer die Halbwertszeit ist."
       },
       {
         "type": "heading",
@@ -142,17 +142,17 @@
         "type": "question",
         "id": "iod",
         "operator": "berechnen",
-        "prompt": "Iod-131 hat eine Halbwertszeit von 8,0 Tagen. Berechne, welcher Anteil einer Probe nach 40 Tagen noch vorhanden ist und nach welcher Zeit weniger als 1 % übrig ist.",
+        "prompt": "Iod-131 hat eine Halbwertszeit von $8{,}0$ Tagen. Berechne, welcher Anteil einer Probe nach 40 Tagen noch vorhanden ist und nach welcher Zeit weniger als $1\\,\\%$ übrig ist.",
         "lines": 4,
-        "solution": "40 d = 5 Halbwertszeiten: (½)⁵ = 1/32 ≈ 3,1 %. Weniger als 1 %: (½)⁷ = 1/128 ≈ 0,8 %, also nach 7 Halbwertszeiten = 56 Tagen."
+        "solution": "$40\\,\\mathrm{d} = 5$ Halbwertszeiten: $(\\tfrac{1}{2})^{5} = 1/32 \\approx 3{,}1\\,\\%$. Weniger als $1\\,\\%$: $(\\tfrac{1}{2})^{7} = 1/128 \\approx 0{,}8\\,\\%$, also nach 7 Halbwertszeiten = 56 Tagen."
       },
       {
         "type": "question",
         "id": "endlager",
         "operator": "bewerten",
-        "prompt": "Plutonium-239 hat eine Halbwertszeit von 24 000 Jahren. Bewerte die Aussage: „Nach 24 000 Jahren ist das Problem mit dem Atommüll erledigt.“",
+        "prompt": "Plutonium-239 hat eine Halbwertszeit von 24 000 Jahren. Bewerte die Aussage: „Nach 24 000 Jahren ist das Problem mit dem Atommüll erledigt.“",
         "lines": 5,
-        "solution": "Fachlich: Nach einer Halbwertszeit ist erst die Hälfte zerfallen, die Aktivität ist nur halbiert. Bis auf ein Tausendstel dauert es zehn Halbwertszeiten, also 240 000 Jahre; zudem sind manche Zerfallsprodukte selbst radioaktiv. Bewertung: Die Aussage ist falsch. Eine sichere Lagerung muss über Zeiträume gewährleistet sein, die weit über jede menschliche Planungserfahrung hinausgehen; das ist ein gewichtiges Argument in der Diskussion um die Kernenergie."
+        "solution": "Fachlich: Nach einer Halbwertszeit ist erst die Hälfte zerfallen, die Aktivität ist nur halbiert. Bis auf ein Tausendstel dauert es zehn Halbwertszeiten, also 240 000 Jahre; zudem sind manche Zerfallsprodukte selbst radioaktiv. Bewertung: Die Aussage ist falsch. Eine sichere Lagerung muss über Zeiträume gewährleistet sein, die weit über jede menschliche Planungserfahrung hinausgehen; das ist ein gewichtiges Argument in der Diskussion um die Kernenergie."
       }
     ]
   }

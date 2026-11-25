@@ -1,0 +1,131 @@
+{
+  "id": "schroedinger-labor",
+  "title": "Schrödinger-Labor: Energieniveaus finden",
+  "grade": 13,
+  "order": 4,
+  "domain": "quanten",
+  "curriculum": "Ph13 Lernbereich 2: Atommodelle (Schrödingergleichung, quantisierte Energie in Potenzialtöpfen, Tunneleffekt)",
+  "summary": "Du suchst selbst die Energien, bei denen die Schrödingergleichung eine normierbare Lösung hat, und vergleichst Töpfe, Oszillator, Doppeltopf und Barriere.",
+  "video": {
+    "title": "",
+    "source": {
+      "kind": "none"
+    }
+  },
+  "sim": {
+    "id": "schroedinger-1d"
+  },
+  "worksheet": {
+    "title": "Schrödinger-Labor: Energieniveaus finden",
+    "subtitle": "Atommodelle · Jahrgangsstufe 13",
+    "blocks": [
+      {
+        "type": "text",
+        "text": "Für ein Elektron mit der Energie $E$ im Potenzial $V(x)$ gilt die stationäre Schrödingergleichung $-\\frac{\\hbar^2}{2m}\\,\\psi''(x) + V(x)\\,\\psi(x) = E\\,\\psi(x)$.\n\nDas Labor löst sie für **jede** Energie, die du einstellst, schrittweise von links nach rechts. Nur bei ganz bestimmten Energien ist die Lösung **normierbar**, also $\\int |\\psi|^2\\,\\mathrm{d}x = 1$. Das sind die Energieniveaus. Für Lichtquanten gilt $E = h\\cdot f$ mit $h\\cdot c = 1240\\,\\mathrm{eV\\cdot nm}$."
+      },
+      {
+        "type": "heading",
+        "text": "Das Verfahren am unendlichen Topf"
+      },
+      {
+        "type": "question",
+        "id": "rand",
+        "operator": "beschreiben",
+        "prompt": "Wähle den unendlichen Topf mit $L = 1{,}00\\,\\mathrm{nm}$. Verändere die Energie langsam von $0$ bis $2\\,\\mathrm{eV}$. Beschreibe, wie sich die Lösung $\\psi(x)$ an der rechten Wand verhält.",
+        "lines": 3,
+        "solution": "Bei fast allen Energien ist $\\psi$ an der rechten Wand nicht null; die Randbedingung ist verletzt. Nur bei einzelnen Energien ($0{,}376\\,\\mathrm{eV}$, $1{,}504\\,\\mathrm{eV}$ …) endet die Kurve genau in einem Knoten an der Wand. Zwischen zwei solchen Energien kommt eine Nullstelle im Inneren hinzu."
+      },
+      {
+        "type": "table",
+        "id": "niveaus",
+        "operator": "ermitteln",
+        "prompt": "Ermittle die ersten vier Energieniveaus für $L = 1{,}00\\,\\mathrm{nm}$ und speichere sie im Termschema. Berechne jeweils das Verhältnis $E_n : E_1$.",
+        "columns": [
+          {
+            "key": "n",
+            "label": "$n$",
+            "unit": ""
+          },
+          {
+            "key": "E",
+            "label": "$E_n$",
+            "unit": "eV"
+          },
+          {
+            "key": "q",
+            "label": "$E_n : E_1$",
+            "unit": ""
+          }
+        ],
+        "rows": 4,
+        "solution": "$n = 1$: $0{,}376\\,\\mathrm{eV}$; $n = 2$: $1{,}504\\,\\mathrm{eV}$ (4-fach); $n = 3$: $3{,}384\\,\\mathrm{eV}$ (9-fach); $n = 4$: $6{,}016\\,\\mathrm{eV}$ (16-fach). Also $E_n = n^2\\cdot E_1$."
+      },
+      {
+        "type": "question",
+        "id": "formel",
+        "operator": "begruenden",
+        "prompt": "Begründe mit der Bedingung, dass ganze Halbwellen in den Topf passen müssen, die Formel $E_n = \\frac{h^2}{8\\,m\\,L^2}\\cdot n^2$.",
+        "lines": 4,
+        "solution": "Stehende Welle mit Knoten an den Wänden: $L = n\\cdot\\frac{\\lambda_n}{2}$, also $\\lambda_n = \\frac{2L}{n}$. Mit de Broglie $p = \\frac{h}{\\lambda}$ und $E = \\frac{p^2}{2m}$ folgt $E_n = \\frac{h^2}{2m\\,\\lambda_n^2} = \\frac{h^2}{8\\,m\\,L^2}\\cdot n^2$."
+      },
+      {
+        "type": "heading",
+        "text": "Andere Potenziale"
+      },
+      {
+        "type": "choice",
+        "id": "endlich",
+        "operator": "vergleichen",
+        "prompt": "Wähle den endlichen Topf mit $L = 1{,}00\\,\\mathrm{nm}$ und $V_0 = 10\\,\\mathrm{eV}$ und suche die Niveaus. Vergleiche mit dem unendlichen Topf gleicher Breite.",
+        "options": [
+          "Alle Niveaus liegen etwas tiefer.",
+          "Die Niveaus liegen genau gleich.",
+          "Alle Niveaus liegen etwas höher.",
+          "Es gibt unendlich viele gebundene Niveaus."
+        ],
+        "correct": [
+          0
+        ],
+        "solution": "Die Wellenfunktion dringt in die Wände ein. Die Wellenlänge wird dadurch etwas größer, die Energie kleiner. Es gibt nur endlich viele gebundene Zustände (hier fünf)."
+      },
+      {
+        "type": "question",
+        "id": "eindringen",
+        "operator": "erklaeren",
+        "prompt": "Erkläre, warum $\\psi$ beim endlichen Topf in der Wand nicht sofort null ist, obwohl dort $E < V_0$ gilt.",
+        "lines": 3,
+        "solution": "In der Wand ist $E < V_0$; dort ist $\\psi'' = \\kappa^2\\,\\psi$ mit $\\kappa = \\frac{\\sqrt{2m(V_0-E)}}{\\hbar}$. Die Lösung klingt exponentiell ab, ist aber nicht sofort null. Klassisch wäre der Bereich verboten; quantenmechanisch ist die Aufenthaltswahrscheinlichkeit dort klein, aber nicht null."
+      },
+      {
+        "type": "question",
+        "id": "oszillator",
+        "operator": "vergleichen",
+        "prompt": "Wähle den harmonischen Oszillator mit $\\hbar\\omega = 1{,}5\\,\\mathrm{eV}$. Suche die ersten vier Niveaus und vergleiche ihre Abstände mit denen im unendlichen Topf.",
+        "lines": 3,
+        "solution": "Niveaus bei $0{,}75$, $2{,}25$, $3{,}75$, $5{,}25\\,\\mathrm{eV}$: gleiche Abstände $\\hbar\\omega$, $E_n = \\hbar\\omega\\,(n+\\tfrac12)$. Im unendlichen Topf wachsen die Abstände mit $n^2$."
+      },
+      {
+        "type": "question",
+        "id": "doppel",
+        "operator": "beschreiben",
+        "prompt": "Wähle den Doppeltopf. Beschreibe, wie sich die Niveaus anordnen, und wie sich das ändert, wenn du die Trennwand dicker machst.",
+        "lines": 3,
+        "solution": "Die Niveaus treten paarweise auf: Jedes Niveau des Einzeltopfs spaltet in einen symmetrischen (tiefer) und einen antisymmetrischen Zustand auf. Je dicker die Trennwand, desto kleiner die Aufspaltung ($\\propto e^{-\\kappa b}$). Das ist das Modell der chemischen Bindung."
+      },
+      {
+        "type": "question",
+        "id": "tunnel",
+        "operator": "untersuchen",
+        "prompt": "Wähle die Barriere mit $V_0 = 5\\,\\mathrm{eV}$ und $E = 3\\,\\mathrm{eV}$. Untersuche, wie der durchgelassene Anteil $T$ von der Dicke $d$ abhängt.",
+        "lines": 3,
+        "solution": "$T$ sinkt mit wachsender Dicke sehr schnell, näherungsweise exponentiell: $T \\approx e^{-2\\kappa d}$. Bei $d = 0{,}3\\,\\mathrm{nm}$ kommt noch ein merklicher Teil durch, bei $d = 1\\,\\mathrm{nm}$ praktisch nichts mehr. Klassisch käme bei $E < V_0$ nie etwas durch (Tunneleffekt)."
+      },
+      {
+        "type": "snapshot",
+        "id": "bild",
+        "operator": "angeben",
+        "prompt": "Füge ein Bild eines gebundenen Zustands deiner Wahl ein und gib an, welches Potenzial und welches $n$ zu sehen sind."
+      }
+    ]
+  }
+}

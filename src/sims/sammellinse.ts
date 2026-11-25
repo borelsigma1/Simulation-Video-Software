@@ -3,6 +3,7 @@
  * Für g > f entsteht ein reelles, für g < f ein virtuelles Bild.
  */
 import { arrow, disc, fmt, label, line, paper } from '../lib/engine/draw';
+import { grip, Handles, point } from '../lib/engine/handles';
 import { theme } from '../lib/engine/theme';
 import type { SimDef } from '../lib/sim/types';
 
@@ -30,6 +31,7 @@ export const sim: SimDef = {
     { key: 'masse', label: 'Bildweite und Bildgröße einzeichnen', value: false }
   ],
   plots: [],
+  hint: 'Gegenstand und Brennpunkt lassen sich in der Zeichnung mit Maus oder Finger verschieben: den Fuß des Pfeils waagrecht, die Spitze nach oben und unten, F seitlich.',
   measures: [
     { key: 'b', label: 'Bildweite (negativ: Bild auf der Gegenstandsseite)', symbol: 'b', unit: 'cm', digits: 1 },
     { key: 'B', label: 'Bildgröße', symbol: 'B', unit: 'cm', digits: 1 }
@@ -38,8 +40,10 @@ export const sim: SimDef = {
   create(env) {
     const { p, show } = env;
     const img = () => abbildung(p.g, p.f, p.G);
+    const hs = new Handles();
     return {
       reset() {},
+      pointer: (kind, x, y) => hs.pointer(kind, x, y),
       measure() {
         const a = img();
         return { b: a && Math.abs(a.b) < 1000 ? a.b : null, B: a && Math.abs(a.b) < 1000 ? Math.abs(a.B) : null };
@@ -116,6 +120,23 @@ export const sim: SimDef = {
         // Gegenstand
         arrow(ctx, X(gx), cy, X(gx), Y(p.G), theme.text, 3.5);
         label(ctx, 'G', X(gx) - 8, Y(p.G / 2) + 4, { align: 'right', size: 14, bold: true });
+
+        // Anfasser: Fuß des Gegenstands (g), Spitze (G), Brennpunkt (f)
+        hs.begin();
+        if (env.canSet('g')) {
+          const hg = hs.add({ dist: point(X(gx), cy), cursor: 'ew-resize', radius: 16, drag: (x) => env.set('g', -(x - ox) / scale) });
+          grip(ctx, X(gx), cy, 'h', hs.isHover(hg));
+        }
+        if (env.canSet('G')) {
+          const hG = hs.add({ dist: point(X(gx), Y(p.G)), cursor: 'ns-resize', radius: 16, drag: (_x, y) => env.set('G', (cy - y) / scale) });
+          grip(ctx, X(gx), Y(p.G) - 12, 'v', hs.isHover(hG));
+        }
+        if (env.canSet('f')) {
+          for (const sgn of [-1, 1]) {
+            const hf = hs.add({ dist: point(X(sgn * p.f), cy), cursor: 'ew-resize', radius: 14, drag: (x) => env.set('f', Math.abs(x - ox) / scale) });
+            if (hs.isHover(hf)) grip(ctx, X(sgn * p.f), cy, 'h', true);
+          }
+        }
 
         // Bild
         if (a && Math.abs(a.b) < 400) {

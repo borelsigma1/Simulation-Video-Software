@@ -3,6 +3,7 @@
  * stehende Wellen, Aufenthaltswahrscheinlichkeit und Energieniveaus.
  */
 import { box, fmt, label, line, paper } from '../lib/engine/draw';
+import { grip, Handles, rect } from '../lib/engine/handles';
 import { theme } from '../lib/engine/theme';
 import type { SimDef } from '../lib/sim/types';
 
@@ -19,7 +20,7 @@ export const sim: SimDef = {
   title: 'Elektron im Potentialtopf',
   summary: 'Ein eingesperrtes Elektron kann nur bestimmte Energien annehmen: Wellenfunktion, Aufenthaltswahrscheinlichkeit und Energieniveaus.',
   animated: false,
-  hint: 'Eindimensionaler Topf mit unendlich hohen Wänden. Die Wellenfunktion ist jeweils auf der Höhe ihres Energieniveaus eingezeichnet.',
+  hint: 'Die Wände lassen sich seitlich ziehen (Breite des Topfs), ein Energieniveau wählt man durch Antippen. Eindimensionaler Topf mit unendlich hohen Wänden. Die Wellenfunktion ist jeweils auf der Höhe ihres Energieniveaus eingezeichnet.',
   params: [
     { key: 'L', label: 'Breite des Topfs', symbol: 'L', unit: 'nm', min: 0.2, max: 2, step: 0.05, value: 1 },
     { key: 'n', label: 'Quantenzahl', symbol: 'n', unit: '', min: 1, max: N_MAX, step: 1, value: 1 }
@@ -37,8 +38,10 @@ export const sim: SimDef = {
 
   create(env) {
     const { p, show } = env;
+    const hs = new Handles();
     return {
       reset() {},
+      pointer: (kind, x, y) => hs.pointer(kind, x, y),
       measure: () => ({ E: energie(p.n, p.L), lambda: (2 * p.L) / p.n }),
       draw(g) {
         const { ctx, w, h } = g;
@@ -74,12 +77,23 @@ export const sim: SimDef = {
         label(ctx, `L = ${fmt(p.L, 2)} nm`, xr, base + 18, { align: 'center', size: 11.5, bold: true });
         label(ctx, 'x', cx, base + 34, { align: 'center', size: 12 });
 
+        // Anfasser: Wände (Breite), Niveaus antippen (Quantenzahl)
+        hs.begin();
+        if (env.canSet('L')) {
+          for (const sgn of [-1, 1]) {
+            const wx = sgn < 0 ? xl - 13 : xr + 13;
+            const hw = hs.add({ dist: rect(wx - 13, top - 8, 26, base - top + 8), radius: 4, cursor: 'ew-resize', drag: (x) => env.set('L', (2 * Math.abs(x - cx)) / nm) });
+            grip(ctx, wx, (top + base) / 2, 'h', hs.isHover(hw));
+          }
+        }
+
         // Energieniveaus
         for (let n = 1; n <= N_MAX; n++) {
           const E = energie(n, p.L);
           const aktiv = n === p.n;
           if (!aktiv && !show.niveaus) continue;
           if (E > E_MAX) continue;
+          if (env.canSet('n')) hs.add({ dist: rect(xl, Y(E) - 7, xr - xl + 140, 14), radius: 2, cursor: 'pointer', drag() {}, tap: () => env.set('n', n) });
           line(ctx, xl, Y(E), xr, Y(E), aktiv ? theme.object : theme.gridStrong, aktiv ? 2.2 : 1.4, aktiv ? undefined : [5, 4]);
           label(ctx, `n = ${n}`, xr + 34, Y(E) + 4, { size: 12, bold: aktiv, color: aktiv ? theme.object : theme.muted });
           label(ctx, `${fmt(E, 2)} eV`, xr + 80, Y(E) + 4, { size: 12, bold: aktiv, color: aktiv ? theme.text : theme.muted });

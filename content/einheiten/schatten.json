@@ -81,29 +81,29 @@
         "type": "table",
         "id": "reihe",
         "operator": "untersuchen",
-        "prompt": "Untersuche, wie die Breite des Kernschattens vom Abstand der beiden Lampen abhängt. Lass alle anderen Größen unverändert (b = 10 cm, beide Abstände 40 cm).",
+        "prompt": "Untersuche, wie die Breite des Kernschattens vom Abstand der beiden Lampen abhängt. Lass alle anderen Größen unverändert ($b = 10\\,\\mathrm{cm}$, beide Abstände $40\\,\\mathrm{cm}$).",
         "columns": [
           {
             "key": "a",
-            "label": "a",
+            "label": "$a$",
             "unit": "cm",
             "source": "a"
           },
           {
             "key": "kern",
-            "label": "b_K",
+            "label": "$b_K$",
             "unit": "cm",
             "source": "kern"
           },
           {
             "key": "ges",
-            "label": "b_ges",
+            "label": "$b_{\\mathrm{ges}}$",
             "unit": "cm",
             "source": "gesamt"
           }
         ],
         "rows": 6,
-        "solution": "Mit b = 10 cm, d_L = d_S = 40 cm gilt b_K = 20 cm − a: z. B. a = 4 cm → 16 cm; 8 → 12; 12 → 8; 16 → 4; ab a = 20 cm gibt es keinen Kernschatten mehr. Der gesamte Schatten wird dabei breiter (b_ges = 20 cm + a)."
+        "solution": "Mit $b = 10\\,\\mathrm{cm}$, $d_{L} = d_{S} = 40\\,\\mathrm{cm}$ gilt $b_{K} = 20\\,\\mathrm{cm} - a$: z. B. $a = 4\\,\\mathrm{cm} \\to 16\\,\\mathrm{cm}$; $8 \\to 12$; $12 \\to 8$; $16 \\to 4$; ab $a = 20\\,\\mathrm{cm}$ gibt es keinen Kernschatten mehr. Der gesamte Schatten wird dabei breiter ($b_{\\mathrm{ges}} = 20\\,\\mathrm{cm} + a$)."
       },
       {
         "type": "chart",
@@ -114,7 +114,7 @@
         "x": "a",
         "y": "kern",
         "fit": true,
-        "solution": "Die Messpunkte liegen auf einer fallenden Geraden: Je größer der Lampenabstand, desto schmaler der Kernschatten. Bei a = 20 cm erreicht die Gerade die Rechtsachse, der Kernschatten verschwindet."
+        "solution": "Die Messpunkte liegen auf einer fallenden Geraden: Je größer der Lampenabstand, desto schmaler der Kernschatten. Bei $a = 20\\,\\mathrm{cm}$ erreicht die Gerade die Rechtsachse, der Kernschatten verschwindet."
       },
       {
         "type": "choice",

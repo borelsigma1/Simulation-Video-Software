@@ -21,7 +21,7 @@
     "blocks": [
       {
         "type": "text",
-        "text": "Elektronen werden mit der Spannung **U_B** beschleunigt und treffen einzeln auf einen Doppelspalt mit dem **Spaltabstand d**. Im Abstand a = 1,0 m registriert ein Schirm jeden Treffer als Punkt.\n\nKonstanten: h = 6,63 · 10⁻³⁴ Js, mₑ = 9,11 · 10⁻³¹ kg, e = 1,60 · 10⁻¹⁹ C."
+        "text": "Elektronen werden mit der Spannung **$U_{B}$** beschleunigt und treffen einzeln auf einen Doppelspalt mit dem **Spaltabstand $d$**. Im Abstand $a = 1{,}0\\,\\mathrm{m}$ registriert ein Schirm jeden Treffer als Punkt.\n\nKonstanten: $h = 6{,}63 \\cdot 10^{-34}\\,\\mathrm{Js}$, $m_{e} = 9{,}11 \\cdot 10^{-31}\\,\\mathrm{kg}$, $e = 1{,}60 \\cdot 10^{-19}\\,\\mathrm{C}$."
       },
       {
         "type": "heading",
@@ -55,9 +55,9 @@
         "type": "question",
         "id": "deutung",
         "operator": "deuten",
-        "prompt": "Blende die Wahrscheinlichkeitsverteilung |ψ|² ein. Deute den Zusammenhang zwischen dieser Kurve, dem einzelnen Treffer und dem Histogramm.",
+        "prompt": "Blende die Wahrscheinlichkeitsverteilung $|\\psi |^{2}$ ein. Deute den Zusammenhang zwischen dieser Kurve, dem einzelnen Treffer und dem Histogramm.",
         "lines": 5,
-        "solution": "Die Kurve gibt an, mit welcher Wahrscheinlichkeit ein Elektron an einem Ort nachgewiesen wird. Für das einzelne Elektron lässt sich der Auftreffort nicht vorhersagen, nur die Wahrscheinlichkeit dafür. Erst bei vielen Elektronen entspricht die Verteilung der Treffer (Histogramm) der Kurve. An den Nullstellen von |ψ|² wird nie ein Elektron nachgewiesen."
+        "solution": "Die Kurve gibt an, mit welcher Wahrscheinlichkeit ein Elektron an einem Ort nachgewiesen wird. Für das einzelne Elektron lässt sich der Auftreffort nicht vorhersagen, nur die Wahrscheinlichkeit dafür. Erst bei vielen Elektronen entspricht die Verteilung der Treffer (Histogramm) der Kurve. An den Nullstellen von $|\\psi |^{2}$ wird nie ein Elektron nachgewiesen."
       },
       {
         "type": "heading",
@@ -67,7 +67,7 @@
         "type": "table",
         "id": "maxima",
         "operator": "ermitteln",
-        "prompt": "Stelle U_B = 10 kV und d = 1,0 µm ein und lass mindestens 5000 Treffer zusammenkommen. Ermittle mit der Messmarke die Positionen der Maxima 1. bis 3. Ordnung.",
+        "prompt": "Stelle $U_{B} = 10\\,\\mathrm{kV}$ und $d = 1{,}0\\,\\mathrm{\\mu m}$ ein und lass mindestens 5000 Treffer zusammenkommen. Ermittle mit der Messmarke die Positionen der Maxima 1. bis 3. Ordnung.",
         "columns": [
           {
             "key": "k",
@@ -76,56 +76,56 @@
           },
           {
             "key": "x",
-            "label": "x_k",
+            "label": "$x_k$",
             "unit": "µm",
             "source": "x"
           }
         ],
         "rows": 3,
-        "solution": "k = 1: 12,3 µm; k = 2: 24,5 µm; k = 3: 36,8 µm."
+        "solution": "$k = 1$: $12{,}3\\,\\mathrm{\\mu m}$; $k = 2$: $24{,}5\\,\\mathrm{\\mu m}$; $k = 3$: $36{,}8\\,\\mathrm{\\mu m}$."
       },
       {
         "type": "question",
         "id": "lambda",
         "operator": "berechnen",
-        "prompt": "Berechne aus deinen Messwerten mit Δx = λ · a : d die Wellenlänge, die dem Interferenzmuster zugrunde liegt.",
+        "prompt": "Berechne aus deinen Messwerten mit $\\Delta x = \\lambda \\cdot a : d$ die Wellenlänge, die dem Interferenzmuster zugrunde liegt.",
         "lines": 3,
-        "solution": "Δx = 36,8 µm : 3 = 12,3 µm. λ = Δx · d : a = 12,3 · 10⁻⁶ m · 1,0 · 10⁻⁶ m : 1,0 m = 1,23 · 10⁻¹¹ m = 12,3 pm."
+        "solution": "$\\Delta x = 36{,}8\\,\\mathrm{\\mu m} : 3 = 12{,}3\\,\\mathrm{\\mu m}$. $\\lambda = \\Delta x \\cdot d : a = 12{,}3 \\cdot 10^{-6}\\,\\mathrm{m} \\cdot 1{,}0 \\cdot 10^{-6}\\,\\mathrm{m} : 1{,}0\\,\\mathrm{m} = 1{,}23 \\cdot 10^{-11}\\,\\mathrm{m} = 12{,}3\\,\\mathrm{pm}$."
       },
       {
         "type": "question",
         "id": "debroglie",
         "operator": "berechnen",
-        "prompt": "Berechne die De-Broglie-Wellenlänge λ = h : p der Elektronen für U_B = 10 kV und vergleiche mit deinem Messergebnis.",
+        "prompt": "Berechne die De-Broglie-Wellenlänge $\\lambda = h : p$ der Elektronen für $U_{B} = 10\\,\\mathrm{kV}$ und vergleiche mit deinem Messergebnis.",
         "lines": 5,
-        "solution": "Aus e · U_B = p² : (2 · m) folgt p = √(2 · m · e · U_B) = √(2 · 9,11 · 10⁻³¹ kg · 1,60 · 10⁻¹⁹ C · 10⁴ V) = 5,40 · 10⁻²³ kg·m/s. λ = h : p = 6,63 · 10⁻³⁴ Js : 5,40 · 10⁻²³ kg·m/s = 1,23 · 10⁻¹¹ m = 12,3 pm. Messung und Rechnung stimmen überein."
+        "solution": "Aus $e \\cdot U_{B} = p^{2} : (2 \\cdot m)$ folgt $p = \\sqrt{2 \\cdot m \\cdot e \\cdot U_{B}} = \\sqrt{2 \\cdot 9{,}11 \\cdot 10^{-31}\\,\\mathrm{kg} \\cdot 1{,}60 \\cdot 10^{-19}\\,\\mathrm{C} \\cdot 10^{4}\\,\\mathrm{V}} = 5{,}40 \\cdot 10^{-23}\\,\\mathrm{kg\\cdot m/s}$. $\\lambda = h : p = 6{,}63 \\cdot 10^{-34}\\,\\mathrm{Js} : 5{,}40 \\cdot 10^{-23}\\,\\mathrm{kg\\cdot m/s} = 1{,}23 \\cdot 10^{-11}\\,\\mathrm{m} = 12{,}3\\,\\mathrm{pm}$. Messung und Rechnung stimmen überein."
       },
       {
         "type": "table",
         "id": "spannung",
         "operator": "untersuchen",
-        "prompt": "Untersuche, wie die De-Broglie-Wellenlänge von der Beschleunigungsspannung abhängt. Berechne jeweils λ · √U_B.",
+        "prompt": "Untersuche, wie die De-Broglie-Wellenlänge von der Beschleunigungsspannung abhängt. Berechne jeweils $\\lambda \\cdot \\sqrt{U_{B}}$.",
         "columns": [
           {
             "key": "U",
-            "label": "U_B",
+            "label": "$U_B$",
             "unit": "kV",
             "source": "U"
           },
           {
             "key": "lambda",
-            "label": "λ",
+            "label": "$\\lambda$",
             "unit": "pm",
             "source": "lambda"
           },
           {
             "key": "prod",
-            "label": "λ · √U_B",
+            "label": "$\\lambda \\cdot \\sqrt{U_B}$",
             "unit": "pm·√kV"
           }
         ],
         "rows": 4,
-        "solution": "2,5 kV: 24,53 pm; 5,0 kV: 17,35 pm; 10 kV: 12,27 pm; 20 kV: 8,67 pm. Das Produkt ist stets 38,8 pm·√kV: λ ~ 1/√U_B. Vierfache Spannung halbiert die Wellenlänge."
+        "solution": "$2{,}5\\,\\mathrm{kV}$: $24{,}53\\,\\mathrm{pm}$; $5{,}0\\,\\mathrm{kV}$: $17{,}35\\,\\mathrm{pm}$; $10\\,\\mathrm{kV}$: $12{,}27\\,\\mathrm{pm}$; $20\\,\\mathrm{kV}$: $8{,}67\\,\\mathrm{pm}$. Das Produkt ist stets $38{,}8\\,\\mathrm{pm\\cdot \\sqrt{kV}}$: $\\lambda \\sim 1/\\sqrt{U_{B}}$. Vierfache Spannung halbiert die Wellenlänge."
       },
       {
         "type": "heading",
@@ -170,9 +170,9 @@
         "type": "question",
         "id": "fussball",
         "operator": "abschaetzen",
-        "prompt": "Schätze die De-Broglie-Wellenlänge eines Fußballs ab (m = 0,43 kg, v = 20 m/s) und begründe, warum man bei ihm keine Interferenz beobachtet.",
+        "prompt": "Schätze die De-Broglie-Wellenlänge eines Fußballs ab ($m = 0{,}43\\,\\mathrm{kg}$, $v = 20\\,\\mathrm{m/s}$) und begründe, warum man bei ihm keine Interferenz beobachtet.",
         "lines": 4,
-        "solution": "λ = h : (m · v) = 6,63 · 10⁻³⁴ Js : (0,43 kg · 20 m/s) ≈ 8 · 10⁻³⁵ m. Das ist rund 10²⁰-mal kleiner als ein Atomkern. Es gibt keine Spalte in dieser Größenordnung, und die Streifen lägen unmessbar dicht beieinander. Außerdem steht ein Fußball ständig in Wechselwirkung mit seiner Umgebung, wodurch sein Weg festliegt."
+        "solution": "$\\lambda = h : (m \\cdot v) = 6{,}63 \\cdot 10^{-34}\\,\\mathrm{Js} : (0{,}43\\,\\mathrm{kg} \\cdot 20\\,\\mathrm{m/s}) \\approx 8 \\cdot 10^{-35}\\,\\mathrm{m}$. Das ist rund $10^{20}$-mal kleiner als ein Atomkern. Es gibt keine Spalte in dieser Größenordnung, und die Streifen lägen unmessbar dicht beieinander. Außerdem steht ein Fußball ständig in Wechselwirkung mit seiner Umgebung, wodurch sein Weg festliegt."
       },
       {
         "type": "question",
