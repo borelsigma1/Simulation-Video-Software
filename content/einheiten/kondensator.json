@@ -1,0 +1,185 @@
+{
+  "id": "kondensator",
+  "title": "Kondensator laden und entladen",
+  "grade": 12,
+  "order": 3,
+  "domain": "elektrik",
+  "curriculum": "Ph12 Lernbereich 1: Statische elektrische und magnetische Felder (Kondensator als Ladungs- und Energiespeicher, Auf- und Entladevorgang)",
+  "summary": "Ein Kondensator wird über einen Widerstand geladen und entladen. Du nimmst den zeitlichen Verlauf von Spannung und Stromstärke auf und findest die Zeitkonstante.",
+  "video": {
+    "title": "",
+    "source": {
+      "kind": "none"
+    }
+  },
+  "sim": {
+    "id": "rc"
+  },
+  "worksheet": {
+    "title": "Kondensator laden und entladen",
+    "subtitle": "Kondensator · Jahrgangsstufe 12",
+    "blocks": [
+      {
+        "type": "text",
+        "text": "Ein Kondensator der Kapazität **C** wird über einen Widerstand **R** an eine Quelle der Spannung **U₀** gelegt (Laden) oder über denselben Widerstand kurzgeschlossen (Entladen).\n\nZum Ablesen einzelner Werte kannst du die Simulation anhalten. Sie endet nach fünf Zeitkonstanten."
+      },
+      {
+        "type": "heading",
+        "text": "Laden"
+      },
+      {
+        "type": "question",
+        "id": "hyp",
+        "operator": "hypothese",
+        "prompt": "Stelle eine Hypothese auf, wie sich die Spannung am Kondensator und die Stromstärke nach dem Umlegen des Schalters zeitlich entwickeln..",
+        "lines": 3,
+        "solution": "Individuell. Fachlich: U_C steigt zuerst schnell, dann immer langsamer und nähert sich U₀ an. Die Stromstärke ist am Anfang am größten und fällt gegen null."
+      },
+      {
+        "type": "table",
+        "id": "laden",
+        "operator": "ermitteln",
+        "prompt": "Stelle U₀ = 10 V, R = 10 kΩ und C = 470 µF ein. Ermittle beim Laden die Spannung am Kondensator und die Stromstärke zu sechs verschiedenen Zeiten.",
+        "columns": [
+          {
+            "key": "t",
+            "label": "t",
+            "unit": "s",
+            "source": "t"
+          },
+          {
+            "key": "UC",
+            "label": "U_C",
+            "unit": "V",
+            "source": "UC"
+          },
+          {
+            "key": "I",
+            "label": "I",
+            "unit": "mA",
+            "source": "I"
+          }
+        ],
+        "rows": 6,
+        "solution": "Zum Beispiel 2,0 s: 3,47 V / 0,653 mA; 4,0 s: 5,73 V / 0,427 mA; 6,0 s: 7,21 V / 0,279 mA; 8,0 s: 8,18 V / 0,182 mA; 10 s: 8,81 V / 0,119 mA; 15 s: 9,59 V / 0,041 mA."
+      },
+      {
+        "type": "question",
+        "id": "verlauf",
+        "operator": "erklaeren",
+        "prompt": "Erkläre mithilfe der Spannungen U_C und U_R, warum die Stromstärke während des Ladens abnimmt.",
+        "lines": 4,
+        "solution": "Nach der Maschenregel gilt U₀ = U_R + U_C. Mit wachsender Ladung steigt U_C = Q : C; für den Widerstand bleibt nur U_R = U₀ − U_C. Damit sinkt die Stromstärke I = U_R : R. Je weniger Strom fließt, desto langsamer wächst die Ladung: Der Vorgang bremst sich selbst."
+      },
+      {
+        "type": "question",
+        "id": "start",
+        "operator": "berechnen",
+        "prompt": "Berechne die Stromstärke unmittelbar nach dem Umlegen des Schalters und überprüfe den Wert im Diagramm I(t).",
+        "lines": 3,
+        "solution": "Zu Beginn ist der Kondensator ungeladen (U_C = 0), die gesamte Spannung liegt am Widerstand: I₀ = U₀ : R = 10 V : 10 kΩ = 1,0 mA."
+      },
+      {
+        "type": "heading",
+        "text": "Entladen und Zeitkonstante"
+      },
+      {
+        "type": "table",
+        "id": "entladen",
+        "operator": "ermitteln",
+        "prompt": "Wähle „Entladen“. Ermittle die Spannung am Kondensator zu sechs Zeiten und berechne jeweils ln(U_C : 1 V).",
+        "columns": [
+          {
+            "key": "t",
+            "label": "t",
+            "unit": "s",
+            "source": "t"
+          },
+          {
+            "key": "UC",
+            "label": "U_C",
+            "unit": "V",
+            "source": "UC"
+          },
+          {
+            "key": "ln",
+            "label": "ln(U_C : 1 V)",
+            "unit": ""
+          }
+        ],
+        "rows": 6,
+        "solution": "2,0 s: 6,53 V (1,88); 4,0 s: 4,27 V (1,45); 6,0 s: 2,79 V (1,03); 8,0 s: 1,82 V (0,60); 10 s: 1,19 V (0,17); 12 s: 0,78 V (−0,25)."
+      },
+      {
+        "type": "chart",
+        "id": "entladen-dia",
+        "operator": "darstellen",
+        "prompt": "Stelle ln(U_C : 1 V) in Abhängigkeit von der Zeit in einem Diagramm dar und zeichne eine Ausgleichsgerade ein.",
+        "table": "entladen",
+        "x": "t",
+        "y": "ln",
+        "fit": true,
+        "solution": "Fallende Gerade mit der Steigung −0,213 1/s und dem Achsenabschnitt 2,30 = ln 10."
+      },
+      {
+        "type": "question",
+        "id": "tau",
+        "operator": "bestimmen",
+        "prompt": "Für das Entladen gilt U_C(t) = U₀ · e^(−t/τ). Bestimme aus der Steigung deiner Ausgleichsgeraden die Zeitkonstante τ und vergleiche mit dem Produkt R · C.",
+        "lines": 4,
+        "solution": "Logarithmieren: ln U_C = ln U₀ − t : τ. Die Steigung ist −1/τ: τ = 1 : 0,213 1/s = 4,7 s. R · C = 10 · 10³ Ω · 470 · 10⁻⁶ F = 4,7 s. Die Zeitkonstante ist τ = R · C."
+      },
+      {
+        "type": "question",
+        "id": "marke",
+        "operator": "deuten",
+        "prompt": "Blende die Hilfslinie ein. Deute die Bedeutung der Zeitkonstante τ für den Entlade- und für den Ladevorgang.",
+        "lines": 3,
+        "solution": "Nach der Zeit τ ist die Spannung beim Entladen auf 1/e ≈ 37 % des Anfangswerts gefallen; beim Laden hat sie 1 − 1/e ≈ 63 % von U₀ erreicht. Nach 5 τ ist der Vorgang praktisch abgeschlossen (unter 1 % Abweichung)."
+      },
+      {
+        "type": "choice",
+        "id": "doppelt",
+        "prompt": "Widerstand und Kapazität werden beide verdoppelt. Wie ändert sich die Dauer des Ladevorgangs?",
+        "options": [
+          "Sie bleibt gleich.",
+          "Sie verdoppelt sich.",
+          "Sie vervierfacht sich.",
+          "Sie halbiert sich."
+        ],
+        "correct": [
+          2
+        ],
+        "solution": "τ = R · C: Der doppelte Widerstand lässt nur halb so viel Strom fließen, und die doppelte Kapazität braucht für dieselbe Spannung doppelt so viel Ladung."
+      },
+      {
+        "type": "heading",
+        "text": "Ladung und Energie"
+      },
+      {
+        "type": "question",
+        "id": "ladung",
+        "operator": "berechnen",
+        "prompt": "Berechne die Ladung und die Energie des vollständig geladenen Kondensators (C = 470 µF, U₀ = 10 V).",
+        "lines": 3,
+        "solution": "Q = C · U = 470 · 10⁻⁶ F · 10 V = 4,7 mC. E = ½ · C · U² = ½ · 470 · 10⁻⁶ F · (10 V)² = 23,5 mJ."
+      },
+      {
+        "type": "question",
+        "id": "flaeche",
+        "operator": "erlaeutern",
+        "prompt": "Erläutere, welche Bedeutung die Fläche unter der Kurve im t-I-Diagramm hat, und schätze sie für den Ladevorgang ab.",
+        "lines": 4,
+        "solution": "Die Fläche unter der t-I-Kurve ist die insgesamt geflossene Ladung (Q = I · t, bei veränderlicher Stromstärke die Summe vieler schmaler Streifen). Abschätzung: Ein Rechteck mit der Höhe I₀ = 1,0 mA und der Breite τ = 4,7 s hat denselben Flächeninhalt wie die Fläche unter der Exponentialkurve: Q ≈ 4,7 mC. Das ist die Ladung des vollen Kondensators."
+      },
+      {
+        "type": "question",
+        "id": "blitz",
+        "operator": "beurteilen",
+        "prompt": "Ein Fotoblitz entnimmt seine Energie einem Kondensator (C = 1000 µF, U = 300 V), der zuvor einige Sekunden lang aus einer kleinen Batterie geladen wird. Beurteile, warum man die Blitzlampe nicht direkt an die Batterie anschließt.",
+        "lines": 5,
+        "solution": "Der Kondensator speichert E = ½ · 1000 · 10⁻⁶ F · (300 V)² = 45 J. Der Blitz dauert etwa 1 ms; die Leistung beträgt dabei rund 45 kW. Eine kleine Batterie kann wegen ihres Innenwiderstands nur wenige Watt abgeben. Der Kondensator sammelt die Energie langsam (große Zeitkonstante beim Laden) und gibt sie über den sehr kleinen Widerstand der Blitzröhre in extrem kurzer Zeit ab."
+      }
+    ]
+  }
+}

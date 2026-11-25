@@ -1,0 +1,193 @@
+{
+  "id": "kreisbewegung",
+  "title": "Kreisbewegung und Zentripetalkraft",
+  "grade": 11,
+  "order": 1,
+  "domain": "mechanik",
+  "curriculum": "Ph11 Lernbereich 1: Kreisbewegung (Bahngeschwindigkeit, Zentripetalkraft)",
+  "summary": "Ein Puck wird von einem Faden auf der Kreisbahn gehalten. Du misst die Kraft im Faden und findest heraus, wovon sie abhängt.",
+  "video": {
+    "title": "",
+    "source": {
+      "kind": "none"
+    }
+  },
+  "sim": {
+    "id": "kreisbewegung"
+  },
+  "worksheet": {
+    "title": "Kreisbewegung und Zentripetalkraft",
+    "subtitle": "Kreisbewegung · Jahrgangsstufe 11",
+    "blocks": [
+      {
+        "type": "text",
+        "text": "Du blickst von oben auf einen reibungsfreien Tisch. Ein Puck der Masse **m** läuft an einem Faden mit der Umlaufdauer **T** auf einem Kreis mit Radius **r**. Der Kraftmesser in der Tischmitte zeigt die Kraft **F_Z**, mit der der Faden am Puck zieht.\n\nBahngeschwindigkeit: v = 2π · r : T. Winkelgeschwindigkeit: ω = 2π : T."
+      },
+      {
+        "type": "heading",
+        "text": "Beobachten"
+      },
+      {
+        "type": "question",
+        "id": "pfeile",
+        "operator": "beschreiben",
+        "prompt": "Beschreibe, wie sich Betrag und Richtung von Geschwindigkeit und Kraft während eines Umlaufs verhalten.",
+        "lines": 3,
+        "solution": "Die Beträge von Geschwindigkeit und Kraft bleiben gleich. Die Richtungen ändern sich ständig: Die Geschwindigkeit zeigt immer tangential zur Bahn, die Kraft immer zum Mittelpunkt, also senkrecht zur Geschwindigkeit."
+      },
+      {
+        "type": "question",
+        "id": "beschl",
+        "operator": "begruenden",
+        "prompt": "Begründe, dass die gleichförmige Kreisbewegung eine beschleunigte Bewegung ist, obwohl der Betrag der Geschwindigkeit konstant bleibt.",
+        "lines": 4,
+        "solution": "Die Geschwindigkeit ist ein Vektor. Ihre Richtung ändert sich ständig, also ändert sich die Geschwindigkeit, und das ist eine Beschleunigung. Nach dem zweiten Newtonschen Gesetz ist dafür eine Kraft nötig. Sie steht senkrecht zur Bewegungsrichtung und ändert deshalb nur die Richtung, nicht den Betrag der Geschwindigkeit."
+      },
+      {
+        "type": "question",
+        "id": "hyp",
+        "operator": "hypothese",
+        "prompt": "Stelle eine Hypothese auf, wie sich der Puck weiterbewegt, wenn der Faden durchgeschnitten wird. Überprüfe sie anschließend mit der Simulation.",
+        "lines": 3,
+        "solution": "Der Puck bewegt sich geradlinig und gleichförmig in Richtung der Tangente weiter (Trägheitssatz), nicht radial nach außen und nicht auf einer gekrümmten Bahn. Ohne Faden wirkt in der Tischebene keine Kraft mehr."
+      },
+      {
+        "type": "heading",
+        "text": "Wovon hängt die Zentripetalkraft ab?"
+      },
+      {
+        "type": "table",
+        "id": "masse",
+        "operator": "untersuchen",
+        "prompt": "Untersuche bei r = 0,60 m und T = 2,0 s, wie die Zentripetalkraft von der Masse abhängt.",
+        "columns": [
+          {
+            "key": "m",
+            "label": "m",
+            "unit": "kg",
+            "source": "m"
+          },
+          {
+            "key": "F",
+            "label": "F_Z",
+            "unit": "N",
+            "source": "F"
+          }
+        ],
+        "rows": 5,
+        "solution": "0,20 kg: 1,18 N; 0,40 kg: 2,37 N; 0,60 kg: 3,55 N; 0,80 kg: 4,74 N; 1,00 kg: 5,92 N. F_Z ~ m."
+      },
+      {
+        "type": "table",
+        "id": "radius",
+        "operator": "untersuchen",
+        "prompt": "Untersuche bei m = 0,20 kg und T = 2,0 s, wie die Zentripetalkraft vom Radius abhängt.",
+        "columns": [
+          {
+            "key": "r",
+            "label": "r",
+            "unit": "m",
+            "source": "r"
+          },
+          {
+            "key": "F",
+            "label": "F_Z",
+            "unit": "N",
+            "source": "F"
+          }
+        ],
+        "rows": 5,
+        "solution": "0,20 m: 0,39 N; 0,40 m: 0,79 N; 0,60 m: 1,18 N; 0,80 m: 1,58 N; 1,00 m: 1,97 N. Bei fester Umlaufdauer gilt F_Z ~ r."
+      },
+      {
+        "type": "table",
+        "id": "dauer",
+        "operator": "ermitteln",
+        "prompt": "Ermittle bei m = 0,20 kg und r = 0,60 m die Zentripetalkraft für vier Umlaufdauern. Berechne jeweils 1/T².",
+        "columns": [
+          {
+            "key": "T",
+            "label": "T",
+            "unit": "s",
+            "source": "T"
+          },
+          {
+            "key": "F",
+            "label": "F_Z",
+            "unit": "N",
+            "source": "F"
+          },
+          {
+            "key": "k",
+            "label": "1/T²",
+            "unit": "1/s²"
+          }
+        ],
+        "rows": 4,
+        "solution": "1,0 s: 4,74 N (1,00 1/s²); 2,0 s: 1,18 N (0,25); 3,0 s: 0,53 N (0,111); 4,0 s: 0,30 N (0,0625)."
+      },
+      {
+        "type": "chart",
+        "id": "dauer-dia",
+        "operator": "darstellen",
+        "prompt": "Stelle F_Z in Abhängigkeit von 1/T² in einem Diagramm dar und zeichne eine Ausgleichsgerade ein.",
+        "table": "dauer",
+        "x": "k",
+        "y": "F",
+        "fit": true,
+        "solution": "Ursprungsgerade mit der Steigung 4,74 N·s² = 4π² · m · r."
+      },
+      {
+        "type": "question",
+        "id": "formel",
+        "operator": "auswerten",
+        "prompt": "Werte deine drei Messreihen aus und fasse sie zu einer Formel für F_Z zusammen. Vergleiche die Steigung deiner Ausgleichsgeraden mit dem Term 4π² · m · r.",
+        "lines": 4,
+        "solution": "F_Z ~ m, F_Z ~ r und F_Z ~ 1/T², also F_Z = k · m · r / T². Die Steigung 4,74 N·s² entspricht 4π² · 0,20 kg · 0,60 m = 4,74 kg·m. Damit: F_Z = 4π² · m · r / T² = m · ω² · r."
+      },
+      {
+        "type": "question",
+        "id": "v",
+        "operator": "herleiten",
+        "prompt": "Leite aus F_Z = m · ω² · r mithilfe von v = ω · r die Form F_Z = m · v² : r her.",
+        "lines": 3,
+        "solution": "ω = v : r einsetzen: F_Z = m · (v/r)² · r = m · v² : r."
+      },
+      {
+        "type": "choice",
+        "id": "doppelt",
+        "prompt": "Ein Auto durchfährt dieselbe Kurve mit doppelter Geschwindigkeit. Wie ändert sich die nötige Zentripetalkraft?",
+        "options": [
+          "Sie bleibt gleich.",
+          "Sie verdoppelt sich.",
+          "Sie vervierfacht sich.",
+          "Sie halbiert sich."
+        ],
+        "correct": [
+          2
+        ],
+        "solution": "F_Z = m · v² : r: Bei festem Radius geht die Geschwindigkeit quadratisch ein."
+      },
+      {
+        "type": "heading",
+        "text": "Anwenden"
+      },
+      {
+        "type": "question",
+        "id": "kurve",
+        "operator": "berechnen",
+        "prompt": "Ein Auto (m = 1200 kg) fährt mit 72 km/h durch eine Kurve mit dem Radius 50 m. Berechne die nötige Zentripetalkraft und vergleiche sie mit der größtmöglichen Haftreibungskraft bei trockener Fahrbahn (μ = 0,80).",
+        "lines": 5,
+        "solution": "v = 20 m/s. F_Z = 1200 kg · (20 m/s)² : 50 m = 9600 N. Größte Haftreibungskraft: 0,80 · 1200 kg · 9,81 N/kg ≈ 9400 N. Die Reibung reicht knapp nicht aus: Das Auto kann der Kurve nicht folgen."
+      },
+      {
+        "type": "question",
+        "id": "flieh",
+        "operator": "beurteilen",
+        "prompt": "Ein Beifahrer sagt: „In der Linkskurve drückt mich die Fliehkraft nach rechts außen.“ Beurteile diese Aussage aus der Sicht eines Beobachters am Straßenrand.",
+        "lines": 5,
+        "solution": "Für den Beobachter am Straßenrand gibt es keine nach außen gerichtete Kraft. Der Körper des Beifahrers bewegt sich wegen seiner Trägheit zunächst geradeaus weiter, während das Auto nach links abbiegt. Erst Sitz, Gurt und Tür üben eine Kraft nach innen (links) auf ihn aus und zwingen ihn auf die Kreisbahn; das ist die Zentripetalkraft. Die „Fliehkraft“ ist eine Scheinkraft, die nur im mitbewegten Auto wahrgenommen wird."
+      }
+    ]
+  }
+}

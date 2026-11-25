@@ -1,0 +1,218 @@
+{
+  "id": "stoss",
+  "title": "Stöße und Impulserhaltung",
+  "grade": 10,
+  "order": 1,
+  "domain": "mechanik",
+  "curriculum": "Ph10 Lernbereich 2: Impuls als Erhaltungsgröße (zentrale Stöße)",
+  "summary": "Zwei Wagen stoßen auf der Luftkissenbahn zusammen. Du findest heraus, welche Größe bei jedem Stoß erhalten bleibt und welche nicht.",
+  "video": {
+    "title": "",
+    "source": {
+      "kind": "none"
+    }
+  },
+  "sim": {
+    "id": "stoss"
+  },
+  "worksheet": {
+    "title": "Stöße und Impulserhaltung",
+    "subtitle": "Impuls · Jahrgangsstufe 10",
+    "blocks": [
+      {
+        "type": "text",
+        "text": "Auf einer reibungsfreien Bahn stoßen zwei Wagen zusammen. Geschwindigkeiten nach rechts zählen positiv, nach links negativ. Der **Impuls** eines Wagens ist **p = m · v**; er hat wie die Geschwindigkeit ein Vorzeichen.\n\nVor dem Stoß haben die Wagen die Geschwindigkeiten v₁ und v₂, nach dem Stoß u₁ und u₂."
+      },
+      {
+        "type": "heading",
+        "text": "Elastischer Stoß"
+      },
+      {
+        "type": "question",
+        "id": "hyp",
+        "operator": "hypothese",
+        "prompt": "Wagen 1 stößt auf den gleich schweren, ruhenden Wagen 2. Stelle eine Hypothese auf, wie sich beide Wagen nach dem Stoß bewegen.",
+        "lines": 2,
+        "solution": "Individuell. Fachlich: Wagen 1 bleibt stehen, Wagen 2 fährt mit der Geschwindigkeit von Wagen 1 weiter."
+      },
+      {
+        "type": "table",
+        "id": "elastisch",
+        "operator": "untersuchen",
+        "prompt": "Untersuche vier elastische Stöße mit unterschiedlichen Massen und Geschwindigkeiten (Wagen 2 soll auch einmal entgegenkommen). Übernimm die Werte nach dem Stoß und berechne den Gesamtimpuls vorher und nachher.",
+        "columns": [
+          {
+            "key": "m1",
+            "label": "m_1",
+            "unit": "kg",
+            "source": "m1"
+          },
+          {
+            "key": "v1",
+            "label": "v_1",
+            "unit": "m/s",
+            "source": "v1"
+          },
+          {
+            "key": "m2",
+            "label": "m_2",
+            "unit": "kg",
+            "source": "m2"
+          },
+          {
+            "key": "v2",
+            "label": "v_2",
+            "unit": "m/s",
+            "source": "v2"
+          },
+          {
+            "key": "u1",
+            "label": "u_1",
+            "unit": "m/s",
+            "source": "u1"
+          },
+          {
+            "key": "u2",
+            "label": "u_2",
+            "unit": "m/s",
+            "source": "u2"
+          },
+          {
+            "key": "pv",
+            "label": "p vorher",
+            "unit": "kg·m/s"
+          },
+          {
+            "key": "pn",
+            "label": "p nachher",
+            "unit": "kg·m/s"
+          }
+        ],
+        "rows": 4,
+        "solution": "Beispiele: 0,5 kg / 1,0 m/s auf 0,5 kg / 0 → u₁ = 0, u₂ = 1,0 m/s (p = 0,50 kg·m/s). 1,0 kg / 1,0 m/s auf 0,5 kg / 0 → 0,33 und 1,33 m/s (p = 1,00). 0,5 kg / 1,0 m/s auf 1,0 kg / 0 → −0,33 und 0,67 m/s (p = 0,50). 0,5 kg / 1,0 m/s auf 0,5 kg / −1,0 m/s → −1,0 und 1,0 m/s (p = 0)."
+      },
+      {
+        "type": "question",
+        "id": "erhaltung",
+        "operator": "auswerten",
+        "prompt": "Werte die Tabelle aus: Vergleiche jeweils den Gesamtimpuls vor und nach dem Stoß und formuliere einen Satz als Ergebnis.",
+        "lines": 3,
+        "solution": "Der Gesamtimpuls ist vor und nach dem Stoß gleich: m₁ · v₁ + m₂ · v₂ = m₁ · u₁ + m₂ · u₂ (Impulserhaltungssatz). Die Impulse der einzelnen Wagen ändern sich dagegen: Was der eine Wagen an Impuls abgibt, nimmt der andere auf."
+      },
+      {
+        "type": "question",
+        "id": "balken",
+        "operator": "beschreiben",
+        "prompt": "Wähle das Diagramm p(t) und beobachte die Impulsbalken. Beschreibe, was beim Stoß mit den Impulsen der beiden Wagen und mit ihrer Summe geschieht.",
+        "lines": 3,
+        "solution": "Im Moment des Stoßes springen die Impulse beider Wagen: Der Impuls von Wagen 1 nimmt um genau den Betrag ab, um den der Impuls von Wagen 2 zunimmt. Die Summe bleibt eine waagrechte Gerade."
+      },
+      {
+        "type": "choice",
+        "id": "leicht",
+        "prompt": "Ein leichter Wagen stößt elastisch auf einen viel schwereren, ruhenden Wagen. Was beobachtest du?",
+        "options": [
+          "Beide fahren gemeinsam weiter.",
+          "Der leichte Wagen bleibt stehen.",
+          "Der leichte Wagen prallt zurück, der schwere bewegt sich langsam vorwärts.",
+          "Der schwere Wagen bleibt in Ruhe, der leichte fährt weiter."
+        ],
+        "correct": [
+          2
+        ],
+        "solution": "Der leichte Wagen kehrt seine Richtung um (negativer Impuls). Damit die Summe gleich bleibt, erhält der schwere Wagen sogar mehr Impuls, als der leichte vorher hatte."
+      },
+      {
+        "type": "heading",
+        "text": "Unelastischer Stoß"
+      },
+      {
+        "type": "table",
+        "id": "unelastisch",
+        "operator": "ermitteln",
+        "prompt": "Wähle „unelastisch“. Ermittle für drei Stöße die gemeinsame Geschwindigkeit u nach dem Stoß und die gesamte Bewegungsenergie vorher und nachher (Anzeige E_kin vor dem Start und nach dem Stoß ablesen).",
+        "columns": [
+          {
+            "key": "m1",
+            "label": "m_1",
+            "unit": "kg",
+            "source": "m1"
+          },
+          {
+            "key": "v1",
+            "label": "v_1",
+            "unit": "m/s",
+            "source": "v1"
+          },
+          {
+            "key": "m2",
+            "label": "m_2",
+            "unit": "kg",
+            "source": "m2"
+          },
+          {
+            "key": "v2",
+            "label": "v_2",
+            "unit": "m/s",
+            "source": "v2"
+          },
+          {
+            "key": "u",
+            "label": "u",
+            "unit": "m/s",
+            "source": "u1"
+          },
+          {
+            "key": "Ev",
+            "label": "E_kin vorher",
+            "unit": "J"
+          },
+          {
+            "key": "En",
+            "label": "E_kin nachher",
+            "unit": "J",
+            "source": "Ekin"
+          }
+        ],
+        "rows": 3,
+        "solution": "0,5 kg / 1,0 m/s auf 0,5 kg / 0: u = 0,50 m/s; 0,250 J → 0,125 J. 1,0 kg / 1,0 m/s auf 0,5 kg / 0: u = 0,67 m/s; 0,500 J → 0,333 J. 0,5 kg / 1,0 m/s auf 0,5 kg / −1,0 m/s: u = 0; 0,500 J → 0 J."
+      },
+      {
+        "type": "question",
+        "id": "formel",
+        "operator": "herleiten",
+        "prompt": "Leite aus dem Impulserhaltungssatz eine Formel für die gemeinsame Geschwindigkeit u nach dem unelastischen Stoß her und überprüfe sie an einer Zeile deiner Tabelle.",
+        "lines": 4,
+        "solution": "m₁ · v₁ + m₂ · v₂ = (m₁ + m₂) · u, also u = (m₁ · v₁ + m₂ · v₂) : (m₁ + m₂). Beispiel: (1,0 kg · 1,0 m/s + 0) : 1,5 kg = 0,67 m/s."
+      },
+      {
+        "type": "question",
+        "id": "energie",
+        "operator": "vergleichen",
+        "prompt": "Vergleiche elastischen und unelastischen Stoß hinsichtlich Impuls und Bewegungsenergie.",
+        "lines": 4,
+        "solution": "Der Impuls bleibt bei beiden Stoßarten erhalten. Die Bewegungsenergie bleibt nur beim elastischen Stoß erhalten. Beim unelastischen Stoß nimmt sie ab; die fehlende Energie wird beim Verformen in innere Energie umgewandelt. Die Gesamtenergie bleibt erhalten."
+      },
+      {
+        "type": "heading",
+        "text": "Anwenden"
+      },
+      {
+        "type": "question",
+        "id": "auffahr",
+        "operator": "berechnen",
+        "prompt": "Ein Auto (1200 kg) fährt mit 36 km/h auf ein stehendes Auto (800 kg) auf; beide verhaken sich. Berechne die gemeinsame Geschwindigkeit und den Anteil der Bewegungsenergie, der bei der Verformung umgewandelt wird.",
+        "lines": 5,
+        "solution": "v₁ = 10 m/s. u = 1200 kg · 10 m/s : 2000 kg = 6,0 m/s = 21,6 km/h. E vorher = ½ · 1200 kg · (10 m/s)² = 60 kJ; nachher = ½ · 2000 kg · (6,0 m/s)² = 36 kJ. Umgewandelt werden 24 kJ, das sind 40 %."
+      },
+      {
+        "type": "question",
+        "id": "knautsch",
+        "operator": "beurteilen",
+        "prompt": "Beurteile aus physikalischer Sicht, ob ein Auto bei einem Unfall möglichst „hart“ (elastisch) oder verformbar (unelastisch) gebaut sein sollte.",
+        "lines": 5,
+        "solution": "Verformbar ist besser. In der Knautschzone wird Bewegungsenergie in innere Energie umgewandelt, und die Geschwindigkeit der Insassen ändert sich über einen längeren Weg und eine längere Zeit; die Kräfte auf sie sind kleiner. Bei einem elastischen Stoß würde das Auto zurückprallen: Die Geschwindigkeitsänderung wäre bis zu doppelt so groß und die Belastung entsprechend höher. Die Fahrgastzelle selbst muss dagegen steif bleiben."
+      }
+    ]
+  }
+}

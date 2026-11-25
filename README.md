@@ -16,8 +16,17 @@ Läuft komplett im Browser, auch auf Tablets, und speichert keine Schülerdaten.
 - **Lehrkraft-Modus** (`#/lehrkraft`): Lerneinheiten bearbeiten, duplizieren, neu anlegen, exportieren und
   importieren, ohne Code anzufassen.
 
-Lerneinheiten bisher: Jgst. 7 (Dichte, Schatten, Schaltungen), Jgst. 8 (Kennlinien, Sammellinse, Hooke),
-Jgst. 9 (Energieumwandlung, Wasserkocher, Teilchenmodell), Jgst. 10 (waagrechter Wurf), Jgst. 11 (Federpendel).
+Lerneinheiten (je drei pro Jahrgangsstufe, nach LehrplanPLUS):
+
+| Jgst. | Einheiten |
+| --- | --- |
+| 7 | Dichte bestimmen · Kern- und Halbschatten · Schaltungen mit zwei Schaltern |
+| 8 | Kennlinien · Sammellinse · Kraft und Dehnung |
+| 9 | Energieumwandlung auf der Bahn · Wasserkocher · Teilchenmodell |
+| 10 | Stöße und Impulserhaltung · Waagrechter Wurf · Radioaktiver Zerfall |
+| 11 | Kreisbewegung · Federpendel · Licht am Doppelspalt |
+| 12 | Elektronen im Querfeld · Fadenstrahlrohr · Kondensator laden und entladen |
+| 13 | Doppelspalt mit Elektronen · Potentialtopf · Zerfallsgesetz und C-14 |
 
 ## Starten
 

@@ -1,0 +1,167 @@
+{
+  "id": "zerfallsgesetz",
+  "title": "Zerfallsgesetz und Altersbestimmung",
+  "grade": 13,
+  "order": 3,
+  "domain": "kern",
+  "curriculum": "Ph13 Lernbereich 4: Kernphysik (Zerfallsgesetz, Aktivität, Altersbestimmung mit C-14)",
+  "summary": "Du wertest eine Zerfallskurve mit dem Logarithmus aus, bestimmst die Zerfallskonstante und nutzt das Zerfallsgesetz zur Altersbestimmung.",
+  "video": {
+    "title": "",
+    "source": {
+      "kind": "none"
+    }
+  },
+  "sim": {
+    "id": "zerfall",
+    "options": {
+      "ordnen": {
+        "hidden": true
+      }
+    }
+  },
+  "worksheet": {
+    "title": "Zerfallsgesetz und Altersbestimmung",
+    "subtitle": "Kernphysik · Jahrgangsstufe 13",
+    "blocks": [
+      {
+        "type": "text",
+        "text": "Für die Anzahl N der noch nicht zerfallenen Kerne gilt das **Zerfallsgesetz** N(t) = N₀ · e^(−λ·t) mit der **Zerfallskonstante λ**. Die **Aktivität** A = λ · N ist die Zahl der Zerfälle pro Zeit (Einheit 1 Bq = 1/s).\n\nDie Simulation würfelt den Zerfall jedes Kerns einzeln aus; die Zeitangaben sind Sekunden."
+      },
+      {
+        "type": "heading",
+        "text": "Zerfallskurve und Logarithmus"
+      },
+      {
+        "type": "table",
+        "id": "kurve",
+        "operator": "ermitteln",
+        "prompt": "Wähle N₀ = 1000 und Radon-220. Ermittle zu acht verschiedenen Zeiten die Anzahl N der noch nicht zerfallenen Kerne und ln N.",
+        "columns": [
+          {
+            "key": "t",
+            "label": "t",
+            "unit": "s",
+            "source": "t"
+          },
+          {
+            "key": "N",
+            "label": "N",
+            "unit": "",
+            "source": "N"
+          },
+          {
+            "key": "ln",
+            "label": "ln N",
+            "unit": "",
+            "source": "lnN"
+          }
+        ],
+        "rows": 8,
+        "solution": "Erwartungswerte (Messungen streuen darum): 0 s: 1000 (6,91); 30 s: 690 (6,54); 60 s: 476 (6,17); 90 s: 328 (5,79); 120 s: 226 (5,42); 150 s: 156 (5,05); 200 s: 84 (4,43); 250 s: 45 (3,81)."
+      },
+      {
+        "type": "chart",
+        "id": "kurve-dia",
+        "operator": "darstellen",
+        "prompt": "Stelle ln N in Abhängigkeit von der Zeit in einem Diagramm dar und zeichne eine Ausgleichsgerade ein.",
+        "table": "kurve",
+        "x": "t",
+        "y": "ln",
+        "fit": true,
+        "solution": "Fallende Gerade mit der Steigung −0,0124 1/s und dem Achsenabschnitt 6,91 = ln 1000."
+      },
+      {
+        "type": "question",
+        "id": "lambda",
+        "operator": "bestimmen",
+        "prompt": "Bestimme aus der Steigung deiner Ausgleichsgeraden die Zerfallskonstante λ und daraus die Halbwertszeit. Vergleiche mit der Einstellung.",
+        "lines": 4,
+        "solution": "Logarithmieren des Zerfallsgesetzes: ln N = ln N₀ − λ · t. Die Steigung ist −λ: λ ≈ 0,0124 1/s. Halbwertszeit: T½ = ln 2 : λ = 0,693 : 0,0124 1/s ≈ 56 s."
+      },
+      {
+        "type": "question",
+        "id": "halb",
+        "operator": "herleiten",
+        "prompt": "Leite den Zusammenhang T½ = ln 2 : λ aus dem Zerfallsgesetz her.",
+        "lines": 3,
+        "solution": "Nach einer Halbwertszeit gilt N(T½) = N₀/2: N₀ · e^(−λ·T½) = N₀/2, also e^(−λ·T½) = ½. Logarithmieren: −λ · T½ = −ln 2, also T½ = ln 2 : λ."
+      },
+      {
+        "type": "question",
+        "id": "streuung",
+        "operator": "analysieren",
+        "prompt": "Bei großen Zeiten weichen die Messpunkte im ln-N-Diagramm stärker von der Geraden ab als am Anfang. Analysiere die Ursache.",
+        "lines": 4,
+        "solution": "Der Zerfall ist ein Zufallsprozess; die Anzahl schwankt typischerweise um etwa √N. Die relative Schwankung √N : N = 1 : √N wächst, wenn N klein wird: Bei 1000 Kernen sind es etwa 3 %, bei 50 Kernen schon 14 %. Im logarithmischen Diagramm erscheinen gerade diese relativen Abweichungen als Abstand von der Geraden."
+      },
+      {
+        "type": "heading",
+        "text": "Aktivität"
+      },
+      {
+        "type": "question",
+        "id": "aktiv",
+        "operator": "berechnen",
+        "prompt": "Berechne die Aktivität der Probe zu Beginn (N₀ = 1000, T½ = 56 s) und nach 112 s. Vergleiche mit dem Diagramm A(t).",
+        "lines": 3,
+        "solution": "A₀ = λ · N₀ = 0,0124 1/s · 1000 = 12,4 Bq. Nach 112 s = 2 T½ ist N = 250 und A = 3,1 Bq. Die gemessene Aktivität schwankt um diese Werte."
+      },
+      {
+        "type": "choice",
+        "id": "gleich",
+        "prompt": "Zwei Proben enthalten gleich viele Kerne. Probe X hat eine zehnmal so große Halbwertszeit wie Probe Y. Was gilt für die Aktivitäten?",
+        "options": [
+          "Beide sind gleich.",
+          "X hat die zehnfache Aktivität von Y.",
+          "X hat ein Zehntel der Aktivität von Y.",
+          "Das hängt vom Alter der Proben ab."
+        ],
+        "correct": [
+          2
+        ],
+        "solution": "A = λ · N = ln 2 · N : T½. Langlebige Nuklide zerfallen seltener und strahlen bei gleicher Kernzahl schwächer."
+      },
+      {
+        "type": "heading",
+        "text": "Altersbestimmung mit C-14"
+      },
+      {
+        "type": "text",
+        "text": "Lebende Organismen nehmen ständig Kohlenstoff auf; der Anteil des radioaktiven C-14 (T½ = 5730 a) bleibt dabei konstant. Nach dem Tod zerfällt das C-14, ohne ersetzt zu werden. Frischer Kohlenstoff hat eine Aktivität von 0,23 Bq je Gramm."
+      },
+      {
+        "type": "question",
+        "id": "formel",
+        "operator": "herleiten",
+        "prompt": "Leite aus dem Zerfallsgesetz eine Formel her, mit der sich das Alter t einer Probe aus dem Verhältnis A : A₀ berechnen lässt.",
+        "lines": 3,
+        "solution": "A(t) = A₀ · e^(−λ·t), also A : A₀ = e^(−λ·t). Logarithmieren: t = −ln(A : A₀) : λ = −ln(A : A₀) · T½ : ln 2."
+      },
+      {
+        "type": "question",
+        "id": "oetzi",
+        "operator": "berechnen",
+        "prompt": "Bei der Gletschermumie „Ötzi“ wurde eine C-14-Aktivität von 0,121 Bq je Gramm Kohlenstoff gemessen. Berechne das Alter der Mumie.",
+        "lines": 3,
+        "solution": "A : A₀ = 0,121 : 0,23 = 0,526. t = −ln(0,526) · 5730 a : ln 2 = 0,642 · 8267 a ≈ 5300 a."
+      },
+      {
+        "type": "question",
+        "id": "modell",
+        "operator": "erlaeutern",
+        "prompt": "Stelle in der Simulation die Halbwertszeit auf 57 s (eine Sekunde steht dann für 100 Jahre). Erläutere mit einem Durchlauf bei N₀ = 100, warum Altersangaben nach der C-14-Methode immer mit einer Unsicherheit versehen sind.",
+        "lines": 5,
+        "solution": "Bei nur 100 Kernen weicht die gezählte Kurve deutlich von der Gesetzeskurve ab. Liest man ab, wann zum Beispiel noch 53 Kerne vorhanden sind, erhält man je nach Durchlauf Zeiten, die sich um viele Sekunden (im Modell also um Jahrhunderte) unterscheiden. In der Praxis zählt man deshalb möglichst viele Zerfälle oder Kerne und gibt das Alter mit einem Unsicherheitsbereich an, etwa 5300 ± 100 Jahre."
+      },
+      {
+        "type": "question",
+        "id": "grenze",
+        "operator": "beurteilen",
+        "prompt": "Beurteile, ob sich die C-14-Methode eignet, um das Alter eines 100 Millionen Jahre alten Dinosaurierknochens zu bestimmen.",
+        "lines": 4,
+        "solution": "Nein. Nach etwa 10 Halbwertszeiten (rund 57 000 Jahren) ist nur noch ein Tausendstel des ursprünglichen C-14 vorhanden; die Aktivität geht im Untergrund unter. Nach 100 Millionen Jahren ist praktisch kein einziger C-14-Kern mehr übrig. Für solche Zeiträume nutzt man Nuklide mit sehr großer Halbwertszeit, zum Beispiel Uran-238 oder Kalium-40."
+      }
+    ]
+  }
+}

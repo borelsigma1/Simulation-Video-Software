@@ -107,6 +107,7 @@
   function setFlag(key: string, v: boolean) {
     flags[key] = v;
     show[key] = v;
+    publish(true);
     loop.invalidate();
   }
 

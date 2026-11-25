@@ -1,0 +1,183 @@
+{
+  "id": "querfeld",
+  "title": "Elektronen im elektrischen Querfeld",
+  "grade": 12,
+  "order": 1,
+  "domain": "felder",
+  "curriculum": "Ph12 Lernbereich 1: Statische elektrische und magnetische Felder (Bewegung geladener Teilchen im homogenen elektrischen Feld)",
+  "summary": "Ein Elektronenstrahl fliegt durch einen Plattenkondensator und wird abgelenkt. Du untersuchst die Bahn und erkennst eine alte Bekannte aus der Mechanik wieder.",
+  "video": {
+    "title": "",
+    "source": {
+      "kind": "none"
+    }
+  },
+  "sim": {
+    "id": "ablenkung"
+  },
+  "worksheet": {
+    "title": "Elektronen im elektrischen Querfeld",
+    "subtitle": "Elektrisches Feld · Jahrgangsstufe 12",
+    "blocks": [
+      {
+        "type": "text",
+        "text": "Elektronen werden mit der Spannung **U_B** beschleunigt und treten mit der Geschwindigkeit **v₀** parallel zu den Platten in das homogene Feld eines Kondensators ein. An den Platten (Länge l = 8,0 cm, Abstand d = 4,0 cm) liegt die Ablenkspannung **U_A**. 12 cm hinter den Platten steht ein Schirm.\n\nKonstanten: e = 1,60 · 10⁻¹⁹ C, mₑ = 9,11 · 10⁻³¹ kg."
+      },
+      {
+        "type": "heading",
+        "text": "Die Bahn"
+      },
+      {
+        "type": "question",
+        "id": "bahn",
+        "operator": "beschreiben",
+        "prompt": "Starte ein Elektron mit U_B = 1000 V und U_A = 150 V. Beschreibe seine Bahn vor, zwischen und hinter den Platten.",
+        "lines": 3,
+        "solution": "Vor den Platten fliegt das Elektron geradlinig. Zwischen den Platten ist die Bahn zur positiven Platte hin gekrümmt (Parabelbogen). Hinter den Platten fliegt es geradlinig in der Richtung weiter, die es am Plattenende hatte, und trifft oberhalb der Mitte auf den Schirm."
+      },
+      {
+        "type": "question",
+        "id": "kraft",
+        "operator": "erklaeren",
+        "prompt": "Blende die Geschwindigkeitskomponenten ein. Erkläre die Form der Bahn zwischen den Platten mithilfe der wirkenden Kraft.",
+        "lines": 5,
+        "solution": "Im homogenen Feld wirkt auf das Elektron überall dieselbe Kraft F = e · E = e · U_A : d, senkrecht zu den Platten in Richtung der positiven Platte. Parallel zu den Platten wirkt keine Kraft: v_x = v₀ bleibt konstant (gleichförmige Bewegung). Senkrecht dazu wird das Elektron konstant beschleunigt: v_y wächst linear mit der Zeit. Die Überlagerung ergibt eine Parabel."
+      },
+      {
+        "type": "question",
+        "id": "analogie",
+        "operator": "vergleichen",
+        "prompt": "Vergleiche die Bewegung des Elektrons im Kondensator mit dem waagrechten Wurf.",
+        "lines": 5,
+        "solution": "Beide Bewegungen setzen sich aus einer gleichförmigen Bewegung in der einen und einer konstant beschleunigten Bewegung aus der Ruhe in der dazu senkrechten Richtung zusammen; die Bahn ist jeweils eine Parabel. Der Gewichtskraft m · g entspricht die elektrische Kraft e · E, der Fallbeschleunigung g die Beschleunigung a = e · U_A : (m · d). Unterschied: Die Beschleunigung lässt sich hier über U_A einstellen und sogar umkehren, und das Feld ist auf den Kondensator begrenzt."
+      },
+      {
+        "type": "question",
+        "id": "v0",
+        "operator": "berechnen",
+        "prompt": "Berechne die Eintrittsgeschwindigkeit v₀ für U_B = 1000 V aus dem Energieansatz und vergleiche mit der Anzeige.",
+        "lines": 4,
+        "solution": "e · U_B = ½ · m · v₀², also v₀ = √(2 · e · U_B : m) = √(2 · 1,60 · 10⁻¹⁹ C · 1000 V : 9,11 · 10⁻³¹ kg) = 1,87 · 10⁷ m/s. Anzeige: 18,76 · 10⁶ m/s."
+      },
+      {
+        "type": "heading",
+        "text": "Ablenkung messen"
+      },
+      {
+        "type": "table",
+        "id": "ua",
+        "operator": "untersuchen",
+        "prompt": "Untersuche bei U_B = 1000 V, wie die Ablenkung auf dem Schirm von der Ablenkspannung abhängt.",
+        "columns": [
+          {
+            "key": "UA",
+            "label": "U_A",
+            "unit": "V",
+            "source": "UA"
+          },
+          {
+            "key": "ys",
+            "label": "y_S",
+            "unit": "cm",
+            "source": "ys"
+          }
+        ],
+        "rows": 6,
+        "solution": "50 V: 0,80 cm; 100 V: 1,60 cm; 150 V: 2,40 cm; 200 V: 3,20 cm; 250 V: 4,00 cm; 300 V: 4,80 cm."
+      },
+      {
+        "type": "chart",
+        "id": "ua-dia",
+        "operator": "darstellen",
+        "prompt": "Stelle y_S in Abhängigkeit von U_A in einem Diagramm dar und zeichne eine Ausgleichsgerade ein.",
+        "table": "ua",
+        "x": "UA",
+        "y": "ys",
+        "fit": true,
+        "solution": "Ursprungsgerade mit der Steigung 0,016 cm/V."
+      },
+      {
+        "type": "table",
+        "id": "ub",
+        "operator": "ermitteln",
+        "prompt": "Ermittle bei U_A = 150 V die Ablenkung auf dem Schirm für vier Beschleunigungsspannungen. Berechne jeweils das Produkt y_S · U_B.",
+        "columns": [
+          {
+            "key": "UB",
+            "label": "U_B",
+            "unit": "V",
+            "source": "UB"
+          },
+          {
+            "key": "ys",
+            "label": "y_S",
+            "unit": "cm",
+            "source": "ys"
+          },
+          {
+            "key": "prod",
+            "label": "y_S · U_B",
+            "unit": "cm·V"
+          }
+        ],
+        "rows": 4,
+        "solution": "500 V: 4,80 cm; 1000 V: 2,40 cm; 2000 V: 1,20 cm; 3000 V: 0,80 cm. Das Produkt ist stets 2400 cm·V."
+      },
+      {
+        "type": "question",
+        "id": "zusammen",
+        "operator": "auswerten",
+        "prompt": "Werte beide Messreihen aus und fasse sie in einer Proportionalität zusammen.",
+        "lines": 3,
+        "solution": "y_S ~ U_A (Ursprungsgerade) und y_S ~ 1/U_B (Produkt konstant). Zusammen: y_S ~ U_A : U_B. Die Ablenkung hängt nur vom Verhältnis der beiden Spannungen ab."
+      },
+      {
+        "type": "heading",
+        "text": "Theorie"
+      },
+      {
+        "type": "question",
+        "id": "herleitung",
+        "operator": "herleiten",
+        "prompt": "Leite eine Formel für die Ablenkung y₁ am Ende der Platten her. Überprüfe sie für U_B = 1000 V und U_A = 150 V.",
+        "lines": 6,
+        "solution": "Flugzeit im Feld: t = l : v₀. Beschleunigung: a = e · U_A : (m · d). y₁ = ½ · a · t² = e · U_A · l² : (2 · m · d · v₀²). Mit v₀² = 2 · e · U_B : m folgt y₁ = U_A · l² : (4 · d · U_B). Einsetzen: 150 V · (0,080 m)² : (4 · 0,040 m · 1000 V) = 6,0 · 10⁻³ m = 0,60 cm, wie angezeigt."
+      },
+      {
+        "type": "question",
+        "id": "em",
+        "operator": "deuten",
+        "prompt": "In der Formel für y₁ kommen weder die Ladung noch die Masse des Teilchens vor. Deute dieses Ergebnis.",
+        "lines": 5,
+        "solution": "Ladung und Masse kürzen sich heraus, weil sie Beschleunigung im Querfeld und Eintrittsgeschwindigkeit in gleicher Weise bestimmen: Ein Teilchen mit größerem e/m wird stärker abgelenkt, ist aber auch schneller und nur kürzer im Feld. Alle negativ geladenen Teilchen laufen bei gleichen Spannungen auf derselben Bahn. Mit elektrischen Feldern allein lässt sich die spezifische Ladung e/m daher nicht bestimmen; dazu braucht man zusätzlich ein Magnetfeld."
+      },
+      {
+        "type": "choice",
+        "id": "platte",
+        "prompt": "Bei U_B = 500 V wird U_A langsam erhöht. Ab welcher Ablenkspannung trifft das Elektron die Platte? Überprüfe dein Ergebnis.",
+        "options": [
+          "ab etwa 130 V",
+          "ab etwa 250 V",
+          "ab etwa 300 V",
+          "Es trifft die Platte nie."
+        ],
+        "correct": [
+          1
+        ],
+        "solution": "Das Elektron trifft die Platte, wenn y₁ den halben Plattenabstand 2,0 cm erreicht: U_A = 4 · d · U_B · y₁ : l² = 4 · 0,040 m · 500 V · 0,020 m : (0,080 m)² = 250 V."
+      },
+      {
+        "type": "heading",
+        "text": "Anwenden"
+      },
+      {
+        "type": "question",
+        "id": "oszi",
+        "operator": "erlaeutern",
+        "prompt": "In einem analogen Oszilloskop lenken zwei gekreuzte Plattenpaare den Elektronenstrahl ab. Erläutere, wie damit eine Wechselspannung als Kurve auf dem Schirm sichtbar wird.",
+        "lines": 5,
+        "solution": "Die zu messende Spannung liegt an den Platten für die senkrechte Ablenkung: Weil y_S ~ U_A ist, entspricht die Höhe des Leuchtpunkts in jedem Moment der Spannung. An den Platten für die waagrechte Ablenkung liegt eine Sägezahnspannung, die den Punkt gleichmäßig von links nach rechts führt und dann zurückspringt; die waagrechte Richtung wird so zur Zeitachse. Durch die Trägheit des Leuchtschirms und des Auges entsteht eine stehende Kurve."
+      }
+    ]
+  }
+}

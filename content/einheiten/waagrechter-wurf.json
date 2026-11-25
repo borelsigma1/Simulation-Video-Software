@@ -2,7 +2,7 @@
   "id": "waagrechter-wurf",
   "title": "Waagrechter Wurf",
   "grade": 10,
-  "order": 1,
+  "order": 2,
   "domain": "mechanik",
   "curriculum": "Ph10 Lernbereich 3: Bewegungen und ihre Modellierung in der Physik (waagrechter Wurf)",
   "summary": "Eine Kugel wird waagrecht von einem Turm abgeworfen. Du untersuchst, wovon Flugzeit und Wurfweite abhängen, und zerlegst die Bewegung in zwei einfache Teilbewegungen.",
