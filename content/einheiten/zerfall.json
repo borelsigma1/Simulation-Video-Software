@@ -1,0 +1,159 @@
+{
+  "id": "zerfall",
+  "title": "Radioaktiver Zerfall und Halbwertszeit",
+  "grade": 10,
+  "order": 3,
+  "domain": "kern",
+  "curriculum": "Ph10 Lernbereich 4: Kernphysik (radioaktiver Zerfall, Halbwertszeit)",
+  "summary": "Ob ein einzelner Kern in der nächsten Sekunde zerfällt, ist Zufall. Trotzdem folgt eine große Zahl von Kernen einem klaren Gesetz. Du nimmst eine Zerfallskurve auf.",
+  "video": {
+    "title": "",
+    "source": {
+      "kind": "none"
+    }
+  },
+  "sim": {
+    "id": "zerfall",
+    "hiddenPlots": [
+      "ln"
+    ]
+  },
+  "worksheet": {
+    "title": "Radioaktiver Zerfall und Halbwertszeit",
+    "subtitle": "Kernphysik · Jahrgangsstufe 10",
+    "blocks": [
+      {
+        "type": "text",
+        "text": "Jeder rote Punkt steht für einen instabilen Atomkern. Wann ein bestimmter Kern zerfällt, lässt sich nicht vorhersagen. Die Simulation würfelt das für jeden Kern einzeln aus.\n\nDie **Halbwertszeit T½** ist die Zeit, nach der im Mittel die Hälfte der anfangs vorhandenen Kerne zerfallen ist. Die **Aktivität A** gibt an, wie viele Kerne pro Sekunde zerfallen."
+      },
+      {
+        "type": "heading",
+        "text": "Eine Zerfallskurve aufnehmen"
+      },
+      {
+        "type": "question",
+        "id": "hyp",
+        "operator": "hypothese",
+        "prompt": "Am Anfang sind 400 Kerne Radon-220 vorhanden, die Halbwertszeit beträgt 56 s. Stelle eine Hypothese auf, wie viele Kerne nach 56 s, 112 s und 168 s noch nicht zerfallen sind.",
+        "lines": 2,
+        "solution": "Individuell. Fachlich: etwa 200, 100 und 50. Häufige Fehlvorstellung: Nach zwei Halbwertszeiten sind alle Kerne zerfallen."
+      },
+      {
+        "type": "table",
+        "id": "kurve",
+        "operator": "ermitteln",
+        "prompt": "Starte die Messung und halte sie etwa alle 30 Sekunden an. Ermittle jeweils die Zeit und die Anzahl der noch nicht zerfallenen Kerne.",
+        "columns": [
+          {
+            "key": "t",
+            "label": "t",
+            "unit": "s",
+            "source": "t"
+          },
+          {
+            "key": "N",
+            "label": "N",
+            "unit": "",
+            "source": "N"
+          }
+        ],
+        "rows": 8,
+        "solution": "Erwartungswerte (einzelne Messungen streuen darum): 0 s: 400; 30 s: 276; 60 s: 190; 90 s: 131; 120 s: 91; 150 s: 62; 180 s: 43; 210 s: 30."
+      },
+      {
+        "type": "chart",
+        "id": "kurve-dia",
+        "operator": "darstellen",
+        "prompt": "Stelle die Anzahl N in Abhängigkeit von der Zeit in einem Diagramm dar.",
+        "table": "kurve",
+        "x": "t",
+        "y": "N",
+        "fit": false,
+        "solution": "Fallende, nach rechts immer flacher werdende Kurve, die sich der Zeitachse annähert, ohne sie zu erreichen."
+      },
+      {
+        "type": "question",
+        "id": "halb",
+        "operator": "bestimmen",
+        "prompt": "Bestimme aus deinem Diagramm, nach welcher Zeit noch 200, 100 und 50 Kerne vorhanden sind. Vergleiche mit deiner Hypothese.",
+        "lines": 3,
+        "solution": "Etwa nach 56 s, 112 s und 168 s (je nach Durchlauf einige Sekunden früher oder später). In gleichen Zeitabständen halbiert sich die Anzahl jeweils: Nach n Halbwertszeiten ist noch der Anteil (½)ⁿ vorhanden."
+      },
+      {
+        "type": "heading",
+        "text": "Zufall und Gesetz"
+      },
+      {
+        "type": "question",
+        "id": "wiederholen",
+        "operator": "vergleichen",
+        "prompt": "Wiederhole die Messung zweimal mit denselben Einstellungen und blende die Kurve des Zerfallsgesetzes ein. Vergleiche die drei Durchläufe miteinander und mit der Kurve.",
+        "lines": 4,
+        "solution": "Kein Durchlauf gleicht dem anderen: Es zerfallen jedes Mal andere Kerne zu anderen Zeiten, und die gezählte Kurve verläuft leicht zackig. Alle Durchläufe schwanken aber eng um dieselbe glatte Kurve des Zerfallsgesetzes."
+      },
+      {
+        "type": "question",
+        "id": "klein",
+        "operator": "untersuchen",
+        "prompt": "Untersuche, wie gut das Zerfallsgesetz für nur 20 Kerne und für 1000 Kerne zutrifft.",
+        "lines": 4,
+        "solution": "Bei 20 Kernen weicht die gezählte Treppenkurve stark und bei jedem Durchlauf anders von der Gesetzeskurve ab; die Halbwertszeit lässt sich kaum ablesen. Bei 1000 Kernen liegt sie fast genau auf der Kurve. Das Zerfallsgesetz ist eine statistische Aussage: Es gilt umso genauer, je mehr Kerne beteiligt sind. In echten Proben sind es Trilliarden."
+      },
+      {
+        "type": "choice",
+        "id": "einzeln",
+        "prompt": "Ein bestimmter Radon-220-Kern hat bereits drei Halbwertszeiten „überlebt“. Wie groß ist die Wahrscheinlichkeit, dass er in den nächsten 56 s zerfällt?",
+        "options": [
+          "Fast 100 %, er ist längst überfällig.",
+          "50 %",
+          "12,5 %",
+          "Das lässt sich nicht angeben."
+        ],
+        "correct": [
+          1
+        ],
+        "solution": "Ein Kern altert nicht. Die Zerfallswahrscheinlichkeit pro Zeit ist immer dieselbe, unabhängig von der Vorgeschichte."
+      },
+      {
+        "type": "heading",
+        "text": "Aktivität"
+      },
+      {
+        "type": "question",
+        "id": "aktiv",
+        "operator": "beschreiben",
+        "prompt": "Wähle das Diagramm A(t). Beschreibe den zeitlichen Verlauf der Aktivität und erkläre ihn.",
+        "lines": 4,
+        "solution": "Die Aktivität nimmt (mit Schwankungen) im selben Maß ab wie die Zahl der Kerne; nach einer Halbwertszeit ist auch sie etwa halb so groß. Erklärung: Jeder Kern zerfällt mit derselben Wahrscheinlichkeit pro Sekunde. Sind nur noch halb so viele Kerne da, zerfallen pro Sekunde nur noch halb so viele."
+      },
+      {
+        "type": "question",
+        "id": "vergleich",
+        "operator": "vergleichen",
+        "prompt": "Vergleiche die Aktivität zu Beginn für Radon-220 und Barium-137m bei jeweils 400 Kernen.",
+        "lines": 3,
+        "solution": "Radon-220 (T½ = 56 s): etwa 5 Zerfälle pro Sekunde. Barium-137m (T½ = 153 s): etwa 1,8 pro Sekunde. Bei gleicher Anzahl von Kernen ist die Aktivität umso größer, je kürzer die Halbwertszeit ist."
+      },
+      {
+        "type": "heading",
+        "text": "Anwenden"
+      },
+      {
+        "type": "question",
+        "id": "iod",
+        "operator": "berechnen",
+        "prompt": "Iod-131 hat eine Halbwertszeit von 8,0 Tagen. Berechne, welcher Anteil einer Probe nach 40 Tagen noch vorhanden ist und nach welcher Zeit weniger als 1 % übrig ist.",
+        "lines": 4,
+        "solution": "40 d = 5 Halbwertszeiten: (½)⁵ = 1/32 ≈ 3,1 %. Weniger als 1 %: (½)⁷ = 1/128 ≈ 0,8 %, also nach 7 Halbwertszeiten = 56 Tagen."
+      },
+      {
+        "type": "question",
+        "id": "endlager",
+        "operator": "bewerten",
+        "prompt": "Plutonium-239 hat eine Halbwertszeit von 24 000 Jahren. Bewerte die Aussage: „Nach 24 000 Jahren ist das Problem mit dem Atommüll erledigt.“",
+        "lines": 5,
+        "solution": "Fachlich: Nach einer Halbwertszeit ist erst die Hälfte zerfallen, die Aktivität ist nur halbiert. Bis auf ein Tausendstel dauert es zehn Halbwertszeiten, also 240 000 Jahre; zudem sind manche Zerfallsprodukte selbst radioaktiv. Bewertung: Die Aussage ist falsch. Eine sichere Lagerung muss über Zeiträume gewährleistet sein, die weit über jede menschliche Planungserfahrung hinausgehen; das ist ein gewichtiges Argument in der Diskussion um die Kernenergie."
+      }
+    ]
+  }
+}

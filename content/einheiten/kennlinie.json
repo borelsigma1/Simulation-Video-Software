@@ -1,0 +1,165 @@
+{
+  "id": "kennlinie",
+  "title": "Kennlinien: Draht und Glühlampe",
+  "grade": 8,
+  "order": 1,
+  "domain": "elektrik",
+  "curriculum": "Ph8 Lernbereich 1: Elektrischer Strom (Schülerexperiment: Kennlinien eines Ohm'schen und eines nicht-Ohm'schen Widerstands)",
+  "summary": "Wie hängt die Stromstärke von der Spannung ab? Du nimmst zwei Kennlinien auf und entdeckst, wann das Ohm'sche Gesetz gilt.",
+  "video": {
+    "title": "",
+    "source": {
+      "kind": "none"
+    }
+  },
+  "sim": {
+    "id": "kennlinie"
+  },
+  "worksheet": {
+    "title": "Kennlinien aufnehmen",
+    "subtitle": "Elektrischer Strom · Jahrgangsstufe 8",
+    "blocks": [
+      {
+        "type": "text",
+        "text": "Ein Netzgerät liefert eine einstellbare Spannung **U**. Der Strommesser (A) liegt in Reihe mit dem Bauteil, der Spannungsmesser (V) parallel dazu.\n\nTrägt man die Stromstärke **I** über der Spannung **U** auf, erhält man die **Kennlinie** des Bauteils. Der Quotient **R = U : I** heißt elektrischer Widerstand, Einheit 1 Ω = 1 V/A."
+      },
+      {
+        "type": "heading",
+        "text": "Konstantandraht"
+      },
+      {
+        "type": "question",
+        "id": "hyp",
+        "operator": "hypothese",
+        "prompt": "Stelle eine Hypothese auf, wie sich die Stromstärke ändert, wenn du die Spannung verdoppelst.",
+        "lines": 2,
+        "solution": "Individuell, z. B.: Die Spannung ist der Antrieb des Stroms; bei doppeltem Antrieb erwarte ich die doppelte Stromstärke."
+      },
+      {
+        "type": "table",
+        "id": "draht",
+        "operator": "ermitteln",
+        "prompt": "Ermittle für den Konstantandraht (R = 30 Ω eingestellt) die Stromstärke bei mindestens sechs verschiedenen Spannungen. Berechne jeweils den Quotienten U : I.",
+        "columns": [
+          {
+            "key": "U",
+            "label": "U",
+            "unit": "V",
+            "source": "U"
+          },
+          {
+            "key": "I",
+            "label": "I",
+            "unit": "A",
+            "source": "I"
+          },
+          {
+            "key": "R",
+            "label": "U : I",
+            "unit": "V/A"
+          }
+        ],
+        "rows": 6,
+        "solution": "Zum Beispiel 2 V / 0,067 A; 4 V / 0,133 A; 6 V / 0,200 A; 8 V / 0,267 A; 10 V / 0,333 A; 12 V / 0,400 A. Der Quotient ist stets 30 V/A."
+      },
+      {
+        "type": "chart",
+        "id": "draht-dia",
+        "operator": "darstellen",
+        "prompt": "Stelle deine Messwerte in einem U-I-Diagramm dar und zeichne eine Ausgleichsgerade ein. Beschreibe den Verlauf.",
+        "table": "draht",
+        "x": "U",
+        "y": "I",
+        "fit": true,
+        "solution": "Die Messpunkte liegen auf einer Geraden durch den Ursprung (Steigung 1/R ≈ 0,033 A/V)."
+      },
+      {
+        "type": "question",
+        "id": "ohm",
+        "operator": "auswerten",
+        "prompt": "Werte Tabelle und Diagramm aus: Formuliere den Zusammenhang zwischen U und I.",
+        "lines": 3,
+        "solution": "U und I sind zueinander proportional (I ~ U): doppelte Spannung, doppelte Stromstärke. Der Quotient U : I ist konstant, der Draht hat einen festen Widerstand von 30 Ω. Das ist das Ohm'sche Gesetz."
+      },
+      {
+        "type": "question",
+        "id": "rechnen",
+        "operator": "berechnen",
+        "prompt": "Berechne die Stromstärke, die bei diesem Draht für U = 20 V zu erwarten ist.",
+        "lines": 2,
+        "solution": "I = U : R = 20 V : 30 Ω ≈ 0,67 A."
+      },
+      {
+        "type": "heading",
+        "text": "Glühlampe"
+      },
+      {
+        "type": "table",
+        "id": "lampe",
+        "operator": "ermitteln",
+        "prompt": "Wähle die Glühlampe. Ermittle wieder die Stromstärke bei mindestens sechs Spannungen und berechne den Widerstand R = U : I.",
+        "columns": [
+          {
+            "key": "U",
+            "label": "U",
+            "unit": "V",
+            "source": "U"
+          },
+          {
+            "key": "I",
+            "label": "I",
+            "unit": "A",
+            "source": "I"
+          },
+          {
+            "key": "R",
+            "label": "R",
+            "unit": "Ω"
+          }
+        ],
+        "rows": 6,
+        "solution": "Zum Beispiel 1 V / 0,149 A / 6,7 Ω; 2 V / 0,219 A / 9,1 Ω; 4 V / 0,320 A / 12,5 Ω; 6 V / 0,400 A / 15,0 Ω; 9 V / 0,500 A / 18,0 Ω; 12 V / 0,586 A / 20,5 Ω."
+      },
+      {
+        "type": "chart",
+        "id": "lampe-dia",
+        "operator": "darstellen",
+        "prompt": "Stelle auch die Messwerte der Glühlampe in einem U-I-Diagramm dar.",
+        "table": "lampe",
+        "x": "U",
+        "y": "I",
+        "fit": false
+      },
+      {
+        "type": "question",
+        "id": "vergleich",
+        "operator": "vergleichen",
+        "prompt": "Vergleiche die Kennlinie der Glühlampe mit der des Konstantandrahts.",
+        "lines": 3,
+        "solution": "Gemeinsam: Beide beginnen im Ursprung, mit wachsender Spannung steigt die Stromstärke. Unterschied: Die Kennlinie des Drahts ist eine Gerade (R konstant). Die der Lampe ist gekrümmt und wird immer flacher: Die Stromstärke wächst langsamer als die Spannung, der Widerstand nimmt zu. Für die Glühlampe gilt das Ohm'sche Gesetz nicht."
+      },
+      {
+        "type": "question",
+        "id": "erkl",
+        "operator": "erklaeren",
+        "prompt": "Erkläre, weshalb der Widerstand der Glühlampe mit wachsender Spannung zunimmt.",
+        "lines": 3,
+        "solution": "Je größer die Spannung, desto heißer wird der Glühdraht. Im heißen Metall schwingen die Atomrümpfe stärker und behindern die Bewegung der Elektronen mehr. Der Widerstand eines Metalldrahts steigt deshalb mit der Temperatur. (Konstantan ist eine Legierung, bei der dieser Effekt fast nicht auftritt.)"
+      },
+      {
+        "type": "choice",
+        "id": "einschalten",
+        "prompt": "Wann ist die Stromstärke durch eine Glühlampe an einer festen Spannung am größten?",
+        "options": [
+          "Im Moment des Einschaltens, solange der Draht noch kalt ist.",
+          "Wenn die Lampe ihre volle Helligkeit erreicht hat.",
+          "Sie ist immer gleich groß."
+        ],
+        "correct": [
+          0
+        ],
+        "solution": "Der kalte Draht hat den kleinsten Widerstand. Deshalb brennen Glühlampen meist beim Einschalten durch."
+      }
+    ]
+  }
+}

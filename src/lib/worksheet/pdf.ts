@@ -3,7 +3,7 @@
  * Es wird nichts an einen Server geschickt und nichts gespeichert.
  * jsPDF wird erst beim Klick nachgeladen, damit die Simulation schnell startet.
  */
-import type { Answers, Worksheet } from './types';
+import { isTask, taskNumbers, type Answers, type Worksheet } from './types';
 import { paragraphs, plain } from './richtext';
 
 const PAGE_W = 210;
@@ -20,7 +20,7 @@ const LINE = 5.2;
 const REPLACE: Record<string, string> = {
   α: 'alpha', β: 'beta', γ: 'gamma', δ: 'delta', Δ: 'Delta', ω: 'omega', φ: 'phi', π: 'pi',
   λ: 'lambda', μ: 'µ', ρ: 'rho', σ: 'sigma', τ: 'tau', θ: 'theta', '√': 'Wurzel ',
-  '₀': '0', '₁': '1', '₂': '2', '₃': '3', 'ₓ': 'x', 'ᵧ': 'y', 'ŝ': 's^', '≈': '~', '≤': '<=', '≥': '>=',
+  '₀': '0', '₁': '1', '₂': '2', '₃': '3', 'ₓ': 'x', 'ᵧ': 'y', 'ŝ': 's^', ϑ: 'theta', η: 'eta', Ω: 'Ohm', '′': "'", '„': '"', '“': '"', '≈': '~', '≤': '<=', '≥': '>=',
   '→': '->', '⋅': '·', '−': '-', '⅒': '1/10'
 };
 const WIN_ANSI_EXTRA = new Set('€‚ƒ„…†‡ˆ‰Š‹ŒŽ‘’“”•–—˜™š›œžŸ');
@@ -35,7 +35,7 @@ export function pdfSafe(s: string): string {
   return out;
 }
 
-export async function exportWorksheetPdf(ws: Worksheet, a: Answers): Promise<void> {
+export async function exportWorksheetPdf(ws: Worksheet, a: Answers, withSolutions = false): Promise<void> {
   const { jsPDF } = await import('jspdf');
   const doc = new jsPDF({ unit: 'mm', format: 'a4' });
   let y = MARGIN;
@@ -92,7 +92,46 @@ export async function exportWorksheetPdf(ws: Worksheet, a: Answers): Promise<voi
   }
   y += 16;
 
-  for (const b of ws.blocks) {
+  const numbers = taskNumbers(ws);
+  /** Aufgabenstellung mit laufender Nummer */
+  const head = (bi: number, prompt: string) => `${numbers[bi]}  ${plain(prompt)}`;
+  const image = (img: string, maxW: number) => {
+    const props = doc.getImageProperties(img);
+    const w = Math.min(CONTENT_W, maxW);
+    const h = (w * props.height) / props.width;
+    ensure(h + 2);
+    doc.setDrawColor(190);
+    doc.addImage(img, 'PNG', MARGIN, y + 1, w, h);
+    doc.rect(MARGIN, y + 1, w, h, 'S');
+    y += h + 5;
+  };
+  const answerBox = (ans: string, emptyLines: number) => {
+    font(10.5);
+    const lines: string[] = ans ? doc.splitTextToSize(pdfSafe(ans), CONTENT_W - 6) : [];
+    const n = Math.max(lines.length, ans ? 1 : emptyLines);
+    ensure(Math.min(n * LINE + 4, 60));
+    const top = y + 1;
+    doc.setDrawColor(190);
+    if (ans) {
+      let ly = top + 2;
+      for (const l of lines) {
+        if (ly + LINE > PAGE_H - MARGIN - 6) {
+          doc.addPage();
+          ly = MARGIN;
+        }
+        doc.text(l, MARGIN + 3, ly + 3.8);
+        ly += LINE;
+      }
+      y = ly + 2;
+      if (lines.length * LINE < 60) doc.roundedRect(MARGIN, top, CONTENT_W, y - top, 1.5, 1.5, 'S');
+    } else {
+      for (let i = 1; i <= n; i++) doc.line(MARGIN, top + i * 7, MARGIN + CONTENT_W, top + i * 7);
+      y = top + n * 7 + 2;
+    }
+    y += 3;
+  };
+
+  for (const [bi, b] of ws.blocks.entries()) {
     switch (b.type) {
       case 'heading':
         y += 2;
@@ -108,44 +147,33 @@ export async function exportWorksheetPdf(ws: Worksheet, a: Answers): Promise<voi
         }
         break;
 
-      case 'question': {
+      case 'question':
         ensure(LINE * 2 + 16); // Frage nicht allein am Seitenende
-        write(plain(b.prompt), 10.5, 'bold');
-        const ans = a.text[b.id]?.trim() ?? '';
-        font(10.5);
-        const lines: string[] = ans ? doc.splitTextToSize(pdfSafe(ans), CONTENT_W - 6) : [];
-        const n = Math.max(lines.length, ans ? 1 : (b.lines ?? 3));
-        const boxH = n * LINE + 4;
-        ensure(Math.min(boxH, 60));
-        const top = y + 1;
-        doc.setDrawColor(190);
-        if (ans) {
-          let ly = top + 2;
-          for (const l of lines) {
-            if (ly + LINE > PAGE_H - MARGIN - 6) {
-              doc.addPage();
-              ly = MARGIN;
-            }
-            doc.text(l, MARGIN + 3, ly + 3.8);
-            ly += LINE;
-          }
-          y = ly + 2;
-          if (lines.length * LINE < 60) doc.roundedRect(MARGIN, top, CONTENT_W, y - top, 1.5, 1.5, 'S');
-        } else {
-          for (let i = 1; i <= n; i++) doc.line(MARGIN, top + i * 7, MARGIN + CONTENT_W, top + i * 7);
-          y = top + n * 7 + 2;
+        write(head(bi, b.prompt), 10.5, 'bold');
+        answerBox(a.text[b.id]?.trim() ?? '', b.lines ?? 3);
+        break;
+
+      case 'chart': {
+        ensure(LINE * 2 + 50);
+        write(head(bi, b.prompt), 10.5, 'bold');
+        const img = a.charts[b.id];
+        if (img) image(img, 130);
+        else {
+          write('(Diagramm ohne Messwerte)', 10, 'italic');
+          y += 2;
         }
-        y += 3;
+        answerBox(a.text[b.id]?.trim() ?? '', 3);
         break;
       }
 
       case 'table': {
         ensure(LINE + 7 * 3);
-        if (b.prompt) write(plain(b.prompt), 10.5, 'bold');
+        write(head(bi, b.prompt), 10.5, 'bold');
         const rows = a.tables[b.id] ?? [];
         const cw = CONTENT_W / b.columns.length;
         const rh = 7;
-        const header = b.columns.map((c) => (c.unit ? `${c.label} in ${c.unit}` : c.label));
+        const plain = (s: string) => s.replace(/_\{?([^}\s]+)\}?/g, '$1');
+        const header = b.columns.map((c) => (c.unit ? `${plain(c.label)} in ${c.unit}` : plain(c.label)));
         ensure(rh * 2 + 2);
         y += 1;
         const drawRow = (cells: string[], head: boolean) => {
@@ -171,7 +199,7 @@ export async function exportWorksheetPdf(ws: Worksheet, a: Answers): Promise<voi
 
       case 'choice': {
         ensure(LINE * 2 + 10);
-        write(plain(b.prompt), 10.5, 'bold');
+        write(head(bi, b.prompt), 10.5, 'bold');
         const chosen = a.choices[b.id] ?? [];
         b.options.forEach((o, i) => {
           font(10.5);
@@ -193,22 +221,26 @@ export async function exportWorksheetPdf(ws: Worksheet, a: Answers): Promise<voi
       }
 
       case 'snapshot': {
-        write(plain(b.prompt), 10.5, 'bold');
+        write(head(bi, b.prompt), 10.5, 'bold');
         const img = a.snapshots[b.id];
-        if (img) {
-          const props = doc.getImageProperties(img);
-          const w = Math.min(CONTENT_W, 140);
-          const h = (w * props.height) / props.width;
-          ensure(h + 2);
-          doc.setDrawColor(190);
-          doc.addImage(img, 'PNG', MARGIN, y + 1, w, h);
-          doc.rect(MARGIN, y + 1, w, h, 'S');
-          y += h + 5;
-        } else {
+        if (img) image(img, 140);
+        else {
           write('(kein Bild eingefügt)', 10, 'italic');
           y += 3;
         }
         break;
+      }
+    }
+
+    if (withSolutions && isTask(b)) {
+      const parts: string[] = [];
+      if (b.type === 'choice' && b.correct?.length) parts.push(`Richtig: ${b.correct.map((i) => b.options[i]).join(' / ')}`);
+      if (b.solution) parts.push(plain(b.solution));
+      if (parts.length) {
+        doc.setTextColor(14, 90, 75);
+        write(`Erwartungshorizont: ${parts.join(' ')}`, 9.5, 'italic', 4);
+        doc.setTextColor(0);
+        y += 3;
       }
     }
   }
@@ -230,6 +262,6 @@ export async function exportWorksheetPdf(ws: Worksheet, a: Answers): Promise<voi
       .replace(/[^\w\s-]/g, '')
       .trim()
       .replace(/\s+/g, '_');
-  const file = ['Arbeitsblatt', safe(ws.title), safe(a.name)].filter(Boolean).join('_');
+  const file = [withSolutions ? 'Erwartungshorizont' : 'Arbeitsblatt', safe(ws.title), safe(a.name)].filter(Boolean).join('_');
   doc.save(`${file}.pdf`);
 }

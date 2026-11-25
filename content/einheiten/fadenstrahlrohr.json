@@ -1,0 +1,193 @@
+{
+  "id": "fadenstrahlrohr",
+  "title": "Fadenstrahlrohr: Bestimmung von e/m",
+  "grade": 12,
+  "order": 2,
+  "domain": "felder",
+  "curriculum": "Ph12 Lernbereich 1: Statische elektrische und magnetische Felder (Lorentzkraft, Kreisbahn geladener Teilchen im Magnetfeld)",
+  "summary": "Im Magnetfeld laufen Elektronen auf einem Kreis. Aus Spannung, Flussdichte und Bahndurchmesser bestimmst du die spezifische Ladung des Elektrons.",
+  "video": {
+    "title": "",
+    "source": {
+      "kind": "none"
+    }
+  },
+  "sim": {
+    "id": "kreisbahn"
+  },
+  "worksheet": {
+    "title": "Fadenstrahlrohr: Bestimmung von e/m",
+    "subtitle": "Magnetisches Feld · Jahrgangsstufe 12",
+    "blocks": [
+      {
+        "type": "text",
+        "text": "Im Fadenstrahlrohr werden Elektronen mit der Spannung **U_B** beschleunigt und treten senkrecht zu den Feldlinien in das homogene Magnetfeld eines Helmholtz-Spulenpaars mit der Flussdichte **B** ein. Ein Gas unter geringem Druck macht ihre Bahn als leuchtenden Faden sichtbar.\n\nDas Feld zeigt aus der Zeichenebene heraus. Der Bahndurchmesser **d** wird an der Messleiste abgelesen."
+      },
+      {
+        "type": "heading",
+        "text": "Die Kreisbahn"
+      },
+      {
+        "type": "question",
+        "id": "richtung",
+        "operator": "beschreiben",
+        "prompt": "Schalte den Strahl ein. Beschreibe die Richtung der Lorentzkraft im Vergleich zur Geschwindigkeit an verschiedenen Stellen der Bahn.",
+        "lines": 3,
+        "solution": "Die Lorentzkraft steht an jeder Stelle senkrecht zur Geschwindigkeit und zeigt zum Mittelpunkt der Bahn. Ihr Betrag ist überall gleich."
+      },
+      {
+        "type": "question",
+        "id": "kreis",
+        "operator": "begruenden",
+        "prompt": "Begründe, dass sich die Elektronen auf einer Kreisbahn mit konstantem Betrag der Geschwindigkeit bewegen.",
+        "lines": 4,
+        "solution": "Die Lorentzkraft steht stets senkrecht zur Bewegungsrichtung. Sie verrichtet deshalb keine Arbeit: Die Bewegungsenergie und damit der Betrag der Geschwindigkeit bleiben konstant. Eine Kraft von konstantem Betrag, die immer senkrecht zur Geschwindigkeit wirkt, ist eine Zentripetalkraft; sie zwingt das Teilchen auf eine Kreisbahn."
+      },
+      {
+        "type": "question",
+        "id": "hand",
+        "operator": "erlaeutern",
+        "prompt": "Erläutere mit der Drei-Finger-Regel der linken Hand, dass die Elektronen bei dieser Feldrichtung nach oben abgelenkt werden, wenn sie die Quelle nach rechts verlassen.",
+        "lines": 4,
+        "solution": "Linke Hand (für negative Ladungen): Der Daumen zeigt in Bewegungsrichtung der Elektronen (nach rechts), der Zeigefinger in Feldrichtung (aus der Zeichenebene heraus, zum Betrachter). Der Mittelfinger zeigt dann nach oben: Dorthin wirkt die Lorentzkraft."
+      },
+      {
+        "type": "heading",
+        "text": "Messen"
+      },
+      {
+        "type": "table",
+        "id": "b",
+        "operator": "untersuchen",
+        "prompt": "Untersuche bei U_B = 200 V, wie der Bahndurchmesser von der Flussdichte abhängt. Berechne jeweils das Produkt d · B.",
+        "columns": [
+          {
+            "key": "B",
+            "label": "B",
+            "unit": "mT",
+            "source": "B"
+          },
+          {
+            "key": "d",
+            "label": "d",
+            "unit": "cm",
+            "source": "d"
+          },
+          {
+            "key": "dB",
+            "label": "d · B",
+            "unit": "cm·mT"
+          }
+        ],
+        "rows": 5,
+        "solution": "0,80 mT: 11,9 cm; 1,00 mT: 9,5 cm; 1,20 mT: 7,9 cm; 1,50 mT: 6,4 cm; 2,00 mT: 4,8 cm. Das Produkt ist stets etwa 9,5 cm·mT: d ~ 1/B."
+      },
+      {
+        "type": "table",
+        "id": "u",
+        "operator": "ermitteln",
+        "prompt": "Ermittle bei B = 1,00 mT den Bahndurchmesser für fünf Beschleunigungsspannungen. Berechne jeweils den Radius r und r².",
+        "columns": [
+          {
+            "key": "UB",
+            "label": "U_B",
+            "unit": "V",
+            "source": "UB"
+          },
+          {
+            "key": "d",
+            "label": "d",
+            "unit": "cm",
+            "source": "d"
+          },
+          {
+            "key": "r",
+            "label": "r",
+            "unit": "cm"
+          },
+          {
+            "key": "r2",
+            "label": "r²",
+            "unit": "cm²"
+          }
+        ],
+        "rows": 5,
+        "solution": "100 V: 6,7 cm (r = 3,4 cm; r² = 11,4 cm²); 150 V: 8,3 cm (4,1; 17,1); 200 V: 9,5 cm (4,8; 22,7); 250 V: 10,7 cm (5,3; 28,4); 300 V: 11,7 cm (5,8; 34,1)."
+      },
+      {
+        "type": "chart",
+        "id": "u-dia",
+        "operator": "darstellen",
+        "prompt": "Stelle r² in Abhängigkeit von U_B in einem Diagramm dar und zeichne eine Ausgleichsgerade ein.",
+        "table": "u",
+        "x": "UB",
+        "y": "r2",
+        "fit": true,
+        "solution": "Ursprungsgerade mit der Steigung 0,114 cm²/V = 1,14 · 10⁻⁵ m²/V."
+      },
+      {
+        "type": "heading",
+        "text": "Auswerten"
+      },
+      {
+        "type": "question",
+        "id": "herleitung",
+        "operator": "herleiten",
+        "prompt": "Leite aus dem Energieansatz für die Beschleunigung und dem Kraftansatz für die Kreisbahn die Formel e/m = 2 · U_B : (r² · B²) her.",
+        "lines": 6,
+        "solution": "Energie: e · U_B = ½ · m · v², also v² = 2 · e · U_B : m. Kraft: Lorentzkraft = Zentripetalkraft, e · v · B = m · v² : r, also v = e · B · r : m. Quadrieren und gleichsetzen: e² · B² · r² : m² = 2 · e · U_B : m. Daraus e/m = 2 · U_B : (r² · B²)."
+      },
+      {
+        "type": "question",
+        "id": "em",
+        "operator": "bestimmen",
+        "prompt": "Bestimme aus der Steigung deiner Ausgleichsgeraden die spezifische Ladung e/m des Elektrons und vergleiche mit dem Literaturwert 1,76 · 10¹¹ C/kg.",
+        "lines": 5,
+        "solution": "Aus der Formel folgt r² = 2 · U_B : ((e/m) · B²); die Steigung im U_B-r²-Diagramm ist also 2 : ((e/m) · B²). e/m = 2 : (Steigung · B²) = 2 : (1,14 · 10⁻⁵ m²/V · (1,00 · 10⁻³ T)²) = 1,75 · 10¹¹ C/kg. Abweichung vom Literaturwert unter 1 %."
+      },
+      {
+        "type": "question",
+        "id": "masse",
+        "operator": "berechnen",
+        "prompt": "Berechne mit deinem Ergebnis und der Elementarladung e = 1,60 · 10⁻¹⁹ C die Masse des Elektrons.",
+        "lines": 3,
+        "solution": "m = e : (e/m) = 1,60 · 10⁻¹⁹ C : 1,76 · 10¹¹ C/kg = 9,1 · 10⁻³¹ kg."
+      },
+      {
+        "type": "choice",
+        "id": "wand",
+        "prompt": "Bei U_B = 300 V wird die Flussdichte immer weiter verringert. Was geschieht?",
+        "options": [
+          "Der Kreis wird kleiner.",
+          "Der Kreis wird größer, bis der Strahl die Glaswand trifft.",
+          "Die Elektronen werden langsamer.",
+          "Der Kreis kehrt seinen Umlaufsinn um."
+        ],
+        "correct": [
+          1
+        ],
+        "solution": "r = m · v : (e · B): Bei schwächerem Feld ist die Lorentzkraft kleiner, die Bahn weniger gekrümmt."
+      },
+      {
+        "type": "heading",
+        "text": "Anwenden"
+      },
+      {
+        "type": "question",
+        "id": "fehler",
+        "operator": "diskutieren",
+        "prompt": "Im realen Versuch liest man den Durchmesser des etwa 2 mm breiten Leuchtfadens auf etwa ±2 mm genau ab. Diskutiere, wie stark sich dieser Fehler auf das Ergebnis für e/m auswirkt und wie sich die Genauigkeit verbessern lässt.",
+        "lines": 5,
+        "solution": "Bei d ≈ 10 cm bedeutet ±2 mm einen relativen Fehler von 2 %. Weil r quadratisch in die Formel eingeht, verdoppelt sich der relative Fehler auf etwa 4 %; dazu kommen die Fehler von B (ebenfalls quadratisch) und U_B. Verbesserungen: möglichst große Bahnen einstellen, viele Messungen durchführen und über eine Ausgleichsgerade auswerten, stets an derselben Kante des Fadens ablesen, das Erdmagnetfeld berücksichtigen."
+      },
+      {
+        "type": "question",
+        "id": "massenspek",
+        "operator": "erlaeutern",
+        "prompt": "Erläutere, wie sich mit einem Magnetfeld Ionen gleicher Ladung und gleicher Geschwindigkeit, aber unterschiedlicher Masse trennen lassen (Massenspektrometer).",
+        "lines": 4,
+        "solution": "Aus e · v · B = m · v² : r folgt r = m · v : (q · B). Bei gleicher Ladung, Geschwindigkeit und Flussdichte ist der Bahnradius proportional zur Masse: Schwerere Ionen laufen auf größeren Kreisen und treffen nach einem Halbkreis an einer anderen Stelle auf den Detektor. So lassen sich zum Beispiel Isotope eines Elements trennen und ihre Massen bestimmen."
+      }
+    ]
+  }
+}

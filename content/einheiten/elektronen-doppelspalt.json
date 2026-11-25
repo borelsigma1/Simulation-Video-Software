@@ -1,0 +1,187 @@
+{
+  "id": "elektronen-doppelspalt",
+  "title": "Doppelspalt mit einzelnen Elektronen",
+  "grade": 13,
+  "order": 1,
+  "domain": "quanten",
+  "curriculum": "Ph13 Lernbereich 1: Quantenphysik (Doppelspaltexperiment mit Elektronen, De-Broglie-Wellenlänge, Wahrscheinlichkeitsinterpretation)",
+  "summary": "Elektronen treffen einzeln auf einen Schirm und hinterlassen jeweils einen Punkt. Trotzdem entsteht ein Interferenzmuster. Du untersuchst, wie das zusammenpasst.",
+  "video": {
+    "title": "",
+    "source": {
+      "kind": "none"
+    }
+  },
+  "sim": {
+    "id": "quantenspalt"
+  },
+  "worksheet": {
+    "title": "Doppelspalt mit einzelnen Elektronen",
+    "subtitle": "Quantenphysik · Jahrgangsstufe 13",
+    "blocks": [
+      {
+        "type": "text",
+        "text": "Elektronen werden mit der Spannung **U_B** beschleunigt und treffen einzeln auf einen Doppelspalt mit dem **Spaltabstand d**. Im Abstand a = 1,0 m registriert ein Schirm jeden Treffer als Punkt.\n\nKonstanten: h = 6,63 · 10⁻³⁴ Js, mₑ = 9,11 · 10⁻³¹ kg, e = 1,60 · 10⁻¹⁹ C."
+      },
+      {
+        "type": "heading",
+        "text": "Einzelne Treffer"
+      },
+      {
+        "type": "question",
+        "id": "hyp",
+        "operator": "hypothese",
+        "prompt": "Stelle eine Hypothese auf, welches Bild auf dem Schirm entsteht, wenn Elektronen kleine Kügelchen wären, die durch den einen oder den anderen Spalt fliegen.",
+        "lines": 2,
+        "solution": "Hinter jedem Spalt entstünde ein Streifen mit vielen Treffern; insgesamt zwei (bei geringem Spaltabstand ineinanderfließende) Häufungen, aber kein Muster aus vielen Streifen."
+      },
+      {
+        "type": "question",
+        "id": "wenige",
+        "operator": "beschreiben",
+        "prompt": "Sende 5 Elektronen pro Sekunde und beobachte die ersten etwa 50 Treffer. Beschreibe, was du siehst.",
+        "lines": 3,
+        "solution": "Jedes Elektron erzeugt genau einen punktförmigen Treffer; es wird nie „verschmiert“ oder geteilt nachgewiesen. Die Orte der Treffer wirken zufällig und lassen sich nicht vorhersagen. Ein Muster ist noch nicht zu erkennen."
+      },
+      {
+        "type": "question",
+        "id": "viele",
+        "operator": "beschreiben",
+        "prompt": "Erhöhe auf 500 Elektronen pro Sekunde. Beschreibe, wie sich das Bild mit wachsender Trefferzahl entwickelt.",
+        "lines": 4,
+        "solution": "Mit wachsender Trefferzahl zeichnen sich Streifen ab: An manchen Stellen häufen sich die Treffer, dazwischen bleiben Bereiche fast leer. Das Histogramm zeigt immer deutlicher ein Interferenzmuster mit einem Maximum in der Mitte und nach außen abnehmenden Nebenmaxima, obwohl immer nur einzelne Elektronen unterwegs sind."
+      },
+      {
+        "type": "question",
+        "id": "deutung",
+        "operator": "deuten",
+        "prompt": "Blende die Wahrscheinlichkeitsverteilung |ψ|² ein. Deute den Zusammenhang zwischen dieser Kurve, dem einzelnen Treffer und dem Histogramm.",
+        "lines": 5,
+        "solution": "Die Kurve gibt an, mit welcher Wahrscheinlichkeit ein Elektron an einem Ort nachgewiesen wird. Für das einzelne Elektron lässt sich der Auftreffort nicht vorhersagen, nur die Wahrscheinlichkeit dafür. Erst bei vielen Elektronen entspricht die Verteilung der Treffer (Histogramm) der Kurve. An den Nullstellen von |ψ|² wird nie ein Elektron nachgewiesen."
+      },
+      {
+        "type": "heading",
+        "text": "Wellenlänge der Elektronen"
+      },
+      {
+        "type": "table",
+        "id": "maxima",
+        "operator": "ermitteln",
+        "prompt": "Stelle U_B = 10 kV und d = 1,0 µm ein und lass mindestens 5000 Treffer zusammenkommen. Ermittle mit der Messmarke die Positionen der Maxima 1. bis 3. Ordnung.",
+        "columns": [
+          {
+            "key": "k",
+            "label": "Ordnung k",
+            "unit": ""
+          },
+          {
+            "key": "x",
+            "label": "x_k",
+            "unit": "µm",
+            "source": "x"
+          }
+        ],
+        "rows": 3,
+        "solution": "k = 1: 12,3 µm; k = 2: 24,5 µm; k = 3: 36,8 µm."
+      },
+      {
+        "type": "question",
+        "id": "lambda",
+        "operator": "berechnen",
+        "prompt": "Berechne aus deinen Messwerten mit Δx = λ · a : d die Wellenlänge, die dem Interferenzmuster zugrunde liegt.",
+        "lines": 3,
+        "solution": "Δx = 36,8 µm : 3 = 12,3 µm. λ = Δx · d : a = 12,3 · 10⁻⁶ m · 1,0 · 10⁻⁶ m : 1,0 m = 1,23 · 10⁻¹¹ m = 12,3 pm."
+      },
+      {
+        "type": "question",
+        "id": "debroglie",
+        "operator": "berechnen",
+        "prompt": "Berechne die De-Broglie-Wellenlänge λ = h : p der Elektronen für U_B = 10 kV und vergleiche mit deinem Messergebnis.",
+        "lines": 5,
+        "solution": "Aus e · U_B = p² : (2 · m) folgt p = √(2 · m · e · U_B) = √(2 · 9,11 · 10⁻³¹ kg · 1,60 · 10⁻¹⁹ C · 10⁴ V) = 5,40 · 10⁻²³ kg·m/s. λ = h : p = 6,63 · 10⁻³⁴ Js : 5,40 · 10⁻²³ kg·m/s = 1,23 · 10⁻¹¹ m = 12,3 pm. Messung und Rechnung stimmen überein."
+      },
+      {
+        "type": "table",
+        "id": "spannung",
+        "operator": "untersuchen",
+        "prompt": "Untersuche, wie die De-Broglie-Wellenlänge von der Beschleunigungsspannung abhängt. Berechne jeweils λ · √U_B.",
+        "columns": [
+          {
+            "key": "U",
+            "label": "U_B",
+            "unit": "kV",
+            "source": "U"
+          },
+          {
+            "key": "lambda",
+            "label": "λ",
+            "unit": "pm",
+            "source": "lambda"
+          },
+          {
+            "key": "prod",
+            "label": "λ · √U_B",
+            "unit": "pm·√kV"
+          }
+        ],
+        "rows": 4,
+        "solution": "2,5 kV: 24,53 pm; 5,0 kV: 17,35 pm; 10 kV: 12,27 pm; 20 kV: 8,67 pm. Das Produkt ist stets 38,8 pm·√kV: λ ~ 1/√U_B. Vierfache Spannung halbiert die Wellenlänge."
+      },
+      {
+        "type": "heading",
+        "text": "Welcher Weg?"
+      },
+      {
+        "type": "question",
+        "id": "weg",
+        "operator": "untersuchen",
+        "prompt": "Schalte den Detektor am Spalt ein, der für jedes Elektron feststellt, durch welchen Spalt es gegangen ist. Untersuche, wie sich die Verteilung der Treffer verändert.",
+        "lines": 3,
+        "solution": "Die Streifen verschwinden. Es entsteht eine breite, glatte Verteilung mit einem Maximum in der Mitte: die Summe der Verteilungen zweier Einzelspalte. Die Gesamtzahl der Treffer ändert sich nicht, nur ihre Verteilung."
+      },
+      {
+        "type": "question",
+        "id": "komplementaer",
+        "operator": "erlaeutern",
+        "prompt": "Erläutere dieses Ergebnis mit dem Begriff der Komplementarität.",
+        "lines": 5,
+        "solution": "Weg-Information und Interferenzmuster schließen sich gegenseitig aus. Liegt eindeutig fest, durch welchen Spalt jedes Elektron gegangen ist, gibt es keine zwei ununterscheidbaren Möglichkeiten mehr, die interferieren könnten. Ist der Weg prinzipiell unbestimmt, tragen beide Möglichkeiten bei, und es entsteht Interferenz. Entscheidend ist nicht eine „Störung“ durch ungeschicktes Messen, sondern ob die Information über den Weg prinzipiell vorhanden ist."
+      },
+      {
+        "type": "choice",
+        "id": "einzeln",
+        "prompt": "Welche Aussage über ein einzelnes Elektron im Versuch ohne Detektor ist mit den Beobachtungen vereinbar?",
+        "options": [
+          "Es teilt sich und geht zur Hälfte durch jeden Spalt.",
+          "Es geht durch genau einen Spalt, wir wissen nur nicht, durch welchen.",
+          "Es wird als Ganzes an einem Ort nachgewiesen; sein Weg dorthin ist unbestimmt.",
+          "Es interferiert mit den anderen Elektronen im Strahl."
+        ],
+        "correct": [
+          2
+        ],
+        "solution": "Es werden nie halbe Elektronen nachgewiesen (gegen A). Wäre der Weg nur unbekannt, aber festgelegt, gäbe es keine Interferenz (gegen B). Das Muster entsteht auch, wenn immer nur ein Elektron unterwegs ist (gegen D)."
+      },
+      {
+        "type": "heading",
+        "text": "Einordnen"
+      },
+      {
+        "type": "question",
+        "id": "fussball",
+        "operator": "abschaetzen",
+        "prompt": "Schätze die De-Broglie-Wellenlänge eines Fußballs ab (m = 0,43 kg, v = 20 m/s) und begründe, warum man bei ihm keine Interferenz beobachtet.",
+        "lines": 4,
+        "solution": "λ = h : (m · v) = 6,63 · 10⁻³⁴ Js : (0,43 kg · 20 m/s) ≈ 8 · 10⁻³⁵ m. Das ist rund 10²⁰-mal kleiner als ein Atomkern. Es gibt keine Spalte in dieser Größenordnung, und die Streifen lägen unmessbar dicht beieinander. Außerdem steht ein Fußball ständig in Wechselwirkung mit seiner Umgebung, wodurch sein Weg festliegt."
+      },
+      {
+        "type": "question",
+        "id": "modell",
+        "operator": "diskutieren",
+        "prompt": "Diskutiere die Aussage: „Das Elektron ist manchmal eine Welle und manchmal ein Teilchen.“",
+        "lines": 6,
+        "solution": "Dafür spricht: Die Ausbreitung lässt sich nur mit Wellenbegriffen (Wellenlänge, Interferenz) beschreiben, der Nachweis erfolgt stets punktförmig in ganzen Portionen. Dagegen spricht: Das Elektron wechselt nicht seine Natur. Es ist weder klassische Welle noch klassisches Teilchen, sondern ein Quantenobjekt. Die Wellenfunktion beschreibt kein ausgeschmiertes Elektron, sondern die Wahrscheinlichkeit, es an einem Ort nachzuweisen. „Welle“ und „Teilchen“ sind Modelle aus unserer Alltagswelt, die jeweils nur einen Teil des Verhaltens erfassen."
+      }
+    ]
+  }
+}

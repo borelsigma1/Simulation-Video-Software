@@ -1,0 +1,137 @@
+{
+  "id": "sammellinse",
+  "title": "Bilder an der Sammellinse",
+  "grade": 8,
+  "order": 2,
+  "domain": "optik",
+  "curriculum": "Ph8 Lernbereich 2: Optik (Schülerexperiment: Abbildung durch eine Sammellinse; reelle und virtuelle Bilder)",
+  "summary": "Mit drei Konstruktionsstrahlen findest du heraus, wo das Bild entsteht, wie groß es ist und wann eine Linse zur Lupe wird.",
+  "video": {
+    "title": "",
+    "source": {
+      "kind": "none"
+    }
+  },
+  "sim": {
+    "id": "sammellinse",
+    "params": {
+      "f": {
+        "value": 12
+      },
+      "G": {
+        "value": 5
+      }
+    }
+  },
+  "worksheet": {
+    "title": "Bilder an der Sammellinse",
+    "subtitle": "Optik · Jahrgangsstufe 8",
+    "blocks": [
+      {
+        "type": "text",
+        "text": "Von der Spitze des Gegenstands **G** gehen Lichtstrahlen in alle Richtungen aus. Drei davon lassen sich besonders leicht verfolgen:\n\n**Parallelstrahl**: verläuft parallel zur optischen Achse und geht hinter der Linse durch den Brennpunkt F'. **Mittelpunktstrahl**: geht ungebrochen durch die Linsenmitte. **Brennpunktstrahl**: geht durch den Brennpunkt F und verläuft hinter der Linse parallel zur Achse.\n\nWo sich die Strahlen wieder treffen, entsteht der Bildpunkt. **g** heißt Gegenstandsweite, **b** Bildweite, **f** Brennweite."
+      },
+      {
+        "type": "heading",
+        "text": "Messreihe"
+      },
+      {
+        "type": "table",
+        "id": "reihe",
+        "operator": "untersuchen",
+        "prompt": "Untersuche für f = 12 cm und G = 5 cm, wie Bildweite und Bildgröße von der Gegenstandsweite abhängen. Wähle g = 50, 36, 24, 20, 16 und 8 cm. Notiere in der letzten Spalte, ob das Bild umgekehrt oder aufrecht steht.",
+        "columns": [
+          {
+            "key": "g",
+            "label": "g",
+            "unit": "cm",
+            "source": "g"
+          },
+          {
+            "key": "b",
+            "label": "b",
+            "unit": "cm",
+            "source": "b"
+          },
+          {
+            "key": "B",
+            "label": "B",
+            "unit": "cm",
+            "source": "B"
+          },
+          {
+            "key": "art",
+            "label": "Bild steht",
+            "unit": ""
+          }
+        ],
+        "rows": 6,
+        "solution": "g = 50 cm: b = 15,8 cm, B = 1,6 cm, umgekehrt. 36: 18,0 / 2,5, umgekehrt. 24: 24,0 / 5,0, umgekehrt. 20: 30,0 / 7,5, umgekehrt. 16: 48,0 / 15,0, umgekehrt. 8: b = −24,0 cm (Bild auf der Gegenstandsseite), B = 15,0 cm, aufrecht."
+      },
+      {
+        "type": "question",
+        "id": "verlauf",
+        "operator": "beschreiben",
+        "prompt": "Beschreibe, wie sich Lage und Größe des Bildes ändern, wenn der Gegenstand aus großer Entfernung bis zum Brennpunkt an die Linse heranrückt.",
+        "lines": 3,
+        "solution": "Je näher der Gegenstand an die Linse rückt, desto weiter entfernt sich das Bild von der Linse und desto größer wird es. Für g > 2f ist das Bild verkleinert, für g = 2f gleich groß, für f < g < 2f vergrößert. Es ist stets umgekehrt. Nähert sich g der Brennweite, wandert das Bild ins Unendliche."
+      },
+      {
+        "type": "question",
+        "id": "gleich",
+        "operator": "ermitteln",
+        "prompt": "Ermittle die Gegenstandsweite, bei der Bild und Gegenstand gleich groß sind. Vergleiche sie mit der Brennweite.",
+        "lines": 2,
+        "solution": "Bei g = 24 cm ist B = G = 5 cm und b = 24 cm. Das ist die doppelte Brennweite: g = b = 2f."
+      },
+      {
+        "type": "choice",
+        "id": "zwischen",
+        "prompt": "Der Gegenstand steht zwischen einfacher und doppelter Brennweite (f < g < 2f). Welche Eigenschaften hat das Bild?",
+        "options": [
+          "verkleinert, umgekehrt, reell",
+          "vergrößert, umgekehrt, reell",
+          "vergrößert, aufrecht, virtuell",
+          "verkleinert, aufrecht, reell"
+        ],
+        "correct": [
+          1
+        ],
+        "solution": "So arbeitet z. B. ein Beamer: Das kleine Bildelement steht knapp außerhalb der Brennweite, das Bild auf der Leinwand ist groß und umgekehrt."
+      },
+      {
+        "type": "question",
+        "id": "massstab",
+        "operator": "untersuchen",
+        "prompt": "Untersuche an drei Zeilen deiner Tabelle, wie die Quotienten B : G und b : g zusammenhängen.",
+        "lines": 3,
+        "solution": "Die beiden Quotienten sind jeweils gleich, z. B. bei g = 20 cm: B : G = 7,5 : 5 = 1,5 und b : g = 30 : 20 = 1,5. Es gilt B : G = b : g (Abbildungsmaßstab). Begründung über den Mittelpunktstrahl (ähnliche Dreiecke)."
+      },
+      {
+        "type": "heading",
+        "text": "Die Lupe"
+      },
+      {
+        "type": "question",
+        "id": "virtuell",
+        "operator": "erklaeren",
+        "prompt": "Stelle g = 8 cm ein. Erkläre mithilfe der Konstruktionsstrahlen, warum sich dieses Bild nicht auf einem Schirm auffangen lässt.",
+        "lines": 3,
+        "solution": "Für g < f laufen die Strahlen hinter der Linse auseinander und treffen sich nirgends. Verlängert man sie rückwärts (gestrichelt), schneiden sie sich auf der Gegenstandsseite. Von dort scheint das Licht für das Auge herzukommen. An diesem Ort ist aber kein Licht, das einen Schirm beleuchten könnte: Das Bild ist virtuell, aufrecht und vergrößert."
+      },
+      {
+        "type": "snapshot",
+        "id": "lupe",
+        "prompt": "Füge ein Bild der Simulation ein, das die Linse als Lupe zeigt."
+      },
+      {
+        "type": "question",
+        "id": "auge",
+        "operator": "erlaeutern",
+        "prompt": "Im Auge erzeugt die Augenlinse ein Bild auf der Netzhaut. Der Abstand Linse–Netzhaut ist fest. Erläutere mit deinen Ergebnissen, warum das Auge die Brennweite seiner Linse verändern muss, um nahe und ferne Gegenstände scharf zu sehen.",
+        "lines": 4,
+        "solution": "Bei fester Brennweite hängt die Bildweite von der Gegenstandsweite ab: Für nahe Gegenstände läge das Bild hinter der Netzhaut. Da die Bildweite im Auge fest ist, muss die Brennweite angepasst werden: Für nahe Gegenstände wird die Linse stärker gekrümmt (kleinere Brennweite)."
+      }
+    ]
+  }
+}

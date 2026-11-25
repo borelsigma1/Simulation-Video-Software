@@ -1,20 +1,52 @@
+/*
+ * Gestaltung: Tusche auf Papier, Tafelgrün als Rahmen, Zinnober für alles,
+ * was man anfassen kann, Textmarker-Gelb für Operatoren.
+ * Schriften liegen im Projekt (kein Abruf bei Google o. Ä., DSGVO).
+ */
+@import '@fontsource-variable/bricolage-grotesque/wght.css';
+@import '@fontsource-variable/atkinson-hyperlegible-next/wght.css';
+@import '@fontsource-variable/jetbrains-mono/wght.css';
+@import '@fontsource/stix-two-text/400-italic.css';
+
 :root {
-  --bg: #f4f6f9;
-  --surface: #ffffff;
-  --surface-2: #f8fafc;
-  --border: #dde3ea;
-  --text: #1f2933;
-  --muted: #5f6b7a;
-  --accent: #1f6fd1;
-  --accent-soft: #e6f0fc;
-  --accent-text: #ffffff;
-  --ok: #2b9a66;
-  --warn: #b7791f;
-  --radius: 10px;
-  --radius-sm: 6px;
-  --shadow: 0 1px 2px rgb(16 24 40 / 6%), 0 1px 3px rgb(16 24 40 / 8%);
-  --font: system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif;
-  --mono: ui-monospace, 'SF Mono', Menlo, Consolas, monospace;
+  --paper: #f2ede1;
+  --paper-line: #e4dccb;
+  --sheet: #fffdf7;
+  --sheet-2: #f8f4ea;
+  --ink: #1b2433;
+  --ink-2: #4b5462;
+  --muted: #69717e;
+  --line: #d2c9b5;
+  --line-strong: #1b2433;
+  --board: #12372f;
+  --board-2: #0c2a24;
+  --chalk: #f3efe2;
+  --green: #0e5a4b;
+  --green-soft: #dcebe4;
+  --signal: #e2452b;
+  --signal-dark: #b9321c;
+  --signal-soft: #fbe3da;
+  --marker: #ffe566;
+  --ok: #1f8a5b;
+  --warn: #a6690f;
+
+  /* Farbcodes der Themengebiete */
+  --d-mechanik: #c8501c;
+  --d-optik: #b98509;
+  --d-elektrik: #1d5fbf;
+  --d-waerme: #c0303a;
+  --d-materie: #5f7030;
+  --d-wellen: #0f7a78;
+  --d-felder: #3d4fb5;
+  --d-quanten: #7a3fb0;
+  --d-kern: #8a3a5e;
+
+  --radius: 5px;
+  --stack: 3px 3px 0 var(--line);
+  --font: 'Atkinson Hyperlegible Next Variable', 'Segoe UI', system-ui, sans-serif;
+  --display: 'Bricolage Grotesque Variable', 'Atkinson Hyperlegible Next Variable', system-ui, sans-serif;
+  --mono: 'JetBrains Mono Variable', ui-monospace, Consolas, monospace;
+  --math: 'STIX Two Text', 'Cambria Math', Cambria, Georgia, serif;
   color-scheme: light;
 }
 
@@ -27,8 +59,13 @@
 html,
 body {
   margin: 0;
-  background: var(--bg);
-  color: var(--text);
+  background-color: var(--paper);
+  /* feines Karoraster wie im Physikheft */
+  background-image:
+    linear-gradient(var(--paper-line) 1px, transparent 1px),
+    linear-gradient(90deg, var(--paper-line) 1px, transparent 1px);
+  background-size: 22px 22px;
+  color: var(--ink);
   font-family: var(--font);
   font-size: 16px;
   line-height: 1.5;
@@ -38,12 +75,16 @@ body {
 h1,
 h2,
 h3 {
-  line-height: 1.25;
+  font-family: var(--display);
+  font-weight: 700;
+  line-height: 1.12;
+  letter-spacing: -0.015em;
   margin: 0 0 0.5em;
 }
 
 a {
-  color: var(--accent);
+  color: var(--green);
+  text-underline-offset: 3px;
 }
 
 button,
@@ -53,54 +94,130 @@ textarea {
   font: inherit;
   color: inherit;
 }
-
 button {
   cursor: pointer;
 }
 
-/* Gut treffbar auf Tablets: mindestens 40px hohe Bedienelemente */
+/* Kleine Beschriftung in Versalien, z. B. Lehrplanbezug */
+.eyebrow {
+  font-family: var(--mono);
+  font-size: 0.72rem;
+  font-weight: 500;
+  letter-spacing: 0.07em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+/* Formelzeichen wie im Schulbuch: kursiv mit Serifen */
+.sym {
+  font-family: var(--math);
+  font-style: italic;
+  font-size: 1.08em;
+}
+.sym sub {
+  font-style: normal;
+  font-family: var(--font);
+  font-size: 0.68em;
+}
+
+/* Bedienelemente mindestens 40px hoch (Tablet) */
 .btn {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 0.4em;
+  gap: 0.45em;
   min-height: 40px;
   padding: 0 14px;
-  border: 1px solid var(--border);
-  border-radius: var(--radius-sm);
-  background: var(--surface);
-  font-weight: 500;
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--sheet);
+  font-weight: 600;
+  font-size: 0.95rem;
   white-space: nowrap;
+  text-decoration: none;
+  color: var(--ink);
   touch-action: manipulation;
+  transition:
+    transform 0.08s,
+    box-shadow 0.08s,
+    background 0.12s;
+  box-shadow: 2px 2px 0 var(--line);
 }
-.btn:hover {
-  background: var(--surface-2);
+.btn:hover:not(:disabled) {
+  background: var(--sheet-2);
 }
-.btn:focus-visible,
-input:focus-visible,
-select:focus-visible,
-textarea:focus-visible {
-  outline: 3px solid color-mix(in srgb, var(--accent) 40%, transparent);
-  outline-offset: 1px;
+.btn:active:not(:disabled) {
+  transform: translate(2px, 2px);
+  box-shadow: 0 0 0 var(--line);
 }
 .btn.primary {
-  background: var(--accent);
-  border-color: var(--accent);
-  color: var(--accent-text);
+  background: var(--signal);
+  border-color: var(--signal-dark);
+  color: #fff;
+  box-shadow: 2px 2px 0 var(--signal-dark);
 }
-.btn.primary:hover {
-  background: color-mix(in srgb, var(--accent) 88%, black);
+.btn.primary:hover:not(:disabled) {
+  background: #ea5237;
+}
+.btn.green {
+  background: var(--green);
+  border-color: var(--board);
+  color: var(--chalk);
+  box-shadow: 2px 2px 0 var(--board);
+}
+.btn.green:hover:not(:disabled) {
+  background: #12695a;
+}
+.btn.ghost {
+  border-color: transparent;
+  background: transparent;
+  box-shadow: none;
+}
+.btn.ghost:hover:not(:disabled) {
+  background: color-mix(in srgb, var(--ink) 7%, transparent);
+}
+.btn.small {
+  min-height: 34px;
+  padding: 0 10px;
+  font-size: 0.86rem;
 }
 .btn:disabled {
-  opacity: 0.5;
+  opacity: 0.45;
   cursor: default;
 }
+.btn:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible,
+[tabindex]:focus-visible {
+  outline: 3px solid color-mix(in srgb, var(--signal) 55%, transparent);
+  outline-offset: 2px;
+}
 
-.card {
-  background: var(--surface);
-  border: 1px solid var(--border);
+.sheet {
+  background: var(--sheet);
+  border: 1.5px solid var(--ink);
   border-radius: var(--radius);
-  box-shadow: var(--shadow);
+  box-shadow: var(--stack);
+}
+
+.field {
+  width: 100%;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  padding: 8px 10px;
+  background: var(--sheet);
+  color: var(--ink);
+  font-size: 1rem;
+  min-height: 40px;
+}
+.field:hover {
+  border-color: var(--ink-2);
+}
+textarea.field {
+  resize: vertical;
+  line-height: 1.45;
 }
 
 .muted {
@@ -116,21 +233,45 @@ textarea:focus-visible {
   white-space: nowrap;
 }
 
-/* Seitenrahmen */
-.page-header {
+/* Kopfleiste aller Unterseiten: schmale Tafel */
+.topbar {
   display: flex;
   align-items: center;
-  gap: 16px;
+  gap: 14px;
   padding: 10px 20px;
-  background: var(--surface);
-  border-bottom: 1px solid var(--border);
+  background: var(--board);
+  color: var(--chalk);
+  border-bottom: 3px solid var(--board-2);
 }
-.page-header .home {
+.topbar a {
+  color: var(--chalk);
+}
+.topbar .back {
+  font-family: var(--mono);
+  font-size: 0.8rem;
+  letter-spacing: 0.04em;
   text-decoration: none;
-  color: var(--muted);
-  font-size: 0.95rem;
+  padding: 6px 10px;
+  border: 1px solid color-mix(in srgb, var(--chalk) 45%, transparent);
+  border-radius: var(--radius);
+  white-space: nowrap;
 }
-.page-header h1 {
+.topbar .back:hover {
+  background: color-mix(in srgb, var(--chalk) 12%, transparent);
+}
+.topbar h1 {
   font-size: 1.15rem;
   margin: 0;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+}
+.topbar .grow {
+  flex: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    transition: none !important;
+    animation: none !important;
+  }
 }

@@ -4,3 +4,4 @@ dist-sim/
 .DS_Store
 *.log
 .vite/
+.sim-build/

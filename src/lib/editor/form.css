@@ -1,0 +1,91 @@
+/* Formularbausteine des Editors */
+.ed label,
+.ed .lbl {
+  display: grid;
+  gap: 3px;
+  font-size: 0.8rem;
+  color: var(--muted);
+  min-width: 0;
+}
+.ed .field {
+  font-size: 0.95rem;
+  min-height: 36px;
+  padding: 6px 9px;
+}
+.ed .grid {
+  display: grid;
+  gap: 10px 12px;
+}
+.ed .g2 {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+.ed .g3 {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+.ed .g4 {
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+}
+.ed .check {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+  font-size: 0.9rem;
+  color: var(--ink);
+  cursor: pointer;
+}
+.ed .check input {
+  width: 18px;
+  height: 18px;
+  accent-color: var(--ink);
+  flex: none;
+}
+.ed h3 {
+  font-size: 1.05rem;
+  margin: 0;
+}
+.ed .group {
+  border: 1.5px solid var(--ink);
+  border-radius: var(--radius);
+  background: var(--sheet);
+  padding: 12px 14px;
+  display: grid;
+  gap: 10px;
+}
+.ed .hint {
+  margin: 0;
+  font-size: 0.84rem;
+  color: var(--muted);
+}
+.ed .rowline {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px 14px;
+}
+.ed .icon {
+  min-height: 30px;
+  min-width: 30px;
+  padding: 0 6px;
+  border: 1.5px solid var(--line);
+  border-radius: var(--radius);
+  background: var(--sheet);
+  font-size: 0.9rem;
+  line-height: 1;
+}
+.ed .icon:hover:not(:disabled) {
+  border-color: var(--ink);
+}
+.ed .icon:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+.ed .icon.del:hover {
+  border-color: var(--signal);
+  color: var(--signal-dark);
+}
+@media (max-width: 560px) {
+  .ed .g3,
+  .ed .g4 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}

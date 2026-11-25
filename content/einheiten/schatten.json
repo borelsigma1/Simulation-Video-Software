@@ -1,0 +1,147 @@
+{
+  "id": "schatten",
+  "title": "Kernschatten und Halbschatten",
+  "grade": 7,
+  "order": 2,
+  "domain": "optik",
+  "curriculum": "NT7 Lernbereich 1.2: Optische Phänomene (geradlinige Ausbreitung des Lichts, Kern- und Halbschatten, Finsternisse)",
+  "summary": "Ein Hindernis vor zwei Lampen: Warum gibt es auf dem Schirm Bereiche, die ganz dunkel sind, und andere, die nur halb dunkel sind?",
+  "video": {
+    "title": "",
+    "source": {
+      "kind": "none"
+    }
+  },
+  "sim": {
+    "id": "schatten",
+    "options": {
+      "zwei": {
+        "value": false
+      }
+    }
+  },
+  "worksheet": {
+    "title": "Kernschatten und Halbschatten",
+    "subtitle": "Optik · Jahrgangsstufe 7",
+    "blocks": [
+      {
+        "type": "text",
+        "text": "Du blickst **von oben** auf den Versuch: Links stehen kleine Lampen, in der Mitte ein undurchsichtiges Hindernis, rechts ein Schirm. Der Streifen ganz rechts zeigt, wie der Schirm **von vorn** aussieht.\n\nLicht breitet sich **geradlinig** aus. Mit Randstrahlen, die gerade noch am Hindernis vorbeigehen, lässt sich deshalb vorhersagen, wo Schatten ist."
+      },
+      {
+        "type": "heading",
+        "text": "Eine Lampe"
+      },
+      {
+        "type": "question",
+        "id": "eine",
+        "operator": "beschreiben",
+        "prompt": "Beschreibe den Schatten auf dem Schirm, wenn nur eine Lampe leuchtet. Verändere dazu auch den Abstand zwischen Hindernis und Schirm.",
+        "lines": 3,
+        "solution": "Es entsteht ein einziger, scharf begrenzter dunkler Bereich. Er ist breiter als das Hindernis und wird umso breiter, je weiter der Schirm vom Hindernis entfernt ist (und je näher die Lampe am Hindernis steht)."
+      },
+      {
+        "type": "heading",
+        "text": "Zwei Lampen"
+      },
+      {
+        "type": "question",
+        "id": "hyp",
+        "operator": "hypothese",
+        "prompt": "Stelle eine Hypothese auf, wie sich das Schattenbild ändert, wenn die zweite Lampe eingeschaltet wird. Schalte sie erst danach ein.",
+        "lines": 3,
+        "solution": "Individuell. Erwartet wird eine begründete Vermutung, z. B.: Jede Lampe erzeugt ihren eigenen Schatten; wo beide Schatten übereinander liegen, ist es ganz dunkel, wo nur einer liegt, etwas heller."
+      },
+      {
+        "type": "question",
+        "id": "drei",
+        "operator": "beschreiben",
+        "prompt": "Schalte die zweite Lampe ein. Beschreibe die unterschiedlich hellen Bereiche auf dem Schirm.",
+        "lines": 3,
+        "solution": "In der Mitte liegt ein ganz dunkler Bereich (Kernschatten). Oben und unten schließt sich je ein halbdunkler Bereich an (Halbschatten). Außerhalb ist der Schirm voll beleuchtet."
+      },
+      {
+        "type": "question",
+        "id": "erkl",
+        "operator": "erklaeren",
+        "prompt": "Erkläre mithilfe der Randstrahlen, wie Kernschatten und Halbschatten entstehen.",
+        "lines": 3,
+        "solution": "In den Kernschatten gelangt Licht von keiner der beiden Lampen. In den Halbschatten gelangt Licht von genau einer Lampe, das Licht der anderen wird vom Hindernis abgehalten. Weil sich Licht geradlinig ausbreitet, begrenzen die Randstrahlen diese Bereiche."
+      },
+      {
+        "type": "snapshot",
+        "id": "bild",
+        "prompt": "Füge ein Bild der Simulation ein, auf dem Kernschatten und Halbschatten gut zu erkennen sind."
+      },
+      {
+        "type": "heading",
+        "text": "Messreihe"
+      },
+      {
+        "type": "table",
+        "id": "reihe",
+        "operator": "untersuchen",
+        "prompt": "Untersuche, wie die Breite des Kernschattens vom Abstand der beiden Lampen abhängt. Lass alle anderen Größen unverändert (b = 10 cm, beide Abstände 40 cm).",
+        "columns": [
+          {
+            "key": "a",
+            "label": "a",
+            "unit": "cm",
+            "source": "a"
+          },
+          {
+            "key": "kern",
+            "label": "b_K",
+            "unit": "cm",
+            "source": "kern"
+          },
+          {
+            "key": "ges",
+            "label": "b_ges",
+            "unit": "cm",
+            "source": "gesamt"
+          }
+        ],
+        "rows": 6,
+        "solution": "Mit b = 10 cm, d_L = d_S = 40 cm gilt b_K = 20 cm − a: z. B. a = 4 cm → 16 cm; 8 → 12; 12 → 8; 16 → 4; ab a = 20 cm gibt es keinen Kernschatten mehr. Der gesamte Schatten wird dabei breiter (b_ges = 20 cm + a)."
+      },
+      {
+        "type": "chart",
+        "id": "dia",
+        "operator": "darstellen",
+        "prompt": "Stelle die Breite des Kernschattens in Abhängigkeit vom Lampenabstand in einem Diagramm dar und beschreibe den Verlauf.",
+        "table": "reihe",
+        "x": "a",
+        "y": "kern",
+        "fit": true,
+        "solution": "Die Messpunkte liegen auf einer fallenden Geraden: Je größer der Lampenabstand, desto schmaler der Kernschatten. Bei a = 20 cm erreicht die Gerade die Rechtsachse, der Kernschatten verschwindet."
+      },
+      {
+        "type": "choice",
+        "id": "weit",
+        "prompt": "Die Lampen werden sehr weit auseinander gestellt. Was beobachtest du?",
+        "options": [
+          "Der Kernschatten wird immer breiter.",
+          "Der Kernschatten verschwindet, es bleiben zwei getrennte Halbschatten.",
+          "Es gibt überhaupt keinen Schatten mehr.",
+          "Der Halbschatten verschwindet, es bleibt nur der Kernschatten."
+        ],
+        "correct": [
+          1
+        ]
+      },
+      {
+        "type": "heading",
+        "text": "Anwendung"
+      },
+      {
+        "type": "question",
+        "id": "finsternis",
+        "operator": "erlaeutern",
+        "prompt": "Bei einer Sonnenfinsternis fällt der Schatten des Mondes auf die Erde. Die Sonne ist dabei eine ausgedehnte Lichtquelle. Erläutere, warum man an manchen Orten eine totale und an anderen nur eine teilweise (partielle) Finsternis sieht.",
+        "lines": 4,
+        "solution": "Die ausgedehnte Sonne wirkt wie viele Lampen nebeneinander. Hinter dem Mond gibt es deshalb einen Kernschatten, in den gar kein Sonnenlicht gelangt (dort ist die Finsternis total), und einen viel größeren Halbschatten, in dem der Mond nur einen Teil der Sonne verdeckt (partielle Finsternis)."
+      }
+    ]
+  }
+}

@@ -1,0 +1,141 @@
+{
+  "id": "energiebahn",
+  "title": "Energieumwandlung auf der Bahn",
+  "grade": 9,
+  "order": 1,
+  "domain": "mechanik",
+  "curriculum": "Ph9: Mechanische Energie (Höhenenergie, kinetische Energie, Energieerhaltung)",
+  "summary": "Ein Wagen rollt durch eine Mulde und über einen Hügel. Du verfolgst, wie sich Höhenenergie und Bewegungsenergie ineinander umwandeln.",
+  "video": {
+    "title": "",
+    "source": {
+      "kind": "none"
+    }
+  },
+  "sim": {
+    "id": "energiebahn"
+  },
+  "worksheet": {
+    "title": "Energieumwandlung auf der Bahn",
+    "subtitle": "Mechanische Energie · Jahrgangsstufe 9",
+    "blocks": [
+      {
+        "type": "text",
+        "text": "Ein Wagen der Masse **m** startet aus der Ruhe in der Höhe **h₀**. Die Säulen zeigen, wie sich seine Energie aufteilt:\n\n**Höhenenergie** E_h = m · g · h (mit g = 9,81 N/kg) und **Bewegungsenergie** (kinetische Energie) E_kin = ½ · m · v². Wirkt Reibung, wird ein Teil der Energie zu **innerer Energie** E_i von Bahn, Wagen und Luft."
+      },
+      {
+        "type": "heading",
+        "text": "Ohne Reibung"
+      },
+      {
+        "type": "question",
+        "id": "hyp",
+        "operator": "hypothese",
+        "prompt": "Stelle eine Hypothese auf, bis zu welcher Höhe der Wagen auf der rechten Seite der Mulde hinaufrollt, wenn keine Reibung wirkt.",
+        "lines": 2,
+        "solution": "Individuell. Fachlich: bis zur Starthöhe, weil keine Energie an die Umgebung abgegeben wird."
+      },
+      {
+        "type": "question",
+        "id": "umwandlung",
+        "operator": "beschreiben",
+        "prompt": "Lass den Wagen los (μ = 0). Beschreibe mithilfe der Energiesäulen die Energieumwandlungen während einer vollständigen Hin- und Herbewegung.",
+        "lines": 4,
+        "solution": "Am Start ist die gesamte Energie Höhenenergie. Beim Hinabrollen wird sie in Bewegungsenergie umgewandelt; im tiefsten Punkt ist E_kin am größten und E_h null. Beim Hinaufrollen wird Bewegungsenergie wieder zu Höhenenergie, bis der Wagen in der Starthöhe kurz ruht. Die Summe beider Energien bleibt dabei stets gleich."
+      },
+      {
+        "type": "table",
+        "id": "v",
+        "operator": "ermitteln",
+        "prompt": "Ermittle für fünf verschiedene Starthöhen die größte Geschwindigkeit des Wagens (im tiefsten Punkt). Lass ihn dazu jeweils einmal durch die Mulde rollen. Berechne v_max².",
+        "columns": [
+          {
+            "key": "h0",
+            "label": "h_0",
+            "unit": "m",
+            "source": "h0"
+          },
+          {
+            "key": "vmax",
+            "label": "v_max",
+            "unit": "m/s",
+            "source": "vmax"
+          },
+          {
+            "key": "v2",
+            "label": "v_max²",
+            "unit": "m²/s²"
+          }
+        ],
+        "rows": 5,
+        "solution": "h₀ = 1,0 m: 4,43 m/s (19,6 m²/s²); 2,0 m: 6,26 (39,2); 3,0 m: 7,67 (58,9); 4,0 m: 8,86 (78,5)."
+      },
+      {
+        "type": "chart",
+        "id": "v-dia",
+        "operator": "darstellen",
+        "prompt": "Stelle v_max² in Abhängigkeit von der Starthöhe in einem Diagramm dar und zeichne eine Ausgleichsgerade ein.",
+        "table": "v",
+        "x": "h0",
+        "y": "v2",
+        "fit": true,
+        "solution": "Ursprungsgerade mit der Steigung 19,6 m/s² = 2g."
+      },
+      {
+        "type": "question",
+        "id": "herleitung",
+        "operator": "herleiten",
+        "prompt": "Leite aus dem Energieerhaltungssatz eine Formel für die Geschwindigkeit im tiefsten Punkt her. Vergleiche mit der Steigung deiner Ausgleichsgeraden.",
+        "lines": 4,
+        "solution": "E_h am Start = E_kin im tiefsten Punkt: m · g · h₀ = ½ · m · v². Daraus v² = 2 · g · h₀, also v = √(2 · g · h₀). Die Steigung im h₀-v²-Diagramm ist 2g ≈ 19,6 m/s², wie gemessen."
+      },
+      {
+        "type": "choice",
+        "id": "masse",
+        "prompt": "Die Masse des Wagens wird verdoppelt. Was gilt für die Geschwindigkeit im tiefsten Punkt (ohne Reibung)?",
+        "options": [
+          "Sie verdoppelt sich.",
+          "Sie halbiert sich.",
+          "Sie bleibt gleich.",
+          "Sie wird √2-mal so groß."
+        ],
+        "correct": [
+          2
+        ],
+        "solution": "In m · g · h = ½ · m · v² kürzt sich die Masse heraus. Beide Energien verdoppeln sich, die Geschwindigkeit bleibt gleich."
+      },
+      {
+        "type": "heading",
+        "text": "Über den Hügel"
+      },
+      {
+        "type": "question",
+        "id": "huegel",
+        "operator": "ermitteln",
+        "prompt": "Wähle die Bahn „Hügel“. Ermittle die kleinste Starthöhe, bei der der Wagen den Hügel gerade noch überquert, und begründe dein Ergebnis mit der Energie.",
+        "lines": 3,
+        "solution": "Der Wagen kommt ab h₀ = 1,4 m über den Hügel. Der Hügel ist knapp 1,4 m hoch. Der Wagen kann ohne Reibung höchstens die Starthöhe wieder erreichen, weil dort seine gesamte Energie wieder Höhenenergie ist. Startet er tiefer, kehrt er vor dem Gipfel um."
+      },
+      {
+        "type": "heading",
+        "text": "Mit Reibung"
+      },
+      {
+        "type": "question",
+        "id": "reibung",
+        "operator": "beschreiben",
+        "prompt": "Wähle wieder die Mulde und stelle μ = 0,05 ein. Beschreibe die Bewegung des Wagens und den Verlauf der drei Energien im Diagramm.",
+        "lines": 3,
+        "solution": "Der Wagen erreicht auf jeder Seite eine etwas geringere Höhe als zuvor und kommt schließlich im tiefsten Punkt zur Ruhe. Höhen- und Bewegungsenergie wandeln sich weiter ineinander um, ihre Summe nimmt aber ab. Im gleichen Maß wächst die innere Energie, bis sie die gesamte Anfangsenergie umfasst."
+      },
+      {
+        "type": "question",
+        "id": "verloren",
+        "operator": "beurteilen",
+        "prompt": "Beurteile die Aussage: „Durch Reibung geht Energie verloren.“",
+        "lines": 4,
+        "solution": "Physikalisch ist die Aussage falsch: Die Gesamtenergie bleibt erhalten, mechanische Energie wird in innere Energie umgewandelt (Wagen, Bahn und Luft erwärmen sich). Richtig ist, dass diese Energie für die Bewegung nicht mehr nutzbar ist; man spricht von Energieentwertung."
+      }
+    ]
+  }
+}

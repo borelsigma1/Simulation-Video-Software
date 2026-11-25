@@ -1,5 +1,6 @@
-<!-- Kompakte Anzeige aktueller Werte (z. B. t, x, y, v). -->
+<!-- Messanzeige: aktuelle Werte wie auf einem Messgerät. -->
 <script lang="ts">
+  import Sym from './Sym.svelte';
   export interface Readout {
     symbol: string;
     value: number | null;
@@ -7,7 +8,6 @@
     digits?: number;
     title?: string;
   }
-  import Sym from './Sym.svelte';
   let { items }: { items: Readout[] } = $props();
 
   const f = (r: Readout) =>
@@ -20,10 +20,10 @@
 </script>
 
 <dl class="readouts">
-  {#each items as r (r.symbol)}
+  {#each items as r (r.symbol + r.unit)}
     <div title={r.title}>
       <dt><Sym text={r.symbol} /></dt>
-      <dd>{f(r)}<span class="unit">&nbsp;{r.unit}</span></dd>
+      <dd>{f(r)}<span class="unit">{r.unit ? ` ${r.unit}` : ''}</span></dd>
     </div>
   {/each}
 </dl>
@@ -32,26 +32,41 @@
   .readouts {
     display: flex;
     flex-wrap: wrap;
-    gap: 6px 18px;
+    gap: 0;
     margin: 0;
-    font-variant-numeric: tabular-nums;
+    border: 1.5px solid var(--ink);
+    border-radius: var(--radius);
+    background: var(--board);
+    color: var(--chalk);
+    overflow: hidden;
   }
   .readouts div {
     display: flex;
-    gap: 6px;
+    gap: 7px;
     align-items: baseline;
+    padding: 5px 11px;
+    border-right: 1px solid color-mix(in srgb, var(--chalk) 22%, transparent);
+    flex: 1 0 auto;
+  }
+  .readouts div:last-child {
+    border-right: 0;
   }
   dt {
-    font-style: italic;
-    color: var(--muted);
+    color: var(--marker);
   }
   dd {
     margin: 0;
+    font-family: var(--mono);
+    font-size: 0.9rem;
     font-weight: 600;
-    min-width: 4.5ch;
+    font-variant-numeric: tabular-nums;
+    min-width: 4ch;
+    text-align: right;
+    flex: 1;
+    white-space: nowrap;
   }
   .unit {
     font-weight: 400;
-    color: var(--muted);
+    opacity: 0.7;
   }
 </style>
