@@ -4,6 +4,7 @@
  * Wird der Faden durchgeschnitten, fliegt der Puck geradeaus weiter.
  */
 import { arrow, disc, fmt, label, line, paper } from '../lib/engine/draw';
+import { Handles } from '../lib/engine/handles';
 import { theme } from '../lib/engine/theme';
 import type { SimDef } from '../lib/sim/types';
 
@@ -19,7 +20,7 @@ export const sim: SimDef = {
   animated: true,
   playLabel: 'Starten',
   thumbTime: 0.3,
-  hint: 'Blick von oben auf einen reibungsfreien Tisch. Der Kraftmesser in der Mitte zeigt die Kraft, mit der der Faden am Puck zieht.',
+  hint: 'Der Puck lässt sich nach innen oder außen ziehen; so ändert sich der Bahnradius. Blick von oben auf einen reibungsfreien Tisch. Der Kraftmesser in der Mitte zeigt die Kraft, mit der der Faden am Puck zieht.',
   params: [
     { key: 'm', label: 'Masse des Pucks', symbol: 'm', unit: 'kg', min: 0.1, max: 1, step: 0.05, value: 0.2, live: true },
     { key: 'r', label: 'Bahnradius', symbol: 'r', unit: 'm', min: 0.2, max: R_MAX, step: 0.05, value: 0.6, live: true },
@@ -75,7 +76,9 @@ export const sim: SimDef = {
       }
       if (spur.length > 1600) spur.splice(0, 2);
     };
+    const hs = new Handles();
     return {
+      pointer: (kind, x, y) => hs.pointer(kind, x, y),
       reset() {
         t = 0;
         phi = 0;
@@ -179,6 +182,27 @@ export const sim: SimDef = {
           label(ctx, 'v', px + dir.x * (len + 12), py - dir.y * (len + 12) + 4, { align: 'center', size: 13, bold: true, color: theme.velocity });
         }
         disc(ctx, px, py, 9 + 7 * Math.sqrt(p.m), theme.object, theme.objectDark, 2);
+
+        // Puck nach innen oder außen ziehen: Bahnradius
+        hs.begin();
+        if (!frei && env.canSet('r')) {
+          const hp = hs.add({
+            dist: (x, y) => Math.hypot(x - px, y - py),
+            radius: 16 + 7 * Math.sqrt(p.m),
+            cursor: 'grab',
+            drag: (x, y) => env.set('r', Math.hypot(x - cx, y - cy) / scale)
+          });
+          if (hs.isHover(hp)) {
+            ctx.save();
+            ctx.strokeStyle = theme.object;
+            ctx.setLineDash([5, 4]);
+            ctx.lineWidth = 1.5;
+            ctx.beginPath();
+            ctx.arc(cx, cy, p.r * scale, 0, Math.PI * 2);
+            ctx.stroke();
+            ctx.restore();
+          }
+        }
       }
     };
   }

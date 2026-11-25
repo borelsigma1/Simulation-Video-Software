@@ -21,7 +21,7 @@
     "blocks": [
       {
         "type": "text",
-        "text": "Du blickst von oben auf einen reibungsfreien Tisch. Ein Puck der Masse **m** läuft an einem Faden mit der Umlaufdauer **T** auf einem Kreis mit Radius **r**. Der Kraftmesser in der Tischmitte zeigt die Kraft **F_Z**, mit der der Faden am Puck zieht.\n\nBahngeschwindigkeit: v = 2π · r : T. Winkelgeschwindigkeit: ω = 2π : T."
+        "text": "Du blickst von oben auf einen reibungsfreien Tisch. Ein Puck der Masse **$m$** läuft an einem Faden mit der Umlaufdauer **$T$** auf einem Kreis mit Radius **$r$**. Der Kraftmesser in der Tischmitte zeigt die Kraft **$F_{Z}$**, mit der der Faden am Puck zieht.\n\nBahngeschwindigkeit: $v = 2\\pi \\cdot r : T$. Winkelgeschwindigkeit: $\\omega = 2\\pi : T$."
       },
       {
         "type": "heading",
@@ -59,99 +59,99 @@
         "type": "table",
         "id": "masse",
         "operator": "untersuchen",
-        "prompt": "Untersuche bei r = 0,60 m und T = 2,0 s, wie die Zentripetalkraft von der Masse abhängt.",
+        "prompt": "Untersuche bei $r = 0{,}60\\,\\mathrm{m}$ und $T = 2{,}0\\,\\mathrm{s}$, wie die Zentripetalkraft von der Masse abhängt.",
         "columns": [
           {
             "key": "m",
-            "label": "m",
+            "label": "$m$",
             "unit": "kg",
             "source": "m"
           },
           {
             "key": "F",
-            "label": "F_Z",
+            "label": "$F_Z$",
             "unit": "N",
             "source": "F"
           }
         ],
         "rows": 5,
-        "solution": "0,20 kg: 1,18 N; 0,40 kg: 2,37 N; 0,60 kg: 3,55 N; 0,80 kg: 4,74 N; 1,00 kg: 5,92 N. F_Z ~ m."
+        "solution": "$0{,}20\\,\\mathrm{kg}$: $1{,}18\\,\\mathrm{N}$; $0{,}40\\,\\mathrm{kg}$: $2{,}37\\,\\mathrm{N}$; $0{,}60\\,\\mathrm{kg}$: $3{,}55\\,\\mathrm{N}$; $0{,}80\\,\\mathrm{kg}$: $4{,}74\\,\\mathrm{N}$; $1{,}00\\,\\mathrm{kg}$: $5{,}92\\,\\mathrm{N}$. $F_{Z} \\sim m$."
       },
       {
         "type": "table",
         "id": "radius",
         "operator": "untersuchen",
-        "prompt": "Untersuche bei m = 0,20 kg und T = 2,0 s, wie die Zentripetalkraft vom Radius abhängt.",
+        "prompt": "Untersuche bei $m = 0{,}20\\,\\mathrm{kg}$ und $T = 2{,}0\\,\\mathrm{s}$, wie die Zentripetalkraft vom Radius abhängt.",
         "columns": [
           {
             "key": "r",
-            "label": "r",
+            "label": "$r$",
             "unit": "m",
             "source": "r"
           },
           {
             "key": "F",
-            "label": "F_Z",
+            "label": "$F_Z$",
             "unit": "N",
             "source": "F"
           }
         ],
         "rows": 5,
-        "solution": "0,20 m: 0,39 N; 0,40 m: 0,79 N; 0,60 m: 1,18 N; 0,80 m: 1,58 N; 1,00 m: 1,97 N. Bei fester Umlaufdauer gilt F_Z ~ r."
+        "solution": "$0{,}20\\,\\mathrm{m}$: $0{,}39\\,\\mathrm{N}$; $0{,}40\\,\\mathrm{m}$: $0{,}79\\,\\mathrm{N}$; $0{,}60\\,\\mathrm{m}$: $1{,}18\\,\\mathrm{N}$; $0{,}80\\,\\mathrm{m}$: $1{,}58\\,\\mathrm{N}$; $1{,}00\\,\\mathrm{m}$: $1{,}97\\,\\mathrm{N}$. Bei fester Umlaufdauer gilt $F_{Z} \\sim r$."
       },
       {
         "type": "table",
         "id": "dauer",
         "operator": "ermitteln",
-        "prompt": "Ermittle bei m = 0,20 kg und r = 0,60 m die Zentripetalkraft für vier Umlaufdauern. Berechne jeweils 1/T².",
+        "prompt": "Ermittle bei $m = 0{,}20\\,\\mathrm{kg}$ und $r = 0{,}60\\,\\mathrm{m}$ die Zentripetalkraft für vier Umlaufdauern. Berechne jeweils $1/T^{2}$.",
         "columns": [
           {
             "key": "T",
-            "label": "T",
+            "label": "$T$",
             "unit": "s",
             "source": "T"
           },
           {
             "key": "F",
-            "label": "F_Z",
+            "label": "$F_Z$",
             "unit": "N",
             "source": "F"
           },
           {
             "key": "k",
-            "label": "1/T²",
+            "label": "$1/T^2$",
             "unit": "1/s²"
           }
         ],
         "rows": 4,
-        "solution": "1,0 s: 4,74 N (1,00 1/s²); 2,0 s: 1,18 N (0,25); 3,0 s: 0,53 N (0,111); 4,0 s: 0,30 N (0,0625)."
+        "solution": "$1{,}0\\,\\mathrm{s}$: $4{,}74\\,\\mathrm{N}$ ($1{,}00\\,\\mathrm{1/s^{2}}$); $2{,}0\\,\\mathrm{s}$: $1{,}18\\,\\mathrm{N}$ ($0{,}25$); $3{,}0\\,\\mathrm{s}$: $0{,}53\\,\\mathrm{N}$ ($0{,}111$); $4{,}0\\,\\mathrm{s}$: $0{,}30\\,\\mathrm{N}$ ($0{,}0625$)."
       },
       {
         "type": "chart",
         "id": "dauer-dia",
         "operator": "darstellen",
-        "prompt": "Stelle F_Z in Abhängigkeit von 1/T² in einem Diagramm dar und zeichne eine Ausgleichsgerade ein.",
+        "prompt": "Stelle $F_{Z}$ in Abhängigkeit von $1/T^{2}$ in einem Diagramm dar und zeichne eine Ausgleichsgerade ein.",
         "table": "dauer",
         "x": "k",
         "y": "F",
         "fit": true,
-        "solution": "Ursprungsgerade mit der Steigung 4,74 N·s² = 4π² · m · r."
+        "solution": "Ursprungsgerade mit der Steigung $4{,}74\\,\\mathrm{N\\cdot s^{2}} = 4\\pi ^{2} \\cdot m \\cdot r$."
       },
       {
         "type": "question",
         "id": "formel",
         "operator": "auswerten",
-        "prompt": "Werte deine drei Messreihen aus und fasse sie zu einer Formel für F_Z zusammen. Vergleiche die Steigung deiner Ausgleichsgeraden mit dem Term 4π² · m · r.",
+        "prompt": "Werte deine drei Messreihen aus und fasse sie zu einer Formel für $F_{Z}$ zusammen. Vergleiche die Steigung deiner Ausgleichsgeraden mit dem Term $4\\pi ^{2} \\cdot m \\cdot r$.",
         "lines": 4,
-        "solution": "F_Z ~ m, F_Z ~ r und F_Z ~ 1/T², also F_Z = k · m · r / T². Die Steigung 4,74 N·s² entspricht 4π² · 0,20 kg · 0,60 m = 4,74 kg·m. Damit: F_Z = 4π² · m · r / T² = m · ω² · r."
+        "solution": "$F_{Z} \\sim m$, $F_{Z} \\sim r$ und $F_{Z} \\sim 1/T^{2}$, also $F_{Z} = k \\cdot m \\cdot r / T^{2}$. Die Steigung $4{,}74\\,\\mathrm{N\\cdot s^{2}}$ entspricht $4\\pi ^{2} \\cdot 0{,}20\\,\\mathrm{kg} \\cdot 0{,}60\\,\\mathrm{m} = 4{,}74\\,\\mathrm{kg\\cdot m}$. Damit: $F_{Z} = 4\\pi ^{2} \\cdot m \\cdot r / T^{2} = m \\cdot \\omega ^{2} \\cdot r$."
       },
       {
         "type": "question",
         "id": "v",
         "operator": "herleiten",
-        "prompt": "Leite aus F_Z = m · ω² · r mithilfe von v = ω · r die Form F_Z = m · v² : r her.",
+        "prompt": "Leite aus $F_{Z} = m \\cdot \\omega ^{2} \\cdot r$ mithilfe von $v = \\omega \\cdot r$ die Form $F_{Z} = m \\cdot v^{2} : r$ her.",
         "lines": 3,
-        "solution": "ω = v : r einsetzen: F_Z = m · (v/r)² · r = m · v² : r."
+        "solution": "$\\omega = v : r$ einsetzen: $F_{Z} = m \\cdot (v/r)^{2} \\cdot r = m \\cdot v^{2} : r$."
       },
       {
         "type": "choice",
@@ -166,7 +166,7 @@
         "correct": [
           2
         ],
-        "solution": "F_Z = m · v² : r: Bei festem Radius geht die Geschwindigkeit quadratisch ein."
+        "solution": "$F_{Z} = m \\cdot v^{2} : r$: Bei festem Radius geht die Geschwindigkeit quadratisch ein."
       },
       {
         "type": "heading",
@@ -176,9 +176,9 @@
         "type": "question",
         "id": "kurve",
         "operator": "berechnen",
-        "prompt": "Ein Auto (m = 1200 kg) fährt mit 72 km/h durch eine Kurve mit dem Radius 50 m. Berechne die nötige Zentripetalkraft und vergleiche sie mit der größtmöglichen Haftreibungskraft bei trockener Fahrbahn (μ = 0,80).",
+        "prompt": "Ein Auto ($m = 1200\\,\\mathrm{kg}$) fährt mit $72\\,\\mathrm{km/h}$ durch eine Kurve mit dem Radius $50\\,\\mathrm{m}$. Berechne die nötige Zentripetalkraft und vergleiche sie mit der größtmöglichen Haftreibungskraft bei trockener Fahrbahn ($\\mu = 0{,}80$).",
         "lines": 5,
-        "solution": "v = 20 m/s. F_Z = 1200 kg · (20 m/s)² : 50 m = 9600 N. Größte Haftreibungskraft: 0,80 · 1200 kg · 9,81 N/kg ≈ 9400 N. Die Reibung reicht knapp nicht aus: Das Auto kann der Kurve nicht folgen."
+        "solution": "$v = 20\\,\\mathrm{m/s}$. $F_{Z} = 1200\\,\\mathrm{kg} \\cdot (20\\,\\mathrm{m/s})^{2} : 50\\,\\mathrm{m} = 9600\\,\\mathrm{N}$. Größte Haftreibungskraft: $0{,}80 \\cdot 1200\\,\\mathrm{kg} \\cdot 9{,}81\\,\\mathrm{N/kg} \\approx 9400\\,\\mathrm{N}$. Die Reibung reicht knapp nicht aus: Das Auto kann der Kurve nicht folgen."
       },
       {
         "type": "question",

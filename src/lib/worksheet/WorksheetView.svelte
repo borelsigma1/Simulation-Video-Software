@@ -9,10 +9,10 @@
   import { fitLine } from '../plot/draw';
   import Plot from '../plot/Plot.svelte';
   import type { PlotData } from '../sim/types';
+  import Rich from '../ui/Rich.svelte';
   import Sym from '../ui/Sym.svelte';
   import { theme } from '../engine/theme';
-  import { operatorByKey, splitOperator, type Operator } from './operators';
-  import { paragraphs } from './richtext';
+  import { labelText, plainMath, tex, unitTex } from '../tex/tex';
   import {
     emptyAnswers,
     hasContent,
@@ -36,16 +36,10 @@
   let answers = $state(untrack(() => emptyAnswers(worksheet)));
   let exporting = $state(false);
   let notice = $state<{ id: string; text: string } | null>(null);
-  let openOp = $state<number | null>(null);
   let showSolutions = $state(true);
   const chartRefs: Record<string, ReturnType<typeof Plot> | undefined> = $state({});
 
   const numbers = $derived(taskNumbers(worksheet));
-  const usedOps = $derived(
-    [...new Set(worksheet.blocks.map((b) => (isTask(b) ? b.operator : undefined)).filter(Boolean))]
-      .map((k) => operatorByKey(k))
-      .filter((o): o is Operator => !!o)
-  );
   const hasSolutions = $derived(worksheet.blocks.some((b) => isTask(b) && (b.solution || (b.type === 'choice' && b.correct?.length))));
 
   function sourceValues(b: TableBlock) {
@@ -59,7 +53,7 @@
     if (missing.length) {
       notice = {
         id: b.id,
-        text: `Noch kein Messwert für ${missing.map((v) => v.col.label).join(', ')}. Lass die Simulation etwas länger laufen.`
+        text: `Noch kein Messwert für ${missing.map((v) => plainMath(labelText(v.col.label))).join(', ')}. Lass die Simulation etwas länger laufen.`
       };
       return;
     }
@@ -92,7 +86,7 @@
       }
     const axis = (i: number) => {
       const c = table?.columns[i];
-      return c ? (c.unit ? `${c.label} in ${c.unit}` : c.label) : '?';
+      return c ? (c.unit ? `${plainMath(labelText(c.label))} in ${c.unit}` : plainMath(labelText(c.label))) : '?';
     };
     const fit = b.fit && answers.fits[b.id] ? fitLine(xs, ys, false) : null;
     return {
@@ -140,30 +134,15 @@
   });
 </script>
 
-{#snippet prompt(text: string, opKey: string | undefined, bi: number)}
-  {@const op = operatorByKey(opKey)}
-  {@const [pre, word, rest] = splitOperator(text, op)}
-  <span class="prompt"
-    >{pre}{#if word && op}<button
-        type="button"
-        class="op"
-        aria-expanded={openOp === bi}
-        title={`Operator „${op.name}“: antippen für die Erklärung`}
-        onclick={() => (openOp = openOp === bi ? null : bi)}>{word}</button
-      >{/if}{rest}</span
-  >
-  {#if op && openOp === bi}
-    <span class="opnote" role="note"><b>{op.name}</b> heißt: {op.meaning}</span>
-  {/if}
+{#snippet prompt(text: string)}
+  <span class="prompt"><Rich {text} inline /></span>
 {/snippet}
 
 {#snippet solution(text: string | undefined)}
   {#if teacher && showSolutions && text}
     <div class="solution">
       <span class="eyebrow">Erwartungshorizont</span>
-      {#each paragraphs(text) as p, pi (pi)}
-        <p>{#each p as s, si (si)}{#if s.bold}<strong>{s.text}</strong>{:else}{s.text}{/if}{/each}</p>
-      {/each}
+      <Rich {text} />
     </div>
   {/if}
 {/snippet}
@@ -188,23 +167,19 @@
     {#if b.type === 'heading'}
       <h3>{b.text}</h3>
     {:else if b.type === 'text'}
-      <div class="text">
-        {#each paragraphs(b.text) as p, pi (pi)}
-          <p>{#each p as s, si (si)}{#if s.bold}<strong>{s.text}</strong>{:else}{s.text}{/if}{/each}</p>
-        {/each}
-      </div>
+      <div class="text"><Rich text={b.text} /></div>
     {:else}
       <section class="task">
         <span class="nr" aria-hidden="true">{numbers[bi]}</span>
         <div class="body">
           {#if b.type === 'question'}
             <label class="q">
-              {@render prompt(b.prompt, b.operator, bi)}
+              {@render prompt(b.prompt)}
               <textarea class="field" rows={b.lines ?? 3} bind:value={answers.text[b.id]}></textarea>
             </label>
           {:else if b.type === 'choice'}
             <fieldset class="q">
-              <legend>{@render prompt(b.prompt, b.operator, bi)}</legend>
+              <legend>{@render prompt(b.prompt)}</legend>
               {#each b.options as o, i (i)}
                 <label class="opt" class:right={teacher && showSolutions && b.correct?.includes(i)}>
                   <input
@@ -213,13 +188,13 @@
                     checked={answers.choices[b.id]?.includes(i)}
                     onclick={() => toggleChoice(b.id, i, !!b.multiple)}
                   />
-                  <span>{o}</span>
+                  <span><Rich text={o} inline /></span>
                 </label>
               {/each}
             </fieldset>
           {:else if b.type === 'table'}
             <div class="q">
-              {@render prompt(b.prompt, b.operator, bi)}
+              {@render prompt(b.prompt)}
               {#if sourceValues(b).length}
                 <div class="take">
                   <button class="btn green" onclick={() => takeOver(b)}>
@@ -228,7 +203,7 @@
                   </button>
                   <span class="live">
                     {#each sourceValues(b) as v (v.col.key)}
-                      <span><Sym text={v.m?.symbol ?? v.col.label} /> = {formatMeasurement(v.m) || '–'} {v.col.unit ?? ''}</span>
+                      <span>{#if v.m?.symbol}<Sym text={v.m.symbol} />{:else}<Rich text={labelText(v.col.label)} inline />{/if} = {formatMeasurement(v.m) || '–'}&nbsp;{@html tex(unitTex(v.col.unit ?? ''))}</span>
                     {/each}
                   </span>
                 </div>
@@ -240,7 +215,7 @@
                     <tr>
                       <th class="rownr">Nr.</th>
                       {#each b.columns as c (c.key)}
-                        <th><Sym text={c.label} />{#if c.unit}<span class="unit">&nbsp;in {c.unit}</span>{/if}</th>
+                        <th><Rich text={labelText(c.label)} inline />{#if c.unit}<span class="unit">&nbsp;in {@html tex(unitTex(c.unit))}</span>{/if}</th>
                       {/each}
                     </tr>
                   </thead>
@@ -250,7 +225,7 @@
                         <td class="rownr">{ri + 1}</td>
                         {#each b.columns as c, ci (c.key)}
                           <td class:auto={!!c.source}>
-                            <input inputmode="decimal" aria-label={`${c.label}, Zeile ${ri + 1}`} bind:value={row[ci]} />
+                            <input inputmode="decimal" aria-label={`${plainMath(labelText(c.label))}, Zeile ${ri + 1}`} bind:value={row[ci]} />
                           </td>
                         {/each}
                       </tr>
@@ -263,7 +238,7 @@
           {:else if b.type === 'chart'}
             {@const c = chartData(b)}
             <div class="q">
-              {@render prompt(b.prompt, b.operator, bi)}
+              {@render prompt(b.prompt)}
               <div class="chart">
                 <Plot bind:this={chartRefs[b.id]} spec={c.spec} data={c.data} height={250} />
                 {#if c.n === 0}<p class="empty muted">Das Diagramm füllt sich, sobald die Tabelle Werte enthält.</p>{/if}
@@ -282,7 +257,7 @@
             </div>
           {:else if b.type === 'snapshot'}
             <div class="q">
-              {@render prompt(b.prompt, b.operator, bi)}
+              {@render prompt(b.prompt)}
               <div class="take">
                 <button
                   class="btn small"
@@ -305,17 +280,6 @@
     {/if}
   {/each}
 
-  {#if usedOps.length}
-    <details class="ops">
-      <summary>Was bedeuten die Operatoren auf diesem Blatt?</summary>
-      <dl>
-        {#each usedOps as o (o.key)}
-          <dt><mark>{o.name}</mark></dt>
-          <dd>{o.meaning}</dd>
-        {/each}
-      </dl>
-    </details>
-  {/if}
 
   <footer>
     <button class="btn primary" onclick={() => exportPdf(false)} disabled={exporting}>
@@ -361,7 +325,8 @@
     flex: 1;
     border-top: 1.5px solid var(--ink);
   }
-  p {
+  p,
+  .ws :global(p) {
     margin: 0;
   }
   .text {
@@ -445,28 +410,6 @@
   .prompt {
     font-weight: 600;
     line-height: 1.45;
-  }
-  /* Operator wie mit dem Textmarker angestrichen */
-  .op {
-    font: inherit;
-    font-weight: 700;
-    border: 0;
-    padding: 0 3px;
-    margin: 0 -1px 0 -3px;
-    background: linear-gradient(transparent 12%, var(--marker) 12%, var(--marker) 88%, transparent 88%);
-    border-radius: 2px;
-    color: inherit;
-  }
-  .op:hover {
-    background: var(--marker);
-  }
-  .opnote {
-    display: block;
-    font-size: 0.88rem;
-    font-weight: 400;
-    background: #fff7c9;
-    border-left: 4px solid var(--marker);
-    padding: 6px 10px;
   }
   .opt {
     display: flex;
@@ -599,30 +542,6 @@
   }
   .solution .eyebrow {
     color: var(--green);
-  }
-  .ops {
-    border: 1.5px dashed var(--ink-2);
-    border-radius: var(--radius);
-    padding: 8px 12px;
-    font-size: 0.9rem;
-  }
-  .ops summary {
-    cursor: pointer;
-    font-weight: 600;
-  }
-  .ops dl {
-    margin: 10px 0 2px;
-    display: grid;
-    grid-template-columns: max-content 1fr;
-    gap: 6px 12px;
-  }
-  .ops dd {
-    margin: 0;
-  }
-  .ops mark {
-    background: var(--marker);
-    padding: 0 4px;
-    font-weight: 600;
   }
   footer {
     display: flex;

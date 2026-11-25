@@ -21,7 +21,7 @@
     "blocks": [
       {
         "type": "text",
-        "text": "Ein Elektron ist in einem eindimensionalen Bereich der **Breite L** eingesperrt; die Wände sind unendlich hoch. Seine Wellenfunktion ψ muss an den Wänden null sein. Solche Zustände werden durch die **Quantenzahl n** = 1, 2, 3 … nummeriert.\n\nKonstanten: h = 6,63 · 10⁻³⁴ Js, mₑ = 9,11 · 10⁻³¹ kg, 1 eV = 1,60 · 10⁻¹⁹ J. Für Licht gilt E = h · c : λ, bequem mit h · c = 1240 eV·nm."
+        "text": "Ein Elektron ist in einem eindimensionalen Bereich der **Breite $L$** eingesperrt; die Wände sind unendlich hoch. Seine Wellenfunktion $\\psi$ muss an den Wänden null sein. Solche Zustände werden durch die **Quantenzahl $n$** $= 1, 2, 3, \\ldots$ nummeriert.\n\nKonstanten: $h = 6{,}63 \\cdot 10^{-34}\\,\\mathrm{Js}$, $m_{e} = 9{,}11 \\cdot 10^{-31}\\,\\mathrm{kg}$, $1\\,\\mathrm{eV} = 1{,}60 \\cdot 10^{-19}\\,\\mathrm{J}$. Für Licht gilt $E = h \\cdot c : \\lambda$, bequem mit $h \\cdot c = 1240\\,\\mathrm{eV\\cdot nm}$."
       },
       {
         "type": "heading",
@@ -31,9 +31,9 @@
         "type": "question",
         "id": "form",
         "operator": "beschreiben",
-        "prompt": "Stelle L = 1,00 nm ein und erhöhe n schrittweise von 1 bis 6. Beschreibe, wie sich die Wellenfunktion verändert.",
+        "prompt": "Stelle $L = 1{,}00\\,\\mathrm{nm}$ ein und erhöhe $n$ schrittweise von 1 bis 6. Beschreibe, wie sich die Wellenfunktion verändert.",
         "lines": 3,
-        "solution": "Die Wellenfunktion ist ein Ausschnitt einer Sinuskurve mit Nullstellen an beiden Wänden. Zum Zustand n gehören n Halbwellen („Bäuche“) und n − 1 Knoten im Inneren. Mit wachsendem n wird die Wellenlänge kürzer."
+        "solution": "Die Wellenfunktion ist ein Ausschnitt einer Sinuskurve mit Nullstellen an beiden Wänden. Zum Zustand $n$ gehören $n$ Halbwellen („Bäuche“) und $n - 1$ Knoten im Inneren. Mit wachsendem $n$ wird die Wellenlänge kürzer."
       },
       {
         "type": "question",
@@ -41,15 +41,15 @@
         "operator": "vergleichen",
         "prompt": "Vergleiche die Zustände des Elektrons mit den Schwingungen einer beidseitig eingespannten Saite.",
         "lines": 4,
-        "solution": "Gemeinsam: In beiden Fällen passen nur stehende Wellen mit Knoten an den Enden hinein; die Länge muss ein ganzzahliges Vielfaches der halben Wellenlänge sein (Grundschwingung, erste Oberschwingung …). Unterschied: Bei der Saite schwingt Materie sichtbar hin und her, und jede Amplitude ist möglich. Beim Elektron beschreibt ψ nichts direkt Beobachtbares; erst |ψ|² ist als Aufenthaltswahrscheinlichkeit messbar."
+        "solution": "Gemeinsam: In beiden Fällen passen nur stehende Wellen mit Knoten an den Enden hinein; die Länge muss ein ganzzahliges Vielfaches der halben Wellenlänge sein (Grundschwingung, erste Oberschwingung …). Unterschied: Bei der Saite schwingt Materie sichtbar hin und her, und jede Amplitude ist möglich. Beim Elektron beschreibt $\\psi$ nichts direkt Beobachtbares; erst $|\\psi |^{2}$ ist als Aufenthaltswahrscheinlichkeit messbar."
       },
       {
         "type": "question",
         "id": "lambda",
         "operator": "herleiten",
-        "prompt": "Leite aus der Randbedingung die Formel λ = 2 · L : n für die Wellenlänge im Zustand n her und überprüfe sie mit der Anzeige.",
+        "prompt": "Leite aus der Randbedingung die Formel $\\lambda = 2 \\cdot L : n$ für die Wellenlänge im Zustand $n$ her und überprüfe sie mit der Anzeige.",
         "lines": 3,
-        "solution": "Zwischen die Wände müssen n halbe Wellenlängen passen: L = n · λ/2, also λ = 2 · L : n. Für L = 1,00 nm: n = 1: 2,000 nm; n = 2: 1,000 nm; n = 3: 0,667 nm."
+        "solution": "Zwischen die Wände müssen $n$ halbe Wellenlängen passen: $L = n \\cdot \\lambda /2$, also $\\lambda = 2 \\cdot L : n$. Für $L = 1{,}00\\,\\mathrm{nm}$: $n = 1$: $2{,}000\\,\\mathrm{nm}$; $n = 2$: $1{,}000\\,\\mathrm{nm}$; $n = 3$: $0{,}667\\,\\mathrm{nm}$."
       },
       {
         "type": "heading",
@@ -59,79 +59,79 @@
         "type": "table",
         "id": "niveaus",
         "operator": "ermitteln",
-        "prompt": "Ermittle für L = 1,00 nm die Energien der Zustände n = 1 bis 6. Berechne jeweils n² und das Verhältnis E_n : E_1.",
+        "prompt": "Ermittle für $L = 1{,}00\\,\\mathrm{nm}$ die Energien der Zustände $n = 1$ bis 6. Berechne jeweils $n^{2}$ und das Verhältnis $E_{n} : E_{1}$.",
         "columns": [
           {
             "key": "n",
-            "label": "n",
+            "label": "$n$",
             "unit": "",
             "source": "n"
           },
           {
             "key": "E",
-            "label": "E_n",
+            "label": "$E_n$",
             "unit": "eV",
             "source": "E"
           },
           {
             "key": "n2",
-            "label": "n²",
+            "label": "$n^2$",
             "unit": ""
           },
           {
             "key": "v",
-            "label": "E_n : E_1",
+            "label": "$E_n : E_1$",
             "unit": ""
           }
         ],
         "rows": 6,
-        "solution": "n = 1: 0,376 eV; 2: 1,504 eV (4-fach); 3: 3,384 eV (9-fach); 4: 6,016 eV (16-fach); 5: 9,400 eV (25-fach); 6: 13,54 eV (36-fach)."
+        "solution": "$n = 1$: $0{,}376\\,\\mathrm{eV}$; 2: $1{,}504\\,\\mathrm{eV}$ ($4$-fach); 3: $3{,}384\\,\\mathrm{eV}$ ($9$-fach); 4: $6{,}016\\,\\mathrm{eV}$ ($16$-fach); 5: $9{,}400\\,\\mathrm{eV}$ ($25$-fach); 6: $13{,}54\\,\\mathrm{eV}$ ($36$-fach)."
       },
       {
         "type": "chart",
         "id": "niveaus-dia",
         "operator": "darstellen",
-        "prompt": "Stelle E_n in Abhängigkeit von n² in einem Diagramm dar und zeichne eine Ausgleichsgerade ein.",
+        "prompt": "Stelle $E_{n}$ in Abhängigkeit von $n^{2}$ in einem Diagramm dar und zeichne eine Ausgleichsgerade ein.",
         "table": "niveaus",
         "x": "n2",
         "y": "E",
         "fit": true,
-        "solution": "Ursprungsgerade mit der Steigung 0,376 eV = E₁."
+        "solution": "Ursprungsgerade mit der Steigung $0{,}376\\,\\mathrm{eV} = E_{1}$."
       },
       {
         "type": "table",
         "id": "breite",
         "operator": "untersuchen",
-        "prompt": "Untersuche für n = 1, wie die Energie von der Breite des Topfs abhängt. Berechne jeweils E_1 · L².",
+        "prompt": "Untersuche für $n = 1$, wie die Energie von der Breite des Topfs abhängt. Berechne jeweils $E_{1} \\cdot L^{2}$.",
         "columns": [
           {
             "key": "L",
-            "label": "L",
+            "label": "$L$",
             "unit": "nm",
             "source": "L"
           },
           {
             "key": "E",
-            "label": "E_1",
+            "label": "$E_1$",
             "unit": "eV",
             "source": "E"
           },
           {
             "key": "p",
-            "label": "E_1 · L²",
+            "label": "$E_1 \\cdot L^2$",
             "unit": "eV·nm²"
           }
         ],
         "rows": 4,
-        "solution": "0,50 nm: 1,504 eV; 1,00 nm: 0,376 eV; 1,50 nm: 0,167 eV; 2,00 nm: 0,094 eV. Das Produkt ist stets 0,376 eV·nm²: E ~ 1/L²."
+        "solution": "$0{,}50\\,\\mathrm{nm}$: $1{,}504\\,\\mathrm{eV}$; $1{,}00\\,\\mathrm{nm}$: $0{,}376\\,\\mathrm{eV}$; $1{,}50\\,\\mathrm{nm}$: $0{,}167\\,\\mathrm{eV}$; $2{,}00\\,\\mathrm{nm}$: $0{,}094\\,\\mathrm{eV}$. Das Produkt ist stets $0{,}376\\,\\mathrm{eV\\cdot nm^{2}}$: $E \\sim 1/L^{2}$."
       },
       {
         "type": "question",
         "id": "herleitung",
         "operator": "herleiten",
-        "prompt": "Leite aus λ = 2 · L : n, der De-Broglie-Beziehung p = h : λ und E = p² : (2 · m) die Formel für die Energieniveaus her. Berechne damit E₁ für L = 1,00 nm.",
+        "prompt": "Leite aus $\\lambda = 2 \\cdot L : n$, der De-Broglie-Beziehung $p = h : \\lambda$ und $E = p^{2} : (2 \\cdot m)$ die Formel für die Energieniveaus her. Berechne damit $E_{1}$ für $L = 1{,}00\\,\\mathrm{nm}$.",
         "lines": 5,
-        "solution": "p = h : λ = n · h : (2 · L). E_n = p² : (2 · m) = n² · h² : (8 · m · L²). E₁ = (6,63 · 10⁻³⁴ Js)² : (8 · 9,11 · 10⁻³¹ kg · (1,00 · 10⁻⁹ m)²) = 6,03 · 10⁻²⁰ J = 0,377 eV."
+        "solution": "$p = h : \\lambda = n \\cdot h : (2 \\cdot L)$. $E_{n} = p^{2} : (2 \\cdot m) = n^{2} \\cdot h^{2} : (8 \\cdot m \\cdot L^{2})$. $E_{1} = (6{,}63 \\cdot 10^{-34}\\,\\mathrm{Js})^{2} : (8 \\cdot 9{,}11 \\cdot 10^{-31}\\,\\mathrm{kg} \\cdot (1{,}00 \\cdot 10^{-9}\\,\\mathrm{m})^{2}) = 6{,}03 \\cdot 10^{-20}\\,\\mathrm{J} = 0{,}377\\,\\mathrm{eV}$."
       },
       {
         "type": "question",
@@ -139,7 +139,7 @@
         "operator": "deuten",
         "prompt": "Die kleinste mögliche Energie ist nicht null. Deute dieses Ergebnis mithilfe der Unbestimmtheitsrelation.",
         "lines": 4,
-        "solution": "Ein ruhendes Elektron hätte den exakten Impuls null; zugleich wäre sein Ort auf die Breite L eingeschränkt. Das widerspricht der Unbestimmtheitsrelation Δx · Δp ≥ h/(4π). Je enger das Elektron eingesperrt ist, desto unbestimmter und damit im Mittel größer ist sein Impuls, und desto größer ist die Mindestenergie (Lokalisationsenergie): Sie wächst mit 1/L²."
+        "solution": "Ein ruhendes Elektron hätte den exakten Impuls null; zugleich wäre sein Ort auf die Breite $L$ eingeschränkt. Das widerspricht der Unbestimmtheitsrelation $\\Delta x \\cdot \\Delta p \\ge h/(4\\pi)$. Je enger das Elektron eingesperrt ist, desto unbestimmter und damit im Mittel größer ist sein Impuls, und desto größer ist die Mindestenergie (Lokalisationsenergie): Sie wächst mit $1/L^{2}$."
       },
       {
         "type": "heading",
@@ -149,9 +149,9 @@
         "type": "question",
         "id": "dichte",
         "operator": "beschreiben",
-        "prompt": "Blende |ψ|² ein. Beschreibe für n = 1 und n = 2, wo sich das Elektron bevorzugt aufhält.",
+        "prompt": "Blende $|\\psi |^{2}$ ein. Beschreibe für $n = 1$ und $n = 2$, wo sich das Elektron bevorzugt aufhält.",
         "lines": 3,
-        "solution": "n = 1: am wahrscheinlichsten in der Mitte des Topfs, nahe den Wänden fast nie. n = 2: zwei Maxima bei L/4 und 3L/4; genau in der Mitte ist die Aufenthaltswahrscheinlichkeit null."
+        "solution": "$n = 1$: am wahrscheinlichsten in der Mitte des Topfs, nahe den Wänden fast nie. $n = 2$: zwei Maxima bei $L/4$ und $3L/4$; genau in der Mitte ist die Aufenthaltswahrscheinlichkeit null."
       },
       {
         "type": "choice",
@@ -159,14 +159,14 @@
         "prompt": "Für welche Zustände ist die Aufenthaltswahrscheinlichkeit genau in der Mitte des Topfs null?",
         "options": [
           "für alle Zustände",
-          "für ungerade n",
-          "für gerade n",
+          "für ungerade $n$",
+          "für gerade $n$",
           "für keinen Zustand"
         ],
         "correct": [
           2
         ],
-        "solution": "Bei geradem n liegt in der Mitte ein Knoten der Wellenfunktion. Klassisch wäre das nicht zu verstehen: Ein hin- und herlaufendes Teilchen müsste die Mitte durchqueren."
+        "solution": "Bei geradem $n$ liegt in der Mitte ein Knoten der Wellenfunktion. Klassisch wäre das nicht zu verstehen: Ein hin- und herlaufendes Teilchen müsste die Mitte durchqueren."
       },
       {
         "type": "heading",
@@ -176,17 +176,17 @@
         "type": "question",
         "id": "photon",
         "operator": "berechnen",
-        "prompt": "Berechne für L = 1,00 nm die Wellenlänge des Photons, das beim Übergang von n = 2 nach n = 1 ausgesandt wird, und ordne es in das Spektrum ein.",
+        "prompt": "Berechne für $L = 1{,}00\\,\\mathrm{nm}$ die Wellenlänge des Photons, das beim Übergang von $n = 2$ nach $n = 1$ ausgesandt wird, und ordne es in das Spektrum ein.",
         "lines": 3,
-        "solution": "ΔE = E₂ − E₁ = 1,504 eV − 0,376 eV = 1,128 eV. λ = 1240 eV·nm : 1,128 eV = 1100 nm: infrarot, nicht sichtbar."
+        "solution": "$\\Delta E = E_{2} - E_{1} = 1{,}504\\,\\mathrm{eV} - 0{,}376\\,\\mathrm{eV} = 1{,}128\\,\\mathrm{eV}$. $\\lambda = 1240\\,\\mathrm{eV\\cdot nm} : 1{,}128\\,\\mathrm{eV} = 1100\\,\\mathrm{nm}$: infrarot, nicht sichtbar."
       },
       {
         "type": "question",
         "id": "farbstoff",
         "operator": "berechnen",
-        "prompt": "Im Farbstoff β-Carotin können sich 22 Elektronen längs einer Kette der Länge L = 1,8 nm nahezu frei bewegen. Sie besetzen paarweise die Zustände n = 1 bis 11. Berechne die Wellenlänge des Lichts, das ein Elektron von n = 11 nach n = 12 anhebt.",
+        "prompt": "Im Farbstoff $\\beta$-Carotin können sich 22 Elektronen längs einer Kette der Länge $L = 1{,}8\\,\\mathrm{nm}$ nahezu frei bewegen. Sie besetzen paarweise die Zustände $n = 1$ bis 11. Berechne die Wellenlänge des Lichts, das ein Elektron von $n = 11$ nach $n = 12$ anhebt.",
         "lines": 5,
-        "solution": "E_n = n² · 0,376 eV·nm² : L² = n² · 0,116 eV. ΔE = (12² − 11²) · 0,116 eV = 23 · 0,116 eV = 2,67 eV. λ = 1240 eV·nm : 2,67 eV = 464 nm."
+        "solution": "$E_{n} = n^{2} \\cdot 0{,}376\\,\\mathrm{eV\\cdot nm^{2}} : L^{2} = n^{2} \\cdot 0{,}116\\,\\mathrm{eV}$. $\\Delta E = (12^{2} - 11^{2}) \\cdot 0{,}116\\,\\mathrm{eV} = 23 \\cdot 0{,}116\\,\\mathrm{eV} = 2{,}67\\,\\mathrm{eV}$. $\\lambda = 1240\\,\\mathrm{eV\\cdot nm} : 2{,}67\\,\\mathrm{eV} = 464\\,\\mathrm{nm}$."
       },
       {
         "type": "question",
@@ -194,7 +194,7 @@
         "operator": "erklaeren",
         "prompt": "Erkläre mit deinem Ergebnis, warum Karotten orange aussehen.",
         "lines": 3,
-        "solution": "Licht der Wellenlänge um 460 nm (blau) hat genau die Energie, um Elektronen im β-Carotin anzuheben, und wird deshalb absorbiert. Aus dem weißen Sonnenlicht fehlt dann der blaue Anteil; das zurückgeworfene Licht erscheint in der Komplementärfarbe Orange."
+        "solution": "Licht der Wellenlänge um $460\\,\\mathrm{nm}$ (blau) hat genau die Energie, um Elektronen im $\\beta$-Carotin anzuheben, und wird deshalb absorbiert. Aus dem weißen Sonnenlicht fehlt dann der blaue Anteil; das zurückgeworfene Licht erscheint in der Komplementärfarbe Orange."
       },
       {
         "type": "question",
@@ -202,7 +202,7 @@
         "operator": "beurteilen",
         "prompt": "Beurteile, wie gut sich das Modell des Potentialtopfs eignet, um das Wasserstoffatom zu beschreiben.",
         "lines": 6,
-        "solution": "Stärken: Das Modell erklärt qualitativ, warum ein gebundenes Elektron nur diskrete Energien annehmen kann, warum es eine Mindestenergie gibt und warum Atome Licht nur bestimmter Wellenlängen aussenden. Grenzen: Das Atom ist dreidimensional, und das Coulombpotential hat keine senkrechten, unendlich hohen Wände. Im Topf wachsen die Abstände der Niveaus mit n (E ~ n²), im Wasserstoffatom rücken sie zusammen (E ~ −1/n²). Quantitativ ist das Modell für das H-Atom daher unbrauchbar, als Einstieg in die Quantisierung aber wertvoll."
+        "solution": "Stärken: Das Modell erklärt qualitativ, warum ein gebundenes Elektron nur diskrete Energien annehmen kann, warum es eine Mindestenergie gibt und warum Atome Licht nur bestimmter Wellenlängen aussenden. Grenzen: Das Atom ist dreidimensional, und das Coulombpotential hat keine senkrechten, unendlich hohen Wände. Im Topf wachsen die Abstände der Niveaus mit $n$ ($E \\sim n^{2}$), im Wasserstoffatom rücken sie zusammen ($E \\sim -1/n^{2}$). Quantitativ ist das Modell für das H-Atom daher unbrauchbar, als Einstieg in die Quantisierung aber wertvoll."
       }
     ]
   }

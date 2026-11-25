@@ -26,7 +26,7 @@
     "blocks": [
       {
         "type": "text",
-        "text": "Ein Laser beleuchtet einen Doppelspalt mit dem **Spaltabstand d**. Im **Abstand a** steht ein Schirm. Die Position **x** auf dem Schirm wird von der Mitte des Musters aus gemessen; die Messmarke lässt sich mit Maus oder Finger verschieben.\n\nDas helle Maximum in der Mitte heißt Maximum 0. Ordnung, die nächsten nach außen 1., 2., 3. Ordnung."
+        "text": "Ein Laser beleuchtet einen Doppelspalt mit dem **Spaltabstand $d$**. Im **Abstand $a$** steht ein Schirm. Die Position **$x$** auf dem Schirm wird von der Mitte des Musters aus gemessen; die Messmarke lässt sich mit Maus oder Finger verschieben.\n\nDas helle Maximum in der Mitte heißt Maximum 0. Ordnung, die nächsten nach außen 1., 2., 3. Ordnung."
       },
       {
         "type": "heading",
@@ -56,7 +56,7 @@
         "type": "table",
         "id": "ordnung",
         "operator": "ermitteln",
-        "prompt": "Stelle λ = 630 nm, d = 200 µm und a = 3,0 m ein. Ermittle mit der Messmarke die Positionen der Maxima 1. bis 5. Ordnung.",
+        "prompt": "Stelle $\\lambda = 630\\,\\mathrm{nm}$, $d = 200\\,\\mathrm{\\mu m}$ und $a = 3{,}0\\,\\mathrm{m}$ ein. Ermittle mit der Messmarke die Positionen der Maxima 1. bis 5. Ordnung.",
         "columns": [
           {
             "key": "k",
@@ -65,32 +65,32 @@
           },
           {
             "key": "x",
-            "label": "x_k",
+            "label": "$x_k$",
             "unit": "mm",
             "source": "x"
           }
         ],
         "rows": 5,
-        "solution": "k = 1: 9,5 mm; 2: 18,9 mm; 3: 28,4 mm; 4: 37,8 mm; 5: 47,3 mm."
+        "solution": "$k = 1$: $9{,}5\\,\\mathrm{mm}$; 2: $18{,}9\\,\\mathrm{mm}$; 3: $28{,}4\\,\\mathrm{mm}$; 4: $37{,}8\\,\\mathrm{mm}$; 5: $47{,}3\\,\\mathrm{mm}$."
       },
       {
         "type": "chart",
         "id": "ordnung-dia",
         "operator": "darstellen",
-        "prompt": "Stelle die Position x_k in Abhängigkeit von der Ordnung k in einem Diagramm dar und zeichne eine Ausgleichsgerade ein.",
+        "prompt": "Stelle die Position $x_{k}$ in Abhängigkeit von der Ordnung $k$ in einem Diagramm dar und zeichne eine Ausgleichsgerade ein.",
         "table": "ordnung",
         "x": "k",
         "y": "x",
         "fit": true,
-        "solution": "Ursprungsgerade mit der Steigung 9,45 mm. Die Steigung ist der Abstand Δx benachbarter Maxima."
+        "solution": "Ursprungsgerade mit der Steigung $9{,}45\\,\\mathrm{mm}$. Die Steigung ist der Abstand $\\Delta x$ benachbarter Maxima."
       },
       {
         "type": "question",
         "id": "lambda",
         "operator": "berechnen",
-        "prompt": "Für kleine Winkel gilt für den Abstand benachbarter Maxima Δx = λ · a : d. Berechne aus der Steigung deiner Ausgleichsgeraden die Wellenlänge und vergleiche mit dem eingestellten Wert.",
+        "prompt": "Für kleine Winkel gilt für den Abstand benachbarter Maxima $\\Delta x = \\lambda \\cdot a : d$. Berechne aus der Steigung deiner Ausgleichsgeraden die Wellenlänge und vergleiche mit dem eingestellten Wert.",
         "lines": 4,
-        "solution": "λ = Δx · d : a = 9,45 · 10⁻³ m · 200 · 10⁻⁶ m : 3,0 m = 6,3 · 10⁻⁷ m = 630 nm. Das stimmt mit der Einstellung überein."
+        "solution": "$\\lambda = \\Delta x \\cdot d : a = 9{,}45 \\cdot 10^{-3}\\,\\mathrm{m} \\cdot 200 \\cdot 10^{-6}\\,\\mathrm{m} : 3{,}0\\,\\mathrm{m} = 6{,}3 \\cdot 10^{-7}\\,\\mathrm{m} = 630\\,\\mathrm{nm}$. Das stimmt mit der Einstellung überein."
       },
       {
         "type": "question",
@@ -98,7 +98,7 @@
         "operator": "begruenden",
         "prompt": "Begründe, warum es genauer ist, die Position des Maximums 5. Ordnung zu messen und durch 5 zu teilen, als nur den Abstand zum 1. Maximum zu messen.",
         "lines": 3,
-        "solution": "Der Ablesefehler der Messmarke (etwa 0,1 mm) ist in beiden Fällen gleich groß. Beim 5. Maximum verteilt er sich auf fünf Streifenabstände, der relative Fehler ist nur ein Fünftel so groß."
+        "solution": "Der Ablesefehler der Messmarke (etwa $0{,}1\\,\\mathrm{mm}$) ist in beiden Fällen gleich groß. Beim 5. Maximum verteilt er sich auf fünf Streifenabstände, der relative Fehler ist nur ein Fünftel so groß."
       },
       {
         "type": "heading",
@@ -108,33 +108,33 @@
         "type": "table",
         "id": "farbe",
         "operator": "untersuchen",
-        "prompt": "Untersuche, wie der Streifenabstand von der Wellenlänge abhängt (d = 200 µm, a = 3,0 m). Miss dazu jeweils die Position des Maximums 5. Ordnung.",
+        "prompt": "Untersuche, wie der Streifenabstand von der Wellenlänge abhängt ($d = 200\\,\\mathrm{\\mu m}$, $a = 3{,}0\\,\\mathrm{m}$). Miss dazu jeweils die Position des Maximums 5. Ordnung.",
         "columns": [
           {
             "key": "lambda",
-            "label": "λ",
+            "label": "$\\lambda$",
             "unit": "nm",
             "source": "lambda"
           },
           {
             "key": "x5",
-            "label": "x_5",
+            "label": "$x_5$",
             "unit": "mm",
             "source": "x"
           },
           {
             "key": "dx",
-            "label": "Δx",
+            "label": "$\\Delta x$",
             "unit": "mm"
           }
         ],
         "rows": 4,
-        "solution": "450 nm: 33,8 mm (Δx = 6,75 mm); 530 nm: 39,8 mm (7,95 mm); 630 nm: 47,3 mm (9,45 mm); 700 nm: bei k = 4: 42,0 mm (10,5 mm). Δx ~ λ: Rotes Licht wird stärker aufgefächert als blaues."
+        "solution": "$450\\,\\mathrm{nm}$: $33{,}8\\,\\mathrm{mm}$ ($\\Delta x = 6{,}75\\,\\mathrm{mm}$); $530\\,\\mathrm{nm}$: $39{,}8\\,\\mathrm{mm}$ ($7{,}95\\,\\mathrm{mm}$); $630\\,\\mathrm{nm}$: $47{,}3\\,\\mathrm{mm}$ ($9{,}45\\,\\mathrm{mm}$); $700\\,\\mathrm{nm}$: bei $k = 4$: $42{,}0\\,\\mathrm{mm}$ ($10{,}5\\,\\mathrm{mm}$). $\\Delta x \\sim \\lambda$: Rotes Licht wird stärker aufgefächert als blaues."
       },
       {
         "type": "choice",
         "id": "spalt",
-        "prompt": "Der Spaltabstand d wird verdoppelt. Was geschieht mit dem Streifenmuster? Überprüfe deine Antwort.",
+        "prompt": "Der Spaltabstand $d$ wird verdoppelt. Was geschieht mit dem Streifenmuster? Überprüfe deine Antwort.",
         "options": [
           "Die Streifen rücken auf den halben Abstand zusammen.",
           "Die Streifen rücken auf den doppelten Abstand auseinander.",
@@ -144,15 +144,15 @@
         "correct": [
           0
         ],
-        "solution": "Δx = λ · a : d: Der Streifenabstand ist umgekehrt proportional zum Spaltabstand."
+        "solution": "$\\Delta x = \\lambda \\cdot a : d$: Der Streifenabstand ist umgekehrt proportional zum Spaltabstand."
       },
       {
         "type": "question",
         "id": "herleitung",
         "operator": "herleiten",
-        "prompt": "Leite die Formel Δx = λ · a : d her. Nutze, dass für das Maximum k-ter Ordnung der Gangunterschied Δs = d · sin α = k · λ beträgt und dass tan α = x_k : a gilt.",
+        "prompt": "Leite die Formel $\\Delta x = \\lambda \\cdot a : d$ her. Nutze, dass für das Maximum k-ter Ordnung der Gangunterschied $\\Delta s = d \\cdot \\sin \\alpha = k \\cdot \\lambda$ beträgt und dass $\\tan \\alpha = x_{k} : a$ gilt.",
         "lines": 5,
-        "solution": "Für kleine Winkel ist sin α ≈ tan α. Aus d · sin α = k · λ wird d · x_k : a = k · λ, also x_k = k · λ · a : d. Der Abstand benachbarter Maxima ist Δx = x_(k+1) − x_k = λ · a : d."
+        "solution": "Für kleine Winkel ist $\\sin \\alpha \\approx \\tan \\alpha$. Aus $d \\cdot \\sin \\alpha = k \\cdot \\lambda$ wird $d \\cdot x_{k} : a = k \\cdot \\lambda$, also $x_{k} = k \\cdot \\lambda \\cdot a : d$. Der Abstand benachbarter Maxima ist $\\Delta x = x_{k+1} - x_{k} = \\lambda \\cdot a : d$."
       },
       {
         "type": "heading",
@@ -162,9 +162,9 @@
         "type": "question",
         "id": "unbekannt",
         "operator": "bestimmen",
-        "prompt": "Mit einem unbekannten Laser misst man bei d = 250 µm und a = 4,0 m zwischen den beiden Maxima 3. Ordnung (links und rechts der Mitte) einen Abstand von 51,0 mm. Bestimme die Wellenlänge und gib die Farbe des Lasers an.",
+        "prompt": "Mit einem unbekannten Laser misst man bei $d = 250\\,\\mathrm{\\mu m}$ und $a = 4{,}0\\,\\mathrm{m}$ zwischen den beiden Maxima 3. Ordnung (links und rechts der Mitte) einen Abstand von $51{,}0\\,\\mathrm{mm}$. Bestimme die Wellenlänge und gib die Farbe des Lasers an.",
         "lines": 4,
-        "solution": "Der Abstand entspricht 6 Streifenabständen: Δx = 8,5 mm. λ = 8,5 · 10⁻³ m · 250 · 10⁻⁶ m : 4,0 m = 5,3 · 10⁻⁷ m = 531 nm: grünes Licht."
+        "solution": "Der Abstand entspricht 6 Streifenabständen: $\\Delta x = 8{,}5\\,\\mathrm{mm}$. $\\lambda = 8{,}5 \\cdot 10^{-3}\\,\\mathrm{m} \\cdot 250 \\cdot 10^{-6}\\,\\mathrm{m} : 4{,}0\\,\\mathrm{m} = 5{,}3 \\cdot 10^{-7}\\,\\mathrm{m} = 531\\,\\mathrm{nm}$: grünes Licht."
       },
       {
         "type": "question",
@@ -172,7 +172,7 @@
         "operator": "erlaeutern",
         "prompt": "Erläutere, welches Bild du erwartest, wenn der Doppelspalt mit weißem Licht statt mit Laserlicht beleuchtet wird.",
         "lines": 4,
-        "solution": "Weißes Licht enthält alle Wellenlängen. In der Mitte (k = 0) überlagern sich alle Farben zu einem weißen Streifen. Die Maxima höherer Ordnung liegen für jede Farbe an einer anderen Stelle (Δx ~ λ): Es entstehen farbige Säume, innen blau und außen rot, die nach außen hin zunehmend ineinander verschwimmen."
+        "solution": "Weißes Licht enthält alle Wellenlängen. In der Mitte ($k = 0$) überlagern sich alle Farben zu einem weißen Streifen. Die Maxima höherer Ordnung liegen für jede Farbe an einer anderen Stelle ($\\Delta x \\sim \\lambda$): Es entstehen farbige Säume, innen blau und außen rot, die nach außen hin zunehmend ineinander verschwimmen."
       }
     ]
   }

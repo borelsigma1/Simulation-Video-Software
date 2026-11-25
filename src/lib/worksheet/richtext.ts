@@ -1,4 +1,4 @@
-/** Minimaler, sicherer Textsatz: Absätze (Leerzeile) und **fett**. Kein HTML. */
+/** Minimaler, sicherer Textsatz: Absätze (Leerzeile), **fett** und $Formeln$. Kein HTML. */
 export interface Segment {
   text: string;
   bold: boolean;
@@ -17,6 +17,7 @@ export function paragraphs(src: string): Segment[][] {
     );
 }
 
+/** Ohne Fettdruck-Sterne; Formeln bleiben als TeX stehen (für Formulare und Dateinamen). */
 export function plain(src: string): string {
   return src.replace(/\*\*/g, '');
 }

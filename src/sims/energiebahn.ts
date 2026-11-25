@@ -4,6 +4,7 @@
  * Bewegungsenergie und innere Energie.
  */
 import { arrow, box, disc, fmt, label, line, paper, polyline } from '../lib/engine/draw';
+import { grip, Handles, point } from '../lib/engine/handles';
 import { theme } from '../lib/engine/theme';
 import type { SimDef, Stage } from '../lib/sim/types';
 
@@ -57,6 +58,7 @@ export const sim: SimDef = {
   id: 'energiebahn',
   title: 'Energieumwandlung auf der Bahn',
   summary: 'Ein Wagen rollt durch eine Mulde oder über einen Hügel: Höhenenergie, Bewegungsenergie und innere Energie im Blick.',
+  hint: 'Vor dem Start lässt sich der Wagen mit Maus oder Finger auf der Bahn nach oben oder unten schieben; so stellst du die Starthöhe ein.',
   animated: true,
   playLabel: 'Loslassen',
   thumbTime: 0.9,
@@ -137,7 +139,9 @@ export const sim: SimDef = {
       return { scale, ox: 44 + X_MAX * scale, oy: g.h - 34, right };
     };
 
+    const hs = new Handles();
     return {
+      pointer: (kind, x, y) => (t === 0 && !env.isRunning() ? hs.pointer(kind, x, y) : undefined),
       reset() {
         st.x = startX(p.form, p.h0);
         st.v = 0;
@@ -217,6 +221,23 @@ export const sim: SimDef = {
           arrow(ctx, 0, -32, len, -32, theme.velocity, 3);
         }
         ctx.restore();
+
+        // Vor dem Start: Wagen auf der Bahn hochschieben (Starthöhe)
+        hs.begin();
+        if (t === 0 && !env.isRunning() && env.canSet('h0')) {
+          const wx = X(st.x) + 26 * Math.sin(th);
+          const wy = Y(bahn(p.form, st.x)) - 26 * Math.cos(th);
+          const hw = hs.add({
+            dist: point(wx, wy),
+            radius: 26,
+            cursor: 'grab',
+            drag: (x) => {
+              const xm = Math.min(-0.2, Math.max(-X_MAX, (x - ox) / scale));
+              env.set('h0', bahn(p.form, xm));
+            }
+          });
+          grip(ctx, wx, wy - 30, 'hv', hs.isHover(hw));
+        }
 
         // Energiesäulen
         if (show.saeulen) {

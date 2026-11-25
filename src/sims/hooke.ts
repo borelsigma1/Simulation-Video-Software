@@ -3,6 +3,7 @@
  * Die weiche Feder verlässt bei großer Kraft den Hooke'schen Bereich.
  */
 import { box, fmt, hatch, label, line, paper, spring, arrow } from '../lib/engine/draw';
+import { Handles, rect } from '../lib/engine/handles';
 import { theme } from '../lib/engine/theme';
 import type { SimDef } from '../lib/sim/types';
 
@@ -48,6 +49,7 @@ export const sim: SimDef = {
     { key: 'lineal', label: 'Dehnung am Lineal markieren', value: true }
   ],
   plots: [],
+  hint: 'Tippe auf den Vorrat links, um ein Massestück anzuhängen, und auf die angehängten Stücke, um eines abzunehmen.',
   measures: [
     { key: 'masse', label: 'angehängte Masse', symbol: 'm', unit: 'g', digits: 0 },
     { key: 'F', label: 'Gewichtskraft der Massestücke', symbol: 'F', unit: 'N', digits: 2 },
@@ -58,8 +60,10 @@ export const sim: SimDef = {
     const { p, show } = env;
     const F = () => p.n * STUECK * p.g;
     const s = () => dehnung(p.art, F());
+    const hs = new Handles();
     return {
       reset() {},
+      pointer: (kind, x, y) => hs.pointer(kind, x, y),
       measure: () => ({ masse: p.n * 50, F: F(), s: s() }),
       draw(g) {
         const { ctx, w, h } = g;
@@ -82,6 +86,22 @@ export const sim: SimDef = {
         const ph = Math.min(11, (h - end - 30) / Math.max(p.n, 1));
         for (let i = 0; i < p.n; i++) box(ctx, cx - 22, end + 12 + i * ph, 44, ph - 1.5, theme.metal, theme.text, 2, 1.5);
         if (p.n === 0) label(ctx, 'unbelastet', cx + 16, end + 16, { size: 12, color: theme.muted });
+
+        // Vorrat an Massestücken auf dem Tisch: antippen hängt eines an
+        hs.begin();
+        if (env.canSet('n')) {
+          const tx = cx - 190;
+          const ty = h - 22;
+          line(ctx, tx - 40, ty, tx + 40, ty, theme.text, 2);
+          const rest = 10 - p.n;
+          for (let i = 0; i < rest; i++) box(ctx, tx - 22, ty - (i + 1) * 10, 44, 8.5, theme.metal, theme.text, 2, 1.5);
+          const hov = hs.isHover(hs.add({ dist: rect(tx - 30, ty - Math.max(rest, 1) * 10 - 22, 60, Math.max(rest, 1) * 10 + 22), radius: 4, cursor: 'pointer', drag() {}, tap: () => env.set('n', p.n + 1) }));
+          label(ctx, rest ? '+ anhängen' : 'Vorrat leer', tx, ty - rest * 10 - 8, { align: 'center', size: 12, bold: hov, color: hov ? theme.object : theme.muted });
+          if (p.n > 0) {
+            const hb = hs.add({ dist: rect(cx - 24, end + 12, 48, p.n * ph), radius: 4, cursor: 'pointer', drag() {}, tap: () => env.set('n', p.n - 1) });
+            if (hs.isHover(hb)) label(ctx, '− abnehmen', cx + 30, end + 12 + (p.n * ph) / 2 + 4, { size: 12, bold: true, color: theme.object });
+          }
+        }
 
         if (show.kraft && p.n > 0) {
           const len = Math.min(110, 22 * F());

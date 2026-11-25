@@ -17,6 +17,7 @@ import { sim as quantenspalt } from './quantenspalt';
 import { sim as rc } from './rc';
 import { sim as sammellinse } from './sammellinse';
 import { sim as schaltung } from './schaltung';
+import { schroedinger1d, schroedingerCoulomb } from './schroedinger';
 import { sim as schatten } from './schatten';
 import { sim as wurf } from './schiefer-wurf/sim';
 import { sim as stoss } from './stoss';
@@ -44,7 +45,9 @@ export const sims: SimDef[] = [
   kreisbahn,
   rc,
   quantenspalt,
-  potentialtopf
+  potentialtopf,
+  schroedinger1d,
+  schroedingerCoulomb
 ];
 
 export const simById = (id: string): SimDef | undefined => sims.find((s) => s.id === id);

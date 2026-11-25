@@ -3,6 +3,7 @@
  * vollkommen unelastisch). Impuls und Bewegungsenergie vor und nach dem Stoß.
  */
 import { arrow, box, disc, fmt, label, line, paper } from '../lib/engine/draw';
+import { grip, Handles, point } from '../lib/engine/handles';
 import { theme } from '../lib/engine/theme';
 import type { SimDef } from '../lib/sim/types';
 
@@ -22,7 +23,7 @@ export const sim: SimDef = {
   animated: true,
   playLabel: 'Starten',
   thumbTime: 0.45,
-  hint: 'Geschwindigkeiten nach rechts sind positiv, nach links negativ. Die Bahn ist reibungsfrei.',
+  hint: 'Geschwindigkeiten nach rechts sind positiv, nach links negativ. Die Bahn ist reibungsfrei. Vor dem Start lassen sich die Geschwindigkeitspfeile der Wagen an der Spitze ziehen.',
   params: [
     {
       key: 'art',
@@ -102,7 +103,10 @@ export const sim: SimDef = {
       buf.e2.push(e2);
       buf.es.push(e1 + e2);
     };
+    const hs = new Handles();
+    const editable = () => t === 0 && !env.isRunning();
     return {
+      pointer: (kind, x, y) => (editable() ? hs.pointer(kind, x, y) : undefined),
       reset() {
         t = 0;
         n = 0;
@@ -183,6 +187,22 @@ export const sim: SimDef = {
         }
         wagen(x1, p.m1, w1, theme.object, theme.objectDark, '1');
         wagen(x2, p.m2, w2, theme.velocity, '#123f85', '2');
+
+        // Vor dem Start: Geschwindigkeitspfeile an der Spitze ziehen
+        hs.begin();
+        if (editable() && show.v) {
+          const pfeil = (x: number, m: number, v: number, key: 'v1' | 'v2') => {
+            if (!env.canSet(key)) return;
+            const bh = 26 + 22 * Math.sqrt(m / 2);
+            const y = rail - bh - 18;
+            const cx = X(x);
+            const tip = cx + v * 55;
+            const hv = hs.add({ dist: point(tip, y), radius: 16, cursor: 'ew-resize', drag: (px) => env.set(key, (px - cx) / 55) });
+            grip(ctx, Math.abs(v) > 0.01 ? tip : cx, y, 'h', hs.isHover(hv));
+          };
+          pfeil(x1, p.m1, w1, 'v1');
+          pfeil(x2, p.m2, w2, 'v2');
+        }
         if (show.schwerpunkt) {
           const xs = (p.m1 * x1 + p.m2 * x2) / (p.m1 + p.m2);
           line(ctx, X(xs), rail - 90, X(xs), rail + 12, theme.acceleration, 1.5, [4, 4]);

@@ -21,7 +21,7 @@
     "blocks": [
       {
         "type": "text",
-        "text": "Im Fadenstrahlrohr werden Elektronen mit der Spannung **U_B** beschleunigt und treten senkrecht zu den Feldlinien in das homogene Magnetfeld eines Helmholtz-Spulenpaars mit der Flussdichte **B** ein. Ein Gas unter geringem Druck macht ihre Bahn als leuchtenden Faden sichtbar.\n\nDas Feld zeigt aus der Zeichenebene heraus. Der Bahndurchmesser **d** wird an der Messleiste abgelesen."
+        "text": "Im Fadenstrahlrohr werden Elektronen mit der Spannung **$U_{B}$** beschleunigt und treten senkrecht zu den Feldlinien in das homogene Magnetfeld eines Helmholtz-Spulenpaars mit der Flussdichte **$B$** ein. Ein Gas unter geringem Druck macht ihre Bahn als leuchtenden Faden sichtbar.\n\nDas Feld zeigt aus der Zeichenebene heraus. Der Bahndurchmesser **$d$** wird an der Messleiste abgelesen."
       },
       {
         "type": "heading",
@@ -59,71 +59,71 @@
         "type": "table",
         "id": "b",
         "operator": "untersuchen",
-        "prompt": "Untersuche bei U_B = 200 V, wie der Bahndurchmesser von der Flussdichte abhängt. Berechne jeweils das Produkt d · B.",
+        "prompt": "Untersuche bei $U_{B} = 200\\,\\mathrm{V}$, wie der Bahndurchmesser von der Flussdichte abhängt. Berechne jeweils das Produkt $d \\cdot B$.",
         "columns": [
           {
             "key": "B",
-            "label": "B",
+            "label": "$B$",
             "unit": "mT",
             "source": "B"
           },
           {
             "key": "d",
-            "label": "d",
+            "label": "$d$",
             "unit": "cm",
             "source": "d"
           },
           {
             "key": "dB",
-            "label": "d · B",
+            "label": "$d \\cdot B$",
             "unit": "cm·mT"
           }
         ],
         "rows": 5,
-        "solution": "0,80 mT: 11,9 cm; 1,00 mT: 9,5 cm; 1,20 mT: 7,9 cm; 1,50 mT: 6,4 cm; 2,00 mT: 4,8 cm. Das Produkt ist stets etwa 9,5 cm·mT: d ~ 1/B."
+        "solution": "$0{,}80\\,\\mathrm{mT}$: $11{,}9\\,\\mathrm{cm}$; $1{,}00\\,\\mathrm{mT}$: $9{,}5\\,\\mathrm{cm}$; $1{,}20\\,\\mathrm{mT}$: $7{,}9\\,\\mathrm{cm}$; $1{,}50\\,\\mathrm{mT}$: $6{,}4\\,\\mathrm{cm}$; $2{,}00\\,\\mathrm{mT}$: $4{,}8\\,\\mathrm{cm}$. Das Produkt ist stets etwa $9{,}5\\,\\mathrm{cm\\cdot mT}$: $d \\sim 1/B$."
       },
       {
         "type": "table",
         "id": "u",
         "operator": "ermitteln",
-        "prompt": "Ermittle bei B = 1,00 mT den Bahndurchmesser für fünf Beschleunigungsspannungen. Berechne jeweils den Radius r und r².",
+        "prompt": "Ermittle bei $B = 1{,}00\\,\\mathrm{mT}$ den Bahndurchmesser für fünf Beschleunigungsspannungen. Berechne jeweils den Radius $r$ und $r^{2}$.",
         "columns": [
           {
             "key": "UB",
-            "label": "U_B",
+            "label": "$U_B$",
             "unit": "V",
             "source": "UB"
           },
           {
             "key": "d",
-            "label": "d",
+            "label": "$d$",
             "unit": "cm",
             "source": "d"
           },
           {
             "key": "r",
-            "label": "r",
+            "label": "$r$",
             "unit": "cm"
           },
           {
             "key": "r2",
-            "label": "r²",
+            "label": "$r^2$",
             "unit": "cm²"
           }
         ],
         "rows": 5,
-        "solution": "100 V: 6,7 cm (r = 3,4 cm; r² = 11,4 cm²); 150 V: 8,3 cm (4,1; 17,1); 200 V: 9,5 cm (4,8; 22,7); 250 V: 10,7 cm (5,3; 28,4); 300 V: 11,7 cm (5,8; 34,1)."
+        "solution": "$100\\,\\mathrm{V}$: $6{,}7\\,\\mathrm{cm}$ ($r = 3{,}4\\,\\mathrm{cm}$; $r^{2} = 11{,}4\\,\\mathrm{cm^{2}}$); $150\\,\\mathrm{V}$: $8{,}3\\,\\mathrm{cm}$ ($4{,}1$; $17{,}1$); $200\\,\\mathrm{V}$: $9{,}5\\,\\mathrm{cm}$ ($4{,}8$; $22{,}7$); $250\\,\\mathrm{V}$: $10{,}7\\,\\mathrm{cm}$ ($5{,}3$; $28{,}4$); $300\\,\\mathrm{V}$: $11{,}7\\,\\mathrm{cm}$ ($5{,}8$; $34{,}1$)."
       },
       {
         "type": "chart",
         "id": "u-dia",
         "operator": "darstellen",
-        "prompt": "Stelle r² in Abhängigkeit von U_B in einem Diagramm dar und zeichne eine Ausgleichsgerade ein.",
+        "prompt": "Stelle $r^{2}$ in Abhängigkeit von $U_{B}$ in einem Diagramm dar und zeichne eine Ausgleichsgerade ein.",
         "table": "u",
         "x": "UB",
         "y": "r2",
         "fit": true,
-        "solution": "Ursprungsgerade mit der Steigung 0,114 cm²/V = 1,14 · 10⁻⁵ m²/V."
+        "solution": "Ursprungsgerade mit der Steigung $0{,}114\\,\\mathrm{cm^{2}/V} = 1{,}14 \\cdot 10^{-5}\\,\\mathrm{m^{2}/V}$."
       },
       {
         "type": "heading",
@@ -133,30 +133,30 @@
         "type": "question",
         "id": "herleitung",
         "operator": "herleiten",
-        "prompt": "Leite aus dem Energieansatz für die Beschleunigung und dem Kraftansatz für die Kreisbahn die Formel e/m = 2 · U_B : (r² · B²) her.",
+        "prompt": "Leite aus dem Energieansatz für die Beschleunigung und dem Kraftansatz für die Kreisbahn die Formel $e/m = 2 \\cdot U_{B} : (r^{2} \\cdot B^{2})$ her.",
         "lines": 6,
-        "solution": "Energie: e · U_B = ½ · m · v², also v² = 2 · e · U_B : m. Kraft: Lorentzkraft = Zentripetalkraft, e · v · B = m · v² : r, also v = e · B · r : m. Quadrieren und gleichsetzen: e² · B² · r² : m² = 2 · e · U_B : m. Daraus e/m = 2 · U_B : (r² · B²)."
+        "solution": "Energie: $e \\cdot U_{B} = \\tfrac{1}{2} \\cdot m \\cdot v^{2}$, also $v^{2} = 2 \\cdot e \\cdot U_{B} : m$. Kraft: Lorentzkraft = Zentripetalkraft, $e \\cdot v \\cdot B = m \\cdot v^{2} : r$, also $v = e \\cdot B \\cdot r : m$. Quadrieren und gleichsetzen: $e^{2} \\cdot B^{2} \\cdot r^{2} : m^{2} = 2 \\cdot e \\cdot U_{B} : m$. Daraus $e/m = 2 \\cdot U_{B} : (r^{2} \\cdot B^{2})$."
       },
       {
         "type": "question",
         "id": "em",
         "operator": "bestimmen",
-        "prompt": "Bestimme aus der Steigung deiner Ausgleichsgeraden die spezifische Ladung e/m des Elektrons und vergleiche mit dem Literaturwert 1,76 · 10¹¹ C/kg.",
+        "prompt": "Bestimme aus der Steigung deiner Ausgleichsgeraden die spezifische Ladung $e/m$ des Elektrons und vergleiche mit dem Literaturwert $1{,}76 \\cdot 10^{11}\\,\\mathrm{C/kg}$.",
         "lines": 5,
-        "solution": "Aus der Formel folgt r² = 2 · U_B : ((e/m) · B²); die Steigung im U_B-r²-Diagramm ist also 2 : ((e/m) · B²). e/m = 2 : (Steigung · B²) = 2 : (1,14 · 10⁻⁵ m²/V · (1,00 · 10⁻³ T)²) = 1,75 · 10¹¹ C/kg. Abweichung vom Literaturwert unter 1 %."
+        "solution": "Aus der Formel folgt $r^{2} = 2 \\cdot U_{B} : ((e/m) \\cdot B^{2})$; die Steigung im $U_{B}$-$r^{2}$-Diagramm ist also $2 : ((e/m) \\cdot B^{2})$. $e/m = 2 : (\\text{Steigung} \\cdot B^{2}) = 2 : (1{,}14 \\cdot 10^{-5}\\,\\mathrm{m^{2}/V} \\cdot (1{,}00 \\cdot 10^{-3}\\,\\mathrm{T})^{2}) = 1{,}75 \\cdot 10^{11}\\,\\mathrm{C/kg}$. Abweichung vom Literaturwert unter $1\\,\\%$."
       },
       {
         "type": "question",
         "id": "masse",
         "operator": "berechnen",
-        "prompt": "Berechne mit deinem Ergebnis und der Elementarladung e = 1,60 · 10⁻¹⁹ C die Masse des Elektrons.",
+        "prompt": "Berechne mit deinem Ergebnis und der Elementarladung $e = 1{,}60 \\cdot 10^{-19}\\,\\mathrm{C}$ die Masse des Elektrons.",
         "lines": 3,
-        "solution": "m = e : (e/m) = 1,60 · 10⁻¹⁹ C : 1,76 · 10¹¹ C/kg = 9,1 · 10⁻³¹ kg."
+        "solution": "$m = e : (e/m) = 1{,}60 \\cdot 10^{-19}\\,\\mathrm{C} : 1{,}76 \\cdot 10^{11}\\,\\mathrm{C/kg} = 9{,}1 \\cdot 10^{-31}\\,\\mathrm{kg}$."
       },
       {
         "type": "choice",
         "id": "wand",
-        "prompt": "Bei U_B = 300 V wird die Flussdichte immer weiter verringert. Was geschieht?",
+        "prompt": "Bei $U_{B} = 300\\,\\mathrm{V}$ wird die Flussdichte immer weiter verringert. Was geschieht?",
         "options": [
           "Der Kreis wird kleiner.",
           "Der Kreis wird größer, bis der Strahl die Glaswand trifft.",
@@ -166,7 +166,7 @@
         "correct": [
           1
         ],
-        "solution": "r = m · v : (e · B): Bei schwächerem Feld ist die Lorentzkraft kleiner, die Bahn weniger gekrümmt."
+        "solution": "$r = m \\cdot v : (e \\cdot B)$: Bei schwächerem Feld ist die Lorentzkraft kleiner, die Bahn weniger gekrümmt."
       },
       {
         "type": "heading",
@@ -176,9 +176,9 @@
         "type": "question",
         "id": "fehler",
         "operator": "diskutieren",
-        "prompt": "Im realen Versuch liest man den Durchmesser des etwa 2 mm breiten Leuchtfadens auf etwa ±2 mm genau ab. Diskutiere, wie stark sich dieser Fehler auf das Ergebnis für e/m auswirkt und wie sich die Genauigkeit verbessern lässt.",
+        "prompt": "Im realen Versuch liest man den Durchmesser des etwa $2\\,\\mathrm{mm}$ breiten Leuchtfadens auf etwa $\\pm 2\\,\\mathrm{mm}$ genau ab. Diskutiere, wie stark sich dieser Fehler auf das Ergebnis für $e/m$ auswirkt und wie sich die Genauigkeit verbessern lässt.",
         "lines": 5,
-        "solution": "Bei d ≈ 10 cm bedeutet ±2 mm einen relativen Fehler von 2 %. Weil r quadratisch in die Formel eingeht, verdoppelt sich der relative Fehler auf etwa 4 %; dazu kommen die Fehler von B (ebenfalls quadratisch) und U_B. Verbesserungen: möglichst große Bahnen einstellen, viele Messungen durchführen und über eine Ausgleichsgerade auswerten, stets an derselben Kante des Fadens ablesen, das Erdmagnetfeld berücksichtigen."
+        "solution": "Bei $d \\approx 10\\,\\mathrm{cm}$ bedeutet $\\pm 2\\,\\mathrm{mm}$ einen relativen Fehler von $2\\,\\%$. Weil $r$ quadratisch in die Formel eingeht, verdoppelt sich der relative Fehler auf etwa $4\\,\\%$; dazu kommen die Fehler von B (ebenfalls quadratisch) und $U_{B}$. Verbesserungen: möglichst große Bahnen einstellen, viele Messungen durchführen und über eine Ausgleichsgerade auswerten, stets an derselben Kante des Fadens ablesen, das Erdmagnetfeld berücksichtigen."
       },
       {
         "type": "question",
@@ -186,7 +186,7 @@
         "operator": "erlaeutern",
         "prompt": "Erläutere, wie sich mit einem Magnetfeld Ionen gleicher Ladung und gleicher Geschwindigkeit, aber unterschiedlicher Masse trennen lassen (Massenspektrometer).",
         "lines": 4,
-        "solution": "Aus e · v · B = m · v² : r folgt r = m · v : (q · B). Bei gleicher Ladung, Geschwindigkeit und Flussdichte ist der Bahnradius proportional zur Masse: Schwerere Ionen laufen auf größeren Kreisen und treffen nach einem Halbkreis an einer anderen Stelle auf den Detektor. So lassen sich zum Beispiel Isotope eines Elements trennen und ihre Massen bestimmen."
+        "solution": "Aus $e \\cdot v \\cdot B = m \\cdot v^{2} : r$ folgt $r = m \\cdot v : (q \\cdot B)$. Bei gleicher Ladung, Geschwindigkeit und Flussdichte ist der Bahnradius proportional zur Masse: Schwerere Ionen laufen auf größeren Kreisen und treffen nach einem Halbkreis an einer anderen Stelle auf den Detektor. So lassen sich zum Beispiel Isotope eines Elements trennen und ihre Massen bestimmen."
       }
     ]
   }

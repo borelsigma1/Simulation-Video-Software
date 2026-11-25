@@ -21,7 +21,7 @@
     "blocks": [
       {
         "type": "text",
-        "text": "Ein Wasserkocher mit der elektrischen Leistung **P** wandelt in der Zeit **t** die elektrische Energie **E_el = P · t** um. Sie erhöht die innere Energie des Wassers: Die Temperatur steigt.\n\nUm 1 kg Wasser um 1 °C zu erwärmen, sind **4,19 kJ** nötig. Die Simulation läuft im Zeitraffer; die Anzeige **t** nennt die echte Zeit."
+        "text": "Ein Wasserkocher mit der elektrischen Leistung **$P$** wandelt in der Zeit **$t$** die elektrische Energie **$E_{\\mathrm{el}} = P \\cdot t$** um. Sie erhöht die innere Energie des Wassers: Die Temperatur steigt.\n\nUm $1\\,\\mathrm{kg}$ Wasser um $1\\,\\mathrm{{}^{\\circ}C}$ zu erwärmen, sind **$4{,}19\\,\\mathrm{kJ}$** nötig. Die Simulation läuft im Zeitraffer; die Anzeige **$t$** nennt die echte Zeit."
       },
       {
         "type": "heading",
@@ -31,29 +31,29 @@
         "type": "table",
         "id": "verlauf",
         "operator": "ermitteln",
-        "prompt": "Stelle P = 2000 W, m = 1,0 kg und ϑ₀ = 20 °C ein. Halte die Simulation etwa alle 30 Sekunden an und ermittle Zeit, Temperatur und zugeführte Energie.",
+        "prompt": "Stelle $P = 2000\\,\\mathrm{W}$, $m = 1{,}0\\,\\mathrm{kg}$ und $\\vartheta _{0} = 20\\,\\mathrm{{}^{\\circ}C}$ ein. Halte die Simulation etwa alle 30 Sekunden an und ermittle Zeit, Temperatur und zugeführte Energie.",
         "columns": [
           {
             "key": "t",
-            "label": "t",
+            "label": "$t$",
             "unit": "s",
             "source": "t"
           },
           {
             "key": "T",
-            "label": "ϑ",
+            "label": "$\\vartheta$",
             "unit": "°C",
             "source": "T"
           },
           {
             "key": "E",
-            "label": "E_el",
+            "label": "$E_{\\mathrm{el}}$",
             "unit": "kJ",
             "source": "E"
           }
         ],
         "rows": 6,
-        "solution": "Zum Beispiel 30 s / 34,3 °C / 60 kJ; 60 s / 48,6 °C / 120 kJ; 90 s / 63,0 °C / 180 kJ; 120 s / 77,3 °C / 240 kJ; 150 s / 91,6 °C / 300 kJ; Ende bei 168 s / 100 °C / 335 kJ."
+        "solution": "Zum Beispiel $30\\,\\mathrm{s}$ / $34{,}3\\,\\mathrm{{}^{\\circ}C}$ / $60\\,\\mathrm{kJ}$; $60\\,\\mathrm{s}$ / $48{,}6\\,\\mathrm{{}^{\\circ}C}$ / $120\\,\\mathrm{kJ}$; $90\\,\\mathrm{s}$ / $63{,}0\\,\\mathrm{{}^{\\circ}C}$ / $180\\,\\mathrm{kJ}$; $120\\,\\mathrm{s}$ / $77{,}3\\,\\mathrm{{}^{\\circ}C}$ / $240\\,\\mathrm{kJ}$; $150\\,\\mathrm{s}$ / $91{,}6\\,\\mathrm{{}^{\\circ}C}$ / $300\\,\\mathrm{kJ}$; Ende bei $168\\,\\mathrm{s}$ / $100\\,\\mathrm{{}^{\\circ}C}$ / $335\\,\\mathrm{kJ}$."
       },
       {
         "type": "chart",
@@ -64,15 +64,15 @@
         "x": "t",
         "y": "T",
         "fit": true,
-        "solution": "Die Temperatur steigt gleichmäßig (Gerade, Steigung etwa 0,48 °C je Sekunde), beginnend bei 20 °C. In gleichen Zeiten wird gleich viel Energie zugeführt, und die Temperatur steigt um gleich viel."
+        "solution": "Die Temperatur steigt gleichmäßig (Gerade, Steigung etwa $0{,}48\\,\\mathrm{{}^{\\circ}C}$ je Sekunde), beginnend bei $20\\,\\mathrm{{}^{\\circ}C}$. In gleichen Zeiten wird gleich viel Energie zugeführt, und die Temperatur steigt um gleich viel."
       },
       {
         "type": "question",
         "id": "rechnung",
         "operator": "berechnen",
-        "prompt": "Berechne die Energie, die nötig ist, um 1,0 kg Wasser von 20 °C auf 100 °C zu erwärmen. Vergleiche mit der Anzeige des Energiezählers.",
+        "prompt": "Berechne die Energie, die nötig ist, um $1{,}0\\,\\mathrm{kg}$ Wasser von $20\\,\\mathrm{{}^{\\circ}C}$ auf $100\\,\\mathrm{{}^{\\circ}C}$ zu erwärmen. Vergleiche mit der Anzeige des Energiezählers.",
         "lines": 3,
-        "solution": "E = 4,19 kJ/(kg · °C) · 1,0 kg · 80 °C = 335 kJ. Der Zähler zeigt am Ende ebenfalls 335 kJ: Bei einem Wirkungsgrad von 100 % geht die gesamte elektrische Energie in die innere Energie des Wassers über."
+        "solution": "$E = 4{,}19\\,\\mathrm{kJ/(kg \\cdot {}^{\\circ}C)} \\cdot 1{,}0\\,\\mathrm{kg} \\cdot 80\\,\\mathrm{{}^{\\circ}C} = 335\\,\\mathrm{kJ}$. Der Zähler zeigt am Ende ebenfalls $335\\,\\mathrm{kJ}$: Bei einem Wirkungsgrad von $100\\,\\%$ geht die gesamte elektrische Energie in die innere Energie des Wassers über."
       },
       {
         "type": "heading",
@@ -82,29 +82,29 @@
         "type": "table",
         "id": "leistung",
         "operator": "untersuchen",
-        "prompt": "Untersuche, wie die Zeit bis zum Abschalten von der Leistung abhängt (m = 1,0 kg, ϑ₀ = 20 °C). Lass die Simulation jeweils bis zum Ende laufen.",
+        "prompt": "Untersuche, wie die Zeit bis zum Abschalten von der Leistung abhängt ($m = 1{,}0\\,\\mathrm{kg}$, $\\vartheta _{0} = 20\\,\\mathrm{{}^{\\circ}C}$). Lass die Simulation jeweils bis zum Ende laufen.",
         "columns": [
           {
             "key": "P",
-            "label": "P",
+            "label": "$P$",
             "unit": "W",
             "source": "P"
           },
           {
             "key": "t",
-            "label": "t",
+            "label": "$t$",
             "unit": "s",
             "source": "t"
           },
           {
             "key": "E",
-            "label": "E_el",
+            "label": "$E_{\\mathrm{el}}$",
             "unit": "kJ",
             "source": "E"
           }
         ],
         "rows": 5,
-        "solution": "500 W: 670 s; 1000 W: 335 s; 1500 W: 223 s; 2000 W: 168 s; 2400 W: 140 s. Die Energie beträgt stets 335 kJ."
+        "solution": "$500\\,\\mathrm{W}$: $670\\,\\mathrm{s}$; $1000\\,\\mathrm{W}$: $335\\,\\mathrm{s}$; $1500\\,\\mathrm{W}$: $223\\,\\mathrm{s}$; $2000\\,\\mathrm{W}$: $168\\,\\mathrm{s}$; $2400\\,\\mathrm{W}$: $140\\,\\mathrm{s}$. Die Energie beträgt stets $335\\,\\mathrm{kJ}$."
       },
       {
         "type": "question",
@@ -112,12 +112,12 @@
         "operator": "auswerten",
         "prompt": "Werte die Tabelle aus: Formuliere den Zusammenhang zwischen Leistung und Zeit und begründe ihn mit der Energie.",
         "lines": 3,
-        "solution": "Doppelte Leistung, halbe Zeit: P und t sind umgekehrt proportional, das Produkt P · t ist konstant. Begründung: Die zum Erwärmen nötige Energie E = P · t ist immer dieselbe (335 kJ), unabhängig davon, wie schnell sie zugeführt wird."
+        "solution": "Doppelte Leistung, halbe Zeit: $P$ und $t$ sind umgekehrt proportional, das Produkt $P \\cdot t$ ist konstant. Begründung: Die zum Erwärmen nötige Energie $E = P \\cdot t$ ist immer dieselbe ($335\\,\\mathrm{kJ}$), unabhängig davon, wie schnell sie zugeführt wird."
       },
       {
         "type": "choice",
         "id": "menge",
-        "prompt": "Im Kocher ist nur halb so viel Wasser (0,5 kg statt 1,0 kg). Was gilt bei gleicher Leistung?",
+        "prompt": "Im Kocher ist nur halb so viel Wasser ($0{,}5\\,\\mathrm{kg}$ statt $1{,}0\\,\\mathrm{kg}$). Was gilt bei gleicher Leistung?",
         "options": [
           "Die Zeit bleibt gleich, weil die Leistung gleich ist.",
           "Zeit und Energie halbieren sich.",
@@ -136,17 +136,17 @@
         "type": "question",
         "id": "eta",
         "operator": "erklaeren",
-        "prompt": "Stelle den Wirkungsgrad auf 80 % und blende das Energieflussdiagramm ein. Erkläre, warum der Kocher jetzt länger braucht.",
+        "prompt": "Stelle den Wirkungsgrad auf $80\\,\\%$ und blende das Energieflussdiagramm ein. Erkläre, warum der Kocher jetzt länger braucht.",
         "lines": 3,
-        "solution": "Nur 80 % der elektrischen Energie erhöhen die innere Energie des Wassers; der Rest erwärmt Gehäuse und Umgebung. Für dieselben 335 kJ im Wasser müssen 335 kJ : 0,8 = 419 kJ elektrisch zugeführt werden, bei 2000 W dauert das 209 s statt 168 s."
+        "solution": "Nur $80\\,\\%$ der elektrischen Energie erhöhen die innere Energie des Wassers; der Rest erwärmt Gehäuse und Umgebung. Für dieselben $335\\,\\mathrm{kJ}$ im Wasser müssen $335\\,\\mathrm{kJ} : 0{,}8 = 419\\,\\mathrm{kJ}$ elektrisch zugeführt werden, bei $2000\\,\\mathrm{W}$ dauert das $209\\,\\mathrm{s}$ statt $168\\,\\mathrm{s}$."
       },
       {
         "type": "question",
         "id": "kosten",
         "operator": "berechnen",
-        "prompt": "1 kWh = 3600 kJ elektrische Energie kostet etwa 35 Cent. Berechne die Kosten für das Erhitzen von 1,0 kg Wasser bei einem Wirkungsgrad von 80 %.",
+        "prompt": "$1\\,\\mathrm{kWh} = 3600\\,\\mathrm{kJ}$ elektrische Energie kostet etwa 35 Cent. Berechne die Kosten für das Erhitzen von $1{,}0\\,\\mathrm{kg}$ Wasser bei einem Wirkungsgrad von $80\\,\\%$.",
         "lines": 3,
-        "solution": "E = 419 kJ = 419 : 3600 kWh ≈ 0,116 kWh. Kosten ≈ 0,116 kWh · 35 ct/kWh ≈ 4 Cent."
+        "solution": "$E = 419\\,\\mathrm{kJ} = 419 : 3600\\,\\mathrm{kWh} \\approx 0{,}116\\,\\mathrm{kWh}$. Kosten ≈ $0{,}116\\,\\mathrm{kWh} \\cdot 35\\,\\mathrm{ct/kWh} \\approx 4$ Cent."
       },
       {
         "type": "question",

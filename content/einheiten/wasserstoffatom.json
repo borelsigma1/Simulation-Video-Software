@@ -1,0 +1,132 @@
+{
+  "id": "wasserstoffatom",
+  "title": "Wasserstoffatom: Orbitale und Quantenzahlen",
+  "grade": 13,
+  "order": 5,
+  "domain": "kern",
+  "curriculum": "Ph13 Lernbereich 2: Atommodelle (Wasserstoffatom, Energieniveaus, Orbitale, Quantenzahlen)",
+  "summary": "Im Coulombpotenzial des Protons suchst du die stehenden Wellen des Elektrons, findest die Energieformel des Wasserstoffatoms und siehst dir die Orbitale in 3D an.",
+  "video": {
+    "title": "",
+    "source": {
+      "kind": "none"
+    }
+  },
+  "sim": {
+    "id": "schroedinger-coulomb",
+    "params": {
+      "reiter": {
+        "value": 3
+      }
+    }
+  },
+  "worksheet": {
+    "title": "Wasserstoffatom: Orbitale und Quantenzahlen",
+    "subtitle": "Atommodelle · Jahrgangsstufe 13",
+    "blocks": [
+      {
+        "type": "text",
+        "text": "Das Elektron im Wasserstoffatom bewegt sich im Coulombpotenzial $V(r) = -\\frac{e^2}{4\\pi\\varepsilon_0\\,r}$ des Protons. Mit dem Ansatz $\\psi = \\frac{u(r)}{r}$ (mal einem Winkelanteil) bleibt eine Gleichung für die **radiale Welle** $u(r)$.\n\nIm Labor stellst du die Energie $E$ ein, bis $u(r)$ nach außen abklingt. Die Reiter zeigen denselben Zustand als radiale Welle, in der Ebene und als Orbital im Raum."
+      },
+      {
+        "type": "heading",
+        "text": "Energieniveaus"
+      },
+      {
+        "type": "table",
+        "id": "niveaus",
+        "operator": "ermitteln",
+        "prompt": "Ermittle im Reiter 3D mit $l = 0$ die Energien der ersten vier Niveaus. Berechne jeweils $E_n\\cdot n^2$.",
+        "columns": [
+          {
+            "key": "n",
+            "label": "$n$",
+            "unit": ""
+          },
+          {
+            "key": "E",
+            "label": "$E_n$",
+            "unit": "eV"
+          },
+          {
+            "key": "En2",
+            "label": "$E_n\\cdot n^2$",
+            "unit": "eV"
+          }
+        ],
+        "rows": 4,
+        "solution": "$-13{,}6$; $-3{,}40$; $-1{,}51$; $-0{,}850\\,\\mathrm{eV}$. Das Produkt ist stets $-13{,}6\\,\\mathrm{eV}$, also $E_n = -\\frac{13{,}6\\,\\mathrm{eV}}{n^2}$."
+      },
+      {
+        "type": "question",
+        "id": "entartung",
+        "operator": "untersuchen",
+        "prompt": "Untersuche für $n = 3$, ob die Energie vom Bahndrehimpuls $l$ abhängt. Wähle dazu nacheinander s, p und d.",
+        "lines": 3,
+        "solution": "Für $n = 3$ ergibt sich bei $l = 0, 1, 2$ jedes Mal $E_3 = -1{,}51\\,\\mathrm{eV}$. Im reinen Coulombpotenzial hängt die Energie nur von $n$ ab (Entartung)."
+      },
+      {
+        "type": "choice",
+        "id": "lwerte",
+        "operator": "angeben",
+        "prompt": "Gib an, welche Werte des Bahndrehimpulses $l$ zu $n = 3$ möglich sind.",
+        "options": [
+          "$l = 0$, $1$ und $2$",
+          "$l = 1$, $2$ und $3$",
+          "nur $l = 0$",
+          "$l = 0$ bis $l = 3$"
+        ],
+        "correct": [
+          0
+        ],
+        "solution": "$l$ läuft von $0$ bis $n-1$: Die $n-1$ Knoten verteilen sich auf Knotenkugeln und Knotenflächen durch den Kern."
+      },
+      {
+        "type": "heading",
+        "text": "Knoten und Orbitale"
+      },
+      {
+        "type": "question",
+        "id": "knoten",
+        "operator": "beschreiben",
+        "prompt": "Beschreibe für die Zustände 3s, 3p und 3d, wie viele Knotenkugeln und wie viele Knotenflächen durch den Kern es gibt. Formuliere eine Regel.",
+        "lines": 4,
+        "solution": "3s: 2 Knotenkugeln, 0 Knotenflächen; 3p: 1 Knotenkugel, 1 Knotenfläche; 3d: 0 Knotenkugeln, 2 Knotenflächen. Regel: insgesamt $n - 1$ Knoten, davon $l$ Knotenflächen durch den Kern und $n - l - 1$ Knotenkugeln."
+      },
+      {
+        "type": "question",
+        "id": "orbital",
+        "operator": "erlaeutern",
+        "prompt": "Erläutere, was die Fläche im 3D-Bild darstellt und warum sie keine Bahn des Elektrons ist.",
+        "lines": 3,
+        "solution": "Die Fläche umschließt den Bereich, in dem das Elektron mit $90\\,\\%$ Wahrscheinlichkeit nachgewiesen wird (Aufenthaltswahrscheinlichkeit $|\\psi|^2$). Das Elektron hat keinen festen Ort und keine Bahn; erst eine Messung liefert einen Ort, und zwar zufällig gemäß $|\\psi|^2$."
+      },
+      {
+        "type": "snapshot",
+        "id": "bild",
+        "operator": "angeben",
+        "prompt": "Füge ein Bild eines Orbitals mit $n = 3$ ein und gib seinen Namen an."
+      },
+      {
+        "type": "heading",
+        "text": "Spektrum"
+      },
+      {
+        "type": "question",
+        "id": "balmer",
+        "operator": "berechnen",
+        "prompt": "Berechne die Wellenlänge des Photons beim Übergang von $n = 3$ nach $n = 2$ und gib die Farbe an.",
+        "lines": 3,
+        "solution": "$\\Delta E = E_3 - E_2 = -1{,}51\\,\\mathrm{eV} - (-3{,}40\\,\\mathrm{eV}) = 1{,}89\\,\\mathrm{eV}$. $\\lambda = \\frac{h\\cdot c}{\\Delta E} = \\frac{1240\\,\\mathrm{eV\\cdot nm}}{1{,}89\\,\\mathrm{eV}} = 656\\,\\mathrm{nm}$: rotes Licht (H-alpha-Linie der Balmer-Serie)."
+      },
+      {
+        "type": "question",
+        "id": "bohr",
+        "operator": "vergleichen",
+        "prompt": "Vergleiche das Bild des Wasserstoffatoms im Labor mit dem bohrschen Atommodell.",
+        "lines": 4,
+        "solution": "Gemeinsam: dieselben Energieniveaus $E_n = -\\frac{13{,}6\\,\\mathrm{eV}}{n^2}$ und damit dasselbe Spektrum. Unterschiede: Bohr nimmt Kreisbahnen mit festem Radius an; im Labor gibt es nur Aufenthaltswahrscheinlichkeiten, der Grundzustand hat den Drehimpuls null, und zu einem $n$ gehören mehrere Orbitale."
+      }
+    ]
+  }
+}

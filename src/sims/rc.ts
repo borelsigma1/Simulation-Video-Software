@@ -2,6 +2,7 @@
  * Auf- und Entladen eines Kondensators über einen Widerstand (RC-Glied).
  */
 import { arrow, box, disc, fmt, label, line, paper } from '../lib/engine/draw';
+import { Handles, point } from '../lib/engine/handles';
 import { theme } from '../lib/engine/theme';
 import type { SimDef } from '../lib/sim/types';
 
@@ -18,7 +19,7 @@ export const sim: SimDef = {
   animated: true,
   playLabel: 'Schalter umlegen',
   thumbTime: 2.5,
-  hint: 'Die Messung endet nach fünf Zeitkonstanten. Zum Ablesen einzelner Werte die Simulation anhalten oder schrittweise laufen lassen.',
+  hint: 'Der Umschalter S lässt sich in der Zeichnung antippen, um den Vorgang zu starten. Die Messung endet nach fünf Zeitkonstanten. Zum Ablesen einzelner Werte die Simulation anhalten oder schrittweise laufen lassen.',
   params: [
     {
       key: 'vorgang',
@@ -64,6 +65,7 @@ export const sim: SimDef = {
   ],
 
   create(env) {
+    const hs = new Handles();
     const { p, show } = env;
     let t = 0;
     let n = 0;
@@ -104,6 +106,7 @@ export const sim: SimDef = {
         const marke = show.marke ? buf.t.map(() => p.U0 * (laden() ? 0.632 : 0.368)) : [];
         return { x: buf.t, ys: [buf.uc, buf.ur, marke], xRange, yRange: [0, p.U0 * 1.08] };
       },
+      pointer: (kind, x, y) => hs.pointer(kind, x, y),
       draw(g) {
         const { ctx, w, h } = g;
         paper(ctx, w, h, true);
@@ -143,6 +146,12 @@ export const sim: SimDef = {
         if (zurQuelle) line(ctx, mx + 22, top, mx - 19, top - 3, theme.object, 3.5);
         else line(ctx, mx + 22, top, mx + 3, top + 27, theme.object, 3.5);
         label(ctx, 'S', mx + 22, top - 12, { align: 'center', size: 12, bold: true });
+        // Schalter antippen: Vorgang starten
+        hs.begin();
+        if (!an) {
+          const hsw = hs.add({ dist: point(mx, top + 8), radius: 30, cursor: 'pointer', drag() {}, tap: () => env.play() });
+          label(ctx, 'Schalter umlegen: antippen', mx, top - 28, { align: 'center', size: 11.5, bold: hs.isHover(hsw), color: theme.object });
+        }
         // Widerstand im oberen Zweig
         const rx = mx + (r - mx) * 0.5;
         box(ctx, rx - 34, top - 11, 68, 22, theme.bg, theme.text, 2, 2);

@@ -18,11 +18,14 @@
     "@fontsource-variable/jetbrains-mono": "^5.3.0",
     "@fontsource/stix-two-text": "^5.3.0",
     "jspdf": "^4.2.1",
-    "svelte": "^5.59.2"
+    "katex": "^0.16.47",
+    "svelte": "^5.59.2",
+    "svg2pdf.js": "^2.9.0"
   },
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^7.3.2",
     "@tsconfig/svelte": "^5.0.9",
+    "@types/katex": "^0.16.8",
     "@types/node": "^22.20.7",
     "svelte-check": "^4.7.8",
     "typescript": "~5.9.3",

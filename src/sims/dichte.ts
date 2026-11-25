@@ -3,6 +3,7 @@
  * im Messzylinder. Die Körper A bis E bestehen aus unterschiedlichen Stoffen.
  */
 import { box, fmt, label, line, paper } from '../lib/engine/draw';
+import { Handles, rect } from '../lib/engine/handles';
 import { theme } from '../lib/engine/theme';
 import type { SimDef } from '../lib/sim/types';
 
@@ -25,6 +26,7 @@ export const sim: SimDef = {
   id: 'dichte',
   title: 'Dichte bestimmen',
   summary: 'Masse wiegen, Volumen über die Wasserverdrängung messen und daraus den Stoff eines Körpers ermitteln.',
+  hint: 'Den Körper kannst du mit Maus oder Finger greifen und auf die Waage oder in den Messzylinder legen.',
   animated: false,
   params: [
     {
@@ -63,7 +65,10 @@ export const sim: SimDef = {
     const { p, show } = env;
     const stoff = () => STOFFE[Math.round(p.stoff)] ?? STOFFE[0];
     const masse = () => stoff().rho * p.V;
-    const stand = () => (p.ort === 1 ? fuellstand(stoff().rho, p.V) : V_WASSER);
+    /** Körper wird gerade getragen (Position der Mitte in px) */
+    let traeg: { x: number; y: number } | null = null;
+    const stand = () => (p.ort === 1 && !traeg ? fuellstand(stoff().rho, p.V) : V_WASSER);
+    const hs = new Handles();
 
     // Beide Messungen merken, damit sie gemeinsam ins Arbeitsblatt übernommen werden können.
     let gewogen: number | null = null;
@@ -83,6 +88,7 @@ export const sim: SimDef = {
         merke();
       },
       measure: () => ({ masse: gewogen, stand: abgelesen }),
+      pointer: (kind, x, y) => hs.pointer(kind, x, y),
       draw(g) {
         const { ctx, w, h } = g;
         paper(ctx, w, h, true);
@@ -103,7 +109,7 @@ export const sim: SimDef = {
         ctx.font = `600 17px ${theme.mono}`;
         ctx.fillStyle = '#b6f2c9';
         ctx.textAlign = 'right';
-        ctx.fillText(`${fmt(p.ort === 0 ? masse() : 0, 1)} g`, wx + 54, table - 15);
+        ctx.fillText(`${fmt(p.ort === 0 && !traeg ? masse() : 0, 1)} g`, wx + 54, table - 15);
         label(ctx, 'Waage', wx, table + 24, { align: 'center', size: 13, color: theme.muted });
 
         // ----- Messzylinder -----
@@ -134,7 +140,7 @@ export const sim: SimDef = {
         box(ctx, zx - zw / 2 - 14, table - 6, zw + 28, 6, theme.metal, theme.text, 2, 2);
         label(ctx, 'ml', zx + zw / 2 + 8, zTop + 6, { size: 12, color: theme.muted });
         label(ctx, 'Messzylinder', zx, table + 24, { align: 'center', size: 13, color: theme.muted });
-        if (show.hilfe) {
+        if (show.hilfe && !traeg) {
           line(ctx, zx - zw / 2 - 46, yOf(stand()), zx - zw / 2 - 4, yOf(stand()), theme.force, 1.5, [4, 3]);
           label(ctx, `${Math.round(stand())} ml`, zx - zw / 2 - 50, yOf(stand()) + 4, { align: 'right', size: 13, color: theme.force, bold: true });
         }
@@ -150,10 +156,42 @@ export const sim: SimDef = {
           // schwimmt (teilweise eingetaucht) oder liegt am Boden
           by = s.rho < 1 ? yOf(stand()) - side * (1 - s.rho) : table - 8 - side;
         }
-        const bw = p.ort === 1 ? Math.min(side, zw - 10) : side;
-        box(ctx, bx, by, bw, side, s.fill, s.edge, 3, 2);
+        let bw = p.ort === 1 ? Math.min(side, zw - 10) : side;
+        if (traeg) {
+          bw = side;
+          bx = traeg.x - side / 2;
+          by = traeg.y - side / 2;
+        }
+        hs.begin();
+        if (env.canSet('ort')) {
+          const mitte = (wx + zx) / 2;
+          const hb = hs.add({
+            dist: rect(bx, by, bw, side),
+            radius: 6,
+            cursor: 'grab',
+            drag: (x, y) => {
+              traeg = { x, y: Math.min(y, table - side / 2) };
+              env.invalidate();
+            },
+            end: () => {
+              const ziel = traeg ? (traeg.x < mitte ? 0 : 1) : p.ort;
+              traeg = null;
+              if (env.set('ort', ziel) === p.ort) merke();
+              env.invalidate();
+            }
+          });
+          if (hs.isHover(hb) && !traeg) label(ctx, 'ziehen', bx + bw / 2, by - 8, { align: 'center', size: 12, bold: true, color: theme.object });
+        }
+        if (traeg) {
+          ctx.save();
+          ctx.shadowColor = 'rgba(27,36,51,0.25)';
+          ctx.shadowOffsetX = 4;
+          ctx.shadowOffsetY = 6;
+          box(ctx, bx, by, bw, side, s.fill, s.edge, 3, 2);
+          ctx.restore();
+        } else box(ctx, bx, by, bw, side, s.fill, s.edge, 3, 2);
         label(ctx, s.name, bx + bw / 2, by + side / 2 + 5, { align: 'center', bold: true, size: 15 });
-        if (p.ort === 1) {
+        if (p.ort === 1 && !traeg) {
           ctx.fillStyle = 'rgba(168, 211, 234, 0.45)';
           const sub = Math.max(by, yOf(stand()));
           ctx.fillRect(bx - 1, sub, bw + 2, by + side - sub + 1);

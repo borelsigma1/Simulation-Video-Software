@@ -1,7 +1,15 @@
-<!-- Schieberegler mit Skala. Der Wert steht rechts wie auf einem Messgerät. -->
+<!--
+  Schieberegler, kompakt: Name und Formelzeichen links, Wert rechts (mit KaTeX
+  gesetzt), darunter die Schiene. Zwei schmale Zeilen statt drei, damit alle
+  Regler neben der Simulation Platz haben.
+-->
 <script lang="ts">
+  import { quantityTex, symTex, tex } from '../tex/tex';
+
   interface Props {
     label: string;
+    /** Formelzeichen, z. B. "v_0" */
+    symbol?: string;
     value: number;
     min: number;
     max: number;
@@ -12,17 +20,19 @@
     onchange?: (v: number) => void;
   }
 
-  let { label, value, min, max, step = 0.1, unit = '', digits = 1, disabled = false, onchange }: Props = $props();
+  let { label, symbol, value, min, max, step = 0.1, unit = '', digits = 1, disabled = false, onchange }: Props = $props();
 
   const id = `sl-${Math.random().toString(36).slice(2, 9)}`;
-  const de = (v: number) => v.toLocaleString('de-DE', { minimumFractionDigits: digits, maximumFractionDigits: digits });
   const fill = $derived(max > min ? ((value - min) / (max - min)) * 100 : 0);
+  const symHtml = $derived(symbol ? tex(symTex(symbol)) : '');
+  const valHtml = $derived(tex(quantityTex(value, digits, unit)));
+  const de = (v: number) => v.toLocaleString('de-DE', { maximumFractionDigits: digits });
 </script>
 
 <div class="slider" class:disabled>
   <label for={id}>
-    <span class="name">{label}</span>
-    <output for={id}>{de(value)}{#if unit}<span class="unit">&nbsp;{unit}</span>{/if}</output>
+    <span class="name">{label}{#if symHtml}<span class="symb">{@html symHtml}</span>{/if}</span>
+    <output for={id}>{@html valHtml}</output>
   </label>
   <input
     {id}
@@ -32,40 +42,43 @@
     {step}
     {disabled}
     {value}
+    title={`${de(min)} bis ${de(max)}${unit ? ' ' + unit : ''}`}
     style:--fill={`${fill}%`}
     oninput={(e) => onchange?.(Number(e.currentTarget.value))}
   />
-  <div class="scale" aria-hidden="true"><span>{de(min)}</span><span>{de(max)}</span></div>
 </div>
 
 <style>
   .slider {
     display: grid;
     gap: 0;
+    min-width: 0;
   }
   label {
     display: flex;
     justify-content: space-between;
     align-items: baseline;
     gap: 8px;
-    font-size: 0.93rem;
+    font-size: 0.86rem;
+    line-height: 1.25;
+  }
+  .name {
+    min-width: 0;
+  }
+  .symb {
+    color: var(--muted);
+    margin-left: 0.4em;
+    font-size: 0.95rem;
   }
   output {
-    font-family: var(--mono);
-    font-size: 0.9rem;
-    font-weight: 600;
-    font-variant-numeric: tabular-nums;
     white-space: nowrap;
-  }
-  .unit {
-    font-weight: 400;
-    color: var(--muted);
+    font-size: 0.98rem;
   }
   input[type='range'] {
     -webkit-appearance: none;
     appearance: none;
     width: 100%;
-    height: 30px;
+    height: 24px;
     margin: 0;
     background: transparent;
     touch-action: pan-y;
@@ -86,8 +99,8 @@
   input[type='range']::-webkit-slider-thumb {
     -webkit-appearance: none;
     width: 14px;
-    height: 24px;
-    margin-top: -10.5px;
+    height: 20px;
+    margin-top: -8.5px;
     border-radius: 3px;
     border: 1.5px solid var(--ink);
     background: var(--sheet);
@@ -95,19 +108,11 @@
   }
   input[type='range']::-moz-range-thumb {
     width: 12px;
-    height: 22px;
+    height: 18px;
     border-radius: 3px;
     border: 1.5px solid var(--ink);
     background: var(--sheet);
     box-shadow: 2px 2px 0 var(--line);
-  }
-  .scale {
-    display: flex;
-    justify-content: space-between;
-    font-family: var(--mono);
-    font-size: 0.66rem;
-    color: var(--muted);
-    margin-top: -4px;
   }
   .disabled {
     opacity: 0.5;

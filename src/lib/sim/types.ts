@@ -98,6 +98,15 @@ export interface SimEnv {
   /** Simulation starten (z. B. nach dem Loslassen eines gezogenen Körpers) */
   play(): void;
   isRunning(): boolean;
+  /**
+   * Einen Regler aus der Zeichnung heraus verstellen (Ziehen im Bild).
+   * Der Wert wird auf Bereich und Schrittweite des Reglers gebracht; ein
+   * gesperrter oder ausgeblendeter Regler bleibt unverändert. Rückgabe: der
+   * tatsächlich gesetzte Wert.
+   */
+  set(key: string, value: number): number;
+  /** Darf dieser Regler gerade aus der Zeichnung verändert werden? */
+  canSet(key: string): boolean;
 }
 
 export type PointerKind = 'down' | 'move' | 'up';
@@ -139,6 +148,18 @@ export interface SimDef {
   /** Simulationszeit in s, die für das Vorschaubild vorgerechnet wird */
   thumbTime?: number;
   create(env: SimEnv): SimRuntime;
+  /**
+   * Eigenständiges Labor mit eigener Oberfläche (z. B. Schrödinger-Labor).
+   * Ist `mount` gesetzt, baut SimHost keine Regler auf, sondern übergibt den
+   * ganzen Bereich an das Labor. `create` liefert dann nur das Vorschaubild.
+   */
+  mount?: (target: HTMLElement, opts: { p: Record<string, number> }) => LabInstance | Promise<LabInstance>;
+}
+
+export interface LabInstance {
+  destroy(): void;
+  /** PNG der wichtigsten Zeichenfläche für „Bild der Simulation einfügen“ */
+  snapshot?(): string;
 }
 
 // ---------- Anpassung durch eine Lerneinheit ----------

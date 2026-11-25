@@ -39,7 +39,7 @@
     "blocks": [
       {
         "type": "text",
-        "text": "Eine Kugel verlässt die Abwurfstelle in der Höhe **h₀** waagrecht mit der Geschwindigkeit **v₀**. Der Luftwiderstand wird vernachlässigt. Die Pfeile zeigen die Geschwindigkeit der Kugel und ihre Komponenten **vₓ** (waagrecht) und **v_y** (senkrecht).\n\nFrühere Würfe bleiben als graue Bahnen stehen, sodass du sie vergleichen kannst."
+        "text": "Eine Kugel verlässt die Abwurfstelle in der Höhe **$h_{0}$** waagrecht mit der Geschwindigkeit **$v_{0}$**. Der Luftwiderstand wird vernachlässigt. Die Pfeile zeigen die Geschwindigkeit der Kugel und ihre Komponenten **$v_{x}$** (waagrecht) und **$v_{y}$** (senkrecht).\n\nFrühere Würfe bleiben als graue Bahnen stehen, sodass du sie vergleichen kannst."
       },
       {
         "type": "heading",
@@ -57,29 +57,29 @@
         "type": "table",
         "id": "weite",
         "operator": "untersuchen",
-        "prompt": "Untersuche bei h₀ = 5,0 m, wie Flugzeit und Wurfweite von der Abwurfgeschwindigkeit abhängen. Wirf die Kugel dazu mit fünf verschiedenen Geschwindigkeiten ab und übernimm die Werte nach der Landung.",
+        "prompt": "Untersuche bei $h_{0} = 5{,}0\\,\\mathrm{m}$, wie Flugzeit und Wurfweite von der Abwurfgeschwindigkeit abhängen. Wirf die Kugel dazu mit fünf verschiedenen Geschwindigkeiten ab und übernimm die Werte nach der Landung.",
         "columns": [
           {
             "key": "v0",
-            "label": "v_0",
+            "label": "$v_0$",
             "unit": "m/s",
             "source": "v0"
           },
           {
             "key": "tF",
-            "label": "t_F",
+            "label": "$t_F$",
             "unit": "s",
             "source": "flugzeit"
           },
           {
             "key": "xW",
-            "label": "x_W",
+            "label": "$x_W$",
             "unit": "m",
             "source": "wurfweite"
           }
         ],
         "rows": 5,
-        "solution": "Die Flugzeit beträgt immer 1,01 s. Wurfweiten: 4 m/s → 4,04 m; 8 m/s → 8,08 m; 12 m/s → 12,1 m; 16 m/s → 16,2 m; 20 m/s → 20,2 m."
+        "solution": "Die Flugzeit beträgt immer $1{,}01\\,\\mathrm{s}$. Wurfweiten: $4\\,\\mathrm{m/s} \\to 4{,}04\\,\\mathrm{m}$; $8\\,\\mathrm{m/s} \\to 8{,}08\\,\\mathrm{m}$; $12\\,\\mathrm{m/s} \\to 12{,}1\\,\\mathrm{m}$; $16\\,\\mathrm{m/s} \\to 16{,}2\\,\\mathrm{m}$; $20\\,\\mathrm{m/s} \\to 20{,}2\\,\\mathrm{m}$."
       },
       {
         "type": "chart",
@@ -90,7 +90,7 @@
         "x": "v0",
         "y": "xW",
         "fit": true,
-        "solution": "Ursprungsgerade mit der Steigung 1,01 s. Die Steigung ist die Flugzeit."
+        "solution": "Ursprungsgerade mit der Steigung $1{,}01\\,\\mathrm{s}$. Die Steigung ist die Flugzeit."
       },
       {
         "type": "question",
@@ -98,7 +98,7 @@
         "operator": "auswerten",
         "prompt": "Werte Tabelle und Diagramm aus: Formuliere beide Ergebnisse und überprüfe deine Hypothese.",
         "lines": 4,
-        "solution": "Die Flugzeit hängt nicht von der Abwurfgeschwindigkeit ab. Die Wurfweite ist direkt proportional zur Abwurfgeschwindigkeit: x_W = v₀ · t_F. Die Steigung der Ausgleichsgeraden ist die Flugzeit (1,01 s)."
+        "solution": "Die Flugzeit hängt nicht von der Abwurfgeschwindigkeit ab. Die Wurfweite ist direkt proportional zur Abwurfgeschwindigkeit: $x_{W} = v_{0} \\cdot t_{F}$. Die Steigung der Ausgleichsgeraden ist die Flugzeit ($1{,}01\\,\\mathrm{s}$)."
       },
       {
         "type": "heading",
@@ -108,9 +108,9 @@
         "type": "question",
         "id": "komponenten",
         "operator": "beschreiben",
-        "prompt": "Beobachte während eines Wurfs die beiden Geschwindigkeitskomponenten und sieh dir die Diagramme vₓ(t) und v_y(t) an. Beschreibe, wie sich vₓ und v_y verhalten.",
+        "prompt": "Beobachte während eines Wurfs die beiden Geschwindigkeitskomponenten und sieh dir die Diagramme $v_{x}(t)$ und $v_{y}(t)$ an. Beschreibe, wie sich $v_{x}$ und $v_{y}$ verhalten.",
         "lines": 4,
-        "solution": "vₓ bleibt während des gesamten Flugs konstant gleich v₀ (waagrechte Gerade im Diagramm). Der Betrag von v_y wächst gleichmäßig von null an: Ursprungsgerade mit der Steigung −9,81 m/s² (nach unten gerichtet). Der Geschwindigkeitspfeil wird länger und dreht sich immer weiter nach unten."
+        "solution": "$v_{x}$ bleibt während des gesamten Flugs konstant gleich $v_{0}$ (waagrechte Gerade im Diagramm). Der Betrag von $v_{y}$ wächst gleichmäßig von null an: Ursprungsgerade mit der Steigung $-9{,}81\\,\\mathrm{m/s^{2}}$ (nach unten gerichtet). Der Geschwindigkeitspfeil wird länger und dreht sich immer weiter nach unten."
       },
       {
         "type": "question",
@@ -118,15 +118,15 @@
         "operator": "erklaeren",
         "prompt": "Erkläre das Verhalten der beiden Komponenten mithilfe der Kräfte, die auf die Kugel wirken.",
         "lines": 4,
-        "solution": "Auf die Kugel wirkt nur die Gewichtskraft, senkrecht nach unten. In waagrechter Richtung wirkt keine Kraft, also ändert sich vₓ nicht (Trägheitssatz): gleichförmige Bewegung. In senkrechter Richtung wird die Kugel durch die Gewichtskraft konstant beschleunigt (a = g): freier Fall aus der Ruhe. Beide Teilbewegungen laufen unabhängig voneinander ab."
+        "solution": "Auf die Kugel wirkt nur die Gewichtskraft, senkrecht nach unten. In waagrechter Richtung wirkt keine Kraft, also ändert sich $v_{x}$ nicht (Trägheitssatz): gleichförmige Bewegung. In senkrechter Richtung wird die Kugel durch die Gewichtskraft konstant beschleunigt ($a = g$): freier Fall aus der Ruhe. Beide Teilbewegungen laufen unabhängig voneinander ab."
       },
       {
         "type": "question",
         "id": "herleitung",
         "operator": "herleiten",
-        "prompt": "Leite aus x = v₀ · t und der Fallstrecke ½ · g · t² je eine Formel für die Flugzeit und die Wurfweite her. Berechne damit die Flugzeit für h₀ = 5,0 m und vergleiche mit der Messung.",
+        "prompt": "Leite aus $x = v_{0} \\cdot t$ und der Fallstrecke $\\tfrac{1}{2} \\cdot g \\cdot t^{2}$ je eine Formel für die Flugzeit und die Wurfweite her. Berechne damit die Flugzeit für $h_{0} = 5{,}0\\,\\mathrm{m}$ und vergleiche mit der Messung.",
         "lines": 5,
-        "solution": "Die Kugel landet, wenn sie die Höhe h₀ durchfallen hat: h₀ = ½ · g · t_F², also t_F = √(2 · h₀ / g). Wurfweite: x_W = v₀ · t_F = v₀ · √(2 · h₀ / g). Für h₀ = 5,0 m: t_F = √(10 m : 9,81 m/s²) = 1,01 s, wie gemessen."
+        "solution": "Die Kugel landet, wenn sie die Höhe $h_{0}$ durchfallen hat: $h_{0} = \\tfrac{1}{2} \\cdot g \\cdot t_{F}^{2}$, also $t_{F} = \\sqrt{2 \\cdot h_{0} / g}$. Wurfweite: $x_{W} = v_{0} \\cdot t_{F} = v_{0} \\cdot \\sqrt{2 \\cdot h_{0} / g}$. Für $h_{0} = 5{,}0\\,\\mathrm{m}$: $t_{F} = \\sqrt{10\\,\\mathrm{m} : 9{,}81\\,\\mathrm{m/s^{2}}} = 1{,}01\\,\\mathrm{s}$, wie gemessen."
       },
       {
         "type": "choice",
@@ -151,29 +151,29 @@
         "type": "table",
         "id": "hoehe",
         "operator": "ermitteln",
-        "prompt": "Ermittle bei v₀ = 10 m/s die Flugzeit für fünf verschiedene Abwurfhöhen.",
+        "prompt": "Ermittle bei $v_{0} = 10\\,\\mathrm{m/s}$ die Flugzeit für fünf verschiedene Abwurfhöhen.",
         "columns": [
           {
             "key": "h0",
-            "label": "h_0",
+            "label": "$h_0$",
             "unit": "m",
             "source": "h0"
           },
           {
             "key": "tF",
-            "label": "t_F",
+            "label": "$t_F$",
             "unit": "s",
             "source": "flugzeit"
           },
           {
             "key": "xW",
-            "label": "x_W",
+            "label": "$x_W$",
             "unit": "m",
             "source": "wurfweite"
           }
         ],
         "rows": 5,
-        "solution": "h₀ = 2 m: 0,64 s / 6,4 m; 5 m: 1,01 s / 10,1 m; 8 m: 1,28 s / 12,8 m; 12 m: 1,56 s / 15,6 m; 20 m: 2,02 s / 20,2 m."
+        "solution": "$h_{0} = 2\\,\\mathrm{m}$: $0{,}64\\,\\mathrm{s}$ / $6{,}4\\,\\mathrm{m}$; $5\\,\\mathrm{m}$: $1{,}01\\,\\mathrm{s}$ / $10{,}1\\,\\mathrm{m}$; $8\\,\\mathrm{m}$: $1{,}28\\,\\mathrm{s}$ / $12{,}8\\,\\mathrm{m}$; $12\\,\\mathrm{m}$: $1{,}56\\,\\mathrm{s}$ / $15{,}6\\,\\mathrm{m}$; $20\\,\\mathrm{m}$: $2{,}02\\,\\mathrm{s}$ / $20{,}2\\,\\mathrm{m}$."
       },
       {
         "type": "question",
@@ -181,15 +181,15 @@
         "operator": "begruenden",
         "prompt": "Begründe mit deiner Formel, dass die Kugel aus vierfacher Höhe nur doppelt so weit fliegt, und überprüfe dies an zwei Messwerten.",
         "lines": 3,
-        "solution": "t_F = √(2 · h₀ / g): Unter der Wurzel steht die Höhe. Vierfache Höhe bedeutet √4 = 2-fache Flugzeit und damit bei gleichem v₀ doppelte Wurfweite. Beispiel: h₀ = 5 m → 10,1 m; h₀ = 20 m → 20,2 m."
+        "solution": "$t_{F} = \\sqrt{2 \\cdot h_{0} / g}$: Unter der Wurzel steht die Höhe. Vierfache Höhe bedeutet $\\sqrt{4} = 2$-fache Flugzeit und damit bei gleichem $v_{0}$ doppelte Wurfweite. Beispiel: $h_{0} = 5\\,\\mathrm{m} \\to 10{,}1\\,\\mathrm{m}$; $h_{0} = 20\\,\\mathrm{m} \\to 20{,}2\\,\\mathrm{m}$."
       },
       {
         "type": "question",
         "id": "mond",
         "operator": "berechnen",
-        "prompt": "Berechne die Wurfweite auf dem Mond (g = 1,62 m/s²) für h₀ = 5,0 m und v₀ = 8,0 m/s. Überprüfe dein Ergebnis mit der Voreinstellung „Mond“.",
+        "prompt": "Berechne die Wurfweite auf dem Mond ($g = 1{,}62\\,\\mathrm{m/s^{2}}$) für $h_{0} = 5{,}0\\,\\mathrm{m}$ und $v_{0} = 8{,}0\\,\\mathrm{m/s}$. Überprüfe dein Ergebnis mit der Voreinstellung „Mond“.",
         "lines": 3,
-        "solution": "t_F = √(10 m : 1,62 m/s²) = 2,48 s; x_W = 8,0 m/s · 2,48 s = 19,9 m. Auf der Erde sind es nur 8,1 m."
+        "solution": "$t_{F} = \\sqrt{10\\,\\mathrm{m} : 1{,}62\\,\\mathrm{m/s^{2}}} = 2{,}48\\,\\mathrm{s}$; $x_{W} = 8{,}0\\,\\mathrm{m/s} \\cdot 2{,}48\\,\\mathrm{s} = 19{,}9\\,\\mathrm{m}$. Auf der Erde sind es nur $8{,}1\\,\\mathrm{m}$."
       },
       {
         "type": "question",
@@ -197,7 +197,7 @@
         "operator": "beurteilen",
         "prompt": "Die Simulation rechnet ohne Luftwiderstand. Beurteile, für welchen der beiden Würfe dieses Modell besser passt: eine Stahlkugel, die vom Tisch rollt, oder ein Federball, der waagrecht geschlagen wird.",
         "lines": 4,
-        "solution": "Für die Stahlkugel passt das Modell gut: Sie ist schwer, klein und langsam, der Luftwiderstand ist gegenüber der Gewichtskraft vernachlässigbar. Der Federball ist leicht und sehr schnell; der Luftwiderstand bremst ihn stark ab, vₓ bleibt nicht konstant und die Bahn ist deutlich kürzer und steiler als die berechnete Parabel. Hier ist das Modell unbrauchbar."
+        "solution": "Für die Stahlkugel passt das Modell gut: Sie ist schwer, klein und langsam, der Luftwiderstand ist gegenüber der Gewichtskraft vernachlässigbar. Der Federball ist leicht und sehr schnell; der Luftwiderstand bremst ihn stark ab, $v_{x}$ bleibt nicht konstant und die Bahn ist deutlich kürzer und steiler als die berechnete Parabel. Hier ist das Modell unbrauchbar."
       }
     ]
   }

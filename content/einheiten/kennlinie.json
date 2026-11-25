@@ -21,7 +21,7 @@
     "blocks": [
       {
         "type": "text",
-        "text": "Ein Netzgerät liefert eine einstellbare Spannung **U**. Der Strommesser (A) liegt in Reihe mit dem Bauteil, der Spannungsmesser (V) parallel dazu.\n\nTrägt man die Stromstärke **I** über der Spannung **U** auf, erhält man die **Kennlinie** des Bauteils. Der Quotient **R = U : I** heißt elektrischer Widerstand, Einheit 1 Ω = 1 V/A."
+        "text": "Ein Netzgerät liefert eine einstellbare Spannung **$U$**. Der Strommesser (A) liegt in Reihe mit dem Bauteil, der Spannungsmesser (V) parallel dazu.\n\nTrägt man die Stromstärke **$I$** über der Spannung **$U$** auf, erhält man die **Kennlinie** des Bauteils. Der Quotient **$R = U : I$** heißt elektrischer Widerstand, Einheit $1\\,\\mathrm{\\Omega} = 1\\,\\mathrm{V/A}$."
       },
       {
         "type": "heading",
@@ -39,17 +39,17 @@
         "type": "table",
         "id": "draht",
         "operator": "ermitteln",
-        "prompt": "Ermittle für den Konstantandraht (R = 30 Ω eingestellt) die Stromstärke bei mindestens sechs verschiedenen Spannungen. Berechne jeweils den Quotienten U : I.",
+        "prompt": "Ermittle für den Konstantandraht ($R = 30\\,\\mathrm{\\Omega}$ eingestellt) die Stromstärke bei mindestens sechs verschiedenen Spannungen. Berechne jeweils den Quotienten $U : I$.",
         "columns": [
           {
             "key": "U",
-            "label": "U",
+            "label": "$U$",
             "unit": "V",
             "source": "U"
           },
           {
             "key": "I",
-            "label": "I",
+            "label": "$I$",
             "unit": "A",
             "source": "I"
           },
@@ -60,7 +60,7 @@
           }
         ],
         "rows": 6,
-        "solution": "Zum Beispiel 2 V / 0,067 A; 4 V / 0,133 A; 6 V / 0,200 A; 8 V / 0,267 A; 10 V / 0,333 A; 12 V / 0,400 A. Der Quotient ist stets 30 V/A."
+        "solution": "Zum Beispiel $2\\,\\mathrm{V}$ / $0{,}067\\,\\mathrm{A}$; $4\\,\\mathrm{V}$ / $0{,}133\\,\\mathrm{A}$; $6\\,\\mathrm{V}$ / $0{,}200\\,\\mathrm{A}$; $8\\,\\mathrm{V}$ / $0{,}267\\,\\mathrm{A}$; $10\\,\\mathrm{V}$ / $0{,}333\\,\\mathrm{A}$; $12\\,\\mathrm{V}$ / $0{,}400\\,\\mathrm{A}$. Der Quotient ist stets $30\\,\\mathrm{V/A}$."
       },
       {
         "type": "chart",
@@ -71,23 +71,23 @@
         "x": "U",
         "y": "I",
         "fit": true,
-        "solution": "Die Messpunkte liegen auf einer Geraden durch den Ursprung (Steigung 1/R ≈ 0,033 A/V)."
+        "solution": "Die Messpunkte liegen auf einer Geraden durch den Ursprung (Steigung $1/R \\approx 0{,}033\\,\\mathrm{A/V}$)."
       },
       {
         "type": "question",
         "id": "ohm",
         "operator": "auswerten",
-        "prompt": "Werte Tabelle und Diagramm aus: Formuliere den Zusammenhang zwischen U und I.",
+        "prompt": "Werte Tabelle und Diagramm aus: Formuliere den Zusammenhang zwischen $U$ und $I$.",
         "lines": 3,
-        "solution": "U und I sind zueinander proportional (I ~ U): doppelte Spannung, doppelte Stromstärke. Der Quotient U : I ist konstant, der Draht hat einen festen Widerstand von 30 Ω. Das ist das Ohm'sche Gesetz."
+        "solution": "$U$ und $I$ sind zueinander proportional ($I \\sim U$): doppelte Spannung, doppelte Stromstärke. Der Quotient $U : I$ ist konstant, der Draht hat einen festen Widerstand von $30\\,\\mathrm{\\Omega}$. Das ist das Ohm'sche Gesetz."
       },
       {
         "type": "question",
         "id": "rechnen",
         "operator": "berechnen",
-        "prompt": "Berechne die Stromstärke, die bei diesem Draht für U = 20 V zu erwarten ist.",
+        "prompt": "Berechne die Stromstärke, die bei diesem Draht für $U = 20\\,\\mathrm{V}$ zu erwarten ist.",
         "lines": 2,
-        "solution": "I = U : R = 20 V : 30 Ω ≈ 0,67 A."
+        "solution": "$I = U : R = 20\\,\\mathrm{V} : 30\\,\\mathrm{\\Omega} \\approx 0{,}67\\,\\mathrm{A}$."
       },
       {
         "type": "heading",
@@ -97,28 +97,28 @@
         "type": "table",
         "id": "lampe",
         "operator": "ermitteln",
-        "prompt": "Wähle die Glühlampe. Ermittle wieder die Stromstärke bei mindestens sechs Spannungen und berechne den Widerstand R = U : I.",
+        "prompt": "Wähle die Glühlampe. Ermittle wieder die Stromstärke bei mindestens sechs Spannungen und berechne den Widerstand $R = U : I$.",
         "columns": [
           {
             "key": "U",
-            "label": "U",
+            "label": "$U$",
             "unit": "V",
             "source": "U"
           },
           {
             "key": "I",
-            "label": "I",
+            "label": "$I$",
             "unit": "A",
             "source": "I"
           },
           {
             "key": "R",
-            "label": "R",
+            "label": "$R$",
             "unit": "Ω"
           }
         ],
         "rows": 6,
-        "solution": "Zum Beispiel 1 V / 0,149 A / 6,7 Ω; 2 V / 0,219 A / 9,1 Ω; 4 V / 0,320 A / 12,5 Ω; 6 V / 0,400 A / 15,0 Ω; 9 V / 0,500 A / 18,0 Ω; 12 V / 0,586 A / 20,5 Ω."
+        "solution": "Zum Beispiel $1\\,\\mathrm{V}$ / $0{,}149\\,\\mathrm{A}$ / $6{,}7\\,\\mathrm{\\Omega}$; $2\\,\\mathrm{V}$ / $0{,}219\\,\\mathrm{A}$ / $9{,}1\\,\\mathrm{\\Omega}$; $4\\,\\mathrm{V}$ / $0{,}320\\,\\mathrm{A}$ / $12{,}5\\,\\mathrm{\\Omega}$; $6\\,\\mathrm{V}$ / $0{,}400\\,\\mathrm{A}$ / $15{,}0\\,\\mathrm{\\Omega}$; $9\\,\\mathrm{V}$ / $0{,}500\\,\\mathrm{A}$ / $18{,}0\\,\\mathrm{\\Omega}$; $12\\,\\mathrm{V}$ / $0{,}586\\,\\mathrm{A}$ / $20{,}5\\,\\mathrm{\\Omega}$."
       },
       {
         "type": "chart",
@@ -136,7 +136,7 @@
         "operator": "vergleichen",
         "prompt": "Vergleiche die Kennlinie der Glühlampe mit der des Konstantandrahts.",
         "lines": 3,
-        "solution": "Gemeinsam: Beide beginnen im Ursprung, mit wachsender Spannung steigt die Stromstärke. Unterschied: Die Kennlinie des Drahts ist eine Gerade (R konstant). Die der Lampe ist gekrümmt und wird immer flacher: Die Stromstärke wächst langsamer als die Spannung, der Widerstand nimmt zu. Für die Glühlampe gilt das Ohm'sche Gesetz nicht."
+        "solution": "Gemeinsam: Beide beginnen im Ursprung, mit wachsender Spannung steigt die Stromstärke. Unterschied: Die Kennlinie des Drahts ist eine Gerade ($R$ konstant). Die der Lampe ist gekrümmt und wird immer flacher: Die Stromstärke wächst langsamer als die Spannung, der Widerstand nimmt zu. Für die Glühlampe gilt das Ohm'sche Gesetz nicht."
       },
       {
         "type": "question",
