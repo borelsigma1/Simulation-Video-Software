@@ -10,9 +10,9 @@ Läuft komplett im Browser, auch auf Tablets, und speichert keine Schülerdaten.
 
 - **Startseite** mit Auswahl der Jahrgangsstufe. Jede Lerneinheit besteht aus einer Simulation und einem
   Arbeitsblatt, optional einem Video.
-- **Lerneinheit mit geteiltem Bildschirm**: links das Experiment (Zeichnung, darunter kompakt Regler und
-  Diagramm, ohne Scrollen), rechts das Arbeitsblatt mit eigener Bildlaufleiste. Auf schmalen oder
-  hochkant gehaltenen Bildschirmen wechselt man über zwei Reiter „Experiment“ und „Arbeitsblatt“.
+- **Lerneinheit mit zwei Reitern**: „Experiment“ (Simulation mit allen Bedienelementen, ohne Scrollen) und
+  „Arbeitsblatt“. Auf breiten Bildschirmen im Querformat lässt sich alternativ „Nebeneinander“ wählen:
+  links das Experiment, rechts das Arbeitsblatt. Die Wahl merkt sich der Browser.
 - **Direkt in der Zeichnung bedienen**: Wo es sinnvoll ist, lassen sich Gegenstände ziehen oder antippen
   (Linse, Schatten, Federkraftmesser, Energiebahn, Wurf, Stoß, Kreisbewegung, Potentialtopf, Kondensator,
   Dichte, Federpendel, Doppelspalt, Schaltungen). Ein „i“ in der Zeichnung erklärt, was geht.
