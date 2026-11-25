@@ -1,10 +1,10 @@
 <!--
-  Lerneinheit, zweigeteilt:
-  links das Experiment (Simulation mit kompakter Steuerung, füllt die
-  Bildschirmhöhe, kein Scrollen), rechts das Arbeitsblatt mit eigenem
-  Scrollbalken. Auf schmalen oder hochkant gehaltenen Bildschirmen werden
-  daraus zwei Reiter „Experiment“ und „Arbeitsblatt“. Beide Teile bleiben
-  dabei geladen, damit Messwerte und Eingaben beim Umschalten erhalten bleiben.
+  Lerneinheit mit zwei Reitern: „Experiment“ (Simulation mit allen
+  Bedienelementen, füllt die Bildschirmhöhe) und „Arbeitsblatt“.
+  Auf breiten Bildschirmen im Querformat lässt sich alternativ die geteilte
+  Ansicht wählen: links das Experiment, rechts das Arbeitsblatt mit eigenem
+  Scrollbalken. Die Wahl wird im Browser gemerkt. Beide Teile bleiben immer
+  geladen, damit Messwerte und Eingaben beim Umschalten erhalten bleiben.
 -->
 <script lang="ts">
   import { drafts, lessonForEditing, publishedById } from '../lib/content/store.svelte';
@@ -24,6 +24,25 @@
   const isDraft = $derived(teacher && !!drafts.all[id]);
 
   let tab = $state<'sim' | 'ws'>('sim');
+
+  /** Ansicht: Reiter (Standard) oder geteilt; nur die eigene Wahl wird lokal gemerkt. */
+  const LAYOUT_KEY = 'pw-ansicht';
+  const readLayout = (): 'tabs' | 'split' => {
+    try {
+      return localStorage.getItem(LAYOUT_KEY) === 'split' ? 'split' : 'tabs';
+    } catch {
+      return 'tabs';
+    }
+  };
+  let layout = $state<'tabs' | 'split'>(readLayout());
+  function setLayout(l: 'tabs' | 'split') {
+    layout = l;
+    try {
+      localStorage.setItem(LAYOUT_KEY, l);
+    } catch {
+      /* ohne Speicher gilt die Wahl nur bis zum Neuladen */
+    }
+  }
 
   $effect(() => {
     document.title = lesson ? `${lesson.title} · Physik-Workspace` : 'Physik-Workspace';
@@ -51,7 +70,8 @@
       </p>
     {/if}
 
-    <div class="tabs" role="tablist" aria-label="Ansicht wählen">
+    <div class="tabs" data-layout={layout}>
+      <div class="tablist" role="tablist" aria-label="Bereich wählen">
       <button role="tab" aria-selected={tab === 'sim'} aria-controls="pane-sim" onclick={() => (tab = 'sim')}>
         <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"
           ><path d="M9 3h6M10 3v6l-5.5 9.5A2 2 0 0 0 6.2 21h11.6a2 2 0 0 0 1.7-2.5L14 9V3" fill="none" stroke="currentColor" stroke-width="2" stroke-linejoin="round" /><path d="M7 15h10" stroke="currentColor" stroke-width="2" /></svg
@@ -64,9 +84,24 @@
         >
         Arbeitsblatt
       </button>
+      </div>
+      <div class="layoutsw" role="group" aria-label="Ansicht">
+        <button aria-pressed={layout === 'tabs'} onclick={() => setLayout('tabs')} title="Experiment und Arbeitsblatt als Reiter">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"
+            ><rect x="3" y="7" width="18" height="14" rx="1.5" fill="none" stroke="currentColor" stroke-width="2" /><path d="M3 7V4.5A1.5 1.5 0 0 1 4.5 3H11v4" fill="none" stroke="currentColor" stroke-width="2" /></svg
+          >
+          Reiter
+        </button>
+        <button aria-pressed={layout === 'split'} onclick={() => setLayout('split')} title="Experiment und Arbeitsblatt nebeneinander">
+          <svg width="18" height="18" viewBox="0 0 24 24" aria-hidden="true"
+            ><rect x="3" y="4" width="18" height="16" rx="1.5" fill="none" stroke="currentColor" stroke-width="2" /><path d="M13 4v16" stroke="currentColor" stroke-width="2" /></svg
+          >
+          Nebeneinander
+        </button>
+      </div>
     </div>
 
-    <main class="lesson" data-tab={tab}>
+    <main class="lesson" data-tab={tab} data-layout={layout}>
       <section class="pane simpane" id="pane-sim" aria-label="Experiment">
         {#if def?.mount}
           <LabHost {def} config={lesson.sim} />
@@ -137,15 +172,21 @@
     margin: 0 auto;
   }
 
-  /* Reiter (nur bei schmalem oder hochkant gehaltenem Bildschirm) */
+  /* Reiter (Standard auf allen Bildschirmen) */
   .tabs {
     display: flex;
-    gap: 0;
+    align-items: flex-end;
+    gap: 12px;
     background: var(--board);
     padding: 0 12px;
     border-bottom: 1.5px solid var(--ink);
   }
-  .tabs button {
+  .tablist {
+    flex: 1;
+    display: flex;
+    max-width: 760px;
+  }
+  .tablist button {
     flex: 1;
     display: inline-flex;
     align-items: center;
@@ -162,8 +203,45 @@
     font-size: 1rem;
     opacity: 0.75;
   }
-  .tabs button[aria-selected='true'] {
+  .tablist button:hover {
+    opacity: 1;
+  }
+  .tablist button[aria-selected='true'] {
     background: var(--paper);
+    color: var(--ink);
+    opacity: 1;
+  }
+  /* Umschalter Reiter / nebeneinander: nur wo die geteilte Ansicht Platz hat */
+  .layoutsw {
+    display: none;
+    margin: 0 0 7px auto;
+    border: 1.5px solid color-mix(in srgb, var(--chalk) 45%, transparent);
+    border-radius: var(--radius);
+    overflow: hidden;
+  }
+  .layoutsw button {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    min-height: 32px;
+    padding: 0 10px;
+    border: 0;
+    background: transparent;
+    color: var(--chalk);
+    font-family: var(--mono);
+    font-size: 0.74rem;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    opacity: 0.8;
+  }
+  .layoutsw button + button {
+    border-left: 1.5px solid color-mix(in srgb, var(--chalk) 45%, transparent);
+  }
+  .layoutsw button:hover {
+    opacity: 1;
+  }
+  .layoutsw button[aria-pressed='true'] {
+    background: var(--chalk);
     color: var(--ink);
     opacity: 1;
   }
@@ -177,23 +255,29 @@
     pointer-events: none;
   }
 
-  /* Breiter Bildschirm im Querformat: nebeneinander, Reiter ausgeblendet */
+  /* Breiter Bildschirm im Querformat: Umschalter zeigen; bei „Nebeneinander“ zweigeteilt */
   @media (min-width: 1000px) and (min-aspect-ratio: 1/1) {
-    .tabs {
-      display: none;
+    .layoutsw {
+      display: flex;
     }
-    .lesson {
+    .tabs[data-layout='split'] .tablist {
+      visibility: hidden;
+    }
+    .tabs[data-layout='split'] {
+      min-height: 50px;
+    }
+    .lesson[data-layout='split'] {
       grid-template-columns: minmax(0, 1.45fr) minmax(400px, 1fr);
     }
-    .lesson > .simpane {
+    .lesson[data-layout='split'] > .simpane {
       grid-area: 1 / 1;
     }
-    .lesson > .wspane {
+    .lesson[data-layout='split'] > .wspane {
       grid-area: 1 / 2;
       border-left: 1.5px solid var(--ink);
       background: color-mix(in srgb, var(--paper) 70%, var(--sheet));
     }
-    .lesson[data-tab] .pane {
+    .lesson[data-layout='split'] .pane {
       visibility: visible;
       pointer-events: auto;
     }
